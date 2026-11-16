@@ -1,0 +1,143 @@
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.orion.packages;
+  py = pkgs.python3.withPackages (ps: with ps; [
+    pip
+    cython
+    fastapi
+    matplotlib
+    pillow
+    reportlab
+    scikit-learn
+    scipy
+    seaborn
+    pyqt5
+  ]);
+in
+{
+  options.orion.packages.enable = lib.mkEnableOption "mapped user packages";
+
+  config = lib.mkIf cfg.enable {
+    programs.steam.enable = config.orion.nix.allowUnfree;
+    hardware.graphics.enable32Bit = config.orion.nix.allowUnfree;
+    environment.systemPackages = with pkgs; [
+      acpi
+      avahi
+      bash-language-server
+      btrfs-progs
+      btop
+      cmake
+      compsize
+      linuxPackages.cpupower
+      cryptsetup
+      diffutils
+      dmidecode
+      dnsmasq
+      dosfstools
+      e2fsprogs
+      efibootmgr
+      exfatprogs
+      f2fs-tools
+      fastfetch
+      ffmpeg
+      file
+      fzf
+      gcc
+      gdb
+      geckodriver
+      gfortran
+      gh
+      git
+      git-lfs
+      gnome-themes-extra
+      gnumake
+      htop
+      inetutils
+      inxi
+      iverilog
+      jdk
+      jfsutils
+      keepassxc
+      less
+      libcanberra
+      libdvdcss
+      libreoffice
+      lsd
+      lvm2
+      man
+      man-pages
+      mariadb
+      mdadm
+      memtest86plus
+      micro
+      nano
+      neovim
+      nfs-utils
+      nodejs
+      ntfs3g
+      obs-studio
+      openblas
+      openrgb
+      openssh
+      pandoc
+      p7zip
+      pciutils
+      pipx
+      pkg-config
+      poppler-utils
+      powertop
+      proxychains
+      py
+      ranger
+      rclone
+      rsync
+      samba
+      sbctl
+      shfmt
+      sof-firmware
+      sshfs
+      telegram-desktop
+      texinfo
+      texlive.combined.scheme-full
+      pay-respects
+      timeshift
+      tokei
+      typst
+      udiskie
+      universal-ctags
+      unar
+      unzip
+      usbutils
+      vlc
+      wget
+      which
+      xfsprogs
+      xmake
+      firefox
+      helix
+      marksman
+      mesa-demos
+      papirus-icon-theme
+      perl
+      alsa-utils
+      alsa-firmware
+      system-config-printer
+      xterm
+    ] ++ lib.optionals config.orion.nix.allowUnfree [
+      discord
+      google-chrome
+      jetbrains.idea
+      jetbrains.pycharm
+      microsoft-edge
+      obsidian
+      vscode
+    ] ++ (with pkgs.gst_all_1; [
+      gstreamer
+      gst-plugins-base
+      gst-plugins-good
+      gst-plugins-bad
+      gst-plugins-ugly
+      gst-libav
+    ]);
+  };
+}

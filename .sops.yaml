@@ -1,0 +1,6 @@
+# Public recipients only. No ciphertext is committed yet.
+# Add the host age recipient from `ssh-to-age -i /etc/ssh/ssh_host_ed25519_key.pub`.
+keys: []
+creation_rules:
+  - path_regex: secrets/[^/]+\.enc\.yaml$
+    key_groups: []

@@ -1,5 +1,6 @@
 # Nix build products
 result
+.directory
 result-*
 *.drv
 
@@ -11,8 +12,9 @@ result-*
 # VM images
 *.qcow2
 
-# Secrets (never commit)
-secrets/
+# Secrets (never commit). The directory README is documentation, not ciphertext.
+secrets/*
+!secrets/README.md
 *.age
 *.pem
 id_rsa
