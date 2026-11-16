@@ -1,0 +1,19 @@
+# Nix build products
+result
+result-*
+*.drv
+
+# direnv / local env
+.direnv/
+.env
+.env.*
+
+# VM images
+*.qcow2
+
+# Secrets (never commit)
+secrets/
+*.age
+*.pem
+id_rsa
+id_ed25519
