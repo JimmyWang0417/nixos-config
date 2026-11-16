@@ -14,6 +14,8 @@ Linux 根文件系统在 btrfs `UUID=fd32207f-8a11-48d7-9d04-9316cdb8c265` 的 `
 
 这些还没有做完。不是已迁移功能的简介。
 
+用户不用，已在本机 paru -R：`grok-bot-bin`、`udf-http-range-proxy`、`keepassxc-unlock`、`verilog-format-git`。
+
 ### 已用 sops 加密入库
 
 只写 secret 名。明文不在仓库里。运行时路径是 `/run/secrets/<名字>`，说明在 `secrets/README.md`。
@@ -33,9 +35,6 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 - alder
 - crm
-- udf-http-range-proxy
-- keepassxc-unlock
-- verilog-format-git
 - xjtu-course-genius
 - xjtutoolbox-bin
 - botmux-bin
@@ -43,7 +42,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 ### 等用户决定再写进配置
 
-百度网盘桌面版、钉钉桌面版、深信服 EasyConnect、华为云会议、Grok Bot 桌面版、WPS 教育版、Typora 的 AUR 包、`/opt/anaconda`。
+百度网盘桌面版、钉钉桌面版、深信服 EasyConnect、华为云会议、WPS 教育版、Typora 的 AUR 包、`/opt/anaconda`。
 
 这些没有因为「也许以后要装」而写进模块。主机 `hosts/orion/default.nix` 里 `orion.nix.allowUnfree = true` 已经打开，那是给已经映射的 NVIDIA 用户态驱动，以及 Chrome、Edge、VS Code、JetBrains、Discord、Steam、Obsidian 用的，不是为了把上面这组客户端加进来。
 
@@ -58,7 +57,7 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 
 ### NUR
 
-25 个缺口里，NUR 能安装的有 3 个。其余 22 个仍要自己处理。包都对着这份锁住的 nixos-26.05 看过。
+21 个缺口里，NUR 能安装的有 3 个。其余 18 个仍要自己处理。包都对着这份锁住的 nixos-26.05 看过。
 
 能安装：
 
@@ -66,7 +65,7 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 - 钉钉 9.0.0.261105002：`nur.repos.yakkhini.dingtalk`。和已装版本一致，走调用方的 nixpkgs。
 - WPS 365 12.8.2.21176：`nur.repos.novel2430.wpsoffice-365`。版本号和已装的教育版相同，属性名不带 edu。同仓库的 `wpsoffice` 11.1 和 `wpsoffice-cn` 12.1 都更旧，不用。
 
-没有包：alder、crm、udf-http-range-proxy、keepassxc-unlock、verilog-format、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Anaconda、Typora 的更新版本。easyconnect 的唯一命中是 zju-connect 的协议枚举，没有深信服客户端。grok-bot 桌面版没有包；`nur.repos.xddxdd.grok-search-rs` 是搜索用的 MCP 服务。
+没有包：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Anaconda、Typora 的更新版本。easyconnect 的唯一命中是 zju-connect 的协议枚举，没有深信服客户端。
 
 字体和词库：`nur.repos.rewine.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10-sc-sup`、`nur.repos.DzmingLi.windows-fonts` 都是再分发字体，不是让用户自己提供文件的封装，所以不接入。fcitx5 拼音用户词库是个人文件，NUR 不会有。
 
