@@ -44,9 +44,9 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 百度网盘桌面版、钉钉桌面版、深信服 EasyConnect、华为云会议、WPS 教育版、Typora 的 AUR 包。
 
-完整的 Anaconda 发行版不迁移；`conda` 从 nixpkgs 安装。PyCharm 的 conda 解释器是 `/home/jimmywang0417/miniconda3/bin/python`。
-
 这些没有因为「也许以后要装」而写进模块。主机 `hosts/orion/default.nix` 里 `orion.nix.allowUnfree = true` 已经打开，那是给已经映射的 NVIDIA 用户态驱动，以及 Chrome、Edge、VS Code、JetBrains、Discord、Steam、Obsidian 用的，不是为了把上面这组客户端加进来。
+
+用户要 conda。PyCharm 2025.2 先前唯一的 conda 解释器是 `$USER_HOME$/miniconda3/bin/python`（Python 3.13.2），那个 miniconda3 不存在。Orion 启用 nixpkgs 26.05 的属性 `conda`（`pkgs.conda`，版本 26.1.1-1，pname `conda-shell`，二进制 `conda-shell` 与 `install-conda`，前缀 `~/.conda`）。不安装 Anaconda 发行版。
 
 ### 开机项指向已卸载程序，默认不迁移
 
@@ -59,7 +59,7 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 
 ### NUR
 
-21 个缺口里，NUR 能安装的有 3 个。其余 18 个仍要自己处理。包都对着这份锁住的 nixos-26.05 看过。
+21 个缺口里，NUR 能安装的有 3 个。conda 用这份锁住的 nixos-26.05 属性 `pkgs.conda`（版本 26.1.1-1），不走 NUR，也不装 Anaconda 发行版。其余 17 个仍要自己处理。包都对着这份锁住的 nixos-26.05 看过。
 
 能安装：
 
@@ -67,7 +67,7 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 - 钉钉 9.0.0.261105002：`nur.repos.yakkhini.dingtalk`。和已装版本一致，走调用方的 nixpkgs。
 - WPS 365 12.8.2.21176：`nur.repos.novel2430.wpsoffice-365`。版本号和已装的教育版相同，属性名不带 edu。同仓库的 `wpsoffice` 11.1 和 `wpsoffice-cn` 12.1 都更旧，不用。
 
-没有包：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Anaconda、Typora 的更新版本。easyconnect 的唯一命中是 zju-connect 的协议枚举，没有深信服客户端。
+没有包：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Typora 的更新版本。easyconnect 的唯一命中是 zju-connect 的协议枚举，没有深信服客户端。
 
 字体和词库：`nur.repos.rewine.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10-sc-sup`、`nur.repos.DzmingLi.windows-fonts` 都是再分发字体，不是让用户自己提供文件的封装，所以不接入。fcitx5 拼音用户词库是个人文件，NUR 不会有。
 
