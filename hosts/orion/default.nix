@@ -47,9 +47,10 @@
   };
   orion.easyconnect = {
     enable = true;
-    # Campus is a completed HTTPS probe of this site (2xx/3xx, same host).
-    # Names below are recorded only. A failed probe still stops the container.
-    # No PSK was read. Wired "有线连接 1" is not a campus name.
+    # Stopped + every probe fails: start. A successful probe leaves it stopped.
+    # A running container stops for an active name below, or a probe bound
+    # to the physical NIC. A later success through the tunnel does not.
+    # No PSK was read. Wired "有线连接 1" is not matched by name.
     campusProbes = [ "https://kq.xjtu.edu.cn" ];
     campusConnections = [
       "XJTU_STU"

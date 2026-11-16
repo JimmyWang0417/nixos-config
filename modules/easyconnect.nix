@@ -1,9 +1,14 @@
-# docker-easyconnect follows campus reachability.
-# A campus-only HTTPS probe that completes with HTTP 2xx/3xx starts the
-# container. DNS alone does not. A redirect to a different host does not.
-# If every probe fails, the container stops, even when a recorded SSID is up.
-# The OCI unit is not wanted by the default target; the dispatcher uses
-# `docker start` / `docker stop`. No VPN password is stored here.
+# docker-easyconnect runs only when the campus site is not reachable.
+# A probe fails on timeout, a non-2xx status, or a redirect to another host.
+# DNS alone does not count. A same-host 3xx still counts as success.
+# Start only when every probe fails and the container is stopped.
+# A successful probe leaves a stopped container stopped.
+# A running container stays up when a later unbound probe succeeds: the
+# tunnel may be what made the site reachable. Stop when an active
+# NetworkManager connection is named in campusConnections, or when a probe
+# bound with curl if!<iface> to a physical NIC still succeeds.
+# autoStart stays false. The unit is not wanted by the default target.
+# The dispatcher uses `docker start` / `docker stop`. No VPN password is stored.
 { config, lib, pkgs, ... }:
 let
   cfg = config.orion.easyconnect;
@@ -13,6 +18,9 @@ let
   docker = config.virtualisation.docker.package;
   curl = "${pkgs.curl}/bin/curl";
   tr = "${pkgs.coreutils}/bin/tr";
+  nmcli = "${pkgs.networkmanager}/bin/nmcli";
+  ip = "${pkgs.iproute2}/bin/ip";
+  grep = "${pkgs.gnugrep}/bin/grep";
   # Authority only: userinfo is the part before '@' and before the path.
   probeAuthority = url:
     let
@@ -77,6 +85,17 @@ let
       printf '%s' "$u" | ${tr} '[:upper:]' '[:lower:]'
     }
 
+    # Optional second argument: SO_BINDTODEVICE via curl's if!<iface>, so a
+    # tun route cannot satisfy the probe.
+    bind_iface="''${2:-}"
+    if [ -n "$bind_iface" ]; then
+      case "$bind_iface" in
+        *[!A-Za-z0-9._-]*)
+          exit 1
+          ;;
+      esac
+    fi
+
     origin="$(host_of "$url")"
     [ -n "$origin" ] || exit 1
 
@@ -85,21 +104,23 @@ let
     # --max-redirs 0 keeps the first response. A portal 302 to another host
     # must not be followed into a 200 that would look like success.
     # Connect budget is 3s. --max-time 5 covers DNS plus the status line.
-    if ! meta="$(
-      ${curl} \
-        --silent \
-        --show-error \
-        --output /dev/null \
-        --proxy "" \
-        --noproxy '*' \
-        --connect-timeout 3 \
-        --max-time 5 \
-        --max-redirs 0 \
-        --proto '=https' \
-        --proto-redir '=https' \
-        --write-out '%{http_code}\n%{redirect_url}' \
-        -- "$url"
-    )"; then
+    curl_args=(
+      --silent
+      --show-error
+      --output /dev/null
+      --proxy ""
+      --noproxy '*'
+      --connect-timeout 3
+      --max-time 5
+      --max-redirs 0
+      --proto '=https'
+      --proto-redir '=https'
+      --write-out '%{http_code}\n%{redirect_url}'
+    )
+    if [ -n "$bind_iface" ]; then
+      curl_args+=(--interface "if!$bind_iface")
+    fi
+    if ! meta="$(${curl} "''${curl_args[@]}" -- "$url")"; then
       exit 1
     fi
 
@@ -147,54 +168,145 @@ let
       *) exit 0 ;;
     esac
 
-    # campusConnections / campusSubnets are not consulted. A probe that
-    # completes starts the container even when the SSID is absent from
-    # that list. A failed probe stops it even when the SSID matches.
-    on_campus=0
-    set -- ${lib.escapeShellArgs cfg.campusProbes}
-    for url in "$@"; do
-      [ -n "$url" ] || continue
-      if ${probe} "$url"; then
-        on_campus=1
+    # campusSubnets is not consulted. A named campus connection stops the
+    # container and never starts it. A physical-NIC probe can also stop it.
+    on_named_campus=0
+    active_names="$(${nmcli} -g NAME connection show --active 2>/dev/null || true)"
+    set -- ${lib.escapeShellArgs cfg.campusConnections}
+    for wanted in "$@"; do
+      [ -n "$wanted" ] || continue
+      if printf '%s\n' "$active_names" | ${grep} -Fxq -- "$wanted"; then
+        on_named_campus=1
         break
       fi
     done
 
-    if [ "$on_campus" -eq 1 ]; then
-      if ! ${docker}/bin/docker container inspect ${containerName} >/dev/null 2>&1; then
-        ${docker}/bin/docker create \
-          --name ${containerName} \
-          --restart=no \
-          --device=/dev/net/tun \
-          --cap-add=NET_ADMIN \
-          -p 127.0.0.1:5901:5901 \
-          -p 127.0.0.1:1080:1080 \
-          -p 127.0.0.1:8888:8888 \
-          -v ${dataVolume} \
-          ${image} || true
-      fi
-      ${docker}/bin/docker start ${containerName} || true
-    else
+    if [ "$on_named_campus" -eq 1 ]; then
       ${docker}/bin/docker stop ${containerName} || true
+      exit 0
     fi
+
+    # Already running: an unbound probe can succeed through the tunnel.
+    # Stop only if a probe bound to a physical NIC still succeeds.
+    state="$(${docker}/bin/docker inspect -f '{{.State.Running}}' ${containerName} 2>/dev/null || true)"
+    if [ "$state" = "true" ]; then
+      ifaces=""
+      add_iface() {
+        case "$1" in
+          ""|lo|lo[0-9]*|tun[0-9]*|tap[0-9]*|wg[0-9]*|wg-*|docker[0-9]*|br-*|veth*|virbr*|ppp[0-9]*|vpn[0-9]*|tailscale[0-9]*|zt[0-9]*|zth*|sit[0-9]*|ifb[0-9]*|dummy[0-9]*|vboxnet*|vnet*|nm-*|ecs*|ssl[0-9]*|ipsec*|awg[0-9]*|wireguard*|podman*|cni*|flannel*|cali*|vxlan*|gre[0-9]*|gretap*|erspan*|geneve*|macvlan*|macvtap*|ipvlan*)
+            return 0
+            ;;
+          *[!A-Za-z0-9._-]*)
+            return 0
+            ;;
+        esac
+        case "
+$ifaces
+" in
+          *"
+$1
+"*) return 0 ;;
+        esac
+        ifaces="$ifaces
+$1"
+      }
+      take_default() {
+        local routes line dev prev tok
+        routes="$(${ip} "$1" route show default 2>/dev/null || true)"
+        [ -n "$routes" ] || return 0
+        while IFS= read -r line; do
+          [ -n "$line" ] || continue
+          dev=""
+          prev=""
+          for tok in $line; do
+            if [ "$prev" = "dev" ]; then
+              dev="$tok"
+            fi
+            prev="$tok"
+          done
+          add_iface "$dev"
+        done <<< "$routes"
+      }
+      take_default -4
+      take_default -6
+      rows="$(${nmcli} -t -f DEVICE,TYPE,STATE device status 2>/dev/null || true)"
+      if [ -n "$rows" ]; then
+        while IFS=: read -r dev typ devstate _; do
+          case "$typ" in
+            wifi|ethernet) ;;
+            *) continue ;;
+          esac
+          case "$devstate" in
+            connected*) ;;
+            *) continue ;;
+          esac
+          add_iface "$dev"
+        done <<< "$rows"
+      fi
+      while IFS= read -r dev; do
+        [ -n "$dev" ] || continue
+        set -- ${lib.escapeShellArgs cfg.campusProbes}
+        for url in "$@"; do
+          [ -n "$url" ] || continue
+          if ${probe} "$url" "$dev"; then
+            ${docker}/bin/docker stop ${containerName} || true
+            exit 0
+          fi
+        done
+      done <<< "$ifaces"
+      exit 0
+    fi
+
+    # Stopped or absent. Start only when every probe fails.
+    probe_ok=0
+    saw_probe=0
+    set -- ${lib.escapeShellArgs cfg.campusProbes}
+    for url in "$@"; do
+      [ -n "$url" ] || continue
+      saw_probe=1
+      if ${probe} "$url"; then
+        probe_ok=1
+        break
+      fi
+    done
+
+    if [ "$saw_probe" -eq 0 ] || [ "$probe_ok" -eq 1 ]; then
+      exit 0
+    fi
+
+    if ! ${docker}/bin/docker container inspect ${containerName} >/dev/null 2>&1; then
+      ${docker}/bin/docker create \
+        --name ${containerName} \
+        --restart=no \
+        --device=/dev/net/tun \
+        --cap-add=NET_ADMIN \
+        -p 127.0.0.1:5901:5901 \
+        -p 127.0.0.1:1080:1080 \
+        -p 127.0.0.1:8888:8888 \
+        -v ${dataVolume} \
+        ${image} || true
+    fi
+    ${docker}/bin/docker start ${containerName} || true
     exit 0
   '';
 in
 {
   options.orion.easyconnect = {
-    enable = lib.mkEnableOption "docker-easyconnect when a campus-only site is reachable";
+    enable = lib.mkEnableOption "docker-easyconnect when the campus-only site is unreachable";
 
     campusProbes = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [ "https://kq.xjtu.edu.cn" ];
       example = [ "https://kq.xjtu.edu.cn" ];
       description = ''
-        Campus-only HTTPS URLs, with no userinfo. Any one completed probe
-        starts the container: TLS plus an HTTP status of 2xx or 3xx, connect
-        timeout 3s. Resolving DNS is not enough. A 3xx Location that names a
-        different host is not success. If every probe fails, the container
-        stops even when campusConnections matches an active SSID. A successful
-        probe starts it even when the SSID is not in that list.
+        Campus-only HTTPS URLs, with no userinfo. A probe fails on timeout,
+        a non-2xx status, or a 3xx Location that names a different host.
+        TLS and an HTTP status of 2xx, or 3xx that stays on the same host,
+        is success. The connect timeout is 3 seconds. Resolving DNS is not
+        enough.         While the container is stopped, every probe failing starts
+        it, and any success leaves it stopped. A later unbound success
+        does not stop a container that is already running. A probe bound
+        to a physical NIC can.
       '';
     };
 
@@ -203,8 +315,11 @@ in
       default = [ ];
       example = [ "XJTU_STU" ];
       description = ''
-        Recorded NetworkManager connection names (the NAME column). They do
-        not start or stop the container. campusProbes decides.
+        NetworkManager connection names (the NAME column). If any active
+        connection has one of these names, the container is stopped and is
+        not started. These names do not start it. A probe that succeeds
+        through the tunnel does not keep the container running once one of
+        these connections is active.
       '';
     };
 
@@ -214,7 +329,7 @@ in
       example = [ "202.117.0.0/16" ];
       description = ''
         Recorded IPv4 CIDRs. They do not start or stop the container.
-        Wired campus access is detected by campusProbes.
+        Wired campus access is a probe bound to the physical NIC.
       '';
     };
   };

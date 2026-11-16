@@ -66,13 +66,11 @@ doc、docx、rtf、odt 归 WPS 文字（`wps-office-wps.desktop`），xls、xlsx
 
 ## 校园网与 docker-easyconnect
 
-连上校园网才启动 docker-easyconnect，离开就停。每次 NetworkManager 连接或断开都会再判断一次，不只在开机时看一眼。用 https://kq.xjtu.edu.cn 是否能连通判断校园网。
+`orion.easyconnect` 打开的是 docker-easyconnect，不是官方 deb。镜像是 `hagb/docker-easyconnect:7.6.7`，容器名 `easyconnect`。`autoStart = false`，不挂到 default.target。每次 NetworkManager 连接或断开都跑调度脚本。不安装官方 deb，不复制 `/usr/share/sangfor` 里的二进制，也不把 EasyMonitor 写成开机服务。登录凭据不进仓库，探测地址里也不写账号密码。
 
-`orion.easyconnect` 打开的是 docker-easyconnect，不是官方 deb。`campusProbes` 默认是 `[ "https://kq.xjtu.edu.cn" ]`。一条探测要在大约 3 秒的连接超时里完成 HTTPS，HTTP 状态是 2xx 或 3xx，才算成功。只解析出域名不算。认证门户把请求重定向到另一台主机也不算。探测地址里不写账号密码，仓库里也没有 Wi-Fi 密码。
+`campusProbes` 默认是 `[ "https://kq.xjtu.edu.cn" ]`。一条探测要在大约 3 秒的连接超时里完成 HTTPS，HTTP 状态是 2xx 或 3xx，才算打得开这个只在校园网里能访问的网站。只解析出域名不算。认证门户把请求重定向到另一台主机也不算。
 
-`XJTU_STU` 和 `xjtuse-lab` 仍写在 `campusConnections` 里，只作连接名记录。探测成功就启动 docker-easyconnect，哪怕当前连接名不在这个名单里；探测失败就停止，哪怕连接名对得上。`campusSubnets` 仍是空的。名叫「有线连接 1」的以太网不是校园网标识；这台机器只要打得开上面的网站，就启动容器。
-
-镜像是 `hagb/docker-easyconnect:7.6.7`，`autoStart = false`，不挂到 default target。调度脚本在校园网上执行 `docker start`，离开时 `docker stop`。不安装官方 deb，不复制 `/usr/share/sangfor` 里的二进制，也不把 EasyMonitor 写成开机服务。登录凭据不进仓库。
+容器没在跑且这次探测失败时才 `docker start`，因为这时连不上校园网；探测成功说明已经在校园网里，不启动。容器已经在跑时，不因为随后一次普通探测成功就 `docker stop`，避免隧道把该站打通之后来回启停。停止只发生在两种情况：NetworkManager 当前活动连接的名字是 `XJTU_STU` 或 `xjtuse-lab`（这时直接停，即使探测还没成功）；或者 curl 用 `if!<接口>` 绑到物理网卡后探测仍然成功。物理网卡先取 IPv4/IPv6 默认路由里不是 tun、tap、wg、docker、br-、veth、virbr 的设备，默认路由只剩隧道时再改绑 NetworkManager 里已连接的无线或以太网。找不到这样的网卡就不停。`campusSubnets` 仍是空的，不参与判断。名叫「有线连接 1」的以太网不靠连接名匹配，绑到这块物理网卡后探测成功会停止容器。
 
 ## 网络和下载
 
@@ -133,7 +131,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 ### 等用户开口再写进配置
 
-华为云会议、官方 Typora。破解版 Typora 不在此列，见「不按原样迁的」。
+官方 Typora。破解版 Typora 不在此列，见「不按原样迁的」。
 
 主机 `hosts/orion/default.nix` 里 `orion.nix.allowUnfree = true` 仍然开着，给 NVIDIA 用户态驱动，以及 Chrome、Edge、VS Code、JetBrains、Discord、Steam、Obsidian、ToDesk、WPS 用。
 
@@ -180,8 +178,8 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - 破解版 Typora：不迁。官方 Typora 也先不装。
 - 完整 Anaconda：不迁，只留 nixpkgs 的 `conda`。
 - Win10 字体：不接入再分发的字体包。CJK 用已安装的 Noto CJK。
-- 深信服安装包：不复制二进制。改用 docker-easyconnect，并且只在能连通 https://kq.xjtu.edu.cn 时启动。
-- 华为云会议：先不装。
+- 深信服安装包：不复制二进制。改用 docker-easyconnect，只在连不上 https://kq.xjtu.edu.cn 时启动；已经在跑时，不因为隧道把这个网站打通就停。
+- 华为云会议：不迁。用户不用华为云会议桌面客户端。
 - 百度网盘、钉钉、WPS：用 NUR 里和已装版本一致的 `freegoxing.baidunetdisk`、`yakkhini.dingtalk`、`novel2430.wpsoffice-365`，不用 `xddxdd.baidunetdisk`，也不用更旧的 `wpsoffice` / `wpsoffice-cn`。
 
 ## 再加一台机器
