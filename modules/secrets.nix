@@ -27,6 +27,8 @@ in
       jetbrains-licenses = ../secrets/jetbrains-licenses.sops;
       wps-license = ../secrets/wps-license.sops;
       botmux-bots = ../secrets/botmux-bots.sops;
+    nm-connections = ../secrets/nm-connections.sops;
+    cc-switch = ../secrets/cc-switch.sops;
     };
   };
 }

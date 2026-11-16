@@ -104,16 +104,14 @@ Nix 拉 substituter 和源码走自己的 HTTP 客户端。这边的并行数是
 
 只写 secret 名。明文不在仓库里。运行时路径是 `/run/secrets/<名字>`，说明在 `secrets/README.md`。
 
-fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-licenses、wps-license、botmux-bots。
+fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-licenses、wps-license、botmux-bots、nm-connections、cc-switch。
 
 ### 留在本机，不能入库
 
 只记种类，没有秘密内容。
 
 - Win10 字体包 `ttf-ms-win10-auto` 里的字体文件
-- CC Switch 数据目录
 - v2rayN 的 `guiConfigs`
-- NetworkManager 系统连接（`/etc/NetworkManager/system-connections`）未读到，没有加密
 
 ### nixpkgs 26.05 没有的包
 

@@ -9,7 +9,7 @@
 | jetbrains-licenses | /run/secrets/jetbrains-licenses | JetBrains 的 *.key 和 plugin_*.license |
 | wps-license | /run/secrets/wps-license | WPS license2.dat |
 | botmux-bots | /run/secrets/botmux-bots | bots.json |
+| nm-connections | /run/secrets/nm-connections | NetworkManager 系统连接 |
+| cc-switch | /run/secrets/cc-switch | CC Switch 的 cc-switch.db |
 
-未读到，所以没有加密：`/etc/NetworkManager/system-connections`（当前用户没有读权限）。
-
-不入库：alder、crm、udf-http-range-proxy、keepassxc-unlock、verilog-format、xjtu-course-genius、xjtutoolbox、botmux 程序本身、animeko、EasyConnect、华为云会议、Anaconda、Grok Bot、Typora、Win10 字体。CC Switch 数据目录和 v2rayN 的 guiConfigs 也没有打进密文。
+不入库：alder、crm、udf-http-range-proxy、keepassxc-unlock、verilog-format、xjtu-course-genius、xjtutoolbox、botmux 程序本身、animeko、EasyConnect、华为云会议、Anaconda、Grok Bot、Typora、Win10 字体。v2rayN 的 guiConfigs 也没有打进密文。
