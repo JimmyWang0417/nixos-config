@@ -212,7 +212,7 @@
 | openblas → pkgs.openblas | modules/packages.nix |
 | openrgb → pkgs.openrgb | modules/packages.nix |
 | openssh → pkgs.openssh，不启用 sshd | modules/packages.nix |
-| os-prober → boot.loader.grub.useOSProber | modules/boot.nix |
+| os-prober → useOSProber 关闭；Windows 一条 chainloader | modules/boot.nix |
 | p7zip-natspec → pkgs.p7zip | modules/packages.nix |
 | pandoc-cli → pkgs.pandoc | modules/packages.nix |
 | papirus-icon-theme → pkgs.papirus-icon-theme | modules/packages.nix |
