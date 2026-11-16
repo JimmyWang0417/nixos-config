@@ -30,6 +30,8 @@
 
 主题由 `pkgs/grub-theme-dedsec` 从 GitHub 取进 Nix store。以后真正执行 `nixos-rebuild` 时，安装脚本从这个 store 路径拷到 `/boot/grub/theme`。这次只求值，不跑 `grub-mkconfig`，也不跑 `grub-install`。
 
+主题修订由每天的更新工作流开 PR，不在机器上自行改文件.
+
 ## 未办或不迁
 
 2026-11-02 14:39 生成的正在使用的 `grub.cfg` 里，顶层把同一系统写了两次。`10_linux` 有一条 `Manjaro Linux`（6.12 在顶层，6.1-rt 在 Advanced options 子菜单）。os-prober 另有一条 Windows Boot Manager。`/etc/grub.d/31_efi_bootnext` 又加了 `Manjaro (EFI BootNext)`（Boot0001，`\EFI\Manjaro\grubx64.efi`，就是这份 GRUB）和 `Windows Boot Manager (EFI BootNext)`（Boot0000，同一份 `bootmgfw.efi`）。它还把多条失效的 `Linux Boot Manager (EFI BootNext)` 放进菜单，那些是别的盘上的 systemd-boot NVRAM。os-prober 没有把这块 btrfs 上的 Manjaro 再报一次。

@@ -127,7 +127,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 `alder`、`typora-free-with-plugin` 和 Grok Bot 桌面版没有收进本仓库。
 
-`.github/workflows/ci.yml` 在 push 和 pull request 上构建 `packages.x86_64-linux` 里的每个包，不求值整份 NixOS。nixpkgs 仍钉在 `nixos-26.05`。`.github/workflows/update.yml` 每天 16:00 UTC 跑一次，也可以手动触发；只在 `updates.nix` 里的 GitHub release 版本变化时开 pull request，用默认 `GITHUB_TOKEN`，不会 force-push。
+`.github/workflows/ci.yml` 在 push 和 pull request 上构建 `packages.x86_64-linux` 里的每个包，不求值整份 NixOS。nixpkgs 仍钉在 `nixos-26.05`。`.github/workflows/update.yml` 每天 16:00 UTC 跑一次，也可以手动触发；只在 `updates.nix` 里的 GitHub release 版本或 git 修订变化时开 pull request，用默认 `GITHUB_TOKEN`，不会 force-push。
 
 ### 等用户开口再写进配置
 
