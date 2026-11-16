@@ -10,6 +10,28 @@ Linux 根文件系统在 btrfs `UUID=fd32207f-8a11-48d7-9d04-9316cdb8c265` 的 `
 
 默认是迁过来的 KDE 快捷键，`orion.shortcuts.profile = "current"`，不启用 keyd。仿 macOS 的一套已经可以切换：只在主机文件里写成 `"macos"`。按住 Super 时当作 Command。改回 `"current"` 会关掉 keyd。这不是未办项。
 
+## 网络和下载
+
+二进制缓存先用中科大，官方缓存作后备。`nixos-26.05` 频道文件 `binary-cache-url` 指向的就是这个中科大地址。
+
+- `https://mirrors.ustc.edu.cn/nix-channels/store`
+- `https://cache.nixos.org/`
+
+信任的公钥只有 `cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=`。从中科大取到的 narinfo 签名是这把钥匙。帮助页 <https://mirrors.ustc.edu.cn/help/nix-channels.html> 没有公布第二把，所以没有写入另一把。`nix.settings.fallback = true`：前面的镜像失败时继续试下一个缓存，仍然没有就从源码构建。
+
+Clash Verge 正在监听 mixed 端口 7897，作为 HTTP 代理可用。`orion.nix.proxy` 默认是 `http://127.0.0.1:7897`。nixos-26.05 带的 Nix 2.34 没有 `nix.conf` 的 `http-proxy` / `https-proxy`（2.35 会把这两个键报成 unknown setting），下载走的是 `http_proxy` / `https_proxy`。这个端口因此写进 nix-daemon 的环境，以及 `nix.settings.impure-env`，固定输出构建也能用到。Verge 里单独的 SOCKS 7898 和 HTTP 7899 是关的。这里不写订阅地址。
+
+本机的多线程下载是两套，都不是 Nix 的客户端：
+
+- Motrix 2.4.1（`motrix-bin`）自带 aria2 引擎，`max-connection-per-server` 和 `split` 都是 64。
+- Axel 2.17.14 在 `~/.local/bin/axel`，没有 `~/.axelrc`，也没有改连接数的包装脚本，程序默认每个文件 4 条连接。NixOS 安装同版本的 `pkgs.axel`。
+
+Nix 拉 substituter 和源码走自己的 HTTP 客户端。这边的并行数是 `nix.settings.http-connections`，按 Motrix 的 64 放在 `orion.nix.download.httpConnections`。`connect-timeout` 是 10 秒。Motrix 和 Axel 留给手动下载。
+
+`programs.git` 把 `git://github.com/` 换成 `https://github.com/`，git 也走 `orion.nix.proxy`。
+
+这些在 `modules/nix-download.nix`。`hosts/orion` 打开 `orion.nix.download.enable`。改模块之前，现场 `~/.config/nix/nix.conf` 只有实验特性，没有镜像、超时、并行数和代理。
+
 ## 未办配置
 
 这些还没有做完。不是已迁移功能的简介。
@@ -56,6 +78,9 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 
 - sops 的年龄私钥仍只在本机。密文 secret 名见上面「已用 sops 加密入库」。`.sops.yaml` 里只有公钥接收者。
 - 快捷键不是未办。`modules/shortcuts.nix` 已提交。默认 `orion.shortcuts.profile = "current"`，此时 `services.keyd.enable` 为 false。改成 `"macos"` 才启用 keyd。toplevel 已求值通过。
+- 中科大没有 flake 注册表：`https://mirrors.ustc.edu.cn/nix-channels/flake-registry.json` 返回 404。`nix.settings.flake-registry` 保持上游，没有改成一个不存在的地址。
+- nixpkgs 26.05 的 `motrix` 是 1.8.19，本机 AUR 包是 `motrix-bin` 2.4.1。没有用旧版本替换，也没有把 `~/.config/Motrix/system.json` 写进仓库。本机没有单独的 aria2 包或 `~/.aria2`，所以没有新写一份 aria2 配置。
+- shell 别名 `pon` 仍指向 `127.0.0.1:10808`，这个端口当前没有进程监听。Nix 用的是 Clash mixed `7897`。别名按现有 `~/.zshrc` 保留。
 
 ### NUR
 

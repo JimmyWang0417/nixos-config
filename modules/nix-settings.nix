@@ -20,12 +20,9 @@ in
     };
   };
 
+  # Substituters, the proxy, and http-connections are applied in nix-download.nix.
   config = lib.mkIf cfg.enable {
     nixpkgs.config.allowUnfree = cfg.allowUnfree;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    nix.settings.substituters = lib.mkIf cfg.chinaMirrors.enable cfg.chinaMirrors.substituters;
-    nix.settings.trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-    ];
   };
 }

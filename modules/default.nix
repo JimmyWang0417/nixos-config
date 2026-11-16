@@ -10,6 +10,7 @@
     ./packages.nix
     ./networking.nix
     ./nix-settings.nix
+    ./nix-download.nix
     ./secrets.nix
     ./shortcuts.nix
   ];

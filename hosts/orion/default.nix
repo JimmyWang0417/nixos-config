@@ -41,6 +41,9 @@
     enable = true;
     allowUnfree = true;
     chinaMirrors.enable = true;
+    # Clash Verge mixed port. HTTP proxy; SOCKS 7898 and HTTP 7899 are disabled.
+    proxy = "http://127.0.0.1:7897";
+    download.enable = true;
   };
   orion.secrets.enable = true;
   orion.shortcuts.profile = "current";
