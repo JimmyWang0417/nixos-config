@@ -36,7 +36,7 @@ home-manager 启用 `programs.ranger` 和 `programs.neovim`，模块在 `home/ed
 - `efm-langserver`：`coc-settings.json` 里 `languageserver.efm.command`
 - `black`：`python -m black`，放在 Neovim 的 Python 3 里
 
-`withNodeJs` 和 `withPython3` 打开，给 coc.nvim 和 Python provider。系统包里已有 `git`、`nodejs`、`python3`、`p7zip`、`unzip`、`ffmpeg`、`universal-ctags`、`bash-language-server`，没有再加一份。`rifle.conf` 里的 `code`、`vlc`、`libreoffice` 也已经在系统包里。
+`withNodeJs` 和 `withPython3` 打开，给 coc.nvim 和 Python provider。系统包里已有 `git`、`nodejs`、`python3`、`p7zip`、`unzip`、`ffmpeg`、`universal-ctags`、`bash-language-server`，没有再加一份。`rifle.conf` 里的 `vlc`、`libreoffice` 已经在系统包里。`code` 来自 `programs.vscode.package`。
 
 没有加 `ripgrep`、`fd`、`bat`、`highlight`、`ueberzug`、`chafa`，这两份配置没有调用。`rifle.conf` 里的 `perl`、`ruby`、`php` 没有新装解释器。`command.vim` 里的 `BuildComposer` 会跑 `cargo`，但没有任何插件挂上它，没有装 Rust。
 
@@ -196,6 +196,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 | 桌面 | modules/desktop.nix | modules/desktop.nix | 默认会话 plasmax11 |
 | 秘密 | modules/secrets.nix | secrets/README.md | sops 只写名字 |
 | ranger / neovim | home/editors.nix | home/editors.nix | 沿用现有配置 |
+| VS Code | home/editors.nix | docs/vscode.md | 扩展是 nixpkgs 列表 |
 | 软件包 | modules/packages.nix | docs/packages.md | deepseek-harness 走 nixpkgs-unstable |
 | 本仓库表达式 | pkgs/default.nix | pkgs/default.nix | packages.x86_64-linux 与 overlays.default |
 | 引导 | bootstrap/install.sh | docs/bootstrap.md | 已装好且 flake 未开时先跑 |

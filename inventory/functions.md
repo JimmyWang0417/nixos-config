@@ -290,7 +290,7 @@
 | unarchiver → pkgs.unar | modules/packages.nix |
 | unzip → pkgs.unzip | modules/packages.nix |
 | usbutils → pkgs.usbutils | modules/packages.nix |
-| visual-studio-code-bin → pkgs.vscode | modules/packages.nix |
+| visual-studio-code-bin → programs.vscode.package | home/editors.nix |
 | vlc → pkgs.vlc | modules/packages.nix |
 | wget → pkgs.wget | modules/packages.nix |
 | which → pkgs.which | modules/packages.nix |

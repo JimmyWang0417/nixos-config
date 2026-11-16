@@ -1,0 +1,34 @@
+{
+    "workbench.colorTheme": "Ayu Light",
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4o-mini",
+    "workbench.iconTheme": "catppuccin-latte",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "markdown-preview-enhanced.codeBlockTheme": "auto.css",
+    "markdown-preview-enhanced.previewTheme": "vue.css",
+    "markdown-preview-enhanced.revealjsTheme": "none.css",
+    "markdown-preview-enhanced.enablePreviewZenMode": false,
+    "terminal.integrated.commandsToSkipShell": [
+        "matlab.interrupt"
+    ],
+    "verilog.ctags.path": "ctags",
+    "verilog.linting.linter": "iverilog",
+    "verilog.linting.iverilog.arguments": "-i",
+    "[verilog]": {
+        "editor.defaultFormatter": "ericsonj.verilogformat"
+    },
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDragAndDrop": false,
+    "git.autofetch": true,
+    "terminal.integrated.fontSize": 13,
+    "debug.onTaskErrors": "abort",
+    "chat.disableAIFeatures": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "claudeCode.preferredLocation": "panel",
+    "jdk.telemetry.enabled": true
+}

@@ -91,7 +91,6 @@ in
     obsidian
     google-chrome
     microsoft-edge
-    vscode
     heroic
     libreoffice-qt
     nur.repos.freegoxing.baidunetdisk

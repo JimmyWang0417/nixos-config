@@ -36,6 +36,46 @@ in
     ];
   };
 
+  # release-26.05 renamed programs.vscode.extensions to profiles.default.extensions.
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      anthropic.claude-code
+      bierner.markdown-preview-github-styles
+      catppuccin.catppuccin-vsc-icons
+      dbaeumer.vscode-eslint
+      esbenp.prettier-vscode
+      firefox-devtools.vscode-firefox-debug
+      github.vscode-github-actions
+      james-yu.latex-workshop
+      ms-ceintl.vscode-language-pack-zh-hans
+      ms-python.isort
+      ms-python.python
+      ms-python.vscode-pylance
+      ms-python.vscode-python-envs
+      ms-toolsai.jupyter
+      ms-toolsai.jupyter-keymap
+      ms-toolsai.jupyter-renderers
+      ms-toolsai.vscode-jupyter-cell-tags
+      ms-toolsai.vscode-jupyter-slideshow
+      ms-vscode.cmake-tools
+      ms-vscode.cpptools
+      ms-vscode.cpptools-extension-pack
+      ms-vscode.hexeditor
+      ms-vscode.remote-explorer
+      ms-vscode-remote.remote-ssh
+      ms-vscode-remote.remote-ssh-edit
+      mshr-h.veriloghdl
+      myriad-dreamin.tinymist
+      oracle.oracle-java
+      rust-lang.rust-analyzer
+      shd101wyy.markdown-preview-enhanced
+      teabyii.ayu
+      yzhang.markdown-all-in-one
+    ];
+  };
+
   xdg.configFile = {
     # programs.ranger always writes rc.conf. Keep the migrated file.
     "ranger/rc.conf".text = lib.mkForce (builtins.readFile ./ranger/rc.conf);
@@ -60,5 +100,10 @@ in
       source = ./nvim;
       recursive = true;
     };
+
+    # No tokens in either file. verilog.ctags.path is "ctags" so it resolves
+    # to the universal-ctags already in environment.systemPackages.
+    "Code/User/settings.json".source = ./vscode/settings.json;
+    "Code/User/keybindings.json".source = ./vscode/keybindings.json;
   };
 }
