@@ -117,6 +117,27 @@
         "type": "github"
       }
     },
+    "nur-packages": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794843760,
+        "narHash": "sha256-Otj7xW5LMpYMptEOuU5Vt8tn72HJ8wkbRysGTULqAmY=",
+        "owner": "JimmyWang0417",
+        "repo": "nur-packages",
+        "rev": "242afb8d4b7542549905ca2d380b889ba3b4fbf0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JimmyWang0417",
+        "repo": "nur-packages",
+        "rev": "242afb8d4b7542549905ca2d380b889ba3b4fbf0",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -124,6 +145,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
+        "nur-packages": "nur-packages",
         "sops-nix": "sops-nix"
       }
     },

@@ -42,12 +42,4 @@
     kind = "github-source";
     asset = "";
   }
-  {
-    attribute = "grub-theme-dedsec";
-    file = "pkgs/grub-theme-dedsec/default.nix";
-    owner = "VandalByte";
-    repo = "dedsec-grub2-theme";
-    kind = "github-rev";
-    asset = "";
-  }
 ]

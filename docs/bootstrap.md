@@ -14,7 +14,7 @@
 - `flake.nix` 的 `nixosConfigurations.orion`
 - `modules/hardware.nix`
 - `modules/nix-settings.nix` 在切换成功后把 `experimental-features` 写进系统配置
-- GRUB 主题是 `pkgs.grub-theme-dedsec`，从 GitHub 取 DedSec fuckery 1440p。说明在 `docs/boot.md`。
+- GRUB 主题来自 flake 输入 `nur-packages` 的 `grub-theme-dedsec`。主题包和每日更新在 nur-packages，nixos-config 只引用。说明在 `docs/boot.md`。
 
 ## 依赖
 

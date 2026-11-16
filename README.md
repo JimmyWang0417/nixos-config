@@ -115,7 +115,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 ### nixpkgs 26.05 没有的包
 
-表达式在本仓库 `pkgs/`，由 `packages.x86_64-linux` 和 `overlays.default` 暴露，并挂在 Orion 的 `nixpkgs.overlays` 上。没有放进 `environment.systemPackages`。构建用 `nix build .#<名字>`。没有第二个包仓库。
+表达式在本仓库 `pkgs/`，由 `packages.x86_64-linux` 和 `overlays.default` 暴露，并挂在 Orion 的 `nixpkgs.overlays` 上。没有放进 `environment.systemPackages`。构建用 `nix build .#<名字>`。GRUB 主题除外：主题包和每日更新在 nur-packages，nixos-config 只引用。
 
 - `crm` 0.2.2
 - `xjtu-course-genius` 4.6.1
@@ -125,7 +125,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 `alder`、`typora-free-with-plugin` 和 Grok Bot 桌面版没有收进本仓库。
 
-`.github/workflows/ci.yml` 在 push 和 pull request 上构建 `packages.x86_64-linux` 里的每个包，不求值整份 NixOS。nixpkgs 仍钉在 `nixos-26.05`。`.github/workflows/update.yml` 每天 16:00 UTC 跑一次，也可以手动触发；只在 `updates.nix` 里的 GitHub release 版本或 git 修订变化时开 pull request，用默认 `GITHUB_TOKEN`，不会 force-push。
+`.github/workflows/ci.yml` 在 push 和 pull request 上构建 `packages.x86_64-linux` 里的每个包，不求值整份 NixOS。nixpkgs 仍钉在 `nixos-26.05`。`.github/workflows/update.yml` 每天 16:00 UTC 跑一次，也可以手动触发；只在 `updates.nix` 里的上游版本变化时开 pull request，用默认 `GITHUB_TOKEN`，不会 force-push。DedSec 主题不在这份列表里。
 
 ### 等用户开口再写进配置
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   cfg = config.orion.boot;
 in
@@ -21,8 +21,8 @@ in
     };
     theme = lib.mkOption {
       type = lib.types.path;
-      default = pkgs.grub-theme-dedsec;
-      description = "DedSec GRUB theme directory. Default is VandalByte/dedsec-grub2-theme, fuckery at 1440p with color icons.";
+      default = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system}.grub-theme-dedsec;
+      description = "DedSec GRUB theme directory from nur-packages. VandalByte/dedsec-grub2-theme, fuckery at 1440p with color icons.";
     };
   };
 

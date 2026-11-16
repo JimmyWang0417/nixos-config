@@ -19,15 +19,8 @@ Inputs:
     Cargo.lock beside the nix file is regenerated with cargo generate-lockfile
     on that tag. This is how crm opts in. There is no separate cargoHash line.
 
-  kind = "github-rev":
-    latest commit on the default branch. When that SHA differs from `rev`,
-    rev and hash are rewritten. The hash comes from
-    `nix flake prefetch github:<owner>/<repo>/<rev>`, which matches
-    fetchFromGitHub. A version of the form 0-unstable-YYYY-MM-DD is set
-    from the committer date. The hash already in the file is left alone
-    until that rewrite; it is not floated.
-
-A package that is not listed is never modified.
+A package that is not listed is never modified. The DedSec GRUB theme is
+not in this list; its revision bump lives in nur-packages.
 
 Outputs:
   rewritten nix files and, for github-source, a new Cargo.lock.
@@ -85,29 +78,6 @@ def current_version(text: str) -> str:
     if not match:
         raise SystemExit("version assignment not found")
     return match.group(1)
-
-
-def current_rev(text: str) -> str:
-    match = re.search(r'rev = "([0-9a-fA-F]+)";', text)
-    if not match:
-        raise SystemExit("rev assignment not found")
-    return match.group(1)
-
-
-def latest_commit(owner: str, repo: str) -> tuple[str, str]:
-    url = f"https://api.github.com/repos/{owner}/{repo}/commits/HEAD"
-    req = urllib.request.Request(
-        url,
-        headers={
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "nixos-config-update",
-        },
-    )
-    with urllib.request.urlopen(req) as resp:
-        data = json.load(resp)
-    # committer date is the commit date, YYYY-MM-DD prefix of the ISO timestamp.
-    day = data["commit"]["committer"]["date"][:10]
-    return data["sha"], day
 
 
 def replace_once(text: str, pattern: str, repl: str, label: str) -> str:
@@ -213,29 +183,6 @@ def update_source(item: dict) -> bool:
     return True
 
 
-def update_rev(item: dict) -> bool:
-    path = ROOT / item["file"]
-    text = path.read_text()
-    current = current_rev(text)
-    rev, day = latest_commit(item["owner"], item["repo"])
-    print(f"{item['attribute']}: {current} -> {rev}")
-    if rev == current:
-        return False
-    sri = prefetch_github_ref(item["owner"], item["repo"], rev)
-    text = replace_once(text, r'rev = "[0-9a-fA-F]+";', f'rev = "{rev}";', "rev")
-    text = replace_once(text, r'hash = "sha256-[^"]+";', f'hash = "{sri}";', "hash")
-    version_pattern = r'version = "0-unstable-\d{4}-\d{2}-\d{2}";'
-    if re.search(version_pattern, text):
-        text = replace_once(
-            text,
-            version_pattern,
-            f'version = "0-unstable-{day}";',
-            "version",
-        )
-    path.write_text(text)
-    return True
-
-
 def main() -> None:
     changed = False
     for item in load_updates():
@@ -244,8 +191,6 @@ def main() -> None:
             changed = update_asset(item) or changed
         elif kind == "github-source":
             changed = update_source(item) or changed
-        elif kind == "github-rev":
-            changed = update_rev(item) or changed
         else:
             raise SystemExit(f"unknown kind {kind} for {item['attribute']}")
     if not changed:

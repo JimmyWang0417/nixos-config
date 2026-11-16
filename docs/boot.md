@@ -2,7 +2,7 @@
 
 ## 作用
 
-启动菜单沿用本机正在用的 DedSec 主题：VandalByte 的 [dedsec-grub2-theme](https://github.com/VandalByte/dedsec-grub2-theme) `bbfe078386545688727f44897a7fede8af2c6dda`，fuckery、1440p、彩色图标。`pkgs.grub-theme-dedsec` 用 `fetchFromGitHub` 装进 `$out`，`boot.loader.grub.theme` 指向这个包。
+启动菜单沿用本机正在用的 DedSec 主题：VandalByte 的 [dedsec-grub2-theme](https://github.com/VandalByte/dedsec-grub2-theme) `bbfe078386545688727f44897a7fede8af2c6dda`，fuckery、1440p、彩色图标。主题包和每日更新在 nur-packages，nixos-config 只引用。`boot.loader.grub.theme` 指向 flake 输入 `nur-packages` 的 `grub-theme-dedsec`。
 
 同一系统不在顶层出现两次。NixOS 的旧世代仍在子菜单里。另一块 NVMe 上的 Windows 只有一条，链到 ESP `UUID=0AF1-1155` 的 `/EFI/Microsoft/Boot/bootmgfw.efi`。
 
@@ -10,7 +10,7 @@
 
 `orion.boot.enable` 打开后：
 
-- `boot.loader.grub.theme` 默认 `pkgs.grub-theme-dedsec`
+- `boot.loader.grub.theme` 默认是 `inputs.nur-packages` 的 `grub-theme-dedsec`
 - `boot.loader.grub.useOSProber = false`
 - `boot.loader.grub.gfxmodeEfi = "auto"`，`gfxpayloadEfi = "keep"`，对应现场 `GRUB_GFXMODE=auto` 和 `GRUB_GFXPAYLOAD_LINUX=keep`
 - `boot.loader.grub.splashImage = null`，不用 NixOS 自带的启动壁纸盖住 DedSec
@@ -28,9 +28,9 @@
 
 ## 依赖
 
-主题由 `pkgs/grub-theme-dedsec` 从 GitHub 取进 Nix store。以后真正执行 `nixos-rebuild` 时，安装脚本从这个 store 路径拷到 `/boot/grub/theme`。这次只求值，不跑 `grub-mkconfig`，也不跑 `grub-install`。
+主题包和每日更新在 nur-packages，nixos-config 只引用。以后真正执行 `nixos-rebuild` 时，安装脚本从这个 store 路径拷到 `/boot/grub/theme`。这次只求值，不跑 `grub-mkconfig`，也不跑 `grub-install`。
 
-主题修订由每天的更新工作流开 PR，不在机器上自行改文件.
+主题修订由 nur-packages 每天 16:00 UTC 的更新工作流开 PR。rev 没变就不开。本仓库的 `updates.nix` 不再列这个包。
 
 ## 未办或不迁
 

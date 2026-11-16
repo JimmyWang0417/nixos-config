@@ -22,6 +22,10 @@
     # repos against this flake's nixos-26.05 nixpkgs.
     nur.url = "github:nix-community/NUR/main";
     nur.inputs.nixpkgs.follows = "nixpkgs";
+
+    # DedSec GRUB theme. Daily rev bumps stay in this repo.
+    nur-packages.url = "github:JimmyWang0417/nur-packages/242afb8d4b7542549905ca2d380b889ba3b4fbf0";
+    nur-packages.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
