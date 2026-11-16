@@ -18,6 +18,7 @@
 | SDDM breeze 与自动登录 | hosts/orion/default.nix |
 | fcitx5 中文输入 | modules/chinese.nix |
 | 一条 CJK fontconfig 回退链 | modules/chinese.nix |
+| 本机 Win10 字体，默认关 | modules/fonts.nix |
 | 时区 Asia/Shanghai、locale zh_CN.UTF-8、X11 布局 cn、timesyncd | modules/locale.nix |
 | 用户 jimmywang0417 | modules/users.nix |
 | Docker | modules/services.nix |

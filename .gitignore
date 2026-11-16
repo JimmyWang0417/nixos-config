@@ -26,3 +26,11 @@ id_ed25519
 # Editor and agent metadata
 .cursor/
 .claude/
+
+# Local Windows fonts. The default directory is outside this repo. Ignore font
+# bytes so a checkout-relative directory cannot be committed.
+fonts/windows/
+*.ttf
+*.otf
+*.TTF
+*.OTF

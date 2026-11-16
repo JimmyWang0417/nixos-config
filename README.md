@@ -2,7 +2,7 @@
 
 2026-11-16 检查过：`refs/heads/nixos-26.11` 不存在，`https://channels.nixos.org/nixos-26.11` 返回 404，home-manager 也没有 `release-26.11`。测试线还没发布，系统与 home-manager 跟踪 `nixos-26.05` 和 `release-26.05`。26.05 没有或过旧的属性从输入 `nixpkgs-unstable` 取，不把整台机器切到 unstable。
 
-默认会话见下面「显示」。输入法只保留 fcitx5 一条路径（GTK、Qt、X11、Wayland、Electron）。现场的 `/etc/environment` 里 `XMODIFIERS` 写了两遍，并且 `GLFW_IM_MODULE=ibus` 和 fcitx 冲突；GLFW 那一项已去掉。字体不再叠多份 fontconfig，只留一条 CJK 回退链。Noto CJK 已经在 `modules/chinese.nix` 里。细节在 `inventory/optimizations.md`，对照表在 `inventory/适配清单.md`。
+默认会话见下面「显示」。输入法只保留 fcitx5 一条路径（GTK、Qt、X11、Wayland、Electron）。现场的 `/etc/environment` 里 `XMODIFIERS` 写了两遍，并且 `GLFW_IM_MODULE=ibus` 和 fcitx 冲突；GLFW 那一项已去掉。字体不再叠多份 fontconfig，只留一条 CJK 回退链。Noto CJK 已经在 `modules/chinese.nix` 里。本机 Win10 字体默认关，见 `docs/fonts.md`。细节在 `inventory/optimizations.md`，对照表在 `inventory/适配清单.md`。
 
 Linux 根文件系统在 btrfs `UUID=fd32207f-8a11-48d7-9d04-9316cdb8c265` 的 `@`、`@home`、`@cache`、`@log` 上，ESP `UUID=0AF1-1155` 与 Windows 共用。没有活动的 swapfile，所以没有写入 `resume` / `resume_offset`。显卡是 Intel 核显显示加 NVIDIA PRIME offload，不是 sync。
 
@@ -110,7 +110,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 只记种类，没有秘密内容。
 
-- Win10 字体包 `ttf-ms-win10-auto` 里的字体文件
+- Win10 字体包 `ttf-ms-win10-auto` 里的字体文件。开关是 `orion.fonts.windows.enable`，默认关，见 `docs/fonts.md`
 - v2rayN 的 `guiConfigs`
 
 ### nixpkgs 26.05 没有的包
@@ -159,7 +159,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Typora 的更新版本。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 的表达式在本仓库 `pkgs/`。NUR 里没有深信服客户端。Orion 的校园网服务是 docker-easyconnect，镜像 `hagb/docker-easyconnect:7.6.7`，见「校园网与 docker-easyconnect」。
 
-字体和词库：`nur.repos.rewine.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10-sc-sup`、`nur.repos.DzmingLi.windows-fonts` 都是再分发字体，不是让用户自己提供文件的封装，所以不接入。CJK 用已经安装的 Noto Sans CJK / Noto Serif CJK，不另装一份 Source Han，也不装 Win10 字体。fcitx5 拼音用户词库是个人文件，NUR 不会有。
+字体和词库：`nur.repos.rewine.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10-sc-sup`、`nur.repos.DzmingLi.windows-fonts` 都是再分发字体，不接入，也不 `fetchurl` / `fetchFromGitHub`。CJK 仍是已经安装的 Noto Sans CJK / Noto Serif CJK（Source Han 的 Noto 发行），不另装一份 Source Han。本机 Win10 字体只在 `orion.fonts.windows.enable` 打开时从本机目录复制，默认关。fcitx5 拼音用户词库是个人文件，NUR 不会有。
 
 秘密不能靠 NUR：Clash 配置、anytls 密钥、rclone webdav、JetBrains 许可证、bots.json、NetworkManager 的 PSK。
 
@@ -175,14 +175,14 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - Grok Bot 桌面版：本机已经卸掉，不迁。
 - 破解版 Typora：不迁。官方 Typora 也先不装。
 - 完整 Anaconda：不迁，只留 nixpkgs 的 `conda`。
-- Win10 字体：不接入再分发的字体包。CJK 用已安装的 Noto CJK。
+- Win10 字体：不接入再分发的字体包。CJK 用已安装的 Noto CJK。本机目录开关默认关，见 `docs/fonts.md`。
 - 深信服安装包：不复制二进制。改用 docker-easyconnect，只在连不上 https://kq.xjtu.edu.cn 时启动；已经在跑时，不因为隧道把这个网站打通就停。
 - 华为云会议：不迁。用户不用华为云会议桌面客户端。
 - 百度网盘、钉钉、WPS：用 NUR 里和已装版本一致的 `freegoxing.baidunetdisk`、`yakkhini.dingtalk`、`novel2430.wpsoffice-365`，不用 `xddxdd.baidunetdisk`，也不用更旧的 `wpsoffice` / `wpsoffice-cn`。
 
 ## 再加一台机器
 
-`modules/hardware.nix` 只由 `hosts/orion/default.nix` 导入，里面是这台机器的 btrfs 子卷和 Windows ESP。`orion.boot`、`orion.chinese`、`orion.nix`、`orion.secrets`、`orion.shortcuts` 仍是开关。桌面、用户、网络、服务和软件包模块目前按 Orion 写死，第二台机器要覆盖这些模块，不要直接改 Orion 的磁盘 UUID。
+`modules/hardware.nix` 只由 `hosts/orion/default.nix` 导入，里面是这台机器的 btrfs 子卷和 Windows ESP。`orion.boot`、`orion.chinese`、`orion.nix`、`orion.secrets`、`orion.shortcuts`、`orion.fonts.windows` 仍是开关。桌面、用户、网络、服务和软件包模块目前按 Orion 写死，第二台机器要覆盖这些模块，不要直接改 Orion 的磁盘 UUID。
 
 1. 复制 `hosts/example.nix` 为 `hosts/<名字>/default.nix`。
 2. 在 `flake.nix` 的 `nixosConfigurations` 里加一条属性，带上 `system`、`hostName` 和 `modules = [ ./hosts/<名字> ]`。
@@ -199,3 +199,4 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 | 本仓库表达式 | pkgs/default.nix | pkgs/default.nix | packages.x86_64-linux 与 overlays.default |
 | 引导 | bootstrap/install.sh | docs/bootstrap.md | 已装好且 flake 未开时先跑 |
 | GRUB | modules/boot.nix | docs/boot.md | 主题保持现用的；同一系统不在顶层出现两次。 |
+| 字体 | modules/fonts.nix | docs/fonts.md | 默认 Noto CJK；本机 Win10 字体默认关。 |

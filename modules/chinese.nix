@@ -28,6 +28,8 @@ in
         wqy_microhei
         source-sans-pro
         liberation_ttf
+        carlito
+        caladea
         dejavu_fonts
         inconsolata
         terminus_font

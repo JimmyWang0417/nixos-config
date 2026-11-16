@@ -4,6 +4,7 @@
     ./nvidia.nix
     ./desktop.nix
     ./chinese.nix
+    ./fonts.nix
     ./locale.nix
     ./users.nix
     ./services.nix
