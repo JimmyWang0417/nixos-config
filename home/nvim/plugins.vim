@@ -1,6 +1,11 @@
 set nocompatible
 filetype plugin on
 
+" plug.vim is not vendored. First start fetches it; then :PlugInstall.
+let s:plug_vim = stdpath('data') . '/site/autoload/plug.vim'
+if empty(glob(s:plug_vim))
+  silent execute '!curl -fLo ' . s:plug_vim . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
 
 call plug#begin('~/.config/nvim/plugged')
 

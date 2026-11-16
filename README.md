@@ -17,9 +17,10 @@ home-manager 启用 `programs.ranger` 和 `programs.neovim`，模块在 `home/ed
 迁入的文件：
 
 - ranger：`rc.conf`、`rifle.conf`、`scope.sh`、`commands.py`、`colorschemes/` 的 `__init__.py`、`default.py`、`jungle.py`、`snow.py`、`zenburn.py`、`plugins/__init__.py`、`plugins/devicons.py`、`plugins/devicons_linemode.py`
-- neovim：`init.vim`、`addition.vim`、`command.vim`、`coc.vim`、`coc-settings.json`、`dependent.vim`、`keyboard.vim`、`markdown.vim`、`plugins.vim`、`ui.vim`、`autoload/plug.vim`、`Ultisnips/cpp.snippets`
+- neovim：`init.vim`、`addition.vim`、`command.vim`、`coc.vim`、`coc-settings.json`、`dependent.vim`、`keyboard.vim`、`markdown.vim`、`plugins.vim`、`ui.vim`、`Ultisnips/cpp.snippets`
 
-`plugins.vim` 的 vim-plug 声明留着，不拷贝 `~/.config/nvim/plugged`。`coc.vim` 的 `g:coc_global_extensions` 留着，本机没有已下载的 coc 扩展目录。
+`plugins.vim` 的 vim-plug 声明留着，不拷贝 `~/.config/nvim/plugged`，也不提交 `autoload/plug.vim`。`coc.vim` 的 `g:coc_global_extensions` 留着，本机没有已下载的 coc 扩展目录。
+首次进入 nvim 后执行 `:PlugInstall` 和 `:CocInstall`（或配置里已有的安装命令）。
 
 这些外部命令是因为配置里调用了才加的：
 

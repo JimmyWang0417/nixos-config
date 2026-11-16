@@ -27,6 +27,11 @@ id_ed25519
 .cursor/
 .claude/
 
+# Neovim plugin checkouts and vim-plug's loader. PlugInstall fetches these.
+home/nvim/plugged/
+home/nvim/pack/
+home/nvim/autoload/
+
 # Local Windows fonts. The default directory is outside this repo. Ignore font
 # bytes so a checkout-relative directory cannot be committed.
 fonts/windows/
