@@ -15,8 +15,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nixos-26.05 has no deepseek-harness attribute. This input supplies only that package.
-    nixpkgs-deepseek.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # Attributes missing or older on nixos-26.05. The system channel stays nixpkgs.
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # NUR's master branch is a rename tombstone. Track main, and build the
     # repos against this flake's nixos-26.05 nixpkgs.
@@ -50,6 +50,17 @@
           system = "x86_64-linux";
           hostName = "Orion-Laptop";
           modules = [ ./hosts/orion ];
+        };
+      };
+
+      # Package expressions that are not in nixpkgs 26.05. Not installed on Orion
+      # unless a host module lists them. alder and typora-free-with-plugin are absent.
+      overlays.default = import ./overlay.nix;
+
+      packages.x86_64-linux = import ./pkgs {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
         };
       };
 

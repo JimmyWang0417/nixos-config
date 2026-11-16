@@ -1,6 +1,6 @@
 这是 Orion-Laptop（HP OMEN 16）的 NixOS 复刻配置：用模块化 flake 描述当前 Manjaro 主机的硬件、双显卡、Plasma 桌面布局、中文输入和软件清单。仓库只做求值，不执行 `nixos-rebuild`，也不改正在使用的引导和磁盘。
 
-2026-11-16 检查过：`refs/heads/nixos-26.11` 不存在，`https://channels.nixos.org/nixos-26.11` 返回 404，home-manager 也没有 `release-26.11`。测试线还没发布，所以这个 flake 跟踪当前稳定版 `nixos-26.05` 和 `home-manager` 的 `release-26.05`，不用 `nixos-unstable`。
+2026-11-16 检查过：`refs/heads/nixos-26.11` 不存在，`https://channels.nixos.org/nixos-26.11` 返回 404，home-manager 也没有 `release-26.11`。测试线还没发布，系统与 home-manager 跟踪 `nixos-26.05` 和 `release-26.05`。26.05 没有或过旧的属性从输入 `nixpkgs-unstable` 取，不把整台机器切到 unstable。
 
 默认会话见下面「显示」。输入法只保留 fcitx5 一条路径（GTK、Qt、X11、Wayland、Electron）。现场的 `/etc/environment` 里 `XMODIFIERS` 写了两遍，并且 `GLFW_IM_MODULE=ibus` 和 fcitx 冲突；GLFW 那一项已去掉。字体不再叠多份 fontconfig，只留一条 CJK 回退链。Noto CJK 已经在 `modules/chinese.nix` 里。细节在 `inventory/optimizations.md`，对照表在 `inventory/适配清单.md`。
 
@@ -117,14 +117,19 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - v2rayN 的 `guiConfigs`
 - NetworkManager 系统连接（`/etc/NetworkManager/system-connections`）未读到，没有加密
 
-### nixpkgs 26.05 没有、也还没接入的包
+### nixpkgs 26.05 没有的包
 
-- alder
-- crm
-- xjtu-course-genius
-- xjtutoolbox-bin
-- botmux-bin
-- animeko 6.4.0（nixpkgs 里的 `animeko` 5.3.2 标记为 broken，没有写入）
+表达式在本仓库 `pkgs/`，由 `packages.x86_64-linux` 和 `overlays.default` 暴露，并挂在 Orion 的 `nixpkgs.overlays` 上。没有放进 `environment.systemPackages`。构建用 `nix build .#<名字>`。没有第二个包仓库。
+
+- `crm` 0.2.2
+- `xjtu-course-genius` 4.6.1
+- `xjtutoolbox` 1.4.1
+- `botmux` 3.59.15
+- `animeko` 6.4.0。nixpkgs 26.05 的 `animeko` 5.3.2 标记为 broken，这份是 AppImage
+- `easyconnect` 7.6.7.3，官方 deb 的表达式。Orion 启动的仍是 `hagb/docker-easyconnect:7.6.7`，见「校园网与 EasyConnect」
+- `grok-bot` 1.1.0，表达式在，不安装
+
+`alder` 和 `typora-free-with-plugin` 没有收进本仓库。
 
 ### 等用户开口再写进配置
 
@@ -156,7 +161,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - 钉钉 9.0.0.261105002：`nur.repos.yakkhini.dingtalk`。和已装版本一致，走调用方的 nixpkgs。这个包捆绑已停止维护的 OpenSSL 1.1，所以 `nixpkgs.config.permittedInsecurePackages` 里只放了 `dingtalk-9.0.0.261105002`。
 - WPS 365 12.8.2.21176：`nur.repos.novel2430.wpsoffice-365`。版本号和已装的教育版相同，属性名不带 edu。同仓库的 `wpsoffice` 11.1 和 `wpsoffice-cn` 12.1 都更旧，不用。
 
-没有包：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Typora 的更新版本。NUR 里没有深信服客户端；EasyConnect 用上面的 docker 镜像，不从 NUR 装。
+社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Typora 的更新版本。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 的表达式在本仓库 `pkgs/`。NUR 里没有深信服客户端；Orion 的 EasyConnect 用上面的 docker 镜像。`pkgs/easyconnect` 是 deb 表达式，没有装进系统。
 
 字体和词库：`nur.repos.rewine.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10-sc-sup`、`nur.repos.DzmingLi.windows-fonts` 都是再分发字体，不是让用户自己提供文件的封装，所以不接入。CJK 用已经安装的 Noto Sans CJK / Noto Serif CJK，不另装一份 Source Han，也不装 Win10 字体。fcitx5 拼音用户词库是个人文件，NUR 不会有。
 
@@ -189,10 +194,10 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 用户 jimmywang0417 的 Plasma 布局在 `home/jimmy.nix`，由主机文件导入。另一台机器可以同样导入，也可以不导入。
 
-## DeepSeek Harness
-
-DeepSeek Harness（命令 `dsh`）是 DeepSeek 开源的智能体框架，按「一切皆插件」搭起来，自带命令行和本机 Web UI。上游是 <https://github.com/deepseek-ai/deepseek-harness>，文档在 <https://deepseek-harness.github.io/deepseek-harness/>。项目还在开发者预览，版本之间会有不兼容改动。
-
-本机没有这个程序，也没有它的配置目录。锁住的 `nixos-26.05` 里没有 `pkgs.deepseek-harness`。系统频道仍是 26.05。flake 另加输入 `nixpkgs-deepseek`（`github:NixOS/nixpkgs/nixpkgs-unstable`），只取那个修订里的 `deepseek-harness` 0.2.2-rc.1，写在 `modules/packages.nix` 的 `environment.systemPackages`。Orion 已经导入这个模块，没有单独开关。
-
-装好之后在终端运行 `dsh`。本机 Web UI 是 `dsh web`，默认打开 `http://127.0.0.1:3080`；加上 `--no-open` 就只起服务。默认沙箱要在 `PATH` 上找到 `bwrap`，所以同时安装 `pkgs.bubblewrap`。模型凭据留在本机，不写入这个仓库。
+| 名称 | 模块文件 | 文档 | 一句话状态 |
+| --- | --- | --- | --- |
+| 桌面 | modules/desktop.nix | modules/desktop.nix | 默认会话 plasmax11 |
+| 秘密 | modules/secrets.nix | secrets/README.md | sops 只写名字 |
+| ranger / neovim | home/editors.nix | home/editors.nix | 沿用现有配置 |
+| 软件包 | modules/packages.nix | docs/packages.md | deepseek-harness 走 nixpkgs-unstable |
+| 本仓库表达式 | pkgs/default.nix | pkgs/default.nix | packages.x86_64-linux 与 overlays.default |

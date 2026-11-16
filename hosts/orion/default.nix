@@ -56,6 +56,9 @@
     campusSubnets = [ ];
   };
   orion.secrets.enable = true;
+  orion.packages.unstable = [
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.deepseek-harness # 26.05 没有此包
+  ];
   orion.shortcuts.profile = "current";
 
   home-manager.useGlobalPkgs = true;

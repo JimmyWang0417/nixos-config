@@ -1,10 +1,17 @@
-{ config, pkgs, inputs, ... }:
-let
-  # Attribute is absent from the locked nixos-26.05 nixpkgs. See flake input nixpkgs-deepseek.
-  deepseekPkgs = inputs.nixpkgs-deepseek.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
+{ config, lib, pkgs, ... }:
 {
+  options.orion.packages.unstable = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [ ];
+    description = "Packages from nixpkgs-unstable when nixos-26.05 is missing or older.";
+  };
+
+  config = {
   nixpkgs.config.allowUnfree = true;
+  # Local expressions in pkgs/. Orion does not install them from here.
+  nixpkgs.overlays = [
+    (import ../overlay.nix)
+  ];
   # yakkhini.dingtalk 9.0.0.261105002 bundles OpenSSL 1.1 (EOL). The package
   # matches the installed client, so this one name is permitted.
   nixpkgs.config.permittedInsecurePackages = [
@@ -45,9 +52,7 @@ in
     pkg-config
     ninja
     nodejs
-    # Default dsh sandbox looks up bwrap on PATH. The nixpkgs wrapper does not add it.
     bubblewrap
-    deepseekPkgs.deepseek-harness
     python3
     conda
     jdk
@@ -124,5 +129,6 @@ in
     marksman
     bash-language-server
     universal-ctags
-  ];
+  ] ++ config.orion.packages.unstable;
+  };
 }
