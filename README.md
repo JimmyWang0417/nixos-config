@@ -124,8 +124,6 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - `botmux` 3.59.15
 - `animeko` 6.4.0。nixpkgs 26.05 的 `animeko` 5.3.2 标记为 broken，这份是 AppImage
 
-`alder`、`typora-free-with-plugin` 和 Grok Bot 桌面版没有收进本仓库。
-
 这些包的版本写在各自的 `pkgs/` 表达式里，要改就手改。本仓库没有 GitHub Actions。
 
 ### 等用户开口再写进配置

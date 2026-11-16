@@ -58,7 +58,7 @@
       };
 
       # Package expressions that are not in nixpkgs 26.05. Not installed on Orion
-      # unless a host module lists them. alder and typora-free-with-plugin are absent.
+      # unless a host module lists them.
       overlays.default = import ./overlay.nix;
 
       packages.x86_64-linux = import ./pkgs {
