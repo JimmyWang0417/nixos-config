@@ -1,143 +1,111 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.orion.packages;
-  py = pkgs.python3.withPackages (ps: with ps; [
-    pip
-    cython
-    fastapi
-    matplotlib
-    pillow
-    reportlab
-    scikit-learn
-    scipy
-    seaborn
-    pyqt5
-  ]);
-in
+{ config, pkgs, ... }:
 {
-  options.orion.packages.enable = lib.mkEnableOption "mapped user packages";
+  nixpkgs.config.allowUnfree = true;
 
-  config = lib.mkIf cfg.enable {
-    programs.steam.enable = config.orion.nix.allowUnfree;
-    hardware.graphics.enable32Bit = config.orion.nix.allowUnfree;
-    environment.systemPackages = with pkgs; [
-      acpi
-      avahi
-      bash-language-server
-      btrfs-progs
-      btop
-      cmake
-      compsize
-      linuxPackages.cpupower
-      cryptsetup
-      diffutils
-      dmidecode
-      dnsmasq
-      dosfstools
-      e2fsprogs
-      efibootmgr
-      exfatprogs
-      f2fs-tools
-      fastfetch
-      ffmpeg
-      file
-      fzf
-      gcc
-      gdb
-      geckodriver
-      gfortran
-      gh
-      git
-      git-lfs
-      gnome-themes-extra
-      gnumake
-      htop
-      inetutils
-      inxi
-      iverilog
-      jdk
-      jfsutils
-      keepassxc
-      less
-      libcanberra
-      libdvdcss
-      libreoffice
-      lsd
-      lvm2
-      man
-      man-pages
-      mariadb
-      mdadm
-      memtest86plus
-      micro
-      nano
-      neovim
-      nfs-utils
-      nodejs
-      ntfs3g
-      obs-studio
-      openblas
-      openrgb
-      openssh
-      pandoc
-      p7zip
-      pciutils
-      pipx
-      pkg-config
-      poppler-utils
-      powertop
-      proxychains
-      py
-      ranger
-      rclone
-      rsync
-      samba
-      sbctl
-      shfmt
-      sof-firmware
-      sshfs
-      telegram-desktop
-      texinfo
-      texlive.combined.scheme-full
-      pay-respects
-      timeshift
-      tokei
-      typst
-      udiskie
-      universal-ctags
-      unar
-      unzip
-      usbutils
-      vlc
-      wget
-      which
-      xfsprogs
-      xmake
-      firefox
-      helix
-      marksman
-      mesa-demos
-      papirus-icon-theme
-      perl
-      alsa-utils
-      alsa-firmware
-      system-config-printer
-      xterm
-    ] ++ lib.optionals config.orion.nix.allowUnfree [
-      discord
-      google-chrome
-      jetbrains.idea
-      jetbrains.pycharm
-      microsoft-edge
-      obsidian
-      vscode
-    ] ++ (with pkgs.gst_all_1; [
-      gstreamer
-      gst-plugins-base
-      gst-plugins-good
-      gst-plugins-bad
-      gst-plugins-ugly
-      gst-libav
-    ]);
+  programs.firefox = {
+    enable = true;
+    languagePacks = [ "zh-CN" ];
   };
+
+  programs.steam.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    git
+    git-lfs
+    gh
+    wget
+    curl
+    rsync
+    rclone
+    unzip
+    p7zip
+    htop
+    btop
+    fastfetch
+    fzf
+    lsd
+    neovim
+    helix
+    micro
+    ranger
+    nano
+    cmake
+    gnumake
+    gdb
+    gfortran
+    pkg-config
+    ninja
+    nodejs
+    python3
+    jdk
+    (python3.withPackages (
+      ps: with ps; [
+        pip
+        fastapi
+        matplotlib
+        pillow
+        reportlab
+        scikit-learn
+        scipy
+        seaborn
+      ]
+    ))
+    vlc
+    obs-studio
+    keepassxc
+    telegram-desktop
+    discord
+    obsidian
+    google-chrome
+    microsoft-edge
+    vscode
+    heroic
+    libreoffice
+    typst
+    pandoc
+    jetbrains.idea
+    jetbrains.pycharm
+    btrfs-progs
+    compsize
+    ntfs3g
+    exfatprogs
+    dosfstools
+    e2fsprogs
+    xfsprogs
+    cryptsetup
+    lvm2
+    mdadm
+    dmidecode
+    usbutils
+    pciutils
+    powertop
+    acpi
+    config.boot.kernelPackages.cpupower
+    inxi
+    alsa-utils
+    ffmpeg
+    libdvdcss
+    mesa-demos
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-libav
+    openrgb
+    logiops
+    mariadb
+    nfs-utils
+    samba
+    papirus-icon-theme
+    xdg-utils
+    xterm
+    udiskie
+    pipx
+    shfmt
+    tokei
+    marksman
+    bash-language-server
+    universal-ctags
+  ];
 }

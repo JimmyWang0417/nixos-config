@@ -59,7 +59,7 @@ in
   };
 
   config = lib.mkMerge [
-    (lib.mkIf config.orion.users.jimmy.enable {
+    (lib.mkIf (cfg.profile == "current") {
       home-manager.users.jimmywang0417.imports = [
         ({ lib, pkgs, ... }: {
           home.activation.currentShortcuts = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

@@ -50,7 +50,7 @@
 | grub-btrfs | Arch/mkinitcpio 的 grub-btrfs，NixOS 不使用这套 hook |
 | grub-theme-manjaro | Manjaro GRUB 主题 |
 | gtk3 | 由 Plasma/GTK 依赖带入，不单列 Arch 包名 |
-| heroic-games-launcher | 未写入系统包 |
+| heroic-games-launcher | 已映射为 `heroic` |
 | hexo-cli | Node 全局 CLI，未写入 |
 | huaweicloudmeeting-bin | 专有客户端 |
 | install-grub | Manjaro 辅助脚本，引导由 boot.loader.grub 表达 |

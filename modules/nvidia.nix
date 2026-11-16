@@ -1,60 +1,40 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.orion.nvidia;
-in
+# Live stack, from mhwd and the running kernel:
+#   video-hybrid-intel-nvidia-prime + video-modesetting
+#   i915 on 00:02.0 Iris Xe [8086:46a6]
+#   nvidia open kernel module 615.71.09 on 01:00.0 RTX 3060 Mobile [10de:2520]
+#   cmdline: nvidia_drm.modeset=1 nvidia_drm.fbdev=1
+#   NVreg_DynamicPowerManagement=0x02
+#   NVreg_PreserveVideoMemoryAllocations=1
+#   nvidia-suspend / nvidia-hibernate / nvidia-resume enabled
+# nixos-hardware's common-gpu-nvidia turns on PRIME offload. Bus IDs are local.
+{ config, pkgs, ... }:
 {
-  options.orion.nvidia = {
-    enable = lib.mkEnableOption "NVIDIA hybrid offload";
-    open = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Use the open NVIDIA kernel module. Ampere and newer, including this RTX 3060 Mobile.";
-    };
-    finegrained = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Set NVreg_DynamicPowerManagement=0x02 via hardware.nvidia.powerManagement.finegrained.";
-    };
-    intelBusId = lib.mkOption {
-      type = lib.types.str;
-      default = "";
-      description = "iGPU PCI id, such as PCI:0:2:0. The host sets this.";
-    };
-    nvidiaBusId = lib.mkOption {
-      type = lib.types.str;
-      default = "";
-      description = "dGPU PCI id, such as PCI:1:0:0. The host sets this.";
-    };
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-compute-runtime
+    ];
   };
 
-  config = lib.mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = cfg.intelBusId != "" && cfg.nvidiaBusId != "";
-        message = "orion.nvidia.enable needs intelBusId and nvidiaBusId from the host file.";
-      }
-    ];
-
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = [ pkgs.intel-media-driver ];
-      extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = true;
+    open = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    prime = {
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
-
-    hardware.nvidia = {
-      open = cfg.open;
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      powerManagement.finegrained = cfg.finegrained;
-      nvidiaSettings = true;
-      prime = {
-        offload.enable = true;
-        intelBusId = cfg.intelBusId;
-        nvidiaBusId = cfg.nvidiaBusId;
-      };
-    };
-
-    environment.systemPackages = [ pkgs.nvidia-vaapi-driver ];
   };
 }

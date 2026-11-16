@@ -20,10 +20,9 @@
   # };
 
   orion.boot.enable = true;
-  orion.desktop.enable = true;
-  orion.desktop.defaultSession = "plasmax11";
-  orion.locale.enable = true;
-  orion.users.jimmy.enable = true;
+  orion.chinese.enable = true;
+  orion.nix.enable = true;
+  orion.shortcuts.profile = "current";
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

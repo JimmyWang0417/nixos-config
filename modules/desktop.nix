@@ -1,102 +1,49 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.orion.desktop;
-in
+# KDE Plasma 6.7 on Wayland, SDDM 0.21. The greeter is also started on Wayland.
+{ pkgs, ... }:
 {
-  options.orion.desktop = {
-    enable = lib.mkEnableOption "Plasma desktop";
-    defaultSession = lib.mkOption {
-      type = lib.types.str;
-      default = "plasmax11";
-      description = "Login session. plasmax11 is X11. plasma is the Wayland session and stays installed.";
-    };
-    sddmTheme = lib.mkOption {
-      type = lib.types.str;
-      default = "breeze";
-    };
-    autoLogin = {
-      enable = lib.mkEnableOption "SDDM autologin";
-      user = lib.mkOption {
-        type = lib.types.str;
-        default = "jimmywang0417";
-      };
-    };
-    touchpad = {
-      tapping = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-      };
-      naturalScrolling = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-      };
-    };
+  services.xserver.enable = true;
+  services.xserver.xkb.layout = "cn";
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.defaultSession = "plasma";
+  # /etc/sddm.conf.d/kde_settings.conf autologins this user. The file names
+  # Session=plasmax11, while the running session is Wayland (plasma).
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "jimmywang0417";
   };
+  services.desktopManager.plasma6.enable = true;
 
-  config = lib.mkIf cfg.enable {
-    services.xserver.enable = true;
-    services.displayManager.sddm = {
-      enable = true;
-      theme = cfg.sddmTheme;
-      extraPackages = [ pkgs.qt6.qtvirtualkeyboard ];
-      settings = {
-        General.InputMethod = "qtvirtualkeyboard";
-        Theme.CursorTheme = "breeze_cursors";
-      };
-    };
-    services.displayManager.defaultSession = cfg.defaultSession;
-    services.displayManager.autoLogin = lib.mkIf cfg.autoLogin.enable {
-      enable = true;
-      user = cfg.autoLogin.user;
-    };
-    services.desktopManager.plasma6.enable = true;
-
-    services.libinput.touchpad = {
-      tapping = cfg.touchpad.tapping;
-      naturalScrolling = cfg.touchpad.naturalScrolling;
-    };
-    services.libinput.mouse.accelProfile = "flat";
-
-    environment.systemPackages = with pkgs.kdePackages; [
-      ark
-      audiocd-kio
-      dolphin
-      dolphin-plugins
-      elisa
-      ffmpegthumbs
-      filelight
-      gwenview
-      kamera
-      kate
-      kaccounts-providers
-      kcalc
-      kdeconnect-kde
-      kdegraphics-thumbnailers
-      kdenetwork-filesharing
-      keditbookmarks
-      kfind
-      kgamma
-      khelpcenter
-      kimageformats
-      kinfocenter
-      kio-extras
-      kmenuedit
-      konsole
-      ksystemlog
-      kwalletmanager
-      okular
-      phonon-vlc
-      plasma-browser-integration
-      plasma-systemmonitor
-      plasma-thunderbolt
-      plasma-workspace-wallpapers
-      print-manager
-      skanlite
-      spectacle
-      yakuake
-    ] ++ [
-      pkgs.tela-icon-theme
-      pkgs.papirus-icon-theme
-    ];
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+    wireplumber.enable = true;
   };
+  security.rtkit.enable = true;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  environment.systemPackages = with pkgs; [
+    kdePackages.ark
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.elisa
+    kdePackages.filelight
+    kdePackages.gwenview
+    kdePackages.kate
+    kdePackages.kcalc
+    kdePackages.kdeconnect-kde
+    kdePackages.kfind
+    kdePackages.konsole
+    kdePackages.kwalletmanager
+    kdePackages.okular
+    kdePackages.skanlite
+    kdePackages.spectacle
+    kdePackages.yakuake
+  ];
 }
