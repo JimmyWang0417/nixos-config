@@ -30,7 +30,7 @@
 
 主题包和每日更新在 nur-packages，nixos-config 只引用。以后真正执行 `nixos-rebuild` 时，安装脚本从这个 store 路径拷到 `/boot/grub/theme`。这次只求值，不跑 `grub-mkconfig`，也不跑 `grub-install`。
 
-主题修订由 nur-packages 每天 16:00 UTC 的更新工作流开 PR。rev 没变就不开。本仓库的 `updates.nix` 不再列这个包。
+主题修订由 nur-packages 每天 16:00 UTC 的更新工作流开 PR。rev 没变就不开。
 
 ## 未办或不迁
 
