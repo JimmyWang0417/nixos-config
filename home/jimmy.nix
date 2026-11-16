@@ -23,6 +23,8 @@ let
     layout);
 in
 {
+  imports = [ ./editors.nix ];
+
   home.stateVersion = "26.05";
   home.username = "jimmywang0417";
   home.homeDirectory = "/home/jimmywang0417";
