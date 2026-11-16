@@ -13,11 +13,11 @@ nix --version
 
 echo "== nix flake check =="
 if nix flake check --help 2>&1 | grep -q -- '--no-build'; then
-  nix flake check --no-build --show-trace
+  nix flake check --no-build --no-update-lock-file --show-trace
 else
-  nix flake check --show-trace
+  nix flake check --no-update-lock-file --show-trace
 fi
 
 echo "== nixosConfigurations.orion toplevel drv =="
-nix eval --raw --show-trace .#nixosConfigurations.orion.config.system.build.toplevel.drvPath
+nix eval --raw --no-update-lock-file --show-trace .#nixosConfigurations.orion.config.system.build.toplevel.drvPath
 echo
