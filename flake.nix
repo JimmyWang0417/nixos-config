@@ -14,6 +14,9 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # nixos-26.05 has no deepseek-harness attribute. This input supplies only that package.
+    nixpkgs-deepseek.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
   outputs =

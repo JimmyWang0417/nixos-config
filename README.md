@@ -109,3 +109,11 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 3. 改主机名、文件系统、initrd 和显卡 PCI，不要复用 Orion 的分区 UUID。
 
 用户 jimmywang0417 的 Plasma 布局在 `home/jimmy.nix`，由主机文件导入。另一台机器可以同样导入，也可以不导入。
+
+## DeepSeek Harness
+
+DeepSeek Harness（命令 `dsh`）是 DeepSeek 开源的智能体框架，按「一切皆插件」搭起来，自带命令行和本机 Web UI。上游是 <https://github.com/deepseek-ai/deepseek-harness>，文档在 <https://deepseek-harness.github.io/deepseek-harness/>。项目还在开发者预览，版本之间会有不兼容改动。
+
+本机没有这个程序，也没有它的配置目录。锁住的 `nixos-26.05` 里没有 `pkgs.deepseek-harness`。系统频道仍是 26.05。flake 另加输入 `nixpkgs-deepseek`（`github:NixOS/nixpkgs/nixpkgs-unstable`），只取那个修订里的 `deepseek-harness` 0.2.2-rc.1，写在 `modules/packages.nix` 的 `environment.systemPackages`。Orion 已经导入这个模块，没有单独开关。
+
+装好之后在终端运行 `dsh`。本机 Web UI 是 `dsh web`，默认打开 `http://127.0.0.1:3080`；加上 `--no-open` 就只起服务。默认沙箱要在 `PATH` 上找到 `bwrap`，所以同时安装 `pkgs.bubblewrap`。模型凭据留在本机，不写入这个仓库。

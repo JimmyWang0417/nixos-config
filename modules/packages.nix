@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
+let
+  # Attribute is absent from the locked nixos-26.05 nixpkgs. See flake input nixpkgs-deepseek.
+  deepseekPkgs = inputs.nixpkgs-deepseek.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -36,6 +40,9 @@
     pkg-config
     ninja
     nodejs
+    # Default dsh sandbox looks up bwrap on PATH. The nixpkgs wrapper does not add it.
+    bubblewrap
+    deepseekPkgs.deepseek-harness
     python3
     conda
     jdk
