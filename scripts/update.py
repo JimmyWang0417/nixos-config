@@ -23,7 +23,7 @@ A package that is not listed is never modified.
 
 Outputs:
   rewritten nix files and, for github-source, a new Cargo.lock.
-  The workflow then commits those files on a new branch update/weekly-<UTC stamp>
+  The workflow then commits those files on a new branch update/daily-<UTC stamp>
   and opens a pull request. It does not force-push.
 """
 

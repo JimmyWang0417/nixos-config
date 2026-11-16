@@ -127,9 +127,10 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - `botmux` 3.59.15
 - `animeko` 6.4.0。nixpkgs 26.05 的 `animeko` 5.3.2 标记为 broken，这份是 AppImage
 - `easyconnect` 7.6.7.3，官方 deb 的表达式。Orion 启动的仍是 `hagb/docker-easyconnect:7.6.7`，见「校园网与 EasyConnect」
-- `grok-bot` 1.1.0，表达式在，不安装
 
-`alder` 和 `typora-free-with-plugin` 没有收进本仓库。
+`alder`、`typora-free-with-plugin` 和 Grok Bot 桌面版没有收进本仓库。
+
+`.github/workflows/ci.yml` 在 push 和 pull request 上构建 `packages.x86_64-linux` 里的每个包，不求值整份 NixOS。nixpkgs 仍钉在 `nixos-26.05`。`.github/workflows/update.yml` 每天 16:00 UTC 跑一次，也可以手动触发；只在 `updates.nix` 里的 GitHub release 版本变化时开 pull request，用默认 `GITHUB_TOKEN`，不会 force-push。
 
 ### 等用户开口再写进配置
 

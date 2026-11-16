@@ -1,4 +1,4 @@
-# Weekly update allow-list. scripts/update.py and .github/workflows/update.yml
+# Daily update allow-list. scripts/update.py and .github/workflows/update.yml
 # read this file with `nix eval --file ./updates.nix --json`.
 # A package is updated only when it appears here.
 [
