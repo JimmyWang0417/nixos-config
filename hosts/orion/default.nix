@@ -47,10 +47,10 @@
   };
   orion.easyconnect = {
     enable = true;
-    # Stopped + every probe fails: start. A successful probe leaves it stopped.
-    # A running container stops for an active name below, or a probe bound
-    # to the physical NIC. A later success through the tunnel does not.
-    # No PSK was read. Wired "有线连接 1" is not matched by name.
+    # Stopped + probe fails: start. Probe success while stopped: stay stopped.
+    # A running container stops only when the active connection is a name
+    # below. A later success through the tunnel does not stop it.
+    # No PSK was read. Wired "有线连接 1" is not a stop condition.
     campusProbes = [ "https://kq.xjtu.edu.cn" ];
     campusConnections = [
       "XJTU_STU"
@@ -61,6 +61,13 @@
   orion.secrets.enable = true;
   orion.packages.unstable = [
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.deepseek-harness # 26.05 没有此包
+  ];
+  # 插件由 dsh-market 更新，Nix 不钉版本.
+  orion.packages.dshPlugins = [
+    "dshmarket" # dsh-market。npm 包名没有连字符
+    "dsh-better-sidebar" # 网页侧栏：文件树、编辑器和终端
+    "dsh-context" # 上下文构成面板，不压缩上下文
+    "dsh-cost-meter" # 会话费用和订阅额度
   ];
   orion.shortcuts.profile = "current";
 
