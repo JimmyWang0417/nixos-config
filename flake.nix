@@ -23,8 +23,8 @@
     nur.url = "github:nix-community/NUR/main";
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
-    # DedSec and Tela. Daily rev bumps stay in nur-packages. WhiteSur stays on two commits.
-    nur-packages.url = "github:JimmyWang0417/nur-packages/7386108b01f75d37f020ca46e6aae99cad706235";
+    # DedSec, Tela, and WhiteSur. Daily rev bumps stay in nur-packages.
+    nur-packages.url = "github:JimmyWang0417/nur-packages/a303c16364fd217545dcac314361ade1c437d74d";
     nur-packages.inputs.nixpkgs.follows = "nixpkgs";
   };
 

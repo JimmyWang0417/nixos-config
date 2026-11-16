@@ -5,7 +5,7 @@ let
   tela = nurPkgs.tela-icon-theme;
   layout = {
     "plasma-org.kde.plasma.desktop-appletsrc" = pkgs.replaceVars ./plasma/plasma-org.kde.plasma.desktop-appletsrc {
-      whitesurWallpaper = "${whitesur}/share/wallpapers/WhiteSur/contents/images/3840x2160.png";
+      whitesurWallpaper = "${whitesur}/share/wallpapers/WhiteSur/contents/images/3840x2160.jpg";
     };
     "plasmashellrc" = pkgs.replaceVars ./plasma/plasmashellrc {
       plasmaShells = "${pkgs.kdePackages.plasma-desktop}/share/plasma/shells";
