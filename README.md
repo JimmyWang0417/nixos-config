@@ -6,7 +6,7 @@
 
 ## 快捷键
 
-默认 profile 仍是 `current`：迁过来的 KDE 快捷键，不启用 keyd。仿 macOS 的第二套还在接入，见下面的「未办配置」。
+默认是迁过来的 KDE 快捷键，`orion.shortcuts.profile = "current"`，不启用 keyd。仿 macOS 的一套已经可以切换：只在主机文件里写成 `"macos"`。按住 Super 时当作 Command。改回 `"current"` 会关掉 keyd。这不是未办项。
 
 ## 未办配置
 
@@ -53,7 +53,7 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 ### 配置里已留接口但还没填实的
 
 - sops：`modules/secrets.nix` 只登记了本机 age 密钥路径和主机 SSH 密钥路径。`secrets/README.md` 和 `.sops.yaml` 里还没有具体 secret 名字，`keys` 是空的，也没有密文。
-- 快捷键：`modules/shortcuts.nix` 还在工作区，没有提交。上次 toplevel 求值在这份模块上失败（`lib.hm` 不存在）。默认 `orion.shortcuts.profile` 仍是 `current`，macOS 方案还不能当成已经接好。
+- 快捷键不是未办。`modules/shortcuts.nix` 已提交。默认 `orion.shortcuts.profile = "current"`，此时 `services.keyd.enable` 为 false。改成 `"macos"` 才启用 keyd。toplevel 已求值通过。
 
 ### NUR
 
