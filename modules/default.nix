@@ -11,5 +11,6 @@
     ./networking.nix
     ./nix-settings.nix
     ./secrets.nix
+    ./shortcuts.nix
   ];
 }

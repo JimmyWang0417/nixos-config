@@ -96,6 +96,7 @@
   hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
   hardware.graphics.extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
   orion.secrets.enable = true;
+  orion.shortcuts.profile = "current";
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
