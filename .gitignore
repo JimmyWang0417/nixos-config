@@ -12,11 +12,14 @@ result-*
 # VM images
 *.qcow2
 
-# Secrets (never commit). The directory README is documentation, not ciphertext.
+# Age private key, decrypted copies, and original secret paths. Ciphertext under secrets/*.sops is committed.
 secrets/*
 !secrets/README.md
+!secrets/*.sops
 *.age
 *.pem
+*.dec
+keys.txt
 id_rsa
 id_ed25519
 

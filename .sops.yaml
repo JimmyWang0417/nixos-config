@@ -1,6 +1,10 @@
-# Public recipients only. No ciphertext is committed yet.
-# Add the host age recipient from `ssh-to-age -i /etc/ssh/ssh_host_ed25519_key.pub`.
-keys: []
+# Public age recipients only. The private key stays in ~/.config/sops/age/keys.txt.
+keys:
+  - &user age10mvdscvzpw872uramtt7df6tvaduazuvh4f92ceqp4eul80lxg3szgt2ym
+  - &host age1qzacfp28wtvm4j64mluslke407qtnmn8t9zhd50y7r9zek3p3atsurllyf
 creation_rules:
-  - path_regex: secrets/[^/]+\.enc\.yaml$
-    key_groups: []
+  - path_regex: secrets/.*\.sops$
+    key_groups:
+      - age:
+          - *user
+          - *host

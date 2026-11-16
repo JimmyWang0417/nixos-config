@@ -14,21 +14,20 @@ Linux 根文件系统在 btrfs `UUID=fd32207f-8a11-48d7-9d04-9316cdb8c265` 的 `
 
 这些还没有做完。不是已迁移功能的简介。
 
+### 已用 sops 加密入库
+
+只写 secret 名。明文不在仓库里。运行时路径是 `/run/secrets/<名字>`，说明在 `secrets/README.md`。
+
+fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-licenses、wps-license、botmux-bots。
+
 ### 留在本机，不能入库
 
 只记种类，没有秘密内容。
 
-- fcitx5 拼音用户词库：`user.dict` 与 `user.history`
 - Win10 字体包 `ttf-ms-win10-auto` 里的字体文件
-- JetBrains 许可证文件
-- Clash Verge 的订阅和 `.encryption_key`
-- anytls 私钥（`~/.ssh` 里 `id_ed25519_anytls_` 开头的文件）
-- 坚果云 rclone 凭据
 - CC Switch 数据目录
-- NetworkManager 系统连接（`system-connections`）
-- botmux 的 `bots.json`
 - v2rayN 的 `guiConfigs`
-- WPS 的 `license2.dat`
+- NetworkManager 系统连接（`/etc/NetworkManager/system-connections`）未读到，没有加密
 
 ### nixpkgs 26.05 没有、也还没接入的包
 
@@ -54,7 +53,7 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 
 ### 配置里已留接口但还没填实的
 
-- sops：`modules/secrets.nix` 只登记了本机 age 密钥路径和主机 SSH 密钥路径。`secrets/README.md` 和 `.sops.yaml` 里还没有具体 secret 名字，`keys` 是空的，也没有密文。
+- sops 的年龄私钥仍只在本机。密文 secret 名见上面「已用 sops 加密入库」。`.sops.yaml` 里只有公钥接收者。
 - 快捷键不是未办。`modules/shortcuts.nix` 已提交。默认 `orion.shortcuts.profile = "current"`，此时 `services.keyd.enable` 为 false。改成 `"macos"` 才启用 keyd。toplevel 已求值通过。
 
 ### NUR

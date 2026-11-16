@@ -1,11 +1,15 @@
-这里只登记以后要加密的名字。仓库里没有密文，也没有私钥。
+密文用 sops-nix 和 age 加密。私钥在本机 `~/.config/sops/age/keys.txt`，不入库。开机后解密到 `/run/secrets/<名字>`，权限 0400，属主 jimmywang0417。每个文件是该事项的 tar，里面只有文件名，没有说明文字。
 
-sops-nix 在开机时用本机 `~/.config/sops/age/keys.txt` 和 `/etc/ssh/ssh_host_ed25519_key` 解密到 `/run/secrets`。私钥不要提交。
+| secret 名 | 运行时路径 | 内容种类 |
+| --- | --- | --- |
+| fcitx5-pinyin | /run/secrets/fcitx5-pinyin | 拼音 user.dict 与 user.history |
+| clash-verge | /run/secrets/clash-verge | 订阅 profile、profiles.yaml、clash-verge.yaml、.encryption_key |
+| anytls-ssh-key | /run/secrets/anytls-ssh-key | 一份 anytls 用的 ed25519 私钥 |
+| rclone-webdav | /run/secrets/rclone-webdav | 整份 rclone.conf。里面只有一个名为 webdav 的 remote，没有拆开 |
+| jetbrains-licenses | /run/secrets/jetbrains-licenses | JetBrains 的 *.key 和 plugin_*.license |
+| wps-license | /run/secrets/wps-license | WPS license2.dat |
+| botmux-bots | /run/secrets/botmux-bots | bots.json |
 
-还没有 age 收件人。在要开始加密时执行：
+未读到，所以没有加密：`/etc/NetworkManager/system-connections`（当前用户没有读权限）。
 
-```
-ssh-to-age -i /etc/ssh/ssh_host_ed25519_key.pub
-```
-
-把打印出来的 `age1...` 写进仓库根目录的 `.sops.yaml`，再对单独的文件运行 `sops`。不要把词库、许可证、订阅、Wi-Fi 密码或令牌原文贴进 Git。
+不入库：alder、crm、udf-http-range-proxy、keepassxc-unlock、verilog-format、xjtu-course-genius、xjtutoolbox、botmux 程序本身、animeko、EasyConnect、华为云会议、Anaconda、Grok Bot、Typora、Win10 字体。CC Switch 数据目录和 v2rayN 的 guiConfigs 也没有打进密文。
