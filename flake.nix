@@ -17,10 +17,15 @@
 
     # nixos-26.05 has no deepseek-harness attribute. This input supplies only that package.
     nixpkgs-deepseek.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    # NUR's master branch is a rename tombstone. Track main, and build the
+    # repos against this flake's nixos-26.05 nixpkgs.
+    nur.url = "github:nix-community/NUR/main";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
-    { self, nixpkgs, home-manager, nixos-hardware, sops-nix, ... }@inputs:
+    { self, nixpkgs, home-manager, nixos-hardware, sops-nix, nur, ... }@inputs:
     let
       lib = nixpkgs.lib;
       mkHost = name: spec:
@@ -35,6 +40,7 @@
             ./modules
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            nur.modules.nixos.default
           ] ++ spec.modules;
         };
     in

@@ -5,6 +5,11 @@ let
 in
 {
   nixpkgs.config.allowUnfree = true;
+  # yakkhini.dingtalk 9.0.0.261105002 bundles OpenSSL 1.1 (EOL). The package
+  # matches the installed client, so this one name is permitted.
+  nixpkgs.config.permittedInsecurePackages = [
+    "dingtalk-9.0.0.261105002"
+  ];
 
   programs.firefox = {
     enable = true;
@@ -68,7 +73,11 @@ in
     microsoft-edge
     vscode
     heroic
-    libreoffice
+    libreoffice-qt
+    nur.repos.freegoxing.baidunetdisk
+    nur.repos.yakkhini.dingtalk
+    nur.repos.novel2430.wpsoffice-365
+    todesk
     typst
     pandoc
     jetbrains.idea

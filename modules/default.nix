@@ -11,6 +11,7 @@
     ./networking.nix
     ./nix-settings.nix
     ./nix-download.nix
+    ./easyconnect.nix
     ./secrets.nix
     ./shortcuts.nix
   ];

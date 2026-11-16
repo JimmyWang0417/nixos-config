@@ -45,6 +45,16 @@
     proxy = "http://127.0.0.1:7897";
     download.enable = true;
   };
+  orion.easyconnect = {
+    enable = true;
+    # Saved NetworkManager profiles read from `nmcli connection show`.
+    # No PSK was read. Wired "有线连接 1" is not a campus name.
+    campusConnections = [
+      "XJTU_STU"
+      "xjtuse-lab"
+    ];
+    campusSubnets = [ ];
+  };
   orion.secrets.enable = true;
   orion.shortcuts.profile = "current";
 
@@ -60,8 +70,12 @@
       message = "flake hostName and hosts/orion networking.hostName diverged";
     }
     {
-      assertion = config.services.displayManager.defaultSession == "plasma";
-      message = "Orion's running session is Plasma Wayland";
+      assertion = config.services.displayManager.defaultSession == "plasmax11";
+      message = "Orion's default session is Plasma X11 (plasmax11) for ToDesk";
+    }
+    {
+      assertion = config.services.displayManager.sddm.wayland.enable == false;
+      message = "SDDM greeter stays on X11; Wayland remains a login choice";
     }
   ];
 }
