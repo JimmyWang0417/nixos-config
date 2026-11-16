@@ -64,15 +64,15 @@ doc、docx、rtf、odt 归 WPS 文字（`wps-office-wps.desktop`），xls、xlsx
 
 现场 `xdg-mime` 里，doc、ppt、odt、ods、rtf 曾落到 LibreOffice，docx、xls、xlsx、pptx 曾落到 ChatGPT。系统级 `xdg.mime.defaultApplications` 把办公文档固定到 WPS，并在 `xdg.mime.removedAssociations` 里去掉对应的 LibreOffice 桌面文件，避免装包顺序再抢走关联。这一步写的是 `/etc/xdg/mimeapps.list`，不改写 `~/.config/mimeapps.list` 里已有的协议关联。
 
-## 校园网与 EasyConnect
+## 校园网与 docker-easyconnect
 
-连上校园网才启动，离开就停。每次 NetworkManager 连接或断开都会再判断一次，不只在开机时看一眼。
+连上校园网才启动 docker-easyconnect，离开就停。每次 NetworkManager 连接或断开都会再判断一次，不只在开机时看一眼。用 https://kq.xjtu.edu.cn 是否能连通判断校园网。
 
-要填的选项是 `orion.easyconnect.campusConnections`（连接名列表）和 `orion.easyconnect.campusSubnets`（可选的 IPv4 网段，给有线用）。两个都空时不启动容器。子网名单为空时只按连接名匹配。
+`orion.easyconnect` 打开的是 docker-easyconnect，不是官方 deb。`campusProbes` 默认是 `[ "https://kq.xjtu.edu.cn" ]`。一条探测要在大约 3 秒的连接超时里完成 HTTPS，HTTP 状态是 2xx 或 3xx，才算成功。只解析出域名不算。认证门户把请求重定向到另一台主机也不算。探测地址里不写账号密码，仓库里也没有 Wi-Fi 密码。
 
-本机 `nmcli connection show` 里能确定的校园网连接名是 `XJTU_STU` 和 `xjtuse-lab`，已经写进 `campusConnections`。没有读 Wi-Fi 密码。名叫「有线连接 1」的以太网不是校园网标识，所以 `campusSubnets` 仍是空的；校园网网线要自己把网段填进去。
+`XJTU_STU` 和 `xjtuse-lab` 仍写在 `campusConnections` 里，只作连接名记录。探测成功就启动 docker-easyconnect，哪怕当前连接名不在这个名单里；探测失败就停止，哪怕连接名对得上。`campusSubnets` 仍是空的。名叫「有线连接 1」的以太网不是校园网标识；这台机器只要打得开上面的网站，就启动容器。
 
-容器是 `hagb/docker-easyconnect:7.6.7`，名字 `easyconnect`，`autoStart = false`，不挂到 default target。调度脚本在校园网上执行 `docker start`，离开时 `docker stop`。不复制 `/usr/share/sangfor` 里的二进制，也不把 EasyMonitor 写成开机服务。登录凭据不进仓库。
+镜像是 `hagb/docker-easyconnect:7.6.7`，`autoStart = false`，不挂到 default target。调度脚本在校园网上执行 `docker start`，离开时 `docker stop`。不安装官方 deb，不复制 `/usr/share/sangfor` 里的二进制，也不把 EasyMonitor 写成开机服务。登录凭据不进仓库。
 
 ## 网络和下载
 
@@ -126,7 +126,6 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - `xjtutoolbox` 1.4.1
 - `botmux` 3.59.15
 - `animeko` 6.4.0。nixpkgs 26.05 的 `animeko` 5.3.2 标记为 broken，这份是 AppImage
-- `easyconnect` 7.6.7.3，官方 deb 的表达式。Orion 启动的仍是 `hagb/docker-easyconnect:7.6.7`，见「校园网与 EasyConnect」
 
 `alder`、`typora-free-with-plugin` 和 Grok Bot 桌面版没有收进本仓库。
 
@@ -162,7 +161,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - 钉钉 9.0.0.261105002：`nur.repos.yakkhini.dingtalk`。和已装版本一致，走调用方的 nixpkgs。这个包捆绑已停止维护的 OpenSSL 1.1，所以 `nixpkgs.config.permittedInsecurePackages` 里只放了 `dingtalk-9.0.0.261105002`。
 - WPS 365 12.8.2.21176：`nur.repos.novel2430.wpsoffice-365`。版本号和已装的教育版相同，属性名不带 edu。同仓库的 `wpsoffice` 11.1 和 `wpsoffice-cn` 12.1 都更旧，不用。
 
-社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Typora 的更新版本。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 的表达式在本仓库 `pkgs/`。NUR 里没有深信服客户端；Orion 的 EasyConnect 用上面的 docker 镜像。`pkgs/easyconnect` 是 deb 表达式，没有装进系统。
+社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Typora 的更新版本。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 的表达式在本仓库 `pkgs/`。NUR 里没有深信服客户端。Orion 的校园网服务是 docker-easyconnect，镜像 `hagb/docker-easyconnect:7.6.7`，见「校园网与 docker-easyconnect」。
 
 字体和词库：`nur.repos.rewine.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10-sc-sup`、`nur.repos.DzmingLi.windows-fonts` 都是再分发字体，不是让用户自己提供文件的封装，所以不接入。CJK 用已经安装的 Noto Sans CJK / Noto Serif CJK，不另装一份 Source Han，也不装 Win10 字体。fcitx5 拼音用户词库是个人文件，NUR 不会有。
 
@@ -181,7 +180,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - 破解版 Typora：不迁。官方 Typora 也先不装。
 - 完整 Anaconda：不迁，只留 nixpkgs 的 `conda`。
 - Win10 字体：不接入再分发的字体包。CJK 用已安装的 Noto CJK。
-- 深信服安装包：不复制二进制。改用 docker-easyconnect，并且只在校园网启动。
+- 深信服安装包：不复制二进制。改用 docker-easyconnect，并且只在能连通 https://kq.xjtu.edu.cn 时启动。
 - 华为云会议：先不装。
 - 百度网盘、钉钉、WPS：用 NUR 里和已装版本一致的 `freegoxing.baidunetdisk`、`yakkhini.dingtalk`、`novel2430.wpsoffice-365`，不用 `xddxdd.baidunetdisk`，也不用更旧的 `wpsoffice` / `wpsoffice-cn`。
 

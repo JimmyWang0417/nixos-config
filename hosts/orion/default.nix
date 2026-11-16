@@ -47,8 +47,10 @@
   };
   orion.easyconnect = {
     enable = true;
-    # Saved NetworkManager profiles read from `nmcli connection show`.
+    # Campus is a completed HTTPS probe of this site (2xx/3xx, same host).
+    # Names below are recorded only. A failed probe still stops the container.
     # No PSK was read. Wired "有线连接 1" is not a campus name.
+    campusProbes = [ "https://kq.xjtu.edu.cn" ];
     campusConnections = [
       "XJTU_STU"
       "xjtuse-lab"
