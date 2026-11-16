@@ -24,7 +24,7 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
     # DedSec, WhiteSur, and Tela. Daily rev bumps stay in this repo.
-    nur-packages.url = "github:JimmyWang0417/nur-packages/c5dd6a53d834985520becfa902e2fb0aaa74214b";
+    nur-packages.url = "github:JimmyWang0417/nur-packages/a7162c537134e33fe140c84d979b2ab620ee3d0d";
     nur-packages.inputs.nixpkgs.follows = "nixpkgs";
   };
 

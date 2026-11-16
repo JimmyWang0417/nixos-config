@@ -36,7 +36,7 @@ plasma-manager 写不出这块布局里真正在用的部件：底部 CPU 饼图
 - 屏幕 0：`org.kde.plasma.folder`，壁纸插件 `org.kde.image`。
 - 屏幕 1：同样是 folder view 和 `org.kde.image`。
 
-两个桌面的 `Image` 指向 nur-packages 的 `whitesur-kde` 壁纸 `share/wallpapers/WhiteSur/contents/images/3840x2160.jpg`。路径在激活时从 Nix store 填入，不提交图片。
+两个桌面的 `Image` 指向 nur-packages 的 `whitesur-kde` 壁纸 `share/wallpapers/WhiteSur/contents/images/3840x2160.png`。路径在激活时从 Nix store 填入，不提交图片。
 
 `kwinoutputconfig.json` 里的输出：
 
