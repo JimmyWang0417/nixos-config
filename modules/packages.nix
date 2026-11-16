@@ -2,7 +2,7 @@
 let
   # 0.2.2-rc.1 installs plugins with `dsh plugin --profile <name> add`. There is no
   # `dsh market` command. dsh-market is the separate npm package `dshmarket`.
-  # Names only. 插件由 dsh-market 更新，Nix 不钉版本.
+  # Names only; versions stay out of this expression.
   dsh = lib.findFirst
     (pkg: (pkg.pname or "") == "deepseek-harness")
     null

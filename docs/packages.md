@@ -4,7 +4,7 @@
 
 系统安装的软件在 `modules/packages.nix`。nixos-26.05 里有的属性用 `pkgs`。没有或过旧的属性放进 `orion.packages.unstable`，从 flake 输入 `nixpkgs-unstable` 取。这一路不单给某一个程序。
 
-`deepseek-harness` 0.2.2-rc.1 没有 `dsh market` 子命令。市场是独立 npm 包 `dshmarket`（dsh-market），nixpkgs-unstable 里没有这个属性。web profile 还写下 `dsh-better-sidebar`（文件树、编辑器、终端）、`dsh-context`（上下文构成，不压缩）、`dsh-cost-meter`（会话费用和订阅额度）。选型对照了 awesome-dsh-plugin 和四篇小黑盒帖子（link_id `74e872c888ed`、`c1b172b3be3f`、`d8d0727d6d45`、`055972cc9458`）。插件由 dsh-market 更新，Nix 不钉版本。
+`deepseek-harness` 0.2.2-rc.1 没有 `dsh market` 子命令。市场是独立 npm 包 `dshmarket`（dsh-market），nixpkgs-unstable 里没有这个属性。web profile 还写下 `dsh-better-sidebar`（文件树、编辑器、终端）、`dsh-context`（上下文构成，不压缩）、`dsh-cost-meter`（会话费用和订阅额度）。选型对照了 awesome-dsh-plugin 和四篇小黑盒帖子（link_id `74e872c888ed`、`c1b172b3be3f`、`d8d0727d6d45`、`055972cc9458`）。dshmarket 负责安装和更新，Nix 不钉版本。
 
 ## 开关和默认值
 

@@ -62,7 +62,7 @@
   orion.packages.unstable = [
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.deepseek-harness # 26.05 没有此包
   ];
-  # 插件由 dsh-market 更新，Nix 不钉版本.
+  # dshmarket 负责安装和更新，Nix 不钉版本.
   orion.packages.dshPlugins = [
     "dshmarket" # dsh-market。npm 包名没有连字符
     "dsh-better-sidebar" # 网页侧栏：文件树、编辑器和终端
