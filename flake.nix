@@ -23,8 +23,8 @@
     nur.url = "github:nix-community/NUR/main";
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
-    # DedSec GRUB theme. Daily rev bumps stay in this repo.
-    nur-packages.url = "github:JimmyWang0417/nur-packages/242afb8d4b7542549905ca2d380b889ba3b4fbf0";
+    # DedSec, WhiteSur, and Tela. Daily rev bumps stay in this repo.
+    nur-packages.url = "github:JimmyWang0417/nur-packages/c5dd6a53d834985520becfa902e2fb0aaa74214b";
     nur-packages.inputs.nixpkgs.follows = "nixpkgs";
   };
 

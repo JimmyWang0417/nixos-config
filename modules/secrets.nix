@@ -6,7 +6,7 @@ in
   options.orion.secrets.enable = lib.mkEnableOption "sops-nix age decryption";
 
   config = lib.mkIf cfg.enable {
-    sops.age.keyFile = "/home/jimmywang0417/.config/sops/age/keys.txt";
+    sops.age.keyFile = config.users.users.jimmywang0417.home + "/.config/sops/age/keys.txt";
     sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
     # Each file is one sops binary blob (a tar of that concern). Mode 0400.

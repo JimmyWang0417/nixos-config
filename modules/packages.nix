@@ -87,6 +87,7 @@ in
     obs-studio
     keepassxc
     telegram-desktop
+    clash-verge-rev
     discord
     obsidian
     google-chrome

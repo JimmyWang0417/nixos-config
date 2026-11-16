@@ -8,7 +8,7 @@ Win10 字体不下载，也不写进 Nix 文件。`orion.fonts.windows.enable` �
 
 ## 开关和默认值
 
-`orion.fonts.windows.enable` 默认 false。`orion.fonts.windows.directory` 默认 `/home/jimmywang0417/.local/share/fonts/windows`。把你自己的字体放进这个目录再打开开关。
+`orion.fonts.windows.enable` 默认 false。`orion.fonts.windows.directory` 默认是 `users.users.jimmywang0417.home` 下面的 `.local/share/fonts/windows`。把你自己的字体放进这个目录再打开开关。
 
 开关保持 false 时，目录不存在或是空的都不会让构建失败。打开之后，求值要加 `--impure`，否则 flake 看不到这个目录。目录仍然不存在时构建会停。目录在但没有 `*.ttf` / `*.otf` 时只告警，不失败。
 

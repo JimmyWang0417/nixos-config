@@ -36,7 +36,7 @@ plasma-manager 写不出这块布局里真正在用的部件：底部 CPU 饼图
 - 屏幕 0：`org.kde.plasma.folder`，壁纸插件 `org.kde.image`。
 - 屏幕 1：同样是 folder view 和 `org.kde.image`。
 
-appletsrc 里没有 `Image=` 路径。`~/.local/share/wallpapers/WhiteSur` 约 2.8MB，没有被这份配置引用，不放进仓库。
+两个桌面的 `Image` 指向 nur-packages 的 `whitesur-kde` 壁纸 `share/wallpapers/WhiteSur/contents/images/3840x2160.jpg`。路径在激活时从 Nix store 填入，不提交图片。
 
 `kwinoutputconfig.json` 里的输出：
 
@@ -47,8 +47,9 @@ appletsrc 里没有 `Image=` 路径。`~/.local/share/wallpapers/WhiteSur` 约 2
 
 ## 主题
 
-- 图标：`Tela`（`kdeglobals`）。系统包 `tela-icon-theme`。
-- 窗口装饰：Aurorae `WhiteSur`（`kwinrc` 的 `__aurorae__svg__WhiteSur`）。
+- 图标：`Tela`（`kdeglobals`）。nur-packages 的 `tela-icon-theme`，标准色，目录名 `Tela`。
+- 窗口装饰：Aurorae `WhiteSur`（`kwinrc` 的 `__aurorae__svg__WhiteSur`）。nur-packages 的 `whitesur-kde` 提供这个目录名。
+- 任务栏：`code.desktop`、`idea.desktop`、`pycharm.desktop`、`clash-verge.desktop`。`CC Switch.desktop`、`lemon-lime.desktop`、`org.manjaro.pamac.manager.desktop` 在 nixos-26.05 和现有 NUR 里没有对应包，id 保留。
 - 外观包名：`org.manjaro.breath-light.desktop`。配色写在 `kdeglobals` 正文里，不依赖那个 Manjaro 包也能保住当前颜色。
 - `plasmarc` 的 Theme name 是 `default`。
 - SDDM：`kde_settings.conf` 在 `00_manjaro_settings.conf` 之后把主题写成 breeze，光标 `breeze_cursors`。配置里采用 breeze。

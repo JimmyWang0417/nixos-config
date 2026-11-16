@@ -1,8 +1,15 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
+  nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
+  whitesur = nurPkgs.whitesur-kde;
+  tela = nurPkgs.tela-icon-theme;
   layout = {
-    "plasma-org.kde.plasma.desktop-appletsrc" = ./plasma/plasma-org.kde.plasma.desktop-appletsrc;
-    "plasmashellrc" = ./plasma/plasmashellrc;
+    "plasma-org.kde.plasma.desktop-appletsrc" = pkgs.replaceVars ./plasma/plasma-org.kde.plasma.desktop-appletsrc {
+      whitesurWallpaper = "${whitesur}/share/wallpapers/WhiteSur/contents/images/3840x2160.jpg";
+    };
+    "plasmashellrc" = pkgs.replaceVars ./plasma/plasmashellrc {
+      plasmaShells = "${pkgs.kdePackages.plasma-desktop}/share/plasma/shells";
+    };
     "plasmarc" = ./plasma/plasmarc;
     "kwinrc" = ./plasma/kwinrc;
     "kdeglobals" = ./plasma/kdeglobals;
@@ -27,7 +34,7 @@ in
 
   home.stateVersion = "26.05";
   home.username = "jimmywang0417";
-  home.homeDirectory = "/home/jimmywang0417";
+  home.homeDirectory = "/home/${config.home.username}";
 
   xdg.userDirs = {
     enable = true;
@@ -67,7 +74,11 @@ in
     lsd
     pay-respects
     zsh-powerlevel10k
-    tela-icon-theme
+  ] ++ [
+    # Tela is the standard-color theme from vinceliuice/Tela-icon-theme.
+    # WhiteSur is the light round Aurorae theme plus wallpaper/WhiteSur.
+    tela
+    whitesur
   ];
 
   # Writable copies. plasma-manager cannot express the CPU pie chart,

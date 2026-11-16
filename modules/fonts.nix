@@ -7,7 +7,7 @@ in
     enable = lib.mkEnableOption "fonts copied from a local directory";
     directory = lib.mkOption {
       type = lib.types.str;
-      default = "/home/jimmywang0417/.local/share/fonts/windows";
+      default = config.users.users.jimmywang0417.home + "/.local/share/fonts/windows";
       description = "把你自己的字体放进这个目录再打开开关。";
     };
   };

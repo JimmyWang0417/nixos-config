@@ -52,7 +52,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][2][Applets][4][Configuration][General]
-launchers=applications:org.kde.konsole.desktop,preferred://filemanager,applications:CC Switch.desktop,applications:firefox.desktop,applications:Clash Verge.desktop,applications:com.microsoft.VSCode.desktop,applications:org.kde.elisa.desktop,applications:jetbrains-idea.desktop,applications:pycharm-professional.desktop,applications:lemon-lime.desktop,applications:org.keepassxc.KeePassXC.desktop,applications:systemsettings.desktop
+launchers=applications:org.kde.konsole.desktop,preferred://filemanager,applications:CC Switch.desktop,applications:firefox.desktop,applications:clash-verge.desktop,applications:code.desktop,applications:org.kde.elisa.desktop,applications:idea.desktop,applications:pycharm.desktop,applications:lemon-lime.desktop,applications:org.keepassxc.KeePassXC.desktop,applications:systemsettings.desktop
 
 [Containments][2][Applets][52]
 immutability=1
@@ -246,6 +246,12 @@ lastScreen=1
 location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
+
+[Containments][1][Wallpaper][org.kde.image][General]
+Image=file://@whitesurWallpaper@
+
+[Containments][60][Wallpaper][org.kde.image][General]
+Image=file://@whitesurWallpaper@
 
 [ScreenMapping]
 itemsOnDisabledScreens=
