@@ -59,7 +59,21 @@ ToDesk、1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在
 
 ### NUR
 
-还在查上面「nixpkgs 26.05 没有」那一组名字在 NUR 里有没有对应包：alder、crm、udf-http-range-proxy、keepassxc-unlock、verilog-format-git、xjtu-course-genius、xjtutoolbox-bin、botmux-bin、animeko。核对还没结束，这里不写任何 NUR 属性名。
+25 个缺口里，NUR 能安装的有 3 个。其余 22 个仍要自己处理。包都对着这份锁住的 nixos-26.05 看过。
+
+能安装：
+
+- 百度网盘 8.9.7：`nur.repos.freegoxing.baidunetdisk`。和已装版本一致。不要用 `nur.repos.xddxdd.baidunetdisk`，它会把客户端换到仓库自带的 Electron 11.5.0 上。
+- 钉钉 9.0.0.261105002：`nur.repos.yakkhini.dingtalk`。和已装版本一致，走调用方的 nixpkgs。
+- WPS 365 12.8.2.21176：`nur.repos.novel2430.wpsoffice-365`。版本号和已装的教育版相同，属性名不带 edu。同仓库的 `wpsoffice` 11.1 和 `wpsoffice-cn` 12.1 都更旧，不用。
+
+没有包：alder、crm、udf-http-range-proxy、keepassxc-unlock、verilog-format、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Anaconda、Typora 的更新版本。easyconnect 的唯一命中是 zju-connect 的协议枚举，没有深信服客户端。grok-bot 桌面版没有包；`nur.repos.xddxdd.grok-search-rs` 是搜索用的 MCP 服务。
+
+字体和词库：`nur.repos.rewine.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10-sc-sup`、`nur.repos.DzmingLi.windows-fonts` 都是再分发字体，不是让用户自己提供文件的封装，所以不接入。fcitx5 拼音用户词库是个人文件，NUR 不会有。
+
+秘密不能靠 NUR：Clash 配置、anytls 密钥、rclone webdav、JetBrains 许可证、bots.json、NetworkManager 的 PSK。
+
+这三项还没有写进 flake。要接入再说。
 
 ## 再加一台机器
 
