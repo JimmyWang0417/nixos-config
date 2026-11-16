@@ -202,3 +202,4 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 | ranger / neovim | home/editors.nix | home/editors.nix | 沿用现有配置 |
 | 软件包 | modules/packages.nix | docs/packages.md | deepseek-harness 走 nixpkgs-unstable |
 | 本仓库表达式 | pkgs/default.nix | pkgs/default.nix | packages.x86_64-linux 与 overlays.default |
+| 引导 | bootstrap/install.sh | docs/bootstrap.md | 已装好且 flake 未开时先跑 |
