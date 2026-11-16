@@ -42,7 +42,9 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 ### 等用户决定再写进配置
 
-百度网盘桌面版、钉钉桌面版、深信服 EasyConnect、华为云会议、WPS 教育版、Typora 的 AUR 包、`/opt/anaconda`。
+百度网盘桌面版、钉钉桌面版、深信服 EasyConnect、华为云会议、WPS 教育版、Typora 的 AUR 包。
+
+完整的 Anaconda 发行版不迁移；`conda` 从 nixpkgs 安装。PyCharm 的 conda 解释器是 `/home/jimmywang0417/miniconda3/bin/python`。
 
 这些没有因为「也许以后要装」而写进模块。主机 `hosts/orion/default.nix` 里 `orion.nix.allowUnfree = true` 已经打开，那是给已经映射的 NVIDIA 用户态驱动，以及 Chrome、Edge、VS Code、JetBrains、Discord、Steam、Obsidian 用的，不是为了把上面这组客户端加进来。
 

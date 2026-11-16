@@ -37,6 +37,7 @@
     ninja
     nodejs
     python3
+    conda
     jdk
     (python3.withPackages (
       ps: with ps; [
