@@ -14,7 +14,7 @@
 - `flake.nix` 的 `nixosConfigurations.orion`
 - `modules/hardware.nix`
 - `modules/nix-settings.nix` 在切换成功后把 `experimental-features` 写进系统配置
-- 本机 GRUB 主题留在 `/boot/grub/themes/dedsec`。`boot.loader.grub.theme` 指向这个目录，文件不进仓库。说明在 `docs/boot.md`。
+- GRUB 主题是 `pkgs.grub-theme-dedsec`，从 GitHub 取 DedSec fuckery 1440p。说明在 `docs/boot.md`。
 
 ## 依赖
 

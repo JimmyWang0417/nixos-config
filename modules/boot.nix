@@ -1,9 +1,6 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.orion.boot;
-  # Files stay on the machine. A string, so evaluation does not copy them
-  # into the Nix store. nixpkgs 26.05 has no DedSec theme package.
-  dedsecTheme = "/boot/grub/themes/dedsec";
 in
 {
   options.orion.boot = {
@@ -23,9 +20,9 @@ in
       default = 5;
     };
     theme = lib.mkOption {
-      type = lib.types.str;
-      default = dedsecTheme;
-      description = "GRUB theme directory already on the machine. Documented for bootstrap; not vendored.";
+      type = lib.types.path;
+      default = pkgs.grub-theme-dedsec;
+      description = "DedSec GRUB theme directory. Default is VandalByte/dedsec-grub2-theme, fuckery at 1440p with color icons.";
     };
   };
 

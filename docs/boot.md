@@ -2,7 +2,7 @@
 
 ## 作用
 
-启动菜单沿用本机正在用的 DedSec 主题。主题目录是 `/boot/grub/themes/dedsec`，入口文件是 `theme.txt`。`boot.loader.grub.theme` 指向这个目录。文件留在机器上，不进仓库，也不进 Nix store。nixpkgs 26.05 没有这份主题。
+启动菜单沿用本机正在用的 DedSec 主题：VandalByte 的 [dedsec-grub2-theme](https://github.com/VandalByte/dedsec-grub2-theme) `bbfe078386545688727f44897a7fede8af2c6dda`，fuckery、1440p、彩色图标。`pkgs.grub-theme-dedsec` 用 `fetchFromGitHub` 装进 `$out`，`boot.loader.grub.theme` 指向这个包。
 
 同一系统不在顶层出现两次。NixOS 的旧世代仍在子菜单里。另一块 NVMe 上的 Windows 只有一条，链到 ESP `UUID=0AF1-1155` 的 `/EFI/Microsoft/Boot/bootmgfw.efi`。
 
@@ -10,7 +10,7 @@
 
 `orion.boot.enable` 打开后：
 
-- `boot.loader.grub.theme` 默认 `/boot/grub/themes/dedsec`
+- `boot.loader.grub.theme` 默认 `pkgs.grub-theme-dedsec`
 - `boot.loader.grub.useOSProber = false`
 - `boot.loader.grub.gfxmodeEfi = "auto"`，`gfxpayloadEfi = "keep"`，对应现场 `GRUB_GFXMODE=auto` 和 `GRUB_GFXPAYLOAD_LINUX=keep`
 - `boot.loader.grub.splashImage = null`，不用 NixOS 自带的启动壁纸盖住 DedSec
@@ -28,7 +28,7 @@
 
 ## 依赖
 
-主题目录必须先在本机。以后真正执行 `nixos-rebuild` 时，安装脚本从这个路径拷到 `/boot/grub/theme`。这次只求值，不跑 `grub-mkconfig`，也不跑 `grub-install`。
+主题由 `pkgs/grub-theme-dedsec` 从 GitHub 取进 Nix store。以后真正执行 `nixos-rebuild` 时，安装脚本从这个 store 路径拷到 `/boot/grub/theme`。这次只求值，不跑 `grub-mkconfig`，也不跑 `grub-install`。
 
 ## 未办或不迁
 
