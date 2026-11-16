@@ -70,7 +70,7 @@ doc、docx、rtf、odt 归 WPS 文字（`wps-office-wps.desktop`），xls、xlsx
 
 `campusProbes` 默认是 `[ "https://kq.xjtu.edu.cn" ]`。一条探测要在大约 3 秒的连接超时里完成 HTTPS，HTTP 状态是 2xx 或 3xx，才算打得开这个只在校园网里能访问的网站。只解析出域名不算。认证门户把请求重定向到另一台主机也不算。
 
-容器没在跑且这次探测失败时才 `docker start`，因为这时连不上校园网；探测成功说明已经在校园网里，不启动。容器已经在跑时，不因为随后一次普通探测成功就 `docker stop`，避免隧道把该站打通之后来回启停。停止只发生在两种情况：NetworkManager 当前活动连接的名字是 `XJTU_STU` 或 `xjtuse-lab`（这时直接停，即使探测还没成功）；或者 curl 用 `if!<接口>` 绑到物理网卡后探测仍然成功。物理网卡先取 IPv4/IPv6 默认路由里不是 tun、tap、wg、docker、br-、veth、virbr 的设备，默认路由只剩隧道时再改绑 NetworkManager 里已连接的无线或以太网。找不到这样的网卡就不停。`campusSubnets` 仍是空的，不参与判断。名叫「有线连接 1」的以太网不靠连接名匹配，绑到这块物理网卡后探测成功会停止容器。
+容器没在跑，并且探测失败（超时、不是 2xx，或重定向到另一台主机）时才 `docker start`。探测成功而容器停着，说明已经在校园网上，不启动。容器已经在跑时，不因为后来探测成功就 `docker stop`，因为隧道本身可能让这个网站变得可达。只有 NetworkManager 的活动连接是 `XJTU_STU` 或 `xjtuse-lab` 时才停止。`campusSubnets` 仍是空的，不参与判断。名叫「有线连接 1」的以太网不是停止条件。
 
 ## 网络和下载
 
