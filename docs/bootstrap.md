@@ -22,4 +22,4 @@ PATH 上要有 `nixos-rebuild`。脚本不分区，也不安装 NixOS。普通�
 
 ## 未办或不迁
 
-不把 `/etc/nixos/hardware-configuration.nix` 拷进仓库。仓库里的硬件文件仍是 Orion 笔记本时，另一台机器要自己把生成的文件拷到 `hosts/orion` 再切换。
+不把 `/etc/nixos/hardware-configuration.nix` 拷进仓库。当前硬件文件是主机 `orion`（Orion-Laptop）的；再加一台机器是新的主机文件，不要写进 `hosts/orion`。

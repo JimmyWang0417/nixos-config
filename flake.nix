@@ -1,5 +1,5 @@
 {
-  description = "Multi-host NixOS. First host: Orion-Laptop (HP OMEN 16).";
+  description = "Jimmy Wang's NixOS configuration. Current host: orion (Orion-Laptop).";
 
   inputs = {
     # nixos-26.11 is not published (no branch, channel 404). Track stable.

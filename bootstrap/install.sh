@@ -79,10 +79,10 @@ if ! conf_has_flakes "$nix_conf_text"; then
   fi
 fi
 
-# 仓库里的硬件文件是这台 Orion 时，不用安装器生成的文件覆盖它。
+# 当前硬件文件是主机 orion 时，不用安装器生成的文件覆盖它。
 if [[ -f /etc/nixos/hardware-configuration.nix ]] \
   && grep -F -q "$orion_disk_uuid" "${repo}/modules/hardware.nix"; then
-  echo "另一台机器必须先把本机生成的 hardware-configuration.nix 拷到 hosts/orion，再切换。仓库里是 Orion 笔记本的硬件文件，本脚本不会覆盖。"
+  echo "当前硬件文件是主机 orion（Orion-Laptop）的，本脚本不会覆盖。再加一台机器是新的主机文件，不要把生成的 hardware-configuration.nix 拷进 hosts/orion。"
 fi
 
 # 路径含空格等字符时用 path: 百分号编码。属性名仍是 orion。

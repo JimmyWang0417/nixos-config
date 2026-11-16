@@ -1,4 +1,4 @@
-这是 Orion-Laptop（HP OMEN 16）的 NixOS 复刻配置：用模块化 flake 描述当前 Manjaro 主机的硬件、双显卡、Plasma 桌面布局、中文输入和软件清单。仓库只做求值，不执行 `nixos-rebuild`，也不改正在使用的引导和磁盘。
+这是 Jimmy Wang 的 NixOS 配置。当前主机 `orion`（Orion-Laptop，HP OMEN 16）不是仓库的范围：模块化 flake 描述这台 Manjaro 主机的硬件、双显卡、Plasma 桌面布局、中文输入和软件清单，再加一台机器是新的主机文件。仓库只做求值，不执行 `nixos-rebuild`，也不改正在使用的引导和磁盘。
 
 2026-11-16 检查过：`refs/heads/nixos-26.11` 不存在，`https://channels.nixos.org/nixos-26.11` 返回 404，home-manager 也没有 `release-26.11`。测试线还没发布，系统与 home-manager 跟踪 `nixos-26.05` 和 `release-26.05`。26.05 没有或过旧的属性从输入 `nixpkgs-unstable` 取，不把整台机器切到 unstable。
 
