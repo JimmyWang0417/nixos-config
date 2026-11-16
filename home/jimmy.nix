@@ -3,6 +3,9 @@ let
   nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
   whitesur = nurPkgs.whitesur-kde;
   tela = nurPkgs.tela-icon-theme;
+  breathWallpapers = nurPkgs.breath-wallpapers;
+  endeavourosWallpapers = nurPkgs.endeavouros-wallpapers;
+  endeavourosCommunityWallpapers = nurPkgs.endeavouros-community-wallpapers;
   layout = {
     "plasma-org.kde.plasma.desktop-appletsrc" = pkgs.replaceVars ./plasma/plasma-org.kde.plasma.desktop-appletsrc {
       whitesurWallpaper = "${whitesur}/share/wallpapers/WhiteSur/contents/images/3840x2160.jpg";
@@ -76,9 +79,13 @@ in
     zsh-powerlevel10k
   ] ++ [
     # Tela is the standard-color theme from vinceliuice/Tela-icon-theme.
-    # WhiteSur is the light round Aurorae theme plus wallpaper/WhiteSur.
+    # WhiteSur stays the active desktop image.
+    # Breath, EndeavourOS, and the EndeavourOS classic/community sets are selectable.
     tela
     whitesur
+    breathWallpapers
+    endeavourosWallpapers
+    endeavourosCommunityWallpapers
   ];
 
   # Writable copies. plasma-manager cannot express the CPU pie chart,
