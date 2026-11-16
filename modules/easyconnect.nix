@@ -8,11 +8,13 @@
 # connection is named in campusConnections (XJTU_STU and xjtuse-lab on Orion).
 # autoStart stays false. The unit is not wanted by the default target.
 # The dispatcher uses `docker start` / `docker stop`. No VPN password is stored.
-{ config, lib, pkgs, ... }:
+# The image is the nur-packages output, loaded from the Nix store.
+{ config, lib, pkgs, inputs, ... }:
 let
   cfg = config.orion.easyconnect;
   containerName = "easyconnect";
-  image = "hagb/docker-easyconnect:7.6.7";
+  imagePkg = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system}.docker-easyconnect;
+  image = "${imagePkg.imageName}:${imagePkg.imageTag}";
   dataVolume = "easyconnect-data:/root";
   docker = config.virtualisation.docker.package;
   curl = "${pkgs.curl}/bin/curl";
@@ -194,6 +196,7 @@ let
     fi
 
     if ! ${docker}/bin/docker container inspect ${containerName} >/dev/null 2>&1; then
+      ${docker}/bin/docker load -i ${lib.escapeShellArg imagePkg} || exit 1
       ${docker}/bin/docker create \
         --name ${containerName} \
         --restart=no \
@@ -203,7 +206,7 @@ let
         -p 127.0.0.1:1080:1080 \
         -p 127.0.0.1:8888:8888 \
         -v ${dataVolume} \
-        ${image} || true
+        ${lib.escapeShellArg image} || true
     fi
     ${docker}/bin/docker start ${containerName} || true
     exit 0
@@ -262,6 +265,8 @@ in
     virtualisation.oci-containers.backend = "docker";
     virtualisation.oci-containers.containers.${containerName} = {
       inherit image;
+      imageFile = imagePkg;
+      pull = "never";
       autoStart = false;
       ports = [
         "127.0.0.1:5901:5901"
