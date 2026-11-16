@@ -19,8 +19,8 @@ home-manager 启用 `programs.ranger` 和 `programs.neovim`，模块在 `home/ed
 - ranger：`rc.conf`、`rifle.conf`、`scope.sh`、`commands.py`、`colorschemes/` 的 `__init__.py`、`default.py`、`jungle.py`、`snow.py`、`zenburn.py`、`plugins/__init__.py`、`plugins/devicons.py`、`plugins/devicons_linemode.py`
 - neovim：`init.vim`、`addition.vim`、`command.vim`、`coc.vim`、`coc-settings.json`、`dependent.vim`、`keyboard.vim`、`markdown.vim`、`plugins.vim`、`ui.vim`、`Ultisnips/cpp.snippets`
 
-`plugins.vim` 的 vim-plug 声明留着，不拷贝 `~/.config/nvim/plugged`，也不提交 `autoload/plug.vim`。`coc.vim` 的 `g:coc_global_extensions` 留着，本机没有已下载的 coc 扩展目录。
-首次进入 nvim 后执行 `:PlugInstall` 和 `:CocInstall`（或配置里已有的安装命令）。
+`plugins.vim` 的 vim-plug 声明留着，不拷贝 `~/.config/nvim/plugged`，也不提交 `autoload/plug.vim`。`coc.vim` 的 `g:coc_global_extensions` 留着。
+插件在 home-manager 激活时装好。
 
 这些外部命令是因为配置里调用了才加的：
 
@@ -49,9 +49,9 @@ home-manager 启用 `programs.ranger` 和 `programs.neovim`，模块在 `home/ed
 
 nixpkgs 的 ranger 会把包内 `rc.conf` 的 `preview_script` 指到自己的 `scope.sh`。迁过来的 `rc.conf` 写成 `set preview_script ~/.config/ranger/scope.sh`，否则这份预览脚本不会被用到。
 
-vim-plug 插件（`plugins.vim`，`:PlugInstall` 时下载）：vimplus-startify、nerdtree、vim-nerdtree-syntax-highlight、vim-airline、vim-airline-themes、vim-commentary、syntastic、vim-easymotion、rainbow、vimcdoc、gundo.vim、ayu-vim、coc.nvim（分支 release）、vim-clang-format、vim-operator-user、vim-autoread、auto-pairs、vim-snippets。
+vim-plug 插件（`plugins.vim`，home-manager 激活时安装）：vimplus-startify、nerdtree、vim-nerdtree-syntax-highlight、vim-airline、vim-airline-themes、vim-commentary、syntastic、vim-easymotion、rainbow、vimcdoc、gundo.vim、ayu-vim、coc.nvim（分支 release）、vim-clang-format、vim-operator-user、vim-autoread、auto-pairs、vim-snippets。
 
-coc 扩展（`coc.vim`，首次启动时下载）：coc-json、coc-vimlsp、coc-tsserver、coc-clangd、coc-sh、coc-pyright、coc-marketplace、coc-html、coc-actions、coc-snippets、coc-markdown-preview-enhanced、coc-webview。
+coc 扩展（`coc.vim`，home-manager 激活时安装）：coc-json、coc-vimlsp、coc-tsserver、coc-clangd、coc-sh、coc-pyright、coc-marketplace、coc-html、coc-actions、coc-snippets、coc-markdown-preview-enhanced、coc-webview。
 
 ## 显示
 

@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   # Commands scope.sh / rifle.conf / rc.conf actually run.
   # nixpkgs ranger already wraps file, coreutils, and ImageMagick, and bakes
@@ -14,6 +14,13 @@ let
     pkgs.libarchive
     pkgs.imagemagick
   ];
+  # Parses plugins.vim and coc.vim. Skips plug.vim, Plug checkouts, and coc
+  # extensions that are already on disk, then runs nvim --headless only for
+  # what is missing. plugged/ stays out of git.
+  installNvimPlugins = pkgs.writeScript "install-nvim-plugins" ''
+    #!${pkgs.python3}/bin/python3
+    ${builtins.readFile ./install-nvim-plugins.py}
+  '';
 in
 {
   home.packages = rangerCommands;
@@ -106,4 +113,22 @@ in
     "Code/User/settings.json".source = ./vscode/settings.json;
     "Code/User/keybindings.json".source = ./vscode/keybindings.json;
   };
+
+  # After the nvim files are linked. Opening nvim does not run PlugInstall
+  # or CocInstall; this does, and a later activation skips what is present.
+  home.activation.nvimPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    export NVIM=${config.programs.neovim.finalPackage}/bin/nvim
+    export GIT=${pkgs.git}/bin/git
+    export NODE=${pkgs.nodejs}/bin/node
+    export SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
+    export GIT_SSL_CAINFO="$SSL_CERT_FILE"
+    export CURL_CA_BUNDLE="$SSL_CERT_FILE"
+    export PATH="${
+      lib.makeBinPath [
+        pkgs.git
+        pkgs.nodejs
+      ]
+    }:$PATH"
+    run ${installNvimPlugins}
+  '';
 }
