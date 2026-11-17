@@ -1,5 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
+  nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
   # 0.2.2-rc.1 installs plugins with `dsh plugin --profile <name> add`. There is no
   # `dsh market` command. dsh-market is the separate npm package `dshmarket`.
   # Names only; versions stay out of this expression.
@@ -90,6 +91,7 @@ in
     clash-verge-rev
     discord
     obsidian
+    nurPkgs.typora
     google-chrome
     microsoft-edge
     heroic

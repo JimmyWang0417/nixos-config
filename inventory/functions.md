@@ -18,7 +18,7 @@
 | SDDM breeze 与自动登录 | hosts/orion/default.nix |
 | fcitx5 中文输入 | modules/chinese.nix |
 | 一条 CJK fontconfig 回退链 | modules/chinese.nix |
-| 本机 Win10 字体，默认关 | modules/fonts.nix |
+| 锁定 NUR 的 Win10 字体包；本机目录额外导入默认关 | modules/fonts.nix、hosts/orion/default.nix |
 | 时区 Asia/Shanghai、locale zh_CN.UTF-8、X11 布局 cn、timesyncd | modules/locale.nix |
 | 用户 jimmywang0417 | modules/users.nix |
 | Docker | modules/services.nix |
@@ -284,6 +284,8 @@
 | ttf-dejavu → dejavu_fonts | modules/chinese.nix |
 | ttf-inconsolata → inconsolata | modules/chinese.nix |
 | ttf-liberation → liberation_ttf | modules/chinese.nix |
+| ttf-ms-win10-auto → nur.repos.chillcicada.ttf-ms-win10，字体文件不提交 | modules/fonts.nix、hosts/orion/default.nix |
+| typora-free-with-plugin → nurPkgs.typora（0.11.18-plugin-1.19.16），命令 typora | modules/packages.nix |
 | typst → pkgs.typst | modules/packages.nix |
 | udiskie → pkgs.udiskie | modules/packages.nix |
 | udisks2 → plasma6 / udisks2 | modules/desktop.nix |

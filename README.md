@@ -2,7 +2,7 @@
 
 2026-11-16 检查过：`refs/heads/nixos-26.11` 不存在，`https://channels.nixos.org/nixos-26.11` 返回 404，home-manager 也没有 `release-26.11`。测试线还没发布，系统与 home-manager 跟踪 `nixos-26.05` 和 `release-26.05`。26.05 没有或过旧的属性从输入 `nixpkgs-unstable` 取，不把整台机器切到 unstable。
 
-默认会话见下面「显示」。输入法只保留 fcitx5 一条路径（GTK、Qt、X11、Wayland、Electron）。现场的 `/etc/environment` 里 `XMODIFIERS` 写了两遍，并且 `GLFW_IM_MODULE=ibus` 和 fcitx 冲突；GLFW 那一项已去掉。字体不再叠多份 fontconfig，只留一条 CJK 回退链。Noto CJK 已经在 `modules/chinese.nix` 里。本机 Win10 字体默认关，见 `docs/fonts.md`。细节在 `inventory/optimizations.md`，对照表在 `inventory/适配清单.md`。
+默认会话见下面「显示」。输入法只保留 fcitx5 一条路径（GTK、Qt、X11、Wayland、Electron）。现场的 `/etc/environment` 里 `XMODIFIERS` 写了两遍，并且 `GLFW_IM_MODULE=ibus` 和 fcitx 冲突；GLFW 那一项已去掉。字体不再叠多份 fontconfig，只留一条 CJK 回退链。Noto CJK 已经在 `modules/chinese.nix` 里。Orion 安装锁定 NUR 的 Win10 字体包，本机目录额外导入默认关，见 `docs/fonts.md`。细节在 `inventory/optimizations.md`，对照表在 `inventory/适配清单.md`。
 
 Linux 根文件系统在 btrfs `UUID=fd32207f-8a11-48d7-9d04-9316cdb8c265` 的 `@`、`@home`、`@cache`、`@log` 上，ESP `UUID=0AF1-1155` 与 Windows 共用。没有活动的 swapfile，所以没有写入 `resume` / `resume_offset`。显卡是 Intel 核显显示加 NVIDIA PRIME offload，不是 sync。
 
@@ -65,6 +65,10 @@ doc、docx、rtf、odt 归 WPS 文字（`wps-office-wps.desktop`），xls、xlsx
 
 现场 `xdg-mime` 里，doc、ppt、odt、ods、rtf 曾落到 LibreOffice，docx、xls、xlsx、pptx 曾落到 ChatGPT。系统级 `xdg.mime.defaultApplications` 把办公文档固定到 WPS，并在 `xdg.mime.removedAssociations` 里去掉对应的 LibreOffice 桌面文件，避免装包顺序再抢走关联。这一步写的是 `/etc/xdg/mimeapps.list`，不改写 `~/.config/mimeapps.list` 里已有的协议关联。
 
+## Typora
+
+Typora 已写入 `modules/packages.nix`，显式取 `inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system}.typora`（局部名 `nurPkgs.typora`），版本 `0.11.18-plugin-1.19.16`。包名和命令都是 `typora`，桌面显示 Typora；不取 nixpkgs 的同名 `pkgs.typora`。自有 `nur-packages` 输入锁定在 `9a4bcf65fac8de0738e002e8bfe00a68ac4019b6`，源码、插件和启动参数覆盖接口见 [软件包文档](docs/packages.md)。Markdown 默认程序仍为 Kate。
+
 ## 校园网与 docker-easyconnect
 
 `orion.easyconnect` 打开的是 docker-easyconnect，不是官方 deb。镜像是 `hagb/docker-easyconnect:7.6.7`，容器名 `easyconnect`。`autoStart = false`，不挂到 default.target。每次 NetworkManager 连接或断开都跑调度脚本。不安装官方 deb，不复制 `/usr/share/sangfor` 里的二进制，也不把 EasyMonitor 写成开机服务。登录凭据不进仓库，探测地址里也不写账号密码。
@@ -111,7 +115,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 只记种类，没有秘密内容。
 
-- Win10 字体包 `ttf-ms-win10-auto` 里的字体文件。开关是 `orion.fonts.windows.enable`，默认关，见 `docs/fonts.md`
+- 本机目录中额外提供的字体文件不提交；`orion.fonts.windows.enable` 只控制本机目录导入，默认关。Orion 的 Win10 字体改由锁定 NUR 包安装，见 `docs/fonts.md`
 - v2rayN 的 `guiConfigs`
 
 ### nixpkgs 26.05 没有的包
@@ -126,11 +130,9 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 这些包的版本写在各自的 `pkgs/` 表达式里，要改就手改。本仓库没有 GitHub Actions。
 
-### 等用户开口再写进配置
+### conda
 
-官方 Typora。破解版 Typora 不在此列，见「不按原样迁的」。
-
-主机 `hosts/orion/default.nix` 里 `orion.nix.allowUnfree = true` 仍然开着，给 NVIDIA 用户态驱动，以及 Chrome、Edge、VS Code、JetBrains、Discord、Steam、Obsidian、ToDesk、WPS 用。
+主机 `hosts/orion/default.nix` 里 `orion.nix.allowUnfree = true` 仍然开着，给 NVIDIA 用户态驱动，以及 Chrome、Edge、VS Code、JetBrains、Discord、Steam、Obsidian、ToDesk、WPS、Typora 和 Win10 字体包用。
 
 用户要 conda。PyCharm 2025.2 先前唯一的 conda 解释器是 `$USER_HOME$/miniconda3/bin/python`（Python 3.13.2），那个 miniconda3 不存在。Orion 启用 nixpkgs 26.05 的属性 `conda`（`pkgs.conda`，版本 26.1.1-1，pname `conda-shell`，二进制 `conda-shell` 与 `install-conda`，前缀 `~/.conda`）。不安装 Anaconda 发行版。
 
@@ -148,7 +150,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 ### NUR
 
-21 个缺口里，NUR 能安装的有 3 个。conda 用这份锁住的 nixos-26.05 属性 `pkgs.conda`（版本 26.1.1-1），不走 NUR，也不装 Anaconda 发行版。其余 17 个仍要自己处理。包都对着这份锁住的 nixos-26.05 看过。
+社区 NUR 安装下面三个客户端和 Win10 字体；Typora 来自独立锁定的自有 `nur-packages` 输入。conda 用这份锁住的 nixos-26.05 属性 `pkgs.conda`（版本 26.1.1-1），不走 NUR，也不装 Anaconda 发行版。
 
 能安装：
 
@@ -156,13 +158,13 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - 钉钉 9.0.0.261105002：`nur.repos.yakkhini.dingtalk`。和已装版本一致，走调用方的 nixpkgs。这个包捆绑已停止维护的 OpenSSL 1.1，所以 `nixpkgs.config.permittedInsecurePackages` 里只放了 `dingtalk-9.0.0.261105002`。
 - WPS 365 12.8.2.21176：`nur.repos.novel2430.wpsoffice-365`。版本号和已装的教育版相同，属性名不带 edu。同仓库的 `wpsoffice` 11.1 和 `wpsoffice-cn` 12.1 都更旧，不用。
 
-社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议、Typora 的更新版本。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 的表达式在本仓库 `pkgs/`。NUR 里没有深信服客户端。Orion 的校园网服务是 docker-easyconnect，镜像 `hagb/docker-easyconnect:7.6.7`，见「校园网与 docker-easyconnect」。
+社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 的表达式在本仓库 `pkgs/`。NUR 里没有深信服客户端。Orion 的校园网服务是 docker-easyconnect，镜像 `hagb/docker-easyconnect:7.6.7`，见「校园网与 docker-easyconnect」。
 
-字体和词库：`nur.repos.rewine.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10`、`nur.repos.chillcicada.ttf-ms-win10-sc-sup`、`nur.repos.DzmingLi.windows-fonts` 都是再分发字体，不接入，也不 `fetchurl` / `fetchFromGitHub`。CJK 仍是已经安装的 Noto Sans CJK / Noto Serif CJK（Source Han 的 Noto 发行），不另装一份 Source Han。本机 Win10 字体只在 `orion.fonts.windows.enable` 打开时从本机目录复制，默认关。fcitx5 拼音用户词库是个人文件，NUR 不会有。
+字体和词库：Orion 的 `orion.fonts.windows.package` 显式选 `pkgs.nur.repos.chillcicada.ttf-ms-win10`，随现有 NUR 输入锁定，不从 AUR 网页取字体。基包有 144 个 TTF/TTC 文件，约 320.8 MiB，含微软雅黑、宋体、Consolas；不加 `ttf-ms-win10-sc-sup`。CJK 默认回退链仍用 Noto Sans CJK / Noto Serif CJK（Source Han 的 Noto 发行）。`orion.fonts.windows.enable` 和 `directory` 继续用于本机目录额外导入，默认关，与包选择独立。fcitx5 拼音用户词库是个人文件，NUR 不会有。详见 [字体文档](docs/fonts.md)。
 
 秘密不能靠 NUR：Clash 配置、anytls 密钥、rclone webdav、JetBrains 许可证、bots.json、NetworkManager 的 PSK。
 
-上面三项已经写进 flake：输入 `nur` 跟踪 `github:nix-community/NUR/main`，`nur.inputs.nixpkgs.follows` 指向这份 nixos-26.05。包在 `modules/packages.nix`。
+上面三个客户端与字体包使用的社区 NUR 已经写进 flake：输入 `nur` 跟踪 `github:nix-community/NUR/main`，`nur.inputs.nixpkgs.follows` 指向这份 nixos-26.05。客户端在 `modules/packages.nix`，字体选择在 `hosts/orion/default.nix`，由 `modules/fonts.nix` 加入 `fonts.packages`。
 
 ## 不按原样迁的
 
@@ -172,9 +174,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - Waydroid：不迁。
 - `apm-daily-update`：oneAPI 每日更新，不迁。
 - Grok Bot 桌面版：本机已经卸掉，不迁。
-- 破解版 Typora：不迁。官方 Typora 也先不装。
 - 完整 Anaconda：不迁，只留 nixpkgs 的 `conda`。
-- Win10 字体：不接入再分发的字体包。CJK 用已安装的 Noto CJK。本机目录开关默认关，见 `docs/fonts.md`。
 - 深信服安装包：不复制二进制。改用 docker-easyconnect，只在连不上 https://kq.xjtu.edu.cn 时启动；已经在跑时，不因为隧道把这个网站打通就停。
 - 华为云会议：不迁。用户不用华为云会议桌面客户端。
 - 百度网盘、钉钉、WPS：用 NUR 里和已装版本一致的 `freegoxing.baidunetdisk`、`yakkhini.dingtalk`、`novel2430.wpsoffice-365`，不用 `xddxdd.baidunetdisk`，也不用更旧的 `wpsoffice` / `wpsoffice-cn`。
@@ -195,8 +195,8 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 | 秘密 | modules/secrets.nix | secrets/README.md | sops 只写名字 |
 | ranger / neovim | home/editors.nix | home/editors.nix | 沿用现有配置 |
 | VS Code | home/editors.nix | docs/vscode.md | 扩展是 nixpkgs 列表 |
-| 软件包 | modules/packages.nix | docs/packages.md | deepseek-harness 走 nixpkgs-unstable |
+| 软件包 | modules/packages.nix | docs/packages.md | Typora 走自有 nur-packages；deepseek-harness 走 nixpkgs-unstable |
 | 本仓库表达式 | pkgs/default.nix | pkgs/default.nix | packages.x86_64-linux 与 overlays.default |
 | 引导 | bootstrap/install.sh | docs/bootstrap.md | 已装好且 flake 未开时先跑 |
 | GRUB | modules/boot.nix | docs/boot.md | 主题保持现用的；同一系统不在顶层出现两次。 |
-| 字体 | modules/fonts.nix | docs/fonts.md | 默认 Noto CJK；本机 Win10 字体默认关。 |
+| 字体 | modules/fonts.nix | docs/fonts.md | 安装 NUR Win10 字体；Noto CJK 回退不变，本机目录额外导入默认关。 |
