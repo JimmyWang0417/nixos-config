@@ -93,8 +93,8 @@ in
     discord
     obsidian
     nurPkgs.typora
-    nurPkgs.qoder
-    nur.repos.lonerOrz.trae
+    nurPkgs.qoder-cn
+    nurPkgs.trae-cn
     nur.repos.MCSeekeri.workbuddy-linux
     google-chrome
     microsoft-edge

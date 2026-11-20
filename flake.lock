@@ -124,17 +124,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1795163296,
-        "narHash": "sha256-umB9zzUdwtRQmEVsk3BEegyOaTydg9oRjPpX9F0rGLY=",
+        "lastModified": 1795165636,
+        "narHash": "sha256-tqgxu2ukvx5YVvFiVGW9h3FUvxkv7F1WMdtSo0l0e3Q=",
         "owner": "JimmyWang0417",
         "repo": "nur-packages",
-        "rev": "bb293b2f727687815de9d3eb9ea427a2696680a3",
+        "rev": "5972750386568d9533ce4ed1e42d477f2292bfdc",
         "type": "github"
       },
       "original": {
         "owner": "JimmyWang0417",
         "repo": "nur-packages",
-        "rev": "bb293b2f727687815de9d3eb9ea427a2696680a3",
+        "rev": "5972750386568d9533ce4ed1e42d477f2292bfdc",
         "type": "github"
       }
     },

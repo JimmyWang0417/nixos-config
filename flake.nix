@@ -36,8 +36,8 @@
     nur.url = "github:nix-community/NUR/main";
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
-    # DedSec, Tela, WhiteSur, Typora, and Qoder. Daily rev bumps stay in nur-packages.
-    nur-packages.url = "github:JimmyWang0417/nur-packages/bb293b2f727687815de9d3eb9ea427a2696680a3";
+    # DedSec, Tela, WhiteSur, Typora, Qoder CN, and Trae CN. Daily rev bumps stay in nur-packages.
+    nur-packages.url = "github:JimmyWang0417/nur-packages/5972750386568d9533ce4ed1e42d477f2292bfdc";
     nur-packages.inputs.nixpkgs.follows = "nixpkgs";
   };
 
