@@ -1,6 +1,28 @@
 { config, lib, pkgs, inputs, ... }:
 let
   nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
+  # Wayland flags only expand when NIXOS_OZONE_WL and WAYLAND_DISPLAY are
+  # both set, which is the selectable Plasma Wayland session. plasmax11
+  # does not set WAYLAND_DISPLAY, so the arguments stay empty.
+  withOzone = pkg:
+    let
+      bin =
+        if pkg ? meta.mainProgram && pkg.meta.mainProgram != null then
+          pkg.meta.mainProgram
+        else
+          pkg.pname;
+    in
+    pkgs.symlinkJoin {
+      name = "${bin}-ozone";
+      paths = [ pkg ];
+      nativeBuildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram "$out/bin/${bin}" \
+          --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}"
+      '';
+    };
+  qoderPkg = nurPkgs.qoder-cn;
+  traePkg = nurPkgs.trae-cn;
   # 0.2.2-rc.3 still installs community plugins with `dsh plugin add`. There is
   # no `dsh market` command. dsh-market is the separate npm package `dshmarket`.
   # Official web bundles stay inside the harness and are not listed here.
@@ -39,6 +61,13 @@ in
     enable = true;
     languagePacks = [ "zh-CN" ];
   };
+
+  # Plasma sets enablePlasmaBrowserIntegration. The host JSON is installed
+  # only once programs.chromium.enable is true. That module covers Chromium
+  # and Chrome. Edge reads the same manifest from its own directory.
+  programs.chromium.enable = true;
+  environment.etc."opt/edge/native-messaging-hosts/org.kde.plasma.browser_integration.json".source =
+    "${pkgs.kdePackages.plasma-browser-integration}/etc/opt/chrome/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
   programs.steam.enable = true;
 
@@ -93,17 +122,18 @@ in
     discord
     obsidian
     nurPkgs.typora
-    nurPkgs.qoder-cn
-    nurPkgs.trae-cn
+    (withOzone qoderPkg)
+    (withOzone traePkg)
+    # Already adds the Wayland flags when WAYLAND_DISPLAY is set.
     nur.repos.MCSeekeri.workbuddy-linux
-    google-chrome
-    microsoft-edge
+    (google-chrome.override { plasmaSupport = true; })
+    (microsoft-edge.override { plasmaSupport = true; })
     heroic
     libreoffice-qt
     nur.repos.freegoxing.baidunetdisk
     nur.repos.yakkhini.dingtalk
     nur.repos.novel2430.wpsoffice-365
-    todesk
+    # ToDesk the package is installed by services.todesk (todeskd).
     typst
     pandoc
     jetbrains.idea

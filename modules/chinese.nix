@@ -56,6 +56,12 @@ in
       if [ "''${XDG_SESSION_TYPE:-}" != "wayland" ]; then
         export GTK_IM_MODULE=fcitx
         export QT_IM_MODULE=fcitx
+        unset ELECTRON_OZONE_PLATFORM_HINT
+      else
+        # Electron reads this itself. plasmax11 leaves it unset so ToDesk
+        # still sees X11 clients. NIXOS_OZONE_WL above is what the nixpkgs
+        # wrappers turn into Wayland flags, and only when WAYLAND_DISPLAY is set.
+        export ELECTRON_OZONE_PLATFORM_HINT=auto
       fi
     '';
 
@@ -90,11 +96,13 @@ in
         hinting.enable = true;
         hinting.style = "slight";
         subpixel.lcdfilter = "default";
+        # Plasma 6 also assigns defaultFonts (Hack, Noto Sans). mkForce keeps
+        # this chain first. Win10 fonts stay installed and stay off this list.
         defaultFonts = {
-          sansSerif = [ "Noto Sans CJK SC" "Noto Sans" "Source Sans 3" "DejaVu Sans" ];
-          serif = [ "Noto Serif CJK SC" "Noto Serif" "DejaVu Serif" ];
-          monospace = [ "Noto Sans Mono CJK SC" "Inconsolata" "DejaVu Sans Mono" ];
-          emoji = [ "Noto Color Emoji" ];
+          sansSerif = lib.mkForce [ "Noto Sans CJK SC" "Noto Sans" "Source Sans 3" "DejaVu Sans" ];
+          serif = lib.mkForce [ "Noto Serif CJK SC" "Noto Serif" "DejaVu Serif" ];
+          monospace = lib.mkForce [ "Noto Sans Mono CJK SC" "Inconsolata" "DejaVu Sans Mono" ];
+          emoji = lib.mkForce [ "Noto Color Emoji" ];
         };
       };
     };

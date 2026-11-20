@@ -22,6 +22,10 @@
       "power"
       "docker"
       "lp"
+      # /dev/kvm is root:kvm mode 0660. Android Studio and DevEco emulators need it.
+      "kvm"
+      # hardware.sane. Seat sessions also get the device through uaccess.
+      "scanner"
     ];
     shell = pkgs.zsh;
   };

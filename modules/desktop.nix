@@ -52,6 +52,9 @@
     "image/svg+xml" = "org.kde.gwenview.desktop";
     "text/plain" = "org.kde.kate.desktop";
     "text/markdown" = "org.kde.kate.desktop";
+    "text/html" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
   };
   xdg.mime.removedAssociations = {
     "application/msword" = [ "libreoffice-writer.desktop" ];
