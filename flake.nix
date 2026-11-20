@@ -33,7 +33,7 @@
 
     # NUR's master branch is a rename tombstone. Track main, and build the
     # repos against this flake's nixos-26.05 nixpkgs.
-    nur.url = "github:nix-community/NUR/main";
+    nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
     # DedSec, Tela, WhiteSur, Typora, Qoder CN, Trae CN, DevEco, and CC Switch.
