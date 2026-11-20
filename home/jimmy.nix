@@ -33,7 +33,7 @@ let
       ${pkgs.coreutils}/bin/chmod u+w "$HOME/.config/${name}"
     '')
     layout);
-  ccSwitch = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.cc-switch;
+  ccSwitch = nurPkgs.cc-switch;
   openlogi = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.openlogi;
   autostartDesktop = name: text: "${pkgs.writeTextDir name text}/${name}";
   # Android Studio is unfree, so this is the same locked nixpkgs-unstable with that switch on.

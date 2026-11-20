@@ -118,6 +118,8 @@ in
     keepassxc
     # The user unit lives in home/jimmy.nix. The package is nur-packages botmux.
     nurPkgs.botmux
+    # Official farion1231/cc-switch. Autostart stays in home/jimmy.nix.
+    nurPkgs.cc-switch
     telegram-desktop
     clash-verge-rev
     discord

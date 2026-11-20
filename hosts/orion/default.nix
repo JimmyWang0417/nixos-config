@@ -76,9 +76,6 @@ in
     unstableUnfree.android-studio # 26.05 停在 2025.3.4，unstable 的稳定版是官方 2026.2.2
     # 26.05 没有 openlogi。这份锁定的 unstable 是 AprilNEA/OpenLogi 0.9.0，与当前官方发布一致。
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.openlogi
-    # 26.05 没有 cc-switch。这份锁定的 unstable 是 farion1231/cc-switch 3.16.5，
-    # 和本机正在自启的 cc-switch-bin 是同一个程序。
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.cc-switch
   ];
   # Same package as programs.openlogi on that pin: the app, plus its udev rules.
   # logiops is not installed and services.logiops stays unset. There is no logid.cfg.
