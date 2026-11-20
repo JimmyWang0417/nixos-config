@@ -1,13 +1,4 @@
 { config, lib, pkgs, inputs, hostName, ... }:
-let
-  # legacyPackages leaves allowUnfree off. Android Studio's license list includes
-  # unfree, so this import is the same locked nixpkgs-unstable input with that
-  # one switch on. The pin stays where origin has it.
-  unstableUnfree = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
-  };
-in
 {
   imports = [
     ../../modules/hardware.nix
@@ -69,57 +60,6 @@ in
     campusSubnets = [ ];
   };
   orion.secrets.enable = true;
-  orion.packages.unstable = [
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.deepseek-harness # 26.05 没有此包
-    unstableUnfree.claude-code # 26.05 的 CLI 更旧，且 legacyPackages 看不到 allowUnfree
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.codex # 26.05 的 CLI 更旧
-    unstableUnfree.android-studio # 26.05 停在 2025.3.4，unstable 的稳定版是官方 2026.2.2
-    # 26.05 没有 openlogi。这份锁定的 unstable 是 AprilNEA/OpenLogi 0.9.0，与当前官方发布一致。
-    # udev rules for this derivation are installed by modules/services.nix.
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.openlogi
-  ];
-  # dshmarket 负责安装和更新，Nix 不钉版本.
-  orion.packages.dshPlugins = [
-    "dshmarket" # dsh-market。社区插件的安装和更新
-    "dsh-better-sidebar" # 文件树、编辑器、改动、任务和侧聊
-    "dsh-context" # 只读官方上下文投影，展开组成，不压缩
-    "dsh-cost-meter" # 会话费用。官方 session-stats 只计 token
-    "dsh-auth-cookie-guard" # 抬高请求头上限，并清掉旧的启动 cookie
-    "dsh-skill-mcp-panel" # 侧栏管理技能和 MCP
-    "dsh-genui" # 对话里的图表、表单和小组件
-    "dsh-config-manager" # 备份、导入和同步 dsh 配置
-    "dsh-ego-browser" # 浏览器自动化和观察窗
-    "dsh-free-search" # 免费网页搜索
-    "dsh-ops" # Linux 上也有的文件和 PTC 工具
-    "dsh-fast-mode" # 缩短输出，不压缩上下文
-    "dsh-email" # 在 dsh 里收发邮件
-    "dsh-mobile" # 手机和局域网访问
-    "dsh-our-free-model" # 免登录只开 Zen 和 Kilo。包内 WorkBuddy、Qoder、Trae、ZCode 渠道关掉
-    "dsh-llm-retry-settings" # LLM 重试次数和错误码
-    "@michengai/dsh-pua" # 验收循环和失败换方法，语气可关
-    "dsh-soul" # 人设和回复风格，不是记忆
-    "dsh-memory-palace" # 本地 Markdown 长期记忆。比 Mem0 更能直接改，不叠第二份召回
-    # 白嫖积分：一家一个连接器，额度用尽再手动换下一家。没有跨产品按剩余积分自动选的插件，不装 dsh-wtq-pool。
-    "dsh-connect-workbuddy" # 本机 WorkBuddy 免费积分和账号池。npm 上的 dsh-workbuddy 没有 bundle
-    "@dmh2002/dsh-connect-qoder" # 本机 Qoder 免费积分和账号池。无 scope 的 dsh-connect-qoder 停在 0.2
-    "dsh-connect-trae" # 本机 Trae 免费积分和账号池
-    "dsh-codex-connect" # ChatGPT 登录后的 Codex。不参与上面的白嫖轮换
-    "dsh-btw" # 侧问，不写入主会话
-    "@sputnikzaychik/dsh-qq-bot" # QQ 会话接到 DSH。人设留空则不注入
-    "@ggboy123/dsh-paper-reader" # 论文 PDF 伴读
-    "dsh-paper-translator" # 论文 HTML 翻译，保留公式
-    "dsh-paperdesk" # 论文文库和精读笔记
-    "dsh-paper-insight" # 论文到产品、沙箱和 PRD。检索和精读仍用已留的论文插件
-    "dsh-cite" # DOI 和 BibTeX 引文工作台
-    "dsh-plugin-zotero" # 操作本机 Zotero 并读论文
-    "@fffangchenghao/dsh-latex-look" # 编译 LaTeX 并对照版面
-    "dsh-thesis" # 学位论文九阶段、学校模板、Word 和答辩
-    "academic-research-skills-dsh" # 研究技能命令
-    "dsh-aha-tutor" # 课程辅导
-    "dsh-study-coach" # 课程地图和每日任务
-    "dsh-ai4scholar" # 学术检索和写作工具
-    "dsh-slides" # 提纲转幻灯
-  ];
   orion.shortcuts.profile = "current";
 
   home-manager.useGlobalPkgs = true;

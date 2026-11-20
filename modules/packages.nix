@@ -31,12 +31,26 @@ let
     (pkg: (pkg.pname or "") == "deepseek-harness")
     null
     config.orion.packages.unstable;
+  # One fixed-point for the locked nixpkgs-unstable input. allowUnfree is on
+  # so claude-code and android-studio evaluate; the free names use this same set.
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
 in
 {
   options.orion.packages.unstable = lib.mkOption {
     type = lib.types.listOf lib.types.package;
-    default = [ ];
-    description = "Packages from nixpkgs-unstable when nixos-26.05 is missing or older.";
+    default = [
+      pkgsUnstable.deepseek-harness # 26.05 没有此包
+      pkgsUnstable.claude-code # 26.05 的 CLI 更旧，且 legacyPackages 看不到 allowUnfree
+      pkgsUnstable.codex # 26.05 的 CLI 更旧
+      pkgsUnstable.android-studio # 26.05 停在 2025.3.4，unstable 的稳定版是官方 2026.2.2
+      # 26.05 没有 openlogi。这份锁定的 unstable 是 AprilNEA/OpenLogi 0.9.0，与当前官方发布一致。
+      # udev rules for this derivation are installed by modules/services.nix.
+      pkgsUnstable.openlogi
+    ];
+    description = "Packages from one locked nixpkgs-unstable set when nixos-26.05 is missing or older.";
   };
 
   options.orion.packages.dshPlugins = lib.mkOption {

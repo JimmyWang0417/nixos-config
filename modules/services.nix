@@ -10,7 +10,7 @@ let
     url = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     hash = "sha256-M3HdJQ5h2eFjNjAHP+/aFTzUQm9y9K+gwzc64uj+oDo=";
   };
-  # Same derivation the host lists on orion.packages.unstable.
+  # Same derivation listed on orion.packages.unstable.
   openlogi = lib.findFirst
     (pkg: (pkg.pname or "") == "openlogi")
     null
