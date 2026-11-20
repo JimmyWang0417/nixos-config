@@ -74,6 +74,13 @@ in
     unstableUnfree.claude-code # 26.05 的 CLI 更旧，且 legacyPackages 看不到 allowUnfree
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.codex # 26.05 的 CLI 更旧
     unstableUnfree.android-studio # 26.05 停在 2025.3.4，unstable 的稳定版是官方 2026.2.2
+    # 26.05 没有 openlogi。这份锁定的 unstable 是 AprilNEA/OpenLogi 0.9.0，与当前官方发布一致。
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.openlogi
+  ];
+  # Same package as programs.openlogi on that pin: the app, plus its udev rules.
+  # logiops is not installed and services.logiops stays unset. There is no logid.cfg.
+  services.udev.packages = [
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.openlogi
   ];
   # dshmarket 负责安装和更新，Nix 不钉版本.
   orion.packages.dshPlugins = [

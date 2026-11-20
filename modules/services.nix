@@ -84,6 +84,9 @@ in
   # serviceMode starts clash-verge-service as root. The unit name is
   # clash-verge.service. The socket is mode 0660 and uses this group.
   # jimmywang0417's primary group is not users.
+  # verge.yaml auto_check_update is set in home/jimmy.nix. That is the
+  # key Clash Verge Rev 2.5.10 reads before the startup update dialog
+  # and the silent updater. TUN stays a GUI toggle.
   programs.clash-verge = {
     enable = true;
     serviceMode = true;
