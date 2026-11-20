@@ -36,6 +36,23 @@ let
   ccSwitch = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.cc-switch;
   openlogi = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.openlogi;
   autostartDesktop = name: text: "${pkgs.writeTextDir name text}/${name}";
+  # Android Studio is unfree, so this is the same locked nixpkgs-unstable with that switch on.
+  unstableUnfree = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+  majorMinor = pkg: lib.versions.majorMinor pkg.version;
+  androidStudio = unstableUnfree.android-studio;
+  androidPatch = lib.versions.patch androidStudio.version;
+  # IntelliJ stores the "Check IDE updates" switch in <config>/options/updates.xml.
+  # The directory name is the product plus major.minor. Android Studio's folder
+  # is sometimes the three-part version, so both names are seeded.
+  jbUpdateDirs = [
+    "JetBrains/IntelliJIdea${majorMinor pkgs.jetbrains.idea}"
+    "JetBrains/PyCharm${majorMinor pkgs.jetbrains.pycharm}"
+    "Google/AndroidStudio${majorMinor androidStudio}"
+  ] ++ lib.optional (androidPatch != null && androidPatch != "0")
+    "Google/AndroidStudio${majorMinor androidStudio}.${androidPatch}";
 in
 {
   imports = [ ./editors.nix ];
@@ -126,6 +143,13 @@ in
     if not path.exists() or new != text:
         path.write_text(new)
     PY
+  '';
+
+  # Other in-app "a new version is available" switches. Each key is one the
+  # app itself reads. The script only rewrites those keys.
+  home.activation.disableInAppUpdatePrompts = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    export JB_UPDATE_DIRS=${lib.escapeShellArg (builtins.concatStringsSep ":" jbUpdateDirs)}
+    ${pkgs.python3}/bin/python3 ${./disable-update-prompts.py}
   '';
 
   # Apps that actually autostart on this Plasma X11 session.

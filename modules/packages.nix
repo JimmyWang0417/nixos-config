@@ -60,6 +60,9 @@ in
   programs.firefox = {
     enable = true;
     languagePacks = [ "zh-CN" ];
+    # Mozilla policy DisableAppUpdate. Stops Firefox checking for a new
+    # version and showing its update UI. https://firefox-admin-docs.mozilla.org/reference/policies/disableappupdate/
+    policies.DisableAppUpdate = true;
   };
 
   # Plasma sets enablePlasmaBrowserIntegration. The host JSON is installed
