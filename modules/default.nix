@@ -9,6 +9,7 @@
     ./users.nix
     ./services.nix
     ./packages.nix
+    ./deveco.nix
     ./networking.nix
     ./nix-settings.nix
     ./nix-download.nix
