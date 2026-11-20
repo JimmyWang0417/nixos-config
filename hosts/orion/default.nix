@@ -65,16 +65,45 @@
   ];
   # dshmarket 负责安装和更新，Nix 不钉版本.
   orion.packages.dshPlugins = [
-    "dshmarket" # dsh-market。社区插件的安装和更新，npm 包名没有连字符
+    "dshmarket" # dsh-market。社区插件的安装和更新
+    "dsh-better-sidebar" # 文件树、编辑器、改动、任务和侧聊
     "dsh-context" # 只读官方上下文投影，展开组成，不压缩
     "dsh-cost-meter" # 会话费用。官方 session-stats 只计 token
     "dsh-auth-cookie-guard" # 抬高请求头上限，并清掉旧的启动 cookie
+    "dsh-skill-mcp-panel" # 侧栏管理技能和 MCP
+    "dsh-genui" # 对话里的图表、表单和小组件
+    "dsh-config-manager" # 备份、导入和同步 dsh 配置
+    "dsh-ego-browser" # 浏览器自动化和观察窗
+    "dsh-free-search" # 免费网页搜索
+    "dsh-ops" # Linux 上也有的文件和 PTC 工具
+    "dsh-fast-mode" # 缩短输出，不压缩上下文
+    "dsh-email" # 在 dsh 里收发邮件
+    "dsh-mobile" # 手机和局域网访问
+    "dsh-our-free-model" # 免登录的额外模型
+    "dsh-llm-retry-settings" # LLM 重试次数和错误码
+    "@michengai/dsh-pua" # 任务推进和验收循环
+    "dsh-soul" # 人设和回复风格，不是记忆
+    "dsh-memory-palace" # 本地 Markdown 长期记忆
+    "dsh-mem0" # Mem0 长期记忆，和文件记忆分开存
     "dsh-connect-workbuddy" # 本机登录的 WorkBuddy 模型。npm 上的 dsh-workbuddy 没有 bundle
     "@dmh2002/dsh-connect-qoder" # 本机 Qoder PAT。无 scope 的 dsh-connect-qoder 停在 0.2
     "dsh-connect-trae" # 本机登录的 Trae 模型
     "dsh-codex-connect" # ChatGPT 登录后的 Codex 模型
     "dsh-btw" # 侧问，不写入主会话
     "@sputnikzaychik/dsh-qq-bot" # QQ 会话接到 DSH。人设留空则不注入
+    "@ggboy123/dsh-paper-reader" # 论文 PDF 伴读
+    "dsh-paper-translator" # 论文 HTML 翻译，保留公式
+    "dsh-paperdesk" # 论文文库和精读笔记
+    "dsh-paper-insight" # 论文到产品的研究流程
+    "dsh-cite" # DOI 和 BibTeX 引文工作台
+    "dsh-plugin-zotero" # 操作本机 Zotero 并读论文
+    "@fffangchenghao/dsh-latex-look" # 编译 LaTeX 并对照版面
+    "dsh-thesis" # 学位论文写作流程
+    "academic-research-skills-dsh" # 研究技能命令
+    "dsh-aha-tutor" # 课程辅导
+    "dsh-study-coach" # 课程地图和每日任务
+    "dsh-ai4scholar" # 学术检索和写作工具
+    "dsh-slides" # 提纲转幻灯
   ];
   orion.shortcuts.profile = "current";
 
