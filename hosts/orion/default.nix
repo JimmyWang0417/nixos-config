@@ -81,15 +81,16 @@
     "dsh-fast-mode" # 缩短输出，不压缩上下文
     "dsh-email" # 在 dsh 里收发邮件
     "dsh-mobile" # 手机和局域网访问
-    "dsh-our-free-model" # 免登录的 Zen/Kilo 模型。WorkBuddy、Qoder、Trae 仍用专用连接器；包内 ZCode 渠道不单独使用
+    "dsh-our-free-model" # 免登录只开 Zen 和 Kilo。包内 WorkBuddy、Qoder、Trae、ZCode 渠道关掉
     "dsh-llm-retry-settings" # LLM 重试次数和错误码
     "@michengai/dsh-pua" # 验收循环和失败换方法，语气可关
     "dsh-soul" # 人设和回复风格，不是记忆
     "dsh-memory-palace" # 本地 Markdown 长期记忆。比 Mem0 更能直接改，不叠第二份召回
-    "dsh-connect-workbuddy" # 本机登录的 WorkBuddy 模型。npm 上的 dsh-workbuddy 没有 bundle
-    "@dmh2002/dsh-connect-qoder" # 本机 Qoder PAT。无 scope 的 dsh-connect-qoder 停在 0.2
-    "dsh-connect-trae" # 本机登录的 Trae 模型
-    "dsh-codex-connect" # ChatGPT 登录后的 Codex 模型
+    # 白嫖积分：一家一个连接器，额度用尽再手动换下一家。没有跨产品按剩余积分自动选的插件，不装 dsh-wtq-pool。
+    "dsh-connect-workbuddy" # 本机 WorkBuddy 免费积分和账号池。npm 上的 dsh-workbuddy 没有 bundle
+    "@dmh2002/dsh-connect-qoder" # 本机 Qoder 免费积分和账号池。无 scope 的 dsh-connect-qoder 停在 0.2
+    "dsh-connect-trae" # 本机 Trae 免费积分和账号池
+    "dsh-codex-connect" # ChatGPT 登录后的 Codex。不参与上面的白嫖轮换
     "dsh-btw" # 侧问，不写入主会话
     "@sputnikzaychik/dsh-qq-bot" # QQ 会话接到 DSH。人设留空则不注入
     "@ggboy123/dsh-paper-reader" # 论文 PDF 伴读
