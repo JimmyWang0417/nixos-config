@@ -30,5 +30,6 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "claudeCode.preferredLocation": "panel",
-    "jdk.telemetry.enabled": true
+    "jdk.telemetry.enabled": true,
+    "update.mode": "none"
 }

@@ -117,6 +117,7 @@ in
 
     # No tokens in either file. verilog.ctags.path is "ctags" so it resolves
     # to the universal-ctags already in environment.systemPackages.
+    # update.mode none is the documented VS Code updater switch.
     "Code/User/settings.json".source = ./vscode/settings.json;
     "Code/User/keybindings.json".source = ./vscode/keybindings.json;
   };
