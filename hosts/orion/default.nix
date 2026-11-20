@@ -74,6 +74,7 @@
     "dsh-connect-trae" # 本机登录的 Trae 模型
     "dsh-codex-connect" # ChatGPT 登录后的 Codex 模型
     "dsh-btw" # 侧问，不写入主会话
+    "@sputnikzaychik/dsh-qq-bot" # QQ 会话接到 DSH。人设留空则不注入
   ];
   orion.shortcuts.profile = "current";
 
