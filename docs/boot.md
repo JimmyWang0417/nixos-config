@@ -16,7 +16,8 @@
 - `boot.loader.grub.splashImage = null`，不用 NixOS 自带的启动壁纸盖住 DedSec
 - `boot.loader.timeout` 由主机设为 10，对应现场 `GRUB_TIMEOUT=10`
 - `boot.loader.efi.canTouchEfiVariables` 默认 false
-- 不设置 `configurationLimit`，世代数量保持 NixOS 默认，子菜单保留
+- `boot.loader.grub.configurationLimit = 20`。nixpkgs 26.05 的默认是 100。安装脚本只让子菜单最多列出 20 代，不删除配置世代
+- `boot.loader.grub.default = "saved"`。26.05 的 `install-grub.pl` 会 `load_env`，把 `default` 设成 `${saved_entry}`，并在每条 NixOS 菜单项里调用 `savedefault`。Windows 那条 `extraEntries` 是原文写入，所以菜单项里自己调用 `savedefault`。不写 `GRUB_SAVEDEFAULT`，那个变量只给 `/etc/default/grub` 用
 
 ## 相关文件
 

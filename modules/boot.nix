@@ -40,8 +40,15 @@ in
       gfxpayloadEfi = "keep";
       theme = cfg.theme;
       splashImage = null;
+      # nixpkgs 26.05 defaults this to 100. The installer only stops listing
+      # older generations in the submenu. It does not delete profile generations.
+      configurationLimit = 20;
+      # install-grub.pl: "saved" loads grubenv, sets default to ${saved_entry},
+      # defines savedefault, and calls it from each NixOS menu entry.
+      default = "saved";
       extraEntries = ''
         menuentry "Windows Boot Manager" --class windows --class os {
+          savedefault
           insmod part_gpt
           insmod fat
           insmod chain
