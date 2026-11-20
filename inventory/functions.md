@@ -22,6 +22,7 @@
 | 时区 Asia/Shanghai、locale zh_CN.UTF-8、X11 布局 cn、timesyncd | modules/locale.nix |
 | 用户 jimmywang0417 | modules/users.nix |
 | Docker | modules/services.nix |
+| Clash Verge 虚拟网卡服务 `programs.clash-verge.serviceMode`，单元 `clash-verge.service` | modules/services.nix |
 | 打印、bluetooth、pipewire、cron、fstrim、fwupd、ModemManager、bolt | modules/services.nix |
 | NetworkManager 与 KDE Connect 端口 | modules/networking.nix |
 | 中科大 Nix 镜像 | modules/nix-settings.nix |

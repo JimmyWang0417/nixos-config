@@ -87,7 +87,7 @@ Typora 已写入 `modules/packages.nix`，显式取 `inputs.nur-packages.package
 
 在 Nix 默认已经信任的公钥之外，只再追加 `cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=`。两份帮助页都没有公布第二把，narinfo 仍由这把官方钥匙签名。`nix.settings.substituters` 用 `mkForce` 固定上面三项；公钥走 `extra-trusted-public-keys`，不盖掉原有的信任列表。同一份列表在 `flake.nix` 的 `nixConfig` 里。`bootstrap/install.sh` 在代理起来之前接受 flake 配置，并导出同样的 substituters。flake 输入仍是锁住的 GitHub 修订。`nix.settings.fallback = true`：前面的镜像失败时继续试下一个缓存，仍然没有就从源码构建。
 
-Clash Verge 正在监听 mixed 端口 7897，作为 HTTP 代理可用。`orion.nix.proxy` 默认是 `http://127.0.0.1:7897`。nixos-26.05 带的 Nix 2.34 没有 `nix.conf` 的 `http-proxy` / `https-proxy`（2.35 会把这两个键报成 unknown setting），下载走的是 `http_proxy` / `https_proxy`。这个端口因此写进 nix-daemon 的环境，以及 `nix.settings.impure-env`，固定输出构建也能用到。Verge 里单独的 SOCKS 7898 和 HTTP 7899 是关的。这里不写订阅地址。
+Clash Verge 的虚拟网卡依赖 nixos-26.05 的 `programs.clash-verge.serviceMode`。单元名是 `clash-verge.service`，里面跑 `clash-verge-service`。套接字组是 `jimmywang0417`。应用里仍要自己打开 TUN。`programs.clash-verge.tunMode` 没开，那是给 GUI 二进制加 capability 的另一条路。Clash Verge 正在监听 mixed 端口 7897，作为 HTTP 代理可用。`orion.nix.proxy` 默认是 `http://127.0.0.1:7897`。nixos-26.05 带的 Nix 2.34 没有 `nix.conf` 的 `http-proxy` / `https-proxy`（2.35 会把这两个键报成 unknown setting），下载走的是 `http_proxy` / `https_proxy`。这个端口因此写进 nix-daemon 的环境，以及 `nix.settings.impure-env`，固定输出构建也能用到。Verge 里单独的 SOCKS 7898 和 HTTP 7899 是关的。这里不写订阅地址。
 
 本机的多线程下载是两套，都不是 Nix 的客户端：
 
