@@ -71,17 +71,6 @@
         };
       };
 
-      # Package expressions that are not in nixpkgs 26.05. Not installed on Orion
-      # unless a host module lists them.
-      overlays.default = import ./overlay.nix;
-
-      packages.x86_64-linux = import ./pkgs {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-      };
-
       devShells.x86_64-linux.default =
         let
           pkgs = import nixpkgs { system = "x86_64-linux"; };

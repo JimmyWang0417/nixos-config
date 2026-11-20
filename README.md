@@ -121,15 +121,15 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 
 ### nixpkgs 26.05 没有的包
 
-表达式在本仓库 `pkgs/`，由 `packages.x86_64-linux` 和 `overlays.default` 暴露，并挂在 Orion 的 `nixpkgs.overlays` 上。没有放进 `environment.systemPackages`。构建用 `nix build .#<名字>`。GRUB 主题除外：主题包和每日更新在 nur-packages，nixos-config 只引用。
+这些包在自有 nur-packages，nixos-config 只引用属性。系统安装的是 `nurPkgs.botmux`。`crm`、`xjtu-course-genius`、`xjtutoolbox`、`animeko` 不进 `environment.systemPackages`。
 
 - `crm` 0.2.2
 - `xjtu-course-genius` 4.6.1
 - `xjtutoolbox` 1.4.1
-- `botmux` 3.59.15
+- `botmux` 3.59.17
 - `animeko` 6.4.0。nixpkgs 26.05 的 `animeko` 5.3.2 标记为 broken，这份是 AppImage
 
-这些包的版本写在各自的 `pkgs/` 表达式里，要改就手改。本仓库没有 GitHub Actions。
+版本写在 nur-packages 各自的表达式里，由那边的更新流程维护。
 
 ### conda
 
@@ -159,7 +159,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 - 钉钉 9.0.0.261105002：`nur.repos.yakkhini.dingtalk`。和已装版本一致，走调用方的 nixpkgs。这个包捆绑已停止维护的 OpenSSL 1.1，所以 `nixpkgs.config.permittedInsecurePackages` 里只放了 `dingtalk-9.0.0.261105002`。
 - WPS 365 12.8.2.21176：`nur.repos.novel2430.wpsoffice-365`。版本号和已装的教育版相同，属性名不带 edu。同仓库的 `wpsoffice` 11.1 和 `wpsoffice-cn` 12.1 都更旧，不用。
 
-社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 的表达式在本仓库 `pkgs/`。NUR 里没有深信服客户端。Orion 的校园网服务是 docker-easyconnect，镜像 `hagb/docker-easyconnect:7.6.7`，见「校园网与 docker-easyconnect」。
+社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 用自有 nur-packages 的同名属性。NUR 里没有深信服客户端。Orion 的校园网服务是 docker-easyconnect，镜像 `hagb/docker-easyconnect:7.6.7`，见「校园网与 docker-easyconnect」。
 
 字体和词库：Orion 的 `orion.fonts.windows.package` 显式选 `pkgs.nur.repos.chillcicada.ttf-ms-win10`，随现有 NUR 输入锁定，不从 AUR 网页取字体。基包有 144 个 TTF/TTC 文件，约 320.8 MiB，含微软雅黑、宋体、Consolas；不加 `ttf-ms-win10-sc-sup`。CJK 默认回退链仍用 Noto Sans CJK / Noto Serif CJK（Source Han 的 Noto 发行）。`orion.fonts.windows.enable` 和 `directory` 继续用于本机目录额外导入，默认关，与包选择独立。fcitx5 拼音用户词库是个人文件，NUR 不会有。详见 [字体文档](docs/fonts.md)。
 
@@ -197,7 +197,7 @@ fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-license
 | ranger / neovim | home/editors.nix | home/editors.nix | 沿用现有配置 |
 | VS Code | home/editors.nix | docs/vscode.md | 扩展是 nixpkgs 列表 |
 | 软件包 | modules/packages.nix | docs/packages.md | Typora 走自有 nur-packages；deepseek-harness 走 nixpkgs-unstable |
-| 本仓库表达式 | pkgs/default.nix | pkgs/default.nix | packages.x86_64-linux 与 overlays.default |
+| 自有包 | nur-packages | modules/packages.nix | 只引用 crm、botmux、animeko、xjtutoolbox、xjtu-course-genius |
 | 引导 | bootstrap/install.sh | docs/bootstrap.md | 已装好且 flake 未开时先跑 |
 | GRUB | modules/boot.nix | docs/boot.md | 主题保持现用的；同一系统不在顶层出现两次。 |
 | 字体 | modules/fonts.nix | docs/fonts.md | 安装 NUR Win10 字体；Noto CJK 回退不变，本机目录额外导入默认关。 |

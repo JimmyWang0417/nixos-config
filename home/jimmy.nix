@@ -213,9 +213,9 @@ in
       ExecStart = "${pkgs.writeShellScript "botmux-user-start" ''
         mkdir -p "$HOME/.botmux"
         cd "$HOME/.botmux"
-        exec ${lib.getExe pkgs.botmux} start
+        exec ${lib.getExe nurPkgs.botmux} start
       ''}";
-      ExecStop = "${lib.getExe pkgs.botmux} stop";
+      ExecStop = "${lib.getExe nurPkgs.botmux} stop";
     };
     Install.WantedBy = [ "default.target" ];
   };

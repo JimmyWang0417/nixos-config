@@ -47,10 +47,6 @@ in
 
   config = {
   nixpkgs.config.allowUnfree = true;
-  # Local expressions in pkgs/. Orion does not install them from here.
-  nixpkgs.overlays = [
-    (import ../overlay.nix)
-  ];
   # yakkhini.dingtalk 9.0.0.261105002 bundles OpenSSL 1.1 (EOL). The package
   # matches the installed client, so this one name is permitted.
   nixpkgs.config.permittedInsecurePackages = [
@@ -120,8 +116,8 @@ in
     vlc
     obs-studio
     keepassxc
-    # The user unit lives in home/jimmy.nix. This is the expression in pkgs/botmux.
-    botmux
+    # The user unit lives in home/jimmy.nix. The package is nur-packages botmux.
+    nurPkgs.botmux
     telegram-desktop
     clash-verge-rev
     discord
