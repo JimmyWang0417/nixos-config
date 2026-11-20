@@ -1,6 +1,19 @@
 {
   description = "Jimmy Wang's NixOS configuration. Current host: orion (Orion-Laptop).";
 
+  # Binary caches only. Flake inputs stay on their pinned GitHub revisions.
+  # Keep this list identical to orion.nix.chinaMirrors.substituters.
+  nixConfig = {
+    substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://cache.nixos.org/"
+    ];
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
+  };
+
   inputs = {
     # nixos-26.11 is not published (no branch, channel 404). Track stable.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";

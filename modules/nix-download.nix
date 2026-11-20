@@ -2,8 +2,10 @@
 let
   nixCfg = config.orion.nix;
   cfg = nixCfg.download;
-  # A narinfo on the USTC store is signed cache.nixos.org-1. The mirror help
-  # page does not publish a second key: https://mirrors.ustc.edu.cn/help/nix-channels.html
+  # USTC and TUNA both serve cache.nixos.org. Neither help page publishes
+  # another key, so this is added beside whatever Nix already trusts:
+  # https://mirrors.ustc.edu.cn/help/nix-channels.html
+  # https://mirrors.tuna.tsinghua.edu.cn/help/nix-channels/
   officialCacheKey = "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=";
 in
 {
@@ -35,10 +37,11 @@ in
 
   config = lib.mkMerge [
     (lib.mkIf nixCfg.chinaMirrors.enable {
-      # mkForce keeps a single USTC entry and a single official fallback.
-      # The NixOS module also appends cache.nixos.org and the same key.
+      # NixOS appends cache.nixos.org with mkAfter. mkForce keeps exactly
+      # chinaMirrors.substituters: USTC, TUNA, then the official cache.
       nix.settings.substituters = lib.mkForce nixCfg.chinaMirrors.substituters;
-      nix.settings.trusted-public-keys = lib.mkForce [ officialCacheKey ];
+      # Append the official key. Do not mkForce trusted-public-keys.
+      nix.settings.extra-trusted-public-keys = [ officialCacheKey ];
     })
 
     (lib.mkIf cfg.enable {

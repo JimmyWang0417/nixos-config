@@ -62,6 +62,29 @@ if ! conf_has_flakes "${NIX_CONFIG:-}"; then
 fi
 export NIX_CONFIG
 
+# 二进制缓存：中科大、清华、官方。代理还没起来时也用这一份。
+# extra-trusted-public-keys 只追加官方公钥，不替换 Nix 已经信任的钥匙。
+# 与 flake.nix 的 nixConfig、modules/nix-settings.nix 保持同一份列表。
+mirror_substituters="https://mirrors.ustc.edu.cn/nix-channels/store https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/"
+mirror_key="cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+
+nix_config_add() {
+  local line="$1"
+  case "${NIX_CONFIG:-}" in
+    *"$line"*) return ;;
+  esac
+  if [[ -n "${NIX_CONFIG:-}" ]]; then
+    NIX_CONFIG="${NIX_CONFIG}"$'\n'"${line}"
+  else
+    NIX_CONFIG="${line}"
+  fi
+}
+
+nix_config_add "substituters = ${mirror_substituters}"
+nix_config_add "extra-trusted-public-keys = ${mirror_key}"
+nix_config_add "accept-flake-config = true"
+export NIX_CONFIG
+
 # 追加到 nix.conf，不覆盖其余行。extra- 不会盖掉已有的 experimental-features。
 nix_conf="/etc/nix/nix.conf"
 nix_conf_text=""
@@ -77,6 +100,14 @@ if ! conf_has_flakes "$nix_conf_text"; then
   else
     printf 'extra-experimental-features = nix-command flakes\n' | sudo tee -a "$nix_conf" >/dev/null
   fi
+fi
+
+# 运行中的 nix-daemon 要等重启才读新的 nix.conf。本次 nixos-rebuild 另外用
+# --option 和 NIX_CONFIG 带上同一份 substituters。
+if [[ "$nix_conf_text" != *"mirrors.ustc.edu.cn/nix-channels/store"* ]]; then
+  sudo mkdir -p /etc/nix
+  printf '\nsubstituters = %s\nextra-trusted-public-keys = %s\n' \
+    "$mirror_substituters" "$mirror_key" | sudo tee -a "$nix_conf" >/dev/null
 fi
 
 # 当前硬件文件是主机 orion 时，不用安装器生成的文件覆盖它。
@@ -115,6 +146,13 @@ rebuild=(
   nixos-rebuild
   switch
   --flake "$flake_ref"
+  --accept-flake-config
+  --option
+  substituters
+  "$mirror_substituters"
+  --option
+  extra-trusted-public-keys
+  "$mirror_key"
   --extra-experimental-features
   "nix-command flakes"
 )
