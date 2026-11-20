@@ -1,4 +1,13 @@
 { config, lib, pkgs, inputs, hostName, ... }:
+let
+  # legacyPackages leaves allowUnfree off. Android Studio's license list includes
+  # unfree, so this import is the same locked nixpkgs-unstable input with that
+  # one switch on. The pin stays where origin has it.
+  unstableUnfree = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ../../modules/hardware.nix
@@ -64,6 +73,7 @@
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.deepseek-harness # 26.05 没有此包
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.claude-code # 26.05 的 CLI 更旧
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.codex # 26.05 的 CLI 更旧
+    unstableUnfree.android-studio # 26.05 停在 2025.3.4，unstable 的稳定版是官方 2026.2.2
   ];
   # dshmarket 负责安装和更新，Nix 不钉版本.
   orion.packages.dshPlugins = [
