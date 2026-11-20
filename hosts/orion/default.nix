@@ -71,7 +71,7 @@ in
   orion.secrets.enable = true;
   orion.packages.unstable = [
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.deepseek-harness # 26.05 没有此包
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.claude-code # 26.05 的 CLI 更旧
+    unstableUnfree.claude-code # 26.05 的 CLI 更旧，且 legacyPackages 看不到 allowUnfree
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.codex # 26.05 的 CLI 更旧
     unstableUnfree.android-studio # 26.05 停在 2025.3.4，unstable 的稳定版是官方 2026.2.2
   ];

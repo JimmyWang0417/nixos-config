@@ -121,16 +121,19 @@ in
     clash-verge-rev
     discord
     obsidian
-    nurPkgs.typora
+    # Typora's launcher only forwards static extraFlags. It does not read
+    # NIXOS_OZONE_WL. The same conditional flags as Qoder and Trae.
+    (withOzone nurPkgs.typora)
     (withOzone qoderPkg)
     (withOzone traePkg)
     # Already adds the Wayland flags when WAYLAND_DISPLAY is set.
-    nur.repos.MCSeekeri.workbuddy-linux
+    nur.repos.MCSeekeri.workbuddy
     (google-chrome.override { plasmaSupport = true; })
     (microsoft-edge.override { plasmaSupport = true; })
     heroic
     libreoffice-qt
-    nur.repos.freegoxing.baidunetdisk
+    # The FHS launcher is `baidunetdisk --no-sandbox` and ignores NIXOS_OZONE_WL.
+    (withOzone nur.repos.freegoxing.baidunetdisk)
     nur.repos.yakkhini.dingtalk
     nur.repos.novel2430.wpsoffice-365
     # ToDesk the package is installed by services.todesk (todeskd).

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, osConfig, ... }:
 let
   nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
   whitesur = nurPkgs.whitesur-kde;
@@ -14,7 +14,9 @@ let
       plasmaShells = "${pkgs.kdePackages.plasma-desktop}/share/plasma/shells";
     };
     "plasmarc" = ./plasma/plasmarc;
-    "kwinrc" = ./plasma/kwinrc;
+    "kwinrc" = pkgs.replaceVars ./plasma/kwinrc {
+      fcitxDesktop = "${osConfig.i18n.inputMethod.package}/share/applications/org.fcitx.Fcitx5.desktop";
+    };
     "kdeglobals" = ./plasma/kdeglobals;
     "plasma-localerc" = ./plasma/plasma-localerc;
     "kxkbrc" = ./plasma/kxkbrc;

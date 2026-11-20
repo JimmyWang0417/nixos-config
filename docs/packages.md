@@ -31,7 +31,7 @@ Typora 包、插件更新和包级构建检查由 nur-packages 的 GitHub Action
 ## 相关文件
 
 - `flake.nix` 的输入 `nixpkgs-unstable`，锁在 `26c039389e3cf0195bedfb0ddd821c70faef691b`
-- `flake.nix`、`flake.lock` 的自有 `nur-packages` 输入：提供 Typora、Qoder CN 0.5.16（`qoder-cn`）、Trae CN 构建 2.3.105403（应用版本 3.4.22，`trae-cn`）和主题包。国际版 Qoder 0.5.16 是同仓库的 `qoder`，不安装。国际版 Trae 仍是 `nur.repos.lonerOrz.trae`，不安装。WorkBuddy 5.6.2.40046327 用 `nur.repos.MCSeekeri.workbuddy-linux`。没有安装 ZCode。DevEco Studio 由 `modules/deveco.nix` 安装，下载和组装在 nur-packages。
+- `flake.nix`、`flake.lock` 的自有 `nur-packages` 输入：提供 Typora、Qoder CN 0.5.16（`qoder-cn`）、Trae CN 构建 2.3.105403（应用版本 3.4.22，`trae-cn`）和主题包。国际版 Qoder 0.5.16 是同仓库的 `qoder`，不安装。国际版 Trae 仍是 `nur.repos.lonerOrz.trae`，不安装。WorkBuddy 5.6.2.40046327 用 `nur.repos.MCSeekeri.workbuddy`。没有安装 ZCode。DevEco Studio 由 `modules/deveco.nix` 安装，下载和组装在 nur-packages。
 - `modules/packages.nix`
 - `hosts/orion/default.nix`
 

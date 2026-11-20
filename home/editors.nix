@@ -21,6 +21,12 @@ let
     #!${pkgs.python3}/bin/python3
     ${builtins.readFile ./install-nvim-plugins.py}
   '';
+  # legacyPackages leaves allowUnfree off, so evaluating the flake throws
+  # on this unfree extension before the system nixpkgs.config is consulted.
+  unstableUnfree = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
 in
 {
   home.packages = rangerCommands;
@@ -48,7 +54,7 @@ in
     enable = true;
     package = pkgs.vscode;
     profiles.default.extensions = [
-      inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vscode-extensions.anthropic.claude-code
+      unstableUnfree.vscode-extensions.anthropic.claude-code
     ] ++ (with pkgs.vscode-extensions; [
       bierner.markdown-preview-github-styles
       catppuccin.catppuccin-vsc-icons
