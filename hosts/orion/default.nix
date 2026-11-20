@@ -72,7 +72,6 @@
     "dsh-connect-workbuddy" # 本机登录的 WorkBuddy 模型。npm 上的 dsh-workbuddy 没有 bundle
     "@dmh2002/dsh-connect-qoder" # 本机 Qoder PAT。无 scope 的 dsh-connect-qoder 停在 0.2
     "dsh-connect-trae" # 本机登录的 Trae 模型
-    "dsh-zcode" # ZCode 订阅登录后的模型
     "dsh-codex-connect" # ChatGPT 登录后的 Codex 模型
     "dsh-btw" # 侧问，不写入主会话
   ];
