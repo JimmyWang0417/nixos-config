@@ -81,8 +81,11 @@
     "dsh-fast-mode" # 缩短输出，不压缩上下文
     "dsh-email" # 在 dsh 里收发邮件
     "dsh-mobile" # 手机和局域网访问
+    "dsh-our-free-model" # 免登录的 Zen/Kilo 模型。WorkBuddy、Qoder、Trae 仍用专用连接器；包内 ZCode 渠道不单独使用
     "dsh-llm-retry-settings" # LLM 重试次数和错误码
-    "dsh-memory-palace" # 本地 Markdown 长期记忆，只留这一份召回
+    "@michengai/dsh-pua" # 验收循环和失败换方法，语气可关
+    "dsh-soul" # 人设和回复风格，不是记忆
+    "dsh-memory-palace" # 本地 Markdown 长期记忆。比 Mem0 更能直接改，不叠第二份召回
     "dsh-connect-workbuddy" # 本机登录的 WorkBuddy 模型。npm 上的 dsh-workbuddy 没有 bundle
     "@dmh2002/dsh-connect-qoder" # 本机 Qoder PAT。无 scope 的 dsh-connect-qoder 停在 0.2
     "dsh-connect-trae" # 本机登录的 Trae 模型
@@ -91,9 +94,11 @@
     "@ggboy123/dsh-paper-reader" # 论文 PDF 伴读
     "dsh-paper-translator" # 论文 HTML 翻译，保留公式
     "dsh-paperdesk" # 论文文库和精读笔记
+    "dsh-paper-insight" # 论文到产品、沙箱和 PRD。检索和精读仍用已留的论文插件
     "dsh-cite" # DOI 和 BibTeX 引文工作台
     "dsh-plugin-zotero" # 操作本机 Zotero 并读论文
     "@fffangchenghao/dsh-latex-look" # 编译 LaTeX 并对照版面
+    "dsh-thesis" # 学位论文九阶段、学校模板、Word 和答辩
     "academic-research-skills-dsh" # 研究技能命令
     "dsh-aha-tutor" # 课程辅导
     "dsh-study-coach" # 课程地图和每日任务
