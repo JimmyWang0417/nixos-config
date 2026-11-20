@@ -90,6 +90,7 @@
     "@dmh2002/dsh-connect-qoder" # 本机 Qoder PAT。无 scope 的 dsh-connect-qoder 停在 0.2
     "dsh-connect-trae" # 本机登录的 Trae 模型
     "dsh-codex-connect" # ChatGPT 登录后的 Codex 模型
+    "dsh-btw" # 侧问，不写入主会话
     "@sputnikzaychik/dsh-qq-bot" # QQ 会话接到 DSH。人设留空则不注入
     "@ggboy123/dsh-paper-reader" # 论文 PDF 伴读
     "dsh-paper-translator" # 论文 HTML 翻译，保留公式
