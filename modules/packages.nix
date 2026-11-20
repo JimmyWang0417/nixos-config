@@ -156,8 +156,9 @@ in
   ];
 
   # Home-manager module, so lib.hm exists. Missing names go through
-  # `dsh plugin add` with no version. Registry specs already in the profile stay,
-  # so dsh-market can update them. A Nix link: or file: spec is replaced.
+  # `dsh plugin add` with no version. A dependency key, or a saved spec equal to
+  # the configured name, stays so dsh-market can update it. A Nix link: or file:
+  # spec is replaced.
   home-manager.users.jimmywang0417 = { lib, ... }: {
     config = lib.mkIf (config.orion.packages.dshPlugins != [ ] && dsh != null) {
       home.activation.dshPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -176,6 +177,9 @@ in
             spec = deps.get(name, "")
             if not isinstance(spec, str):
                 spec = ""
+            # pnpm saves `github:owner/repo` under the package name, not the spec.
+            if spec == "" and any(isinstance(value, str) and value == name for value in deps.values()):
+                continue
             if spec.startswith("link:") or spec.startswith("file:"):
                 remove.append(name)
                 add.append(name)

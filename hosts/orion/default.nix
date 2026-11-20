@@ -69,6 +69,8 @@
     "dsh-better-sidebar" # 网页侧栏：文件树、编辑器和终端
     "dsh-context" # 上下文构成面板，不压缩上下文
     "dsh-cost-meter" # 会话费用和订阅额度
+    "dsh-auth-cookie-guard" # 抬高请求头上限，并清掉旧的启动 cookie
+    "github:Faide-cyber/dsh-workbuddy" # 包名 dsh-workbuddy。npm 同名包没有 bundle
   ];
   orion.shortcuts.profile = "current";
 

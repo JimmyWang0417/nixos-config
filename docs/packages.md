@@ -4,7 +4,7 @@
 
 系统安装的软件在 `modules/packages.nix`。nixos-26.05 里有的属性用 `pkgs`。没有或过旧的属性放进 `orion.packages.unstable`，从 flake 输入 `nixpkgs-unstable` 取。这一路不单给某一个程序。
 
-`deepseek-harness` 0.2.2-rc.1 没有 `dsh market` 子命令。市场是独立 npm 包 `dshmarket`（dsh-market），nixpkgs-unstable 里没有这个属性。web profile 还写下 `dsh-better-sidebar`（文件树、编辑器、终端）、`dsh-context`（上下文构成，不压缩）、`dsh-cost-meter`（会话费用和订阅额度）。选型对照了 awesome-dsh-plugin 和四篇小黑盒帖子（link_id `74e872c888ed`、`c1b172b3be3f`、`d8d0727d6d45`、`055972cc9458`）。dshmarket 负责安装和更新，Nix 不钉版本。
+`deepseek-harness` 0.2.2-rc.1 没有 `dsh market` 子命令。市场是独立 npm 包 `dshmarket`（dsh-market），nixpkgs-unstable 里没有这个属性。web profile 还写下 `dsh-better-sidebar`（文件树、编辑器、终端）、`dsh-context`（上下文构成，不压缩）、`dsh-cost-meter`（会话费用和订阅额度）、`dsh-auth-cookie-guard`（抬高请求头上限并清掉旧启动 cookie）、`github:Faide-cyber/dsh-workbuddy`（包名 `dsh-workbuddy`，接入 WorkBuddy 模型；npm 上的 `dsh-workbuddy` 没有 bundle）。选型对照了 awesome-dsh-plugin 和四篇小黑盒帖子（link_id `74e872c888ed`、`c1b172b3be3f`、`d8d0727d6d45`、`055972cc9458`）。dshmarket 负责安装和更新，Nix 不钉版本。
 
 ## Typora
 
@@ -26,7 +26,7 @@ Typora 包、插件更新和包级构建检查由 nur-packages 的 GitHub Action
 
 ## 开关和默认值
 
-`orion.packages.unstable` 的类型是包列表，默认 `[]`。Orion 目前有一项：`deepseek-harness` 0.2.2-rc.1（命令 `dsh`）。`orion.packages.dshPlugins` 的类型是字符串列表，默认 `[]`。Orion 写下 `dshmarket`、`dsh-better-sidebar`、`dsh-context`、`dsh-cost-meter`，不写版本。激活时若 `~/.dsh/profiles/web` 的依赖里还没有这个名字，就执行 `dsh plugin --profile web add`。已经装上的 registry 依赖留给 dsh-market 更新。
+`orion.packages.unstable` 的类型是包列表，默认 `[]`。Orion 目前有一项：`deepseek-harness` 0.2.2-rc.1（命令 `dsh`）。`orion.packages.dshPlugins` 的类型是字符串列表，默认 `[]`。Orion 写下 `dshmarket`、`dsh-better-sidebar`、`dsh-context`、`dsh-cost-meter`、`dsh-auth-cookie-guard`、`github:Faide-cyber/dsh-workbuddy`，不写版本。激活时若 `~/.dsh/profiles/web` 的依赖键和已保存 spec 里都没有这个名字，就执行 `dsh plugin --profile web add`。已经装上的 registry 依赖留给 dsh-market 更新。
 
 ## 相关文件
 
