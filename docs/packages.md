@@ -30,7 +30,7 @@ Typora 包、插件更新和包级构建检查由 nur-packages 的 GitHub Action
 
 ## 相关文件
 
-- `flake.nix` 的输入 `nixpkgs-unstable`，锁在 `5d2b81a7a3be3e2f832879028e4d60abbf58e9a0`
+- `flake.nix` 的输入 `nixpkgs-unstable`，锁在 `26c039389e3cf0195bedfb0ddd821c70faef691b`
 - `flake.nix`、`flake.lock` 的自有 `nur-packages` 输入：提供 Typora、Qoder CN 0.5.16 和主题包。Trae 3.6.20 用 `nur.repos.lonerOrz.trae`。WorkBuddy 5.6.2.40046327 用 `nur.repos.MCSeekeri.workbuddy-linux`。没有安装 ZCode 或 DevEco。
 - `modules/packages.nix`
 - `hosts/orion/default.nix`
