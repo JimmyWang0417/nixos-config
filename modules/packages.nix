@@ -117,6 +117,8 @@ in
     vlc
     obs-studio
     keepassxc
+    # The user unit lives in home/jimmy.nix. This is the expression in pkgs/botmux.
+    botmux
     telegram-desktop
     clash-verge-rev
     discord

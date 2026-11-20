@@ -33,6 +33,9 @@ let
       ${pkgs.coreutils}/bin/chmod u+w "$HOME/.config/${name}"
     '')
     layout);
+  ccSwitch = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.cc-switch;
+  openlogi = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.openlogi;
+  autostartDesktop = name: text: "${pkgs.writeTextDir name text}/${name}";
 in
 {
   imports = [ ./editors.nix ];
@@ -124,4 +127,86 @@ in
         path.write_text(new)
     PY
   '';
+
+  # Apps that actually autostart on this Plasma X11 session.
+  # Clash Verge's TUN helper stays programs.clash-verge.serviceMode.
+  xdg.autostart = {
+    enable = true;
+    entries = [
+      (autostartDesktop "clash-verge.desktop" ''
+        [Desktop Entry]
+        Type=Application
+        Version=1.0
+        Name=Clash Verge
+        Comment=Clash Verge Rev
+        Exec=${lib.getExe pkgs.clash-verge-rev}
+        StartupNotify=false
+        Terminal=false
+        X-GNOME-Autostart-enabled=true
+      '')
+      (autostartDesktop "cc-switch.desktop" ''
+        [Desktop Entry]
+        Type=Application
+        Version=1.0
+        Name=CC Switch
+        Comment=All-in-One Assistant for Claude Code, Codex & Gemini CLI
+        Exec=${lib.getExe ccSwitch}
+        StartupNotify=false
+        Terminal=false
+        X-GNOME-Autostart-enabled=true
+      '')
+      (autostartDesktop "org.keepassxc.KeePassXC.desktop" ''
+        [Desktop Entry]
+        Type=Application
+        Version=1.0
+        Name=KeePassXC
+        GenericName=密码管理器
+        Exec=${lib.getExe pkgs.keepassxc}
+        TryExec=${lib.getExe pkgs.keepassxc}
+        Icon=keepassxc
+        StartupNotify=false
+        Terminal=false
+        Categories=Utility;Security;Qt;
+        X-GNOME-Autostart-enabled=true
+        X-GNOME-Autostart-Delay=2
+        X-KDE-autostart-after=panel
+      '')
+    ];
+  };
+
+  # Same user units this machine enables. OpenLogi's package and udev rules
+  # stay on the host; programs.openlogi.enable does not start the agent.
+  systemd.user.services.botmux = {
+    Unit = {
+      Description = "botmux daemon (IM <-> AI coding CLI bridge)";
+      After = [ "network-online.target" ];
+      Wants = [ "network-online.target" ];
+    };
+    Service = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      Environment = [ "BOTMUX_AUTOSTART_UNIT=1" ];
+      ExecStart = "${pkgs.writeShellScript "botmux-user-start" ''
+        mkdir -p "$HOME/.botmux"
+        cd "$HOME/.botmux"
+        exec ${lib.getExe pkgs.botmux} start
+      ''}";
+      ExecStop = "${lib.getExe pkgs.botmux} stop";
+    };
+    Install.WantedBy = [ "default.target" ];
+  };
+
+  systemd.user.services.openlogi-agent = {
+    Unit = {
+      Description = "OpenLogi background agent (Logitech HID++ device control)";
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = lib.getExe' openlogi "openlogi-agent";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }
