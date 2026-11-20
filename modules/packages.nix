@@ -1,8 +1,9 @@
 { config, lib, pkgs, inputs, ... }:
 let
   nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
-  # 0.2.2-rc.1 installs plugins with `dsh plugin --profile <name> add`. There is no
-  # `dsh market` command. dsh-market is the separate npm package `dshmarket`.
+  # 0.2.2-rc.3 still installs community plugins with `dsh plugin add`. There is
+  # no `dsh market` command. dsh-market is the separate npm package `dshmarket`.
+  # Official web bundles stay inside the harness and are not listed here.
   # Names only; versions stay out of this expression.
   dsh = lib.findFirst
     (pkg: (pkg.pname or "") == "deepseek-harness")
@@ -156,9 +157,9 @@ in
   ];
 
   # Home-manager module, so lib.hm exists. Missing names go through
-  # `dsh plugin add` with no version. A dependency key, or a saved spec equal to
-  # the configured name, stays so dsh-market can update it. A Nix link: or file:
-  # spec is replaced.
+  # `dsh plugin add` with no version. A dependency whose key and spec are both
+  # absent from this list is removed. A saved registry spec that is still listed
+  # stays so dsh-market can update it. A Nix link: or file: spec is replaced.
   home-manager.users.jimmywang0417 = { lib, ... }: {
     config = lib.mkIf (config.orion.packages.dshPlugins != [ ] && dsh != null) {
       home.activation.dshPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -172,7 +173,13 @@ in
         deps = {}
         if manifest_path.exists():
             deps = json.loads(manifest_path.read_text()).get("dependencies") or {}
+        wanted = set(names)
         add, remove = [], []
+        for key, spec in deps.items():
+            if not isinstance(spec, str):
+                spec = ""
+            if key not in wanted and spec not in wanted:
+                remove.append(key)
         for name in names:
             spec = deps.get(name, "")
             if not isinstance(spec, str):
@@ -181,7 +188,8 @@ in
             if spec == "" and any(isinstance(value, str) and value == name for value in deps.values()):
                 continue
             if spec.startswith("link:") or spec.startswith("file:"):
-                remove.append(name)
+                if name not in remove:
+                    remove.append(name)
                 add.append(name)
             elif spec == "":
                 add.append(name)

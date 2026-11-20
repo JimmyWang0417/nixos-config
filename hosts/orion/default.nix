@@ -65,12 +65,16 @@
   ];
   # dshmarket 负责安装和更新，Nix 不钉版本.
   orion.packages.dshPlugins = [
-    "dshmarket" # dsh-market。npm 包名没有连字符
-    "dsh-better-sidebar" # 网页侧栏：文件树、编辑器和终端
-    "dsh-context" # 上下文构成面板，不压缩上下文
-    "dsh-cost-meter" # 会话费用和订阅额度
+    "dshmarket" # dsh-market。社区插件的安装和更新，npm 包名没有连字符
+    "dsh-context" # 只读官方上下文投影，展开组成，不压缩
+    "dsh-cost-meter" # 会话费用。官方 session-stats 只计 token
     "dsh-auth-cookie-guard" # 抬高请求头上限，并清掉旧的启动 cookie
-    "github:Faide-cyber/dsh-workbuddy" # 包名 dsh-workbuddy。npm 同名包没有 bundle
+    "dsh-connect-workbuddy" # 本机登录的 WorkBuddy 模型。npm 上的 dsh-workbuddy 没有 bundle
+    "@dmh2002/dsh-connect-qoder" # 本机 Qoder PAT。无 scope 的 dsh-connect-qoder 停在 0.2
+    "dsh-connect-trae" # 本机登录的 Trae 模型
+    "dsh-zcode" # ZCode 订阅登录后的模型
+    "dsh-codex-connect" # ChatGPT 登录后的 Codex 模型
+    "dsh-btw" # 侧问，不写入主会话
   ];
   orion.shortcuts.profile = "current";
 
