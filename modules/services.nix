@@ -1,7 +1,7 @@
 # Enabled units from `systemctl list-unit-files --state=enabled` on 2026-11-16.
 # EasyMonitor and the pamac timers have no NixOS equivalent and stay in
 # inventory/unmapped.md.
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   # Small text file. remote-add reads it from the store, then still has to
   # reach Flathub for the summary. The oneshot retries; it does not sit in
@@ -10,6 +10,11 @@ let
     url = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     hash = "sha256-M3HdJQ5h2eFjNjAHP+/aFTzUQm9y9K+gwzc64uj+oDo=";
   };
+  # Same derivation the host lists on orion.packages.unstable.
+  openlogi = lib.findFirst
+    (pkg: (pkg.pname or "") == "openlogi")
+    null
+    config.orion.packages.unstable;
 in
 {
   services.printing.enable = true;
@@ -27,7 +32,13 @@ in
 
   # The OpenRGB window is the client. The upstream unit stays off, the same
   # as the machine. These rules are what let that window open the devices.
-  services.udev.packages = [ pkgs.openrgb ];
+  # openlogi is the same derivation as the orion.packages.unstable entry.
+  # Its udev rules ship with that package. logiops is not installed and
+  # services.logiops stays unset. There is no logid.cfg.
+  # programs.openlogi.enable does not start the agent.
+  services.udev.packages = [
+    pkgs.openrgb
+  ] ++ lib.optional (openlogi != null) openlogi;
   boot.kernelModules = [
     "i2c-dev"
     "i2c-i801"

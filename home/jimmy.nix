@@ -198,8 +198,9 @@ in
     ];
   };
 
-  # Same user units this machine enables. OpenLogi's package and udev rules
-  # stay on the host; programs.openlogi.enable does not start the agent.
+  # Same user units this machine enables. The package is the openlogi entry
+  # on orion.packages.unstable; modules/services.nix adds its udev rules.
+  # programs.openlogi.enable does not start the agent.
   systemd.user.services.botmux = {
     Unit = {
       Description = "botmux daemon (IM <-> AI coding CLI bridge)";
