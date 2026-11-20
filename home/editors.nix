@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   # Commands scope.sh / rifle.conf / rc.conf actually run.
   # nixpkgs ranger already wraps file, coreutils, and ImageMagick, and bakes
@@ -47,8 +47,9 @@ in
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      anthropic.claude-code
+    profiles.default.extensions = [
+      inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vscode-extensions.anthropic.claude-code
+    ] ++ (with pkgs.vscode-extensions; [
       bierner.markdown-preview-github-styles
       catppuccin.catppuccin-vsc-icons
       dbaeumer.vscode-eslint
@@ -80,7 +81,7 @@ in
       shd101wyy.markdown-preview-enhanced
       teabyii.ayu
       yzhang.markdown-all-in-one
-    ];
+    ]);
   };
 
   xdg.configFile = {

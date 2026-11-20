@@ -62,6 +62,8 @@
   orion.secrets.enable = true;
   orion.packages.unstable = [
     inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.deepseek-harness # 26.05 没有此包
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.claude-code # 26.05 的 CLI 更旧
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.codex # 26.05 的 CLI 更旧
   ];
   # dshmarket 负责安装和更新，Nix 不钉版本.
   orion.packages.dshPlugins = [

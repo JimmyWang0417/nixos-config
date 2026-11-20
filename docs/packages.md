@@ -8,7 +8,7 @@
 
 ## Typora
 
-`modules/packages.nix` 从 `inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system}` 取得 `nurPkgs`，系统包列表显式加入 `nurPkgs.typora`，避免与 nixpkgs 官方的同名 `pkgs.typora` 混淆。自有输入固定在 `9a4bcf65fac8de0738e002e8bfe00a68ac4019b6`，并由 `flake.lock` 锁定。
+`modules/packages.nix` 从 `inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system}` 取得 `nurPkgs`，系统包列表显式加入 `nurPkgs.typora`，避免与 nixpkgs 官方的同名 `pkgs.typora` 混淆。自有输入固定在 `5f78ae5b865c6cec9d855d6ea46719fe6e08098e`，并由 `flake.lock` 锁定。
 
 该包迁自 AUR `typora-free-with-plugin` 的组合：Typora 免费测试版 `0.11.18` 与插件 `1.19.16`，derivation 版本为 `0.11.18-plugin-1.19.16`。对外包名和命令是 `typora`，桌面显示 Typora。Markdown 的默认程序仍为 Kate。它需要现有的 `allowUnfree` 设置。
 
@@ -26,12 +26,12 @@ Typora 包、插件更新和包级构建检查由 nur-packages 的 GitHub Action
 
 ## 开关和默认值
 
-`orion.packages.unstable` 的类型是包列表，默认 `[]`。Orion 目前有一项：`deepseek-harness` 0.2.2-rc.3（命令 `dsh`）。`orion.packages.dshPlugins` 的类型是字符串列表，默认 `[]`。Orion 写下 `dshmarket`、`dsh-better-sidebar`、`dsh-context`、`dsh-cost-meter`、`dsh-auth-cookie-guard`、`dsh-skill-mcp-panel`、`dsh-genui`、`dsh-config-manager`、`dsh-ego-browser`、`dsh-free-search`、`dsh-ops`、`dsh-fast-mode`、`dsh-email`、`dsh-mobile`、`dsh-our-free-model`、`dsh-llm-retry-settings`、`@michengai/dsh-pua`、`dsh-soul`、`dsh-memory-palace`、`dsh-mem0`、`dsh-connect-workbuddy`、`@dmh2002/dsh-connect-qoder`、`dsh-connect-trae`、`dsh-codex-connect`、`dsh-btw`、`@sputnikzaychik/dsh-qq-bot`、`@ggboy123/dsh-paper-reader`、`dsh-paper-translator`、`dsh-paperdesk`、`dsh-paper-insight`、`dsh-cite`、`dsh-plugin-zotero`、`@fffangchenghao/dsh-latex-look`、`dsh-thesis`、`academic-research-skills-dsh`、`dsh-aha-tutor`、`dsh-study-coach`、`dsh-ai4scholar`、`dsh-slides`，不写版本。激活时若 `~/.dsh/profiles/web` 的依赖键和已保存 spec 里都没有这个名字，就执行 `dsh plugin --profile web add`。不在这份列表里的依赖会被移除。留下的 registry 依赖由 dsh-market 更新。
+`orion.packages.unstable` 的类型是包列表，默认 `[]`。Orion 目前有 `deepseek-harness`（命令 `dsh`）、`claude-code` 和 `codex`，都取自同一份 `nixpkgs-unstable`。`orion.packages.dshPlugins` 的类型是字符串列表，默认 `[]`。Orion 写下 `dshmarket`、`dsh-better-sidebar`、`dsh-context`、`dsh-cost-meter`、`dsh-auth-cookie-guard`、`dsh-skill-mcp-panel`、`dsh-genui`、`dsh-config-manager`、`dsh-ego-browser`、`dsh-free-search`、`dsh-ops`、`dsh-fast-mode`、`dsh-email`、`dsh-mobile`、`dsh-our-free-model`、`dsh-llm-retry-settings`、`@michengai/dsh-pua`、`dsh-soul`、`dsh-memory-palace`、`dsh-mem0`、`dsh-connect-workbuddy`、`@dmh2002/dsh-connect-qoder`、`dsh-connect-trae`、`dsh-codex-connect`、`dsh-btw`、`@sputnikzaychik/dsh-qq-bot`、`@ggboy123/dsh-paper-reader`、`dsh-paper-translator`、`dsh-paperdesk`、`dsh-paper-insight`、`dsh-cite`、`dsh-plugin-zotero`、`@fffangchenghao/dsh-latex-look`、`dsh-thesis`、`academic-research-skills-dsh`、`dsh-aha-tutor`、`dsh-study-coach`、`dsh-ai4scholar`、`dsh-slides`，不写版本。激活时若 `~/.dsh/profiles/web` 的依赖键和已保存 spec 里都没有这个名字，就执行 `dsh plugin --profile web add`。不在这份列表里的依赖会被移除。留下的 registry 依赖由 dsh-market 更新。
 
 ## 相关文件
 
 - `flake.nix` 的输入 `nixpkgs-unstable`，锁在 `5d2b81a7a3be3e2f832879028e4d60abbf58e9a0`
-- `flake.nix`、`flake.lock` 的自有 `nur-packages` 输入：提供 Typora 和主题包
+- `flake.nix`、`flake.lock` 的自有 `nur-packages` 输入：提供 Typora、Qoder CN 0.5.16 和主题包。Trae 3.6.20 用 `nur.repos.lonerOrz.trae`。WorkBuddy 5.6.2.40046327 用 `nur.repos.MCSeekeri.workbuddy-linux`。没有安装 ZCode 或 DevEco。
 - `modules/packages.nix`
 - `hosts/orion/default.nix`
 
