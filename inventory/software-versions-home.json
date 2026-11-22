@@ -6360,7 +6360,7 @@
       "upstream_version": null,
       "status": "runtime-unpinned",
       "upstream_url": "https://github.com/scrooloose/syntastic",
-      "note": "vim-plug installs only when missing; flake locks no revision. coc.nvim uses its release branch, other declarations default branch. No installed revision was inspected.",
+      "note": "vim-plug installs only when missing; flake locks no revision. coc.nvim uses its release branch, other declarations default branch. No installed revision was inspected. Removed from the current vim-plug declaration; Coc remains the diagnostic provider. Existing plugin checkouts are not physically deleted by activation. Historical declaration remains in this audit.",
       "version": null,
       "official_stable_version": null,
       "upstream_status": "runtime-unpinned",
@@ -6371,9 +6371,10 @@
           "error": null
         }
       ],
-      "notes": "vim-plug installs only when missing; flake locks no revision. coc.nvim uses its release branch, other declarations default branch. No installed revision was inspected.",
+      "notes": "vim-plug installs only when missing; flake locks no revision. coc.nvim uses its release branch, other declarations default branch. No installed revision was inspected. Removed from the current vim-plug declaration; Coc remains the diagnostic provider. Existing plugin checkouts are not physically deleted by activation. Historical declaration remains in this audit.",
       "after_version": null,
-      "after_upstream_status": "runtime-unpinned"
+      "after_upstream_status": "removed-from-config",
+      "current_declared": false
     },
     {
       "name": "Lokaltog/vim-easymotion",
@@ -7698,7 +7699,8 @@
       "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
     }
   ],
-  "after_inventory": "Evaluated /tmp/nixos-community-inventory.json: existing checked observations preserved; four new community-tool package identities added. Wrapper raw versions remain blank; base comma/nix-index versions are separately evaluated and compared. Runtime toolchain installed versions remain unknown.",
+  "after_inventory": "Evaluated /tmp/nixos-cleanup-inventory.json; checked package observations preserved. Historical Syntastic declaration retained but marked removed from current runtime plugins; final runtime plugin declarations total68 including vim-plug manager.",
   "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
-  "community_policy_updated_at": "2026-11-22T12:05:23.882330+00:00"
+  "community_policy_updated_at": "2026-11-22T12:05:23.882330+00:00",
+  "cleanup_policy_updated_at": "2026-11-22T12:20:46.005563+00:00"
 }

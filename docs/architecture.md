@@ -6,6 +6,9 @@
 
 本配置的 NixOS 模块、全局 `pkgs`、Home Manager、NUR 构建依赖和开发 shell 均使用锁定的 `nixpkgs-unstable`。`home-manager.useGlobalPkgs = true` 避免用户配置另外创建一套包集合。stable 的 `nixpkgs` 输入和 NixOS `pkgsStable` 参数保留为显式备用接口，现有功能不使用它安装软件。版本和迁移限制见 [迁移评估](unstable-migration.md)。
 
+运行包集的非自由软件许可由 `orion.nix.allowUnfree` 统一设置，主机明确选择 true；
+`modules/packages/policy.nix` 只管理个别兼容与旧依赖例外，不重复打开全局许可。
+
 `hosts/orion/default.nix` 组合 Orion 的主机名、硬件模块、内核选择、功能开关和 Home Manager 用户。挂载、initrd 所需设备及固件声明位于 `hosts/orion/hardware-configuration.nix`。`system.stateVersion` 和 `home.stateVersion` 保持 `26.05`，不随 channel 名称更新。
 
 ## NixOS 模块

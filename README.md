@@ -72,3 +72,6 @@ nix eval --impure --json --no-update-lock-file --file scripts/software-inventory
 [开发与维护工具](docs/development-tools.md)包含 nh、项目环境与命令索引；
 [提交检查与 CI](docs/development-workflow.md)提供统一格式和静态检查。
 [用户数据备份](docs/candidates/backups.md)保留为候选方案，尚未启用。
+
+[已实施的桌面精简](docs/desktop-maintenance.md)与
+[进一步精简候选](docs/candidates/system-cleanup.md)分别记录当前行为和待确认的替换项。

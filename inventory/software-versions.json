@@ -3,7 +3,7 @@
   "policy": "All Nix-provided system, application and manager packages plus NUR build dependencies use nixos-unstable; stable nixpkgs remains an unused explicit interface. Explicit user-requested exception: elan and rustup initialize stable upstream Lean/Rust toolchains in writable HOME at activation; those runtime toolchain versions are not locked by flake.lock and have not been observed installed.",
   "summary": {
     "rows": 591,
-    "configuredUniqueNames": 518,
+    "configuredUniqueNames": 516,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -29,8 +29,8 @@
       "ahead-or-different-series": 5,
       "generated-no-independent-release": 10,
       "tag-only": 23,
-      "unverified": 31,
-      "generated-or-wrapper": 27,
+      "unverified": 30,
+      "generated-or-wrapper": 26,
       "snapshot-not-comparable": 9,
       "not-comparable": 4,
       "prerelease-only": 1,
@@ -40,8 +40,16 @@
       "runtime-managed": 2
     },
     "versionChanges": 253,
-    "runtimePluginDeclarations": 69,
-    "runtimeToolchainDeclarations": 2
+    "runtimePluginDeclarations": 68,
+    "runtimeToolchainDeclarations": 2,
+    "historicalRuntimePluginDeclarations": 69,
+    "removedCurrentPackageNames": [
+      "cron",
+      "jack-libs"
+    ],
+    "removedRuntimePluginDeclarations": [
+      "scrooloose/syntastic"
+    ]
   },
   "rows": [
     {
@@ -5323,19 +5331,20 @@
     {
       "name": "cron",
       "before": "4.1",
-      "after": "4.1",
+      "after": "",
       "upstream": "",
       "beforeStatus": "unverified",
-      "afterStatus": "unverified",
+      "afterStatus": "removed-from-config",
       "scope": "system",
       "urls": [
         "https://ftp.isc.org/isc/cron/"
       ],
-      "note": "",
-      "present": true,
+      "note": "Removed from the configured package inventory: no cron jobs are declared; existing scheduling uses systemd timers. Historical baseline metadata is retained.",
+      "present": false,
       "reports": [
         "software-versions-system.json"
-      ]
+      ],
+      "currentDeclared": false
     },
     {
       "name": "curl",
@@ -6876,14 +6885,15 @@
       "after": "",
       "upstream": "",
       "beforeStatus": "generated-or-wrapper",
-      "afterStatus": "generated-or-wrapper",
+      "afterStatus": "removed-from-config",
       "scope": "system",
       "urls": [],
-      "note": "Generated configuration/wrapper; component versions are audited separately and this entry has no independent stable release.",
-      "present": true,
+      "note": "Generated configuration/wrapper; component versions are audited separately and this entry has no independent stable release. Removed deprecated global JACK compatibility wrapper; PipeWire JACK support is supplied through its package/output and explicit wrapper rather than a global LD_LIBRARY_PATH. Historical baseline metadata is retained.",
+      "present": false,
       "reports": [
         "software-versions-system.json"
-      ]
+      ],
+      "currentDeclared": false
     },
     {
       "name": "jiangmiao/auto-pairs",
@@ -8377,16 +8387,17 @@
       "after": "",
       "upstream": "",
       "beforeStatus": "runtime-unpinned",
-      "afterStatus": "runtime-unpinned",
+      "afterStatus": "removed-from-config",
       "scope": "vim-plugin",
       "urls": [
         "https://github.com/scrooloose/syntastic"
       ],
-      "note": "vim-plug installs only when missing; flake locks no revision. coc.nvim uses its release branch, other declarations default branch. No installed revision was inspected.",
+      "note": "vim-plug installs only when missing; flake locks no revision. coc.nvim uses its release branch, other declarations default branch. No installed revision was inspected. Removed from the current vim-plug declaration; Coc remains the diagnostic provider. Existing plugin checkouts are not physically deleted by activation. Historical declaration remains in this audit.",
       "present": false,
       "reports": [
         "software-versions-home.json"
-      ]
+      ],
+      "currentDeclared": false
     },
     {
       "name": "sddm",

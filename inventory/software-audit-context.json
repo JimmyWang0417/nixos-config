@@ -241,7 +241,7 @@
     "input_method_behavior_and_dictionary_tests": 7,
     "private_archive_safety_tests": 13,
     "flake_check": "passed (built formatting and pre-commit/static/workflow checks; system evaluation only)",
-    "system_derivation": "/nix/store/vzl7m8rcn16cl84r2p0bxkaq8z5lc6cd-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
+    "system_derivation": "/nix/store/qsbafh519z2j1jxfk5jcd1yxadg68zqq-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
     "xfce_assets": "built and verified GTK CSS, xfwm4, cursor, Tela, wallpaper",
     "xfce_asset_derivation": "/nix/store/07vw550kdap1r8vdd1nqn4yzxm7xf7vd-xfce-appearance-assets.drv",
     "hdl_tools": "Verible formatting/parsing and Icarus SystemVerilog compile smoke passed",
@@ -263,9 +263,16 @@
     "backups": "Snapper/Restic deferred by user; candidate documentation only, no backup services or repository configured.",
     "baloo": "Disabled by immutable system-level Indexing-Enabled=false and masked kde-baloo.service user unit; actual NixOS config wiring, built flake checks and full system derivation evaluated. No running Manjaro services stopped or old index database removed.",
     "github_actions": {
-      "commit": "39beb42c06f0a1258a2cee087260b9203c7504d4",
+      "commit": "4e0d2ec38cec80df5aa47ca41455ca3d53bfe457",
       "conclusion": "success",
-      "url": "https://github.com/JimmyWang0417/nixos-config/actions/runs/45020688264"
+      "url": "https://github.com/JimmyWang0417/nixos-config/actions/runs/45020998441"
+    },
+    "desktop_cleanup": {
+      "cron": "Disabled; no declared system crontab. Logrotate and systemd timers retained.",
+      "jack": "Deprecated global JACK injection disabled; actual Nix-built pw-jack child environment smoke passed. Ordinary PipeWire/ALSA32/Pulse/WirePlumber/rtkit retained. SANE still supplies its independent /etc/sane-libs path.",
+      "neovim": "17 vim-plug plugins and12Coc extensions parsed; Syntastic and generic duplicate clangd server removed. clangd uses existing Nix clang-tools wrapper PATH; isolated headless syntax smoke passed without downloads or real HOME changes.",
+      "unfree": "Removed duplicate unconditional package-policy setting. Current runtime allowUnfree remains true; overriding its Orion policy false evaluates false.",
+      "verification": "tests/eval.sh and actual built flake formatting/static checks passed. No services activated or old index/plugin data deleted."
     }
   },
   "desktop": {
@@ -277,7 +284,7 @@
   "configurationCoverage": "inventory/configuration-coverage.json",
   "auditSummary": {
     "rows": 591,
-    "configuredUniqueNames": 518,
+    "configuredUniqueNames": 516,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -303,8 +310,8 @@
       "ahead-or-different-series": 5,
       "generated-no-independent-release": 10,
       "tag-only": 23,
-      "unverified": 31,
-      "generated-or-wrapper": 27,
+      "unverified": 30,
+      "generated-or-wrapper": 26,
       "snapshot-not-comparable": 9,
       "not-comparable": 4,
       "prerelease-only": 1,
@@ -314,8 +321,16 @@
       "runtime-managed": 2
     },
     "versionChanges": 253,
-    "runtimePluginDeclarations": 69,
-    "runtimeToolchainDeclarations": 2
+    "runtimePluginDeclarations": 68,
+    "runtimeToolchainDeclarations": 2,
+    "historicalRuntimePluginDeclarations": 69,
+    "removedCurrentPackageNames": [
+      "cron",
+      "jack-libs"
+    ],
+    "removedRuntimePluginDeclarations": [
+      "scrooloose/syntastic"
+    ]
   },
   "toolchainPolicyUpdatedAt": "2026-11-22T05:17:16.724014+00:00",
   "runtimeToolchains": [

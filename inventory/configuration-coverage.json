@@ -2,7 +2,7 @@
   "date": "2026-11-22",
   "scope": "全部最终 Nix 包名称的配置归属与处理方式；运行时 stable 工具链单独列出，不推断当前已安装版本，也不把软件安装等同于账号登录或私人状态恢复。",
   "summary": {
-    "package-defaults": 284,
+    "package-defaults": 282,
     "system-component": 35,
     "desktop-defaults": 122,
     "declared": 77
@@ -954,18 +954,6 @@
       "name": "cpupower",
       "versions": [
         "6.12.118"
-      ],
-      "scopes": [
-        "system"
-      ],
-      "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
-    },
-    {
-      "name": "cron",
-      "versions": [
-        "4.1"
       ],
       "scopes": [
         "system"
@@ -2316,16 +2304,6 @@
       ],
       "scopes": [
         "home"
-      ],
-      "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
-    },
-    {
-      "name": "jack-libs",
-      "versions": [],
-      "scopes": [
-        "system"
       ],
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
@@ -6437,6 +6415,16 @@
       "module": "home/modules/development/direnv.nix",
       "enabled": true,
       "note": "Shell integration supplied via programs.direnv.nix-direnv; not counted as an additional installed profile package identity or independent version observation."
+    }
+  ],
+  "removedPackageDeclarations": [
+    {
+      "name": "cron",
+      "note": "Removed from the configured package inventory: no cron jobs are declared; existing scheduling uses systemd timers. Historical baseline metadata is retained."
+    },
+    {
+      "name": "jack-libs",
+      "note": "Removed deprecated global JACK compatibility wrapper; PipeWire JACK support is supplied through its package/output and explicit wrapper rather than a global LD_LIBRARY_PATH. Historical baseline metadata is retained."
     }
   ]
 }

@@ -1,6 +1,5 @@
 { ... }:
 {
-  nixpkgs.config.allowUnfree = true;
   # Baidu's FHS environment and the explicitly enabled fcitx GTK2 immodule
   # still need GTK2. Unstable marks it broken because removal is planned
   # for 27.05, not because these consumers were removed. Keep this one

@@ -3526,12 +3526,13 @@
           "error": null
         }
       ],
-      "notes": "",
-      "current_package_name": "cron-4.1",
-      "current_name": "cron",
+      "notes": "Removed from the configured package inventory: no cron jobs are declared; existing scheduling uses systemd timers. Historical baseline metadata is retained.",
+      "current_package_name": null,
+      "current_name": null,
       "identity_match": "verified",
-      "unstable_version": "4.1",
-      "unstable_upstream_status": "unverified"
+      "unstable_version": "",
+      "unstable_upstream_status": "removed-from-config",
+      "current_present": false
     },
     {
       "description": "Standards-based printing system for UNIX",
@@ -4188,12 +4189,13 @@
       "upstream_status": "generated-or-wrapper",
       "official_stable_version": null,
       "sources": [],
-      "notes": "Generated configuration/wrapper; component versions are audited separately and this entry has no independent stable release.",
-      "current_package_name": "jack-libs",
-      "current_name": "jack-libs",
+      "notes": "Generated configuration/wrapper; component versions are audited separately and this entry has no independent stable release. Removed deprecated global JACK compatibility wrapper; PipeWire JACK support is supplied through its package/output and explicit wrapper rather than a global LD_LIBRARY_PATH. Historical baseline metadata is retained.",
+      "current_package_name": null,
+      "current_name": null,
       "identity_match": "unverified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "removed-from-config",
+      "current_present": false
     },
     {
       "description": "Virtual Filesystem support library (full GNOME support)",
@@ -8263,5 +8265,6 @@
     }
   ],
   "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
-  "after_inventory": "Evaluated /tmp/nixos-community-inventory.json; system package identities unchanged by the community-tool additions. Existing upstream observations preserved; no re-audit of unchanged software."
+  "after_inventory": "Evaluated /tmp/nixos-cleanup-inventory.json; cron and the deprecated jack-libs global wrapper removed from current declarations. Their baseline records and upstream observations are retained; no re-audit of unchanged software.",
+  "cleanup_policy_updated_at": "2026-11-22T12:20:46.005563+00:00"
 }
