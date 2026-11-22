@@ -241,7 +241,7 @@
     "input_method_behavior_and_dictionary_tests": 7,
     "private_archive_safety_tests": 13,
     "flake_check": "Passed: final integrated built formatting/static/workflow, Ark archive, Neovim command, Ranger preview, Node XDG, native-client ELF and Claude Cage runtime checks. Complete NixOS derivation evaluated; full system build and activation not run.",
-    "system_derivation": "/nix/store/55a8h1wp7x3hznp0ni3rx2s3b8zc0p93-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
+    "system_derivation": "/nix/store/pjbhcnb5mg52p1jgbza6mg2ngmr3psk9-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
     "xfce_assets": "built and verified GTK CSS, xfwm4, cursor, Tela, wallpaper",
     "xfce_asset_derivation": "/nix/store/07vw550kdap1r8vdd1nqn4yzxm7xf7vd-xfce-appearance-assets.drv",
     "hdl_tools": "Verible formatting/parsing and Icarus SystemVerilog compile smoke passed",
@@ -298,7 +298,9 @@
       "package": "/nix/store/8zw56h9l3n47xj789b18lzm5yfksxr7q-claude-cage-0.1.8",
       "runtime_check": "/nix/store/0km15vrklq51kak4sywg2cqrdcv7widi-claude-cage-runtime-checks",
       "verification": "Built official desktop/backend/Mihomo; version, embedded Web assets, 11 origin policy cases, dynamic loader, QEMU and OVMF passed. No profile/VM initialized. Guest preparation, proxy and account authorization remain target-system first-run steps."
-    }
+    },
+    "validated_source_commit": "bdd8e3eaab490637d610b24a75f33eade1662dc0",
+    "system_derivation_scope": "Configuration snapshot at validated_source_commit, before recording this result. Documentation/audit changes can change flake source paths; publication CI verifies the uploaded revision separately."
   },
   "desktop": {
     "default": "Plasma Wayland (plasma)",
