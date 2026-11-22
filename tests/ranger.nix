@@ -18,6 +18,7 @@ pkgs.runCommand "ranger-preview-and-opener-tests"
     ];
     RANGER_TEST_SCOPE = ../home/ranger/scope.sh;
     RANGER_TEST_RIFLE = ../home/ranger/rifle.conf;
+    RANGER_TEST_BASH = "${pkgs.bash}/bin/bash";
   }
   ''
     ranger_test_state="$TMPDIR/ranger-state"

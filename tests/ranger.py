@@ -5,12 +5,14 @@ import os
 from pathlib import Path
 import subprocess
 import struct
+import sys
 import tempfile
 import unittest
 import zlib
 
 SCOPE = os.environ["RANGER_TEST_SCOPE"]
 RIFLE = os.environ["RANGER_TEST_RIFLE"]
+BASH = os.environ["RANGER_TEST_BASH"]
 
 
 class RangerIntegrationTests(unittest.TestCase):
@@ -18,12 +20,15 @@ class RangerIntegrationTests(unittest.TestCase):
         self.directory = tempfile.TemporaryDirectory(prefix="ranger 中文 ")
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
+        self.environment = os.environ.copy()
+        for name in ["EDITOR", "VISUAL", "RANGER_SCOPE_BOUNDED"]:
+            self.environment.pop(name, None)
 
     def run_command(self, *args, cwd=None, env=None):
         return subprocess.run(
             args,
             cwd=cwd or self.root,
-            env=env,
+            env=self.environment if env is None else env,
             capture_output=True,
             text=True,
             timeout=10,
@@ -31,7 +36,7 @@ class RangerIntegrationTests(unittest.TestCase):
 
     def preview(self, path, images="False"):
         return self.run_command(
-            "bash",
+            BASH,
             SCOPE,
             str(path),
             "80",
@@ -95,13 +100,15 @@ class RangerIntegrationTests(unittest.TestCase):
 
     def test_slow_preview_helper_is_stopped_by_deadline(self):
         slow = self.root / "highlight"
-        slow.write_text("#!/usr/bin/env bash\nsleep 20\n")
+        slow.write_text(f"#!{BASH}\nsleep 20\n")
         slow.chmod(0o700)
         source = self.root / "slow.txt"
         source.write_text("small text\n")
-        env = os.environ | {"PATH": str(self.root) + os.pathsep + os.environ["PATH"]}
+        env = self.environment | {
+            "PATH": str(self.root) + os.pathsep + self.environment["PATH"]
+        }
         result = self.run_command(
-            "bash",
+            BASH,
             SCOPE,
             str(source),
             "80",
@@ -151,16 +158,15 @@ class RangerIntegrationTests(unittest.TestCase):
     def test_rifle_default_editor_preserves_filename_arguments(self):
         executable = self.root / "nvim"
         executable.write_text(
-            "#!/usr/bin/env python3\nimport json,os,sys\nopen(os.environ['ARGV_LOG'],'w').write(json.dumps(sys.argv[1:]))\n"
+            f"#!{sys.executable}\nimport json,os,sys\nopen(os.environ['ARGV_LOG'],'w').write(json.dumps(sys.argv[1:]))\n"
         )
         executable.chmod(0o700)
         source = self.root / "中文 空格;touch injected.txt"
         source.write_text("editable text\n")
         log = self.root / "arguments.json"
-        env = os.environ | {
-            "PATH": str(self.root) + os.pathsep + os.environ["PATH"],
+        env = self.environment | {
+            "PATH": str(self.root) + os.pathsep + self.environment["PATH"],
             "EDITOR": "nvim",
-            "VISUAL": "",
             "ARGV_LOG": str(log),
             "DISPLAY": "",
         }
