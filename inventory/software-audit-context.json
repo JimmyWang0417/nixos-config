@@ -241,7 +241,7 @@
     "input_method_behavior_and_dictionary_tests": 7,
     "private_archive_safety_tests": 13,
     "flake_check": "passed (built formatting and pre-commit/static/workflow checks; system evaluation only)",
-    "system_derivation": "/nix/store/dj46sm9rds2yg0n2r7wga9m0d46d55kz-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
+    "system_derivation": "/nix/store/vzl7m8rcn16cl84r2p0bxkaq8z5lc6cd-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
     "xfce_assets": "built and verified GTK CSS, xfwm4, cursor, Tela, wallpaper",
     "xfce_asset_derivation": "/nix/store/07vw550kdap1r8vdd1nqn4yzxm7xf7vd-xfce-appearance-assets.drv",
     "hdl_tools": "Verible formatting/parsing and Icarus SystemVerilog compile smoke passed",
@@ -260,7 +260,13 @@
     "development_tool_checks": 9,
     "development_tool_binary_smoke": "Nix-built nh4.5.0 os test help, direnv2.38.2 Zsh hook, pay-respects0.9.0 --alias --nocnf and generated Zsh syntax passed. Writable checkout with spaces and #orion selector evaluated through native Nix.",
     "quality_checks": "Treefmt formatting, statix, deadnix and actionlint built checks passed; generated hook tested in temporary Git repository rejecting bad formatting and accepting corrected source. No Git hook installed in actual host repository.",
-    "backups": "Snapper/Restic deferred by user; candidate documentation only, no backup services or repository configured."
+    "backups": "Snapper/Restic deferred by user; candidate documentation only, no backup services or repository configured.",
+    "baloo": "Disabled by immutable system-level Indexing-Enabled=false and masked kde-baloo.service user unit; actual NixOS config wiring, built flake checks and full system derivation evaluated. No running Manjaro services stopped or old index database removed.",
+    "github_actions": {
+      "commit": "39beb42c06f0a1258a2cee087260b9203c7504d4",
+      "conclusion": "success",
+      "url": "https://github.com/JimmyWang0417/nixos-config/actions/runs/45020688264"
+    }
   },
   "desktop": {
     "default": "Plasma Wayland (plasma)",

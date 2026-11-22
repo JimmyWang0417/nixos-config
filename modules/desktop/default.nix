@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./session.nix
+    ./baloo.nix
     ./audio.nix
     ./bluetooth.nix
     ./mime.nix

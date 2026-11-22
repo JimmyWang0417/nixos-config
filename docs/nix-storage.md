@@ -54,5 +54,21 @@ systemctl list-timers nix-gc.timer nix-optimise.timer
 仅检查输出，不自动删除用户目录的链接。用户数据快照和独立备份仍是另外的议题，
 本次没有部署 Snapper/Restic 或进行实际垃圾回收。
 
+## Baloo 文件索引
+
+`modules/desktop/baloo.nix` 关闭 Plasma 的 Baloo 文件索引：系统级
+`/etc/xdg/baloofilerc` 把 `Indexing-Enabled` 设为不可被用户旧配置覆盖的 false，
+并屏蔽 `kde-baloo.service` 用户单元。保留 KDE 依赖的 Baloo 框架包。
+不再提供基于 Baloo 索引的文件内容搜索；nix-index 的软件包查询独立于此功能。
+
+现有 Baloo 数据库不会自动删除，关闭索引也不会立即释放既有数据库占用。
+目标 NixOS 激活并重新登录后生效；这次不停止当前 Manjaro 服务或删除用户文件。
+若以后需要清理旧数据库，应先确认索引进程已停止，再执行对应版本的
+`balooctl6 purge`，不在激活脚本中无条件清空目录。
+
+依据：[Baloo 配置键](https://github.com/KDE/baloo/blob/master/src/lib/baloosettings.kcfg)、
+[服务启动条件](https://github.com/KDE/baloo/blob/master/src/file/kde-baloo.service.in)、
+[KDE 不可变配置项](https://develop.kde.org/docs/administration/kiosk/introduction/)。
+
 依据：[Nix 的 min-free/max-free](https://nix.dev/manual/nix/stable/command-ref/conf-file.html#conf-min-free)、
 [官方 Wiki 的 store 去重与清理](https://wiki.nixos.org/wiki/Storage_optimization)。

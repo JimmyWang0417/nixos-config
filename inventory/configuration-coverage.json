@@ -4,8 +4,8 @@
   "summary": {
     "package-defaults": 284,
     "system-component": 35,
-    "desktop-defaults": 123,
-    "declared": 76
+    "desktop-defaults": 122,
+    "declared": 77
   },
   "extensionAvailability": [
     {
@@ -550,9 +550,9 @@
       "scopes": [
         "system"
       ],
-      "status": "desktop-defaults",
-      "module": "modules/desktop/default.nix",
-      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+      "status": "declared",
+      "module": "modules/desktop/baloo.nix",
+      "note": "禁用文件索引：系统级 Indexing-Enabled[$i]=false，屏蔽 kde-baloo.service 用户单元；保留依赖包，不自动清除旧数据库。"
     },
     {
       "name": "baloo-widgets",
