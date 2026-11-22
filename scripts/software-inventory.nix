@@ -33,6 +33,19 @@ let
       description = pkg.meta.description or "";
     }
     // (if pkg ? installMode then { installMode = pkg.installMode; } else { });
+  ark = c.orion.archives.ark.package;
+  arkExtras = p.lib.optionalAttrs c.orion.archives.ark.enable (
+    builtins.listToAttrs (
+      p.lib.imap0 (index: pkg: {
+        name = "ark-backend-${toString index}";
+        value = pkg;
+      }) (ark.archiveBackends or [ ])
+    )
+    // p.lib.optionalAttrs (ark ? privateLibzip) { ark-libzip = ark.privateLibzip; }
+    // {
+      ark-sevenzip = p._7zz;
+    }
+  );
   extras = {
     inherit (u)
       typora
@@ -75,7 +88,8 @@ let
     fcitx5-configtool = p.qt6Packages.fcitx5-configtool;
     fcitx5-qt = p.qt6Packages.fcitx5-qt;
     fcitx5-qt5 = p.libsForQt5.fcitx5-qt;
-  };
+  }
+  // arkExtras;
 in
 map (record "system") c.environment.systemPackages
 ++ map (record "home") h.home.packages

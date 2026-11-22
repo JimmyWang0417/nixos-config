@@ -24,6 +24,9 @@
 - `packages/`：软件清单、已有兼容策略以及浏览器和 Steam 的系统集成。
 - `programs/`：需要独立行为的应用，例如 DevEco 和 [DSH](dsh.md)。
 
+仓库根目录的 `packages/ark/` 保存 Ark 私有依赖补丁与后端包装配方；
+`modules/programs/ark.nix` 负责选项、包选择和原生插件策略，详见 [Ark](ark.md)。
+
 `modules/packages/catalog/` 的文件返回包列表；`catalog.nix` 以明确顺序组合这些列表。服务定义、激活脚本和用户状态处理不放进清单。`orion.packages.unstable` 保留原有附加软件接口，所有默认条目仍来自同一个全局 unstable 包集合。兼容入口 `modules/packages.nix`、`modules/dsh.nix` 只导入相应的新目录。
 
 ## Home Manager

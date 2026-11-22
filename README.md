@@ -75,3 +75,6 @@ nix eval --impure --json --no-update-lock-file --file scripts/software-inventory
 
 [已实施的桌面精简](docs/desktop-maintenance.md)与
 [进一步精简候选](docs/candidates/system-cleanup.md)分别记录当前行为和待确认的替换项。
+
+[Ark](docs/ark.md)为旧中文 ZIP 提供局部编码回退，并明确配置归档后端；
+Flatpak、Flathub 注册与 Discover 软件商店已关闭，保留固件更新服务。

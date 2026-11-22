@@ -4297,12 +4297,13 @@
           "error": null
         }
       ],
-      "notes": "",
-      "current_package_name": "flatpak-1.18.4",
-      "current_name": "flatpak",
+      "notes": "Flatpak service and remote registration removed from current configuration; historical baseline retained.",
+      "current_package_name": null,
+      "current_name": null,
       "identity_match": "verified",
-      "unstable_version": "1.18.4",
-      "unstable_upstream_status": "equal"
+      "unstable_version": "",
+      "unstable_upstream_status": "removed-from-config",
+      "current_present": false
     },
     {
       "description": "Library that allows filesystems to be implemented in user space",
@@ -8262,9 +8263,305 @@
       "current_package_name": "rustup-1.29.3",
       "identity_match": "verified",
       "unstable_upstream_status": "equal"
+    },
+    {
+      "attribute": "ark-sevenzip",
+      "description": "Command line version of the 7-Zip archiver utility",
+      "homepage": "https://7-zip.org",
+      "name": "7zz",
+      "packageName": "7zz-26.04",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/_7/_7zz/package.nix:250",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-sevenzip"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": "26.06",
+      "sources": [
+        {
+          "url": "https://www.7-zip.org/download.html",
+          "resolved_url": "https://www.7-zip.org/download.html",
+          "method": "Official 7-Zip download page currently lists 26.06 for Linux; selected base 26.04 is retained from locked unstable.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official 7-Zip download page currently lists 26.06 for Linux; selected base 26.04 is retained from locked unstable.",
+      "current_package_name": "7zz-26.04",
+      "current_name": "7zz",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "26.04",
+      "unstable_upstream_status": "behind",
+      "installationRole": "ark-private-backend",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+    },
+    {
+      "attribute": "ark-backend-0",
+      "description": "",
+      "homepage": "",
+      "name": "ark-7z-backend",
+      "packageName": "ark-7z-backend",
+      "position": "",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-backend-0"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": null,
+      "sources": [],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Local Ark-only 7z command alias points to official 7zz; no independent release or version.",
+      "current_package_name": "ark-7z-backend",
+      "current_name": "ark-7z-backend",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "",
+      "unstable_upstream_status": "generated-or-wrapper",
+      "installationRole": "ark-private-command-alias",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+    },
+    {
+      "attribute": "ark-libzip",
+      "description": "C library for reading, creating and modifying zip archives",
+      "homepage": "https://libzip.org/",
+      "name": "libzip",
+      "packageName": "libzip-1.11.4",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/li/libzip/package.nix:64",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-libzip"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": "1.12.1",
+      "sources": [
+        {
+          "url": "https://libzip.org/download/",
+          "resolved_url": "https://libzip.org/download/",
+          "method": "Official libzip current release. This 1.11.4 variant has an Ark-private GB18030 fallback patch, not a global override.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official libzip current release. This 1.11.4 variant has an Ark-private GB18030 fallback patch, not a global override.",
+      "current_package_name": "libzip-1.11.4",
+      "current_name": "libzip",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "1.11.4",
+      "unstable_upstream_status": "behind",
+      "installationRole": "ark-private-library",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+    },
+    {
+      "attribute": "ark-backend-5",
+      "description": "CK LRZIP compression program (LZMA + RZIP)",
+      "homepage": "http://ck.kolivas.org/apps/lrzip/",
+      "name": "lrzip",
+      "packageName": "lrzip-0.660",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/lr/lrzip/package.nix:47",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-backend-5"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": "0.7.3",
+      "sources": [
+        {
+          "url": "https://github.com/ckolivas/lrzip/releases/tag/v0.7.3",
+          "resolved_url": "https://github.com/ckolivas/lrzip/releases/tag/v0.7.3",
+          "method": "Official designated latest. Unusual version notation order verified by GitHub compare v0.660...v0.7.3 showing 97 commits ahead, rather than ordinary numeric comparison.",
+          "error": null
+        },
+        {
+          "url": "https://api.github.com/repos/ckolivas/lrzip/compare/v0.660...v0.7.3",
+          "resolved_url": "https://api.github.com/repos/ckolivas/lrzip/compare/v0.660...v0.7.3",
+          "method": "Official repository ancestry check: latest release is 97 commits ahead of the selected tag.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official designated latest. Unusual version notation order verified by GitHub compare v0.660...v0.7.3 showing 97 commits ahead, rather than ordinary numeric comparison.",
+      "current_package_name": "lrzip-0.660",
+      "current_name": "lrzip",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "0.660",
+      "unstable_upstream_status": "behind",
+      "installationRole": "ark-private-backend",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+    },
+    {
+      "attribute": "ark-backend-8",
+      "description": "Extremely fast compression algorithm",
+      "homepage": "https://lz4.github.io/lz4/",
+      "name": "lz4",
+      "packageName": "lz4-1.10.0",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/lz/lz4/package.nix:63",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-backend-8"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": "1.11.1",
+      "sources": [
+        {
+          "url": "https://github.com/lz4/lz4/releases/tag/v1.11.1",
+          "resolved_url": "https://github.com/lz4/lz4/releases/tag/v1.11.1",
+          "method": "Official GitHub designated latest non-prerelease release.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official GitHub designated latest non-prerelease release.",
+      "current_package_name": "lz4-1.10.0",
+      "current_name": "lz4",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "1.10.0",
+      "unstable_upstream_status": "behind",
+      "installationRole": "ark-private-backend",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+    },
+    {
+      "attribute": "ark-backend-6",
+      "description": "Fast file compressor",
+      "homepage": "http://www.lzop.org",
+      "name": "lzop",
+      "packageName": "lzop-1.04",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/lz/lzop/package.nix:21",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-backend-6"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": "1.04",
+      "sources": [
+        {
+          "url": "https://www.lzop.org/download/",
+          "resolved_url": "https://www.lzop.org/download/",
+          "method": "Official download index lists source version 1.04 as the latest release.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official download index lists source version 1.04 as the latest release.",
+      "current_package_name": "lzop-1.04",
+      "current_name": "lzop",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "1.04",
+      "unstable_upstream_status": "equal",
+      "installationRole": "ark-private-backend",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+    },
+    {
+      "attribute": "ark-backend-2",
+      "description": "Archive unpacker program",
+      "homepage": "https://theunarchiver.com",
+      "name": "unar",
+      "packageName": "unar-1.10.8",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/un/unar/package.nix:108",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-backend-2"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": "1.10.8",
+      "sources": [
+        {
+          "url": "https://github.com/MacPaw/XADMaster/releases/tag/v1.10.8",
+          "resolved_url": "https://github.com/MacPaw/XADMaster/releases/tag/v1.10.8",
+          "method": "Official MacPaw XADMaster release used by the unar/lsar recipe.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official MacPaw XADMaster release used by the unar/lsar recipe.",
+      "current_package_name": "unar-1.10.8",
+      "current_name": "unar",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "1.10.8",
+      "unstable_upstream_status": "equal",
+      "installationRole": "ark-private-backend",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+    },
+    {
+      "attribute": "ark-backend-1",
+      "description": "Utility for RAR archives",
+      "homepage": "https://www.rarlab.com/",
+      "name": "unrar",
+      "packageName": "unrar-7.3.2",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/un/unrar/package.nix:58",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-backend-1"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": "7.3.2",
+      "sources": [
+        {
+          "url": "https://www.rarlab.com/rar_add.htm",
+          "resolved_url": "https://www.rarlab.com/rar_add.htm",
+          "method": "Official UnRAR source link currently points to unrarsrc-7.3.2.tar.gz.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official UnRAR source link currently points to unrarsrc-7.3.2.tar.gz.",
+      "current_package_name": "unrar-7.3.2",
+      "current_name": "unrar",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "7.3.2",
+      "unstable_upstream_status": "equal",
+      "installationRole": "ark-private-backend",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+    },
+    {
+      "attribute": "ark-backend-3",
+      "description": "Compressor/archiver for creating and modifying zipfiles",
+      "homepage": "http://www.info-zip.org",
+      "name": "zip",
+      "packageName": "zip-3.0",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/zi/zip/package.nix:106",
+      "scope": "explicit-extra",
+      "version": "",
+      "baseline_present": false,
+      "attributes": [
+        "ark-backend-3"
+      ],
+      "upstream_status": "newly-added",
+      "official_stable_version": "3.0",
+      "sources": [
+        {
+          "url": "https://infozip.sourceforge.net/Zip.html",
+          "resolved_url": "https://infozip.sourceforge.net/Zip.html",
+          "method": "Official Info-ZIP Zip 3.0 latest-release section.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official Info-ZIP Zip 3.0 latest-release section.",
+      "current_package_name": "zip-3.0",
+      "current_name": "zip",
+      "current_present": true,
+      "identity_match": "verified",
+      "unstable_version": "3.0",
+      "unstable_upstream_status": "equal",
+      "installationRole": "ark-private-backend",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
     }
   ],
   "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
-  "after_inventory": "Evaluated /tmp/nixos-cleanup-inventory.json; cron and the deprecated jack-libs global wrapper removed from current declarations. Their baseline records and upstream observations are retained; no re-audit of unchanged software.",
+  "after_inventory": "Evaluated /tmp/nixos-ark-inventory.json. Historical removed packages retained; nine explicit Ark-only helper/library identities added and checked against primary upstreams. This is not a transitive-dependency audit; helpers are not global-profile applications.",
   "cleanup_policy_updated_at": "2026-11-22T12:20:46.005563+00:00"
 }

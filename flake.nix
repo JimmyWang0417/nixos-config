@@ -109,7 +109,12 @@
       };
 
       formatter.x86_64-linux = quality.formatter;
-      checks.x86_64-linux = quality.checks;
+      checks.x86_64-linux = quality.checks // {
+        ark-archives = import ./tests/ark.nix {
+          pkgs = toolsPkgs;
+          ark = self.nixosConfigurations.orion.config.orion.archives.ark.package;
+        };
+      };
 
       devShells.x86_64-linux.default = toolsPkgs.mkShell {
         packages = [

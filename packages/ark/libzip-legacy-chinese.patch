@@ -1,0 +1,70 @@
+--- a/lib/zip_string.c
++++ b/lib/zip_string.c
+@@ -32,6 +32,8 @@
+ */
+ 
+ 
++#include <iconv.h>
++#include <stdint.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <zlib.h>
+@@ -73,6 +75,43 @@
+     free(s->raw);
+     free(s->converted);
+     free(s);
++}
++
++
++/* Ark-local compatibility policy for legacy Chinese ZIP names. UTF-8 and
++ * Unicode extra fields have already been resolved by libzip before this path.
++ * GB18030 is a strict superset of GBK. Ambiguous legacy encodings cannot be
++ * identified perfectly; invalid GB18030 retains the original CP437 fallback.
++ */
++static zip_uint8_t *
++_zip_legacy_chinese_to_utf8(const zip_uint8_t *raw, zip_uint32_t length, zip_uint32_t *converted_length) {
++    iconv_t converter;
++    char *input, *output, *cursor;
++    size_t input_left, output_left, result;
++
++    if (length == 0 || length > UINT32_MAX / 4 || (size_t)length > (SIZE_MAX - 1) / 4)
++        return NULL;
++    converter = iconv_open("UTF-8", "GB18030");
++    if (converter == (iconv_t)-1)
++        return NULL;
++    output_left = (size_t)length * 4;
++    output = malloc(output_left + 1);
++    if (output == NULL) {
++        iconv_close(converter);
++        return NULL;
++    }
++    input = (char *)raw;
++    input_left = length;
++    cursor = output;
++    result = iconv(converter, &input, &input_left, &cursor, &output_left);
++    iconv_close(converter);
++    if (result != 0 || input_left != 0) {
++        free(output);
++        return NULL;
++    }
++    *cursor = '\0';
++    *converted_length = (zip_uint32_t)(cursor - output);
++    return (zip_uint8_t *)output;
+ }
+ 
+ 
+@@ -95,8 +134,12 @@
+ 
+         if (((flags & ZIP_FL_ENC_STRICT) && string->encoding != ZIP_ENCODING_ASCII && string->encoding != ZIP_ENCODING_UTF8_KNOWN) || (string->encoding == ZIP_ENCODING_CP437)) {
+             if (string->converted == NULL) {
+-                if ((string->converted = _zip_cp437_to_utf8(string->raw, string->length, &string->converted_length, error)) == NULL)
+-                    return NULL;
++                if (string->encoding == ZIP_ENCODING_CP437)
++                    string->converted = _zip_legacy_chinese_to_utf8(string->raw, string->length, &string->converted_length);
++                if (string->converted == NULL) {
++                    if ((string->converted = _zip_cp437_to_utf8(string->raw, string->length, &string->converted_length, error)) == NULL)
++                        return NULL;
++                }
+             }
+             if (lenp)
+                 *lenp = string->converted_length;

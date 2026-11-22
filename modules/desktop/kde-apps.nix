@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    kdePackages.ark
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     kdePackages.elisa

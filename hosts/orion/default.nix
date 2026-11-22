@@ -49,6 +49,7 @@
     canTouchEfiVariables = false;
   };
   orion.chinese.enable = true;
+  orion.archives.ark.enable = true;
   orion.fonts.windows.package = pkgs.nur.repos.chillcicada.ttf-ms-win10;
   orion.nix = {
     enable = true;

@@ -1,5 +1,19 @@
 # 桌面服务维护
 
+## Flatpak
+
+`modules/services/flatpak.nix` 显式设置 `services.flatpak.enable = false`。
+系统不再提供 Flatpak 集成，也不再下载 Flathub 描述文件或执行开机注册任务。
+该文件保留为独立策略入口，方便以后明确选择重新启用。
+
+Plasma 默认也会因为启用 fwupd 而安装 Discover 软件商店；当前 Discover 包自带
+Flatpak 后端。因此通过 `environment.plasma6.excludePackages` 排除 Discover，
+同时保留 fwupd 服务和 `fwupdmgr` 固件更新命令。Flatpak 系统设置页面不再安装，
+桌面文件选择、屏幕共享等 portal 功能继续保留。
+
+本次仅修改目标 NixOS 配置，不清理已有的 Flatpak 应用、远程配置或用户数据；
+AppImage、NUR 和其他 Nix 软件继续按各自模块配置。
+
 ## 定时任务
 
 `modules/services/scheduling.nix` 显式关闭 cron。仓库没有声明系统 crontab，

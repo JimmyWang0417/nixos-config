@@ -2214,10 +2214,12 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": "Ark 26.08.3 retains native Qt/Kerfuffle plugins. Only its private OpenSSL-enabled libzip has strict GB18030 fallback for otherwise CP437-guessed ZIP names. Known/guessed UTF-8 and Unicode path fields are preserved; invalid GB18030 falls back to CP437. Its wrapper provides explicit archive CLI backends, including 7z to official 7zz. Global libzip and other applications are unchanged.",
       "after_version": "26.08.3",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/kde/gear/ark/default.nix:7",
-      "after_upstream_status": "equal"
+      "after_upstream_status": "equal",
+      "note": "Ark 26.08.3 retains native Qt/Kerfuffle plugins. Only its private OpenSSL-enabled libzip has strict GB18030 fallback for otherwise CP437-guessed ZIP names. Known/guessed UTF-8 and Unicode path fields are preserved; invalid GB18030 falls back to CP437. Its wrapper provides explicit archive CLI backends, including 7z to official 7zz. Global libzip and other applications are unchanged.",
+      "variant": "ark-private-libzip-gb18030"
     },
     {
       "description": "File manager by KDE",
@@ -4214,10 +4216,11 @@
           "error": null
         }
       ],
-      "notes": "",
-      "after_version": "6.8.3",
+      "notes": "Discover excluded from Plasma packages; current software management uses declared Nix configuration. Historical baseline retained.",
+      "after_version": null,
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/kde/plasma/discover/default.nix:11",
-      "after_upstream_status": "equal"
+      "after_upstream_status": "removed-from-config",
+      "current_declared": false
     },
     {
       "description": "",
@@ -4490,10 +4493,11 @@
           "error": null
         }
       ],
-      "notes": "",
-      "after_version": "6.8.3",
+      "notes": "Flatpak KCM excluded together with the unused Flatpak/Discover stack. Historical baseline retained.",
+      "after_version": null,
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/kde/plasma/flatpak-kcm/default.nix:8",
-      "after_upstream_status": "equal"
+      "after_upstream_status": "removed-from-config",
+      "current_declared": false
     },
     {
       "description": "Cross-desktop storage service for PIM data providing concurrent access",
@@ -7430,16 +7434,17 @@
       "baseline_version": "",
       "status": "generated-no-independent-release",
       "upstream_version": null,
-      "note": "Local wrapper or generated Home Manager artifact; not a separately released upstream application.",
+      "note": "Local wrapper or generated Home Manager artifact; not a separately released upstream application. X11 bitmap font aggregate removed by disabling the legacy font-directory feature; required Xfce/X11 session and fonts remain. Historical baseline retained.",
       "upstream_url": "",
       "version": "",
       "official_stable_version": null,
       "upstream_status": "generated-no-independent-release",
       "sources": [],
-      "notes": "Local wrapper or generated Home Manager artifact; not a separately released upstream application.",
-      "after_version": "",
+      "notes": "Local wrapper or generated Home Manager artifact; not a separately released upstream application. X11 bitmap font aggregate removed by disabling the legacy font-directory feature; required Xfce/X11 session and fonts remain. Historical baseline retained.",
+      "after_version": null,
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/nixos/modules/config/fonts/fontdir.nix:21",
-      "after_upstream_status": "generated-no-independent-release"
+      "after_upstream_status": "removed-from-config",
+      "current_declared": false
     },
     {
       "description": "Library for font customization and configuration",
@@ -7699,7 +7704,7 @@
       "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
     }
   ],
-  "after_inventory": "Evaluated /tmp/nixos-cleanup-inventory.json; checked package observations preserved. Historical Syntastic declaration retained but marked removed from current runtime plugins; final runtime plugin declarations total68 including vim-plug manager.",
+  "after_inventory": "Evaluated /tmp/nixos-ark-inventory.json; historical Discover/Flatpak-KCM/X11-font aggregate records retained but excluded from current inventory. Ark has a scoped private-libzip variant at the same upstream26.08.3 version. Other checked observations unchanged.",
   "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
   "community_policy_updated_at": "2026-11-22T12:05:23.882330+00:00",
   "cleanup_policy_updated_at": "2026-11-22T12:20:46.005563+00:00"

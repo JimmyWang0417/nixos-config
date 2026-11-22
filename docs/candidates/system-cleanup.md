@@ -1,12 +1,12 @@
 # 候选：进一步精简与替换
 
 本轮已按用户确认关闭 Baloo、空 cron 和 JACK 的全局库路径注入，Neovim 保留
-Coc 并清理 Syntastic 与重复 clangd 注册。下列候选没有直接停用，启用条件和
-功能影响需要分别核对。
+Coc 并清理 Syntastic 与重复 clangd 注册。Flatpak 已按用户后续确认关闭，
+其余候选的启用条件和功能影响仍需分别核对。
 
-1. **Flatpak 与 Flathub 注册**：当前没有声明 Flatpak 应用，只有兼容支持和
-   开机注册 Flathub 的单次任务。若没有使用计划，可一并关闭，日后再开。
-   注册任务不是一直运行的守护进程。
+1. **Flatpak 与 Flathub 注册（已实施）**：已明确关闭 Flatpak，移除开机注册
+   Flathub 的单次任务和其远程描述文件下载。保留独立策略模块，日后需要时再开启。
+   不删除现有用户数据，也不影响 AppImage 与 Nix 提供的软件。
 2. **全局科研 Python/Conda 环境**：已配置 direnv/nix-direnv，适合把 FastAPI、
    NumPy/科学计算相关依赖和项目特定 Node/JDK 逐步放进项目 devShell。
    保留基础命令、Neovim provider 和 Rust 链接器，不把 pipx 的 CLI 用途混同于

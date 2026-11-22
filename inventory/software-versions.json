@@ -2,8 +2,8 @@
   "date": "2026-11-22",
   "policy": "All Nix-provided system, application and manager packages plus NUR build dependencies use nixos-unstable; stable nixpkgs remains an unused explicit interface. Explicit user-requested exception: elan and rustup initialize stable upstream Lean/Rust toolchains in writable HOME at activation; those runtime toolchain versions are not locked by flake.lock and have not been observed installed.",
   "summary": {
-    "rows": 591,
-    "configuredUniqueNames": 516,
+    "rows": 600,
+    "configuredUniqueNames": 521,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -12,7 +12,7 @@
       "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 31,
-      "newly-added": 43,
+      "newly-added": 52,
       "not-in-baseline": 13,
       "generated-or-wrapper": 25,
       "ahead-or-different-series": 2,
@@ -24,32 +24,37 @@
       "different-version-needs-review": 1
     },
     "afterStatuses": {
-      "behind": 85,
-      "equal": 320,
+      "behind": 89,
+      "equal": 321,
       "ahead-or-different-series": 5,
-      "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 30,
-      "generated-or-wrapper": 26,
+      "generated-or-wrapper": 27,
       "snapshot-not-comparable": 9,
       "not-comparable": 4,
       "prerelease-only": 1,
+      "generated-no-independent-release": 9,
       "ahead-or-different-track": 1,
       "intentional-release-line": 2,
       "different-version-needs-review": 1,
       "runtime-managed": 2
     },
-    "versionChanges": 253,
+    "versionChanges": 251,
     "runtimePluginDeclarations": 68,
     "runtimeToolchainDeclarations": 2,
     "historicalRuntimePluginDeclarations": 69,
     "removedCurrentPackageNames": [
+      "X11-fonts",
       "cron",
+      "discover",
+      "flatpak",
+      "flatpak-kcm",
       "jack-libs"
     ],
     "removedRuntimePluginDeclarations": [
       "scrooloose/syntastic"
-    ]
+    ],
+    "archiveExplicitHelperDeclarations": 9
   },
   "rows": [
     {
@@ -148,11 +153,12 @@
       "urls": [
         "https://download.kde.org/stable/release-service/"
       ],
-      "note": "",
+      "note": "Ark 26.08.3 retains native Qt/Kerfuffle plugins. Only its private OpenSSL-enabled libzip has strict GB18030 fallback for otherwise CP437-guessed ZIP names. Known/guessed UTF-8 and Unicode path fields are preserved; invalid GB18030 falls back to CP437. Its wrapper provides explicit archive CLI backends, including 7z to official 7zz. Global libzip and other applications are unchanged.",
       "present": true,
       "reports": [
         "software-versions-home.json"
-      ]
+      ],
+      "variant": "ark-private-libzip-gb18030"
     },
     {
       "name": "at-spi2-core",
@@ -667,19 +673,20 @@
     {
       "name": "discover",
       "before": "6.6.6",
-      "after": "6.8.3",
+      "after": "",
       "upstream": "6.8.3",
       "beforeStatus": "behind",
-      "afterStatus": "equal",
+      "afterStatus": "removed-from-config",
       "scope": "desktop",
       "urls": [
         "https://download.kde.org/stable/plasma/"
       ],
-      "note": "",
-      "present": true,
+      "note": "Discover excluded from Plasma packages; current software management uses declared Nix configuration. Historical baseline retained.",
+      "present": false,
       "reports": [
         "software-versions-home.json"
-      ]
+      ],
+      "currentDeclared": false
     },
     {
       "name": "djvulibre",
@@ -956,19 +963,20 @@
     {
       "name": "flatpak-kcm",
       "before": "6.6.6",
-      "after": "6.8.3",
+      "after": "",
       "upstream": "6.8.3",
       "beforeStatus": "behind",
-      "afterStatus": "equal",
+      "afterStatus": "removed-from-config",
       "scope": "desktop",
       "urls": [
         "https://download.kde.org/stable/plasma/"
       ],
-      "note": "",
-      "present": true,
+      "note": "Flatpak KCM excluded together with the unused Flatpak/Discover stack. Historical baseline retained.",
+      "present": false,
       "reports": [
         "software-versions-home.json"
-      ]
+      ],
+      "currentDeclared": false
     },
     {
       "name": "fontconfig",
@@ -4574,14 +4582,15 @@
       "after": "",
       "upstream": "",
       "beforeStatus": "generated-no-independent-release",
-      "afterStatus": "generated-no-independent-release",
+      "afterStatus": "removed-from-config",
       "scope": "desktop",
       "urls": [],
-      "note": "Local wrapper or generated Home Manager artifact; not a separately released upstream application.",
-      "present": true,
+      "note": "Local wrapper or generated Home Manager artifact; not a separately released upstream application. X11 bitmap font aggregate removed by disabling the legacy font-directory feature; required Xfce/X11 session and fonts remain. Historical baseline retained.",
+      "present": false,
       "reports": [
         "software-versions-home.json"
-      ]
+      ],
+      "currentDeclared": false
     },
     {
       "name": "academic-research-skills-dsh",
@@ -6364,19 +6373,20 @@
     {
       "name": "flatpak",
       "before": "1.18.4",
-      "after": "1.18.4",
+      "after": "",
       "upstream": "1.18.4",
       "beforeStatus": "equal",
-      "afterStatus": "equal",
+      "afterStatus": "removed-from-config",
       "scope": "system",
       "urls": [
         "https://github.com/flatpak/flatpak/releases/tag/1.18.4"
       ],
-      "note": "",
-      "present": true,
+      "note": "Flatpak service and remote registration removed from current configuration; historical baseline retained.",
+      "present": false,
       "reports": [
         "software-versions-system.json"
-      ]
+      ],
+      "currentDeclared": false
     },
     {
       "name": "font-alias",
@@ -10090,6 +10100,175 @@
       "baseUpstreamVersion": "0.1.11",
       "baseUpstreamStatus": "equal",
       "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
+    },
+    {
+      "name": "7zz",
+      "before": "",
+      "after": "26.04",
+      "upstream": "26.06",
+      "beforeStatus": "newly-added",
+      "afterStatus": "behind",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://www.7-zip.org/download.html"
+      ],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official 7-Zip download page currently lists 26.06 for Linux; selected base 26.04 is retained from locked unstable.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-backend"
+    },
+    {
+      "name": "ark-7z-backend",
+      "before": "",
+      "after": "",
+      "upstream": null,
+      "beforeStatus": "newly-added",
+      "afterStatus": "generated-or-wrapper",
+      "scope": "explicit-extra",
+      "urls": [],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Local Ark-only 7z command alias points to official 7zz; no independent release or version.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-command-alias"
+    },
+    {
+      "name": "libzip",
+      "before": "",
+      "after": "1.11.4",
+      "upstream": "1.12.1",
+      "beforeStatus": "newly-added",
+      "afterStatus": "behind",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://libzip.org/download/"
+      ],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official libzip current release. This 1.11.4 variant has an Ark-private GB18030 fallback patch, not a global override.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-library"
+    },
+    {
+      "name": "lrzip",
+      "before": "",
+      "after": "0.660",
+      "upstream": "0.7.3",
+      "beforeStatus": "newly-added",
+      "afterStatus": "behind",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://github.com/ckolivas/lrzip/releases/tag/v0.7.3"
+      ],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official designated latest. Unusual version notation order verified by GitHub compare v0.660...v0.7.3 showing 97 commits ahead, rather than ordinary numeric comparison.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-backend"
+    },
+    {
+      "name": "lz4",
+      "before": "",
+      "after": "1.10.0",
+      "upstream": "1.11.1",
+      "beforeStatus": "newly-added",
+      "afterStatus": "behind",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://github.com/lz4/lz4/releases/tag/v1.11.1"
+      ],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official GitHub designated latest non-prerelease release.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-backend"
+    },
+    {
+      "name": "lzop",
+      "before": "",
+      "after": "1.04",
+      "upstream": "1.04",
+      "beforeStatus": "newly-added",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://www.lzop.org/download/"
+      ],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official download index lists source version 1.04 as the latest release.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-backend"
+    },
+    {
+      "name": "unar",
+      "before": "",
+      "after": "1.10.8",
+      "upstream": "1.10.8",
+      "beforeStatus": "newly-added",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://github.com/MacPaw/XADMaster/releases/tag/v1.10.8"
+      ],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official MacPaw XADMaster release used by the unar/lsar recipe.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-backend"
+    },
+    {
+      "name": "unrar",
+      "before": "",
+      "after": "7.3.2",
+      "upstream": "7.3.2",
+      "beforeStatus": "newly-added",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://www.rarlab.com/rar_add.htm"
+      ],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official UnRAR source link currently points to unrarsrc-7.3.2.tar.gz.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-backend"
+    },
+    {
+      "name": "zip",
+      "before": "",
+      "after": "3.0",
+      "upstream": "3.0",
+      "beforeStatus": "newly-added",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://infozip.sourceforge.net/Zip.html"
+      ],
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official Info-ZIP Zip 3.0 latest-release section.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "archive-helper",
+      "installationRole": "ark-private-backend"
     }
   ]
 }

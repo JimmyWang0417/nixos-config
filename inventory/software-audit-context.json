@@ -241,7 +241,7 @@
     "input_method_behavior_and_dictionary_tests": 7,
     "private_archive_safety_tests": 13,
     "flake_check": "passed (built formatting and pre-commit/static/workflow checks; system evaluation only)",
-    "system_derivation": "/nix/store/qsbafh519z2j1jxfk5jcd1yxadg68zqq-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
+    "system_derivation": "/nix/store/d2xy60nhywnhzg7zfrg0bv4ca7gn387l-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
     "xfce_assets": "built and verified GTK CSS, xfwm4, cursor, Tela, wallpaper",
     "xfce_asset_derivation": "/nix/store/07vw550kdap1r8vdd1nqn4yzxm7xf7vd-xfce-appearance-assets.drv",
     "hdl_tools": "Verible formatting/parsing and Icarus SystemVerilog compile smoke passed",
@@ -263,9 +263,9 @@
     "backups": "Snapper/Restic deferred by user; candidate documentation only, no backup services or repository configured.",
     "baloo": "Disabled by immutable system-level Indexing-Enabled=false and masked kde-baloo.service user unit; actual NixOS config wiring, built flake checks and full system derivation evaluated. No running Manjaro services stopped or old index database removed.",
     "github_actions": {
-      "commit": "4e0d2ec38cec80df5aa47ca41455ca3d53bfe457",
+      "commit": "58ff274b0db317b2ad75eb768b6bafc6b545c4d1",
       "conclusion": "success",
-      "url": "https://github.com/JimmyWang0417/nixos-config/actions/runs/45020998441"
+      "url": "https://github.com/JimmyWang0417/nixos-config/actions/runs/45021908367"
     },
     "desktop_cleanup": {
       "cron": "Disabled; no declared system crontab. Logrotate and systemd timers retained.",
@@ -273,7 +273,14 @@
       "neovim": "17 vim-plug plugins and12Coc extensions parsed; Syntastic and generic duplicate clangd server removed. clangd uses existing Nix clang-tools wrapper PATH; isolated headless syntax smoke passed without downloads or real HOME changes.",
       "unfree": "Removed duplicate unconditional package-policy setting. Current runtime allowUnfree remains true; overriding its Orion policy false evaluates false.",
       "verification": "tests/eval.sh and actual built flake formatting/static checks passed. No services activated or old index/plugin data deleted."
-    }
+    },
+    "ark_archive_tests": 11,
+    "ark_archive_behavior": "Actual Nix-built Ark with private patched OpenSSL libzip passed 11 isolated tests: GBK, four-byteGB18030 paths, UTF8flag/noflag, Unicode0x7075, invalidGB18030→CP437, mixed archives, Unicode-selected name/index/payload and RAW reads, UTF8ZIPcreation roundtrip, TAR and forcedCLI7z. MinimalPATH excludeshosttools; shared-mime-info is explicitly provided to model desktop environment. RARverifiedbypluginfiles/capabilitydetection, notclaimedcontentextraction.",
+    "ark_built_derivation": "/nix/store/s87aimgr5k6b22pl743x5y6aic7rfyfi-ark-archive-behavior.drv",
+    "ark_package": "/nix/store/b7hi4f1z5fxllv1lziyx8306nwrh6qg3-ark-26.08.3",
+    "ark_private_libzip": "/nix/store/74c1x4bwrryshgalvfavwb5rigxi7nbd-libzip-1.11.4",
+    "ark_policy": "Actual config selects private codec and native plugin-enable policy. Turning legacyChineseZip=false evaluates to unpatched OpenSSL libzip. No original archive or realHOME state changed during tests.",
+    "flatpak": "Explicitly disabled; no flatpak-flathub unit, no installed Flatpak/Discover/FlatpakKCM frontend. fwupd/fwupdmgr and desktop portals retained. No current-host uninstall or user-data deletion."
   },
   "desktop": {
     "default": "Plasma Wayland (plasma)",
@@ -283,8 +290,8 @@
   },
   "configurationCoverage": "inventory/configuration-coverage.json",
   "auditSummary": {
-    "rows": 591,
-    "configuredUniqueNames": 516,
+    "rows": 600,
+    "configuredUniqueNames": 521,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -293,7 +300,7 @@
       "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 31,
-      "newly-added": 43,
+      "newly-added": 52,
       "not-in-baseline": 13,
       "generated-or-wrapper": 25,
       "ahead-or-different-series": 2,
@@ -305,32 +312,37 @@
       "different-version-needs-review": 1
     },
     "afterStatuses": {
-      "behind": 85,
-      "equal": 320,
+      "behind": 89,
+      "equal": 321,
       "ahead-or-different-series": 5,
-      "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 30,
-      "generated-or-wrapper": 26,
+      "generated-or-wrapper": 27,
       "snapshot-not-comparable": 9,
       "not-comparable": 4,
       "prerelease-only": 1,
+      "generated-no-independent-release": 9,
       "ahead-or-different-track": 1,
       "intentional-release-line": 2,
       "different-version-needs-review": 1,
       "runtime-managed": 2
     },
-    "versionChanges": 253,
+    "versionChanges": 251,
     "runtimePluginDeclarations": 68,
     "runtimeToolchainDeclarations": 2,
     "historicalRuntimePluginDeclarations": 69,
     "removedCurrentPackageNames": [
+      "X11-fonts",
       "cron",
+      "discover",
+      "flatpak",
+      "flatpak-kcm",
       "jack-libs"
     ],
     "removedRuntimePluginDeclarations": [
       "scrooloose/syntastic"
-    ]
+    ],
+    "archiveExplicitHelperDeclarations": 9
   },
   "toolchainPolicyUpdatedAt": "2026-11-22T05:17:16.724014+00:00",
   "runtimeToolchains": [
@@ -404,5 +416,91 @@
       "baseVersion": "0.1.11",
       "baseUpstreamStatus": "equal"
     }
-  ]
+  ],
+  "archivePolicy": {
+    "updatedAt": "2026-11-22T12:50:18.815614+00:00",
+    "arkVersion": "26.08.3",
+    "module": "modules/programs/ark.nix",
+    "package": "packages/ark/default.nix",
+    "legacyChineseZip": true,
+    "privateLibzipBaseVersion": "1.11.4",
+    "globalLibzipReplaced": false,
+    "fallback": "Strict GB18030 only for otherwise CP437-guessed filenames; on failure use original CP437. Known/guessed UTF-8 and valid Unicode path fields remain unchanged.",
+    "legacyEncodingAmbiguity": "Some legacy non-Chinese bytes can also be valid GB18030; universal automatic encoding detection is not claimed.",
+    "backendScope": "Explicit CLI helpers are provided only inside the Ark wrapper PATH; the private libzip is linked only to Ark.",
+    "helpers": [
+      {
+        "name": "7zz",
+        "version": "26.04",
+        "installationRole": "ark-private-backend",
+        "upstreamVersion": "26.06",
+        "upstreamStatus": "behind",
+        "url": "https://www.7-zip.org/download.html"
+      },
+      {
+        "name": "ark-7z-backend",
+        "version": "",
+        "installationRole": "ark-private-command-alias",
+        "upstreamVersion": null,
+        "upstreamStatus": "generated-or-wrapper",
+        "url": null
+      },
+      {
+        "name": "libzip",
+        "version": "1.11.4",
+        "installationRole": "ark-private-library",
+        "upstreamVersion": "1.12.1",
+        "upstreamStatus": "behind",
+        "url": "https://libzip.org/download/"
+      },
+      {
+        "name": "lrzip",
+        "version": "0.660",
+        "installationRole": "ark-private-backend",
+        "upstreamVersion": "0.7.3",
+        "upstreamStatus": "behind",
+        "url": "https://github.com/ckolivas/lrzip/releases/tag/v0.7.3"
+      },
+      {
+        "name": "lz4",
+        "version": "1.10.0",
+        "installationRole": "ark-private-backend",
+        "upstreamVersion": "1.11.1",
+        "upstreamStatus": "behind",
+        "url": "https://github.com/lz4/lz4/releases/tag/v1.11.1"
+      },
+      {
+        "name": "lzop",
+        "version": "1.04",
+        "installationRole": "ark-private-backend",
+        "upstreamVersion": "1.04",
+        "upstreamStatus": "equal",
+        "url": "https://www.lzop.org/download/"
+      },
+      {
+        "name": "unar",
+        "version": "1.10.8",
+        "installationRole": "ark-private-backend",
+        "upstreamVersion": "1.10.8",
+        "upstreamStatus": "equal",
+        "url": "https://github.com/MacPaw/XADMaster/releases/tag/v1.10.8"
+      },
+      {
+        "name": "unrar",
+        "version": "7.3.2",
+        "installationRole": "ark-private-backend",
+        "upstreamVersion": "7.3.2",
+        "upstreamStatus": "equal",
+        "url": "https://www.rarlab.com/rar_add.htm"
+      },
+      {
+        "name": "zip",
+        "version": "3.0",
+        "installationRole": "ark-private-backend",
+        "upstreamVersion": "3.0",
+        "upstreamStatus": "equal",
+        "url": "https://infozip.sourceforge.net/Zip.html"
+      }
+    ]
+  }
 }
