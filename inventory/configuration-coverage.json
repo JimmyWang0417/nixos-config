@@ -2,10 +2,10 @@
   "date": "2026-11-22",
   "scope": "全部最终 Nix 包名称的配置归属与处理方式；运行时 stable 工具链单独列出，不推断当前已安装版本，也不把软件安装等同于账号登录或私人状态恢复。",
   "summary": {
-    "package-defaults": 281,
-    "desktop-defaults": 119,
-    "system-component": 34,
-    "declared": 87
+    "declared": 89,
+    "package-defaults": 284,
+    "system-component": 40,
+    "desktop-defaults": 119
   },
   "extensionAvailability": [
     {
@@ -235,6 +235,45 @@
   ],
   "rows": [
     {
+      "name": "7zz",
+      "versions": [
+        "26.04"
+      ],
+      "scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/packages/catalog/core.nix",
+      "note": "系统由 p7zip 改为官方7zz；Ark/Ranger 同时通过自己的包装路径使用它，不把共享派生重复计作多个应用。",
+      "installationRole": "ark-private-backend",
+      "installationRoles": [
+        "system-package",
+        "ark-private-backend",
+        "ranger-private-helper"
+      ],
+      "modules": [
+        "modules/packages/catalog/core.nix",
+        "modules/programs/ark.nix",
+        "home/modules/editors/ranger.nix"
+      ]
+    },
+    {
+      "name": "Image-ExifTool",
+      "versions": [
+        "13.60"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
+    },
+    {
       "name": "NetworkManager-l2tp",
       "versions": [
         "1.52.0"
@@ -269,6 +308,18 @@
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "OVMF",
+      "versions": [
+        "202608"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "system-component",
+      "module": "modules/programs/claude-cage.nix",
+      "note": "Claude Cage虚拟机桌面的主机包或私有运行依赖；不等于已创建客机、导入代理或完成Claude授权。"
     },
     {
       "name": "accountsservice",
@@ -440,6 +491,17 @@
       "variant": "ark-private-libzip-gb18030"
     },
     {
+      "name": "ark-7z-backend",
+      "versions": [],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "packages/ark/default.nix",
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Local Ark-only 7z command alias points to official 7zz; no independent release or version.",
+      "installationRole": "ark-private-command-alias"
+    },
+    {
       "name": "at-spi2-core",
       "versions": [
         "2.62.0"
@@ -457,11 +519,14 @@
         "0.39.0"
       ],
       "scopes": [
-        "home"
+        "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "attr",
@@ -520,8 +585,8 @@
         "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "packages/baidunetdisk/default.nix",
+      "note": "官方8.9.7负载不变；本地FHS及GTKmm2私有兼容层统一全局工具链。仅构建和ELF验证，不声称已登录或完成传输。"
     },
     {
       "name": "baidunetdisk-ozone",
@@ -563,6 +628,7 @@
         "5.3p20"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
@@ -834,6 +900,28 @@
       "note": "TUN系统服务、自动启动、更新策略，私有profile由独立安全恢复模块初始化。"
     },
     {
+      "name": "claude-cage",
+      "versions": [
+        "0.1.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/programs/claude-cage.nix",
+      "note": "Claude Cage虚拟机桌面的主机包或私有运行依赖；不等于已创建客机、导入代理或完成Claude授权。"
+    },
+    {
+      "name": "claude-cage-qemu-runtime",
+      "versions": [],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "system-component",
+      "module": "modules/programs/claude-cage.nix",
+      "note": "Claude Cage虚拟机桌面的主机包或私有运行依赖；不等于已创建客机、导入代理或完成Claude授权。"
+    },
+    {
       "name": "claude-code",
       "versions": [
         "2.1.329"
@@ -894,6 +982,21 @@
       "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
     },
     {
+      "name": "comma-with-db-2.4.2",
+      "versions": [],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/nix-index.nix",
+      "note": "Generated comma wrapper with the pinned nix-index database; no independent wrapper release or raw version attribute. Base comma 2.4.2 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "basePackage": "comma",
+      "baseVersion": "2.4.2",
+      "baseUpstreamVersion": "2.4.2",
+      "baseUpstreamStatus": "equal",
+      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
+    },
+    {
       "name": "compsize",
       "versions": [
         "1.5-unstable-2023-12-24"
@@ -916,6 +1019,21 @@
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "coreutils",
+      "versions": [
+        "9.12"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "coreutils-full",
@@ -1100,14 +1218,26 @@
     {
       "name": "dingtalk",
       "versions": [
-        "9.0.0.261105002"
+        "9.0.0.261118001"
       ],
       "scopes": [
         "system"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "packages/dingtalk/default.nix",
+      "note": "固定官方当前 Linux 测试预览负载9.0.0.261118001，保留xcb/Fcitx/Wayland屏幕桥接；账号与真实GUI会议未由构建验证。"
+    },
+    {
+      "name": "direnv",
+      "versions": [
+        "2.38.2"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/direnv.nix",
+      "note": "Nix-pinned unstable direnv with Zsh/Git integration and nix-direnv support; each project still requires explicit direnv allow."
     },
     {
       "name": "discord",
@@ -1127,11 +1257,14 @@
         "3.5.30"
       ],
       "scopes": [
-        "home"
+        "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "dmidecode",
@@ -1485,11 +1618,14 @@
         "2.4.1"
       ],
       "scopes": [
-        "home"
+        "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "ffmpegthumbs",
@@ -1502,6 +1638,21 @@
       "status": "desktop-defaults",
       "module": "modules/desktop/default.nix",
       "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "file",
+      "versions": [
+        "5.48"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "filelight",
@@ -1738,6 +1889,7 @@
         "2.56.0"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "declared",
@@ -1762,6 +1914,7 @@
         "2.90.0"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
@@ -1846,11 +1999,15 @@
         "4.10"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "gnutar",
@@ -1858,11 +2015,15 @@
         "1.35"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "google-chrome",
@@ -1993,6 +2154,18 @@
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
     },
     {
+      "name": "gtkmm",
+      "versions": [
+        "2.24.5"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "system-component",
+      "module": "packages/baidunetdisk/gtkmm2.nix",
+      "note": "百度官方 ELF 要求的私有 GTKmm2.4 ABI 兼容库；2.24.5由全局 unstable 工具链构建，不用GTKmm4作跨ABI比较。"
+    },
+    {
       "name": "gvfs",
       "versions": [
         "1.62.0"
@@ -2089,6 +2262,21 @@
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
     },
     {
+      "name": "highlight",
+      "versions": [
+        "4.21"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
+    },
+    {
       "name": "hm-session-vars.sh",
       "versions": [],
       "scopes": [
@@ -2150,11 +2338,14 @@
         "7.1.2-35"
       ],
       "scopes": [
-        "home"
+        "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "inconsolata",
@@ -2222,6 +2413,7 @@
         "7.2.0"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
@@ -2916,11 +3108,15 @@
         "710"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "libarchive",
@@ -2928,11 +3124,14 @@
         "3.8.10"
       ],
       "scopes": [
-        "home"
+        "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "libcap",
@@ -2995,6 +3194,18 @@
       "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
     },
     {
+      "name": "libnotify",
+      "versions": [
+        "0.8.9"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "system-component",
+      "module": "modules/programs/claude-cage.nix",
+      "note": "Claude Cage虚拟机桌面的主机包或私有运行依赖；不等于已创建客机、导入代理或完成Claude授权。"
+    },
+    {
       "name": "libplasma",
       "versions": [
         "6.8.3"
@@ -3055,6 +3266,19 @@
       "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
     },
     {
+      "name": "libzip",
+      "versions": [
+        "1.11.4"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "packages/ark/default.nix",
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official libzip current release. This 1.11.4 variant has an Ark-private GB18030 fallback patch, not a global override.",
+      "installationRole": "ark-private-library"
+    },
+    {
       "name": "linux",
       "versions": [
         "6.12.118"
@@ -3103,6 +3327,19 @@
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
     },
     {
+      "name": "lrzip",
+      "versions": [
+        "0.660"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "packages/ark/default.nix",
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official designated latest. Unusual version notation order verified by GitHub compare v0.660...v0.7.3 showing 97 commits ahead, rather than ordinary numeric comparison.",
+      "installationRole": "ark-private-backend"
+    },
+    {
       "name": "lsd",
       "versions": [
         "1.2.0"
@@ -3126,6 +3363,32 @@
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "lz4",
+      "versions": [
+        "1.10.0"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "packages/ark/default.nix",
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official GitHub designated latest non-prerelease release.",
+      "installationRole": "ark-private-backend"
+    },
+    {
+      "name": "lzop",
+      "versions": [
+        "1.04"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "packages/ark/default.nix",
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official download index lists source version 1.04 as the latest release.",
+      "installationRole": "ark-private-backend"
     },
     {
       "name": "man-db",
@@ -3194,11 +3457,14 @@
         "26.10"
       ],
       "scopes": [
-        "home"
+        "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "merkuro",
@@ -3428,6 +3694,18 @@
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
     },
     {
+      "name": "nh",
+      "versions": [
+        "4.5.0"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/nh.nix",
+      "note": "Nix-pinned unstable nh with the Orion flake reference. Automatic nh cleanup stays disabled; native NixOS retention owns cleanup."
+    },
+    {
       "name": "ninja",
       "versions": [
         "1.13.2"
@@ -3462,6 +3740,21 @@
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nix-index-with-full-db-0.1.11",
+      "versions": [],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/nix-index.nix",
+      "note": "Generated nix-index wrapper with the pinned full database; no independent wrapper release or raw version attribute. Base nix-index 0.1.11 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "basePackage": "nix-index",
+      "baseVersion": "0.1.11",
+      "baseUpstreamVersion": "0.1.11",
+      "baseUpstreamStatus": "equal",
+      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
     },
     {
       "name": "nix-info",
@@ -3610,9 +3903,9 @@
       "scopes": [
         "system"
       ],
-      "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "status": "declared",
+      "module": "home/modules/development/node/default.nix",
+      "note": "Node/npm配置、缓存、全局前缀、REPL历史分别使用XDG目录；可写迁移保留冲突/链接和活跃旧进程数据，不改HOME或覆盖凭据。"
     },
     {
       "name": "noto-fonts",
@@ -3771,6 +4064,21 @@
       "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
     },
     {
+      "name": "odt2txt",
+      "versions": [
+        "0.5"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
+    },
+    {
       "name": "oh-my-zsh",
       "versions": [
         "2026-11-02"
@@ -3872,6 +4180,7 @@
         "10.6p1"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
@@ -3882,18 +4191,6 @@
       "name": "orca",
       "versions": [
         "51.1"
-      ],
-      "scopes": [
-        "system"
-      ],
-      "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
-    },
-    {
-      "name": "p7zip",
-      "versions": [
-        "17.06"
       ],
       "scopes": [
         "system"
@@ -4244,11 +4541,14 @@
         "26.11.0"
       ],
       "scopes": [
-        "home"
+        "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "power-profiles-daemon",
@@ -4355,6 +4655,18 @@
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "qemu",
+      "versions": [
+        "11.1.2"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "system-component",
+      "module": "modules/programs/claude-cage.nix",
+      "note": "Claude Cage虚拟机桌面的主机包或私有运行依赖；不等于已创建客机、导入代理或完成Claude授权。"
     },
     {
       "name": "qoder-cn",
@@ -4497,7 +4809,7 @@
       ],
       "status": "declared",
       "module": "home/modules/editors/ranger.nix",
-      "note": "原rc/rifle/scope、色彩和图标插件。"
+      "note": "保留终端编辑与原键位，受限预览/Sixel协议/只读归档处理；19个实际辅助依赖置于Ranger私有PATH。"
     },
     {
       "name": "rclone",
@@ -4890,6 +5202,7 @@
         "262"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
@@ -5145,6 +5458,19 @@
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
     },
     {
+      "name": "unar",
+      "versions": [
+        "1.10.8"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "packages/ark/default.nix",
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official MacPaw XADMaster release used by the unar/lsar recipe.",
+      "installationRole": "ark-private-backend"
+    },
+    {
       "name": "unifont",
       "versions": [
         "18.0.01"
@@ -5181,16 +5507,36 @@
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
     },
     {
+      "name": "unrar",
+      "versions": [
+        "7.3.2"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRole": "ark-private-backend",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
+    },
+    {
       "name": "unzip",
       "versions": [
         "6.0"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "upower",
@@ -5654,11 +6000,14 @@
         "0.5.6"
       ],
       "scopes": [
-        "home"
+        "explicit-extra"
       ],
       "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "module": "home/modules/editors/ranger.nix",
+      "note": "Ranger 私有预览/打开依赖，通过 extraPackages 包装 PATH 提供；不把工具安装等同于其个人偏好已迁移。其他系统功能仍可选择同一派生。",
+      "installationRoles": [
+        "ranger-private-helper"
+      ]
     },
     {
       "name": "wget",
@@ -5872,6 +6221,7 @@
         "1.2.1"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
@@ -6263,6 +6613,31 @@
       "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
     },
     {
+      "name": "zenity",
+      "versions": [
+        "4.2.2"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "system-component",
+      "module": "modules/programs/claude-cage.nix",
+      "note": "Claude Cage虚拟机桌面的主机包或私有运行依赖；不等于已创建客机、导入代理或完成Claude授权。"
+    },
+    {
+      "name": "zip",
+      "versions": [
+        "3.0"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "packages/ark/default.nix",
+      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official Info-ZIP Zip 3.0 latest-release section.",
+      "installationRole": "ark-private-backend"
+    },
+    {
       "name": "zsh",
       "versions": [
         "5.9.2"
@@ -6281,184 +6656,12 @@
         "1.5.7"
       ],
       "scopes": [
+        "explicit-extra",
         "system"
       ],
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
-    },
-    {
-      "name": "comma-with-db-2.4.2",
-      "versions": [
-        ""
-      ],
-      "scopes": [
-        "home"
-      ],
-      "status": "declared",
-      "module": "home/modules/development/nix-index.nix",
-      "note": "Generated comma wrapper with the pinned nix-index database; no independent wrapper release or raw version attribute. Base comma 2.4.2 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
-      "basePackage": "comma",
-      "baseVersion": "2.4.2",
-      "baseUpstreamVersion": "2.4.2",
-      "baseUpstreamStatus": "equal",
-      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
-    },
-    {
-      "name": "direnv",
-      "versions": [
-        "2.38.2"
-      ],
-      "scopes": [
-        "home"
-      ],
-      "status": "declared",
-      "module": "home/modules/development/direnv.nix",
-      "note": "Nix-pinned unstable direnv with Zsh/Git integration and nix-direnv support; each project still requires explicit direnv allow."
-    },
-    {
-      "name": "nh",
-      "versions": [
-        "4.5.0"
-      ],
-      "scopes": [
-        "home"
-      ],
-      "status": "declared",
-      "module": "home/modules/development/nh.nix",
-      "note": "Nix-pinned unstable nh with the Orion flake reference. Automatic nh cleanup stays disabled; native NixOS retention owns cleanup."
-    },
-    {
-      "name": "nix-index-with-full-db-0.1.11",
-      "versions": [
-        ""
-      ],
-      "scopes": [
-        "home"
-      ],
-      "status": "declared",
-      "module": "home/modules/development/nix-index.nix",
-      "note": "Generated nix-index wrapper with the pinned full database; no independent wrapper release or raw version attribute. Base nix-index 0.1.11 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
-      "basePackage": "nix-index",
-      "baseVersion": "0.1.11",
-      "baseUpstreamVersion": "0.1.11",
-      "baseUpstreamStatus": "equal",
-      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
-    },
-    {
-      "name": "7zz",
-      "versions": [
-        "26.04"
-      ],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official 7-Zip download page currently lists 26.06 for Linux; selected base 26.04 is retained from locked unstable.",
-      "installationRole": "ark-private-backend"
-    },
-    {
-      "name": "ark-7z-backend",
-      "versions": [],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Local Ark-only 7z command alias points to official 7zz; no independent release or version.",
-      "installationRole": "ark-private-command-alias"
-    },
-    {
-      "name": "libzip",
-      "versions": [
-        "1.11.4"
-      ],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official libzip current release. This 1.11.4 variant has an Ark-private GB18030 fallback patch, not a global override.",
-      "installationRole": "ark-private-library"
-    },
-    {
-      "name": "lrzip",
-      "versions": [
-        "0.660"
-      ],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official designated latest. Unusual version notation order verified by GitHub compare v0.660...v0.7.3 showing 97 commits ahead, rather than ordinary numeric comparison.",
-      "installationRole": "ark-private-backend"
-    },
-    {
-      "name": "lz4",
-      "versions": [
-        "1.10.0"
-      ],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official GitHub designated latest non-prerelease release.",
-      "installationRole": "ark-private-backend"
-    },
-    {
-      "name": "lzop",
-      "versions": [
-        "1.04"
-      ],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official download index lists source version 1.04 as the latest release.",
-      "installationRole": "ark-private-backend"
-    },
-    {
-      "name": "unar",
-      "versions": [
-        "1.10.8"
-      ],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official MacPaw XADMaster release used by the unar/lsar recipe.",
-      "installationRole": "ark-private-backend"
-    },
-    {
-      "name": "unrar",
-      "versions": [
-        "7.3.2"
-      ],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official UnRAR source link currently points to unrarsrc-7.3.2.tar.gz.",
-      "installationRole": "ark-private-backend"
-    },
-    {
-      "name": "zip",
-      "versions": [
-        "3.0"
-      ],
-      "scopes": [
-        "explicit-extra"
-      ],
-      "status": "declared",
-      "module": "packages/ark/default.nix",
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official Info-ZIP Zip 3.0 latest-release section.",
-      "installationRole": "ark-private-backend"
     }
   ],
   "runtimeToolchains": [
@@ -6512,5 +6715,6 @@
       "name": "flatpak-kcm",
       "note": "Flatpak KCM excluded together with the unused Flatpak/Discover stack. Historical baseline retained."
     }
-  ]
+  ],
+  "nativeClientsUpdatedAt": "2026-11-22T14:09:10.619102+00:00"
 }

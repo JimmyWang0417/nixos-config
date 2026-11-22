@@ -2,6 +2,7 @@
   imports = [
     ./boot.nix
     ./locale.nix
+    ./editor.nix
     ./users.nix
     ./nix-settings.nix
     ./nix-download.nix

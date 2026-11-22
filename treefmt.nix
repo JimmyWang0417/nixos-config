@@ -16,6 +16,7 @@
   settings.formatter = {
     shfmt.includes = lib.mkForce [
       "bootstrap/*.sh"
+      "home/modules/**/*.sh"
       "tests/*.sh"
     ];
     ruff-format.includes = lib.mkForce [
@@ -23,6 +24,7 @@
       "scripts/*.py"
       "tests/*.py"
       "modules/**/*.py"
+      "home/modules/**/*.py"
     ];
   };
   settings.global.excludes = [

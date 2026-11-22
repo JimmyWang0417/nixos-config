@@ -2,8 +2,19 @@
 let
   # Commands actually invoked by the migrated ranger preview/opener scripts.
   previewCommands = with pkgs; [
+    coreutils
+    file
+    gnused
+    gnutar
+    less
+    _7zz
+    unrar
+    unzip
     w3m
     atool
+    highlight
+    exiftool
+    odt2txt
     mediainfo
     ffmpegthumbnailer
     poppler-utils
@@ -13,10 +24,17 @@ let
   ];
 in
 {
-  home.packages = previewCommands;
   programs.ranger = {
     enable = true;
     extraPackages = previewCommands;
+    package = pkgs.ranger.overrideAttrs (old: {
+      # rc.conf already contains the full mappings; do not load defaults twice.
+      makeWrapperArgs = (old.makeWrapperArgs or [ ]) ++ [
+        "--set"
+        "RANGER_LOAD_DEFAULT_RC"
+        "FALSE"
+      ];
+    });
   };
 
   xdg.configFile = {

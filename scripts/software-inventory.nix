@@ -46,6 +46,27 @@ let
       ark-sevenzip = p._7zz;
     }
   );
+  rangerExtras = p.lib.optionalAttrs h.programs.ranger.enable (
+    builtins.listToAttrs (
+      p.lib.imap0 (index: pkg: {
+        name = "ranger-helper-${toString index}";
+        value = pkg;
+      }) h.programs.ranger.extraPackages
+    )
+  );
+  cage = c.orion.programs.claudeCage.package;
+  cageExtras = p.lib.optionalAttrs c.orion.programs.claudeCage.enable (
+    builtins.listToAttrs (
+      p.lib.imap0 (index: pkg: {
+        name = "cage-helper-${toString index}";
+        value = pkg;
+      }) cage.runtime.tools
+    )
+    // {
+      cage-qemu = p.qemu;
+      cage-firmware = p.OVMF;
+    }
+  );
   extras = {
     inherit (u)
       typora
@@ -54,7 +75,8 @@ let
       deveco-studio
       docker-easyconnect
       ;
-    baidunetdisk = p.nur.repos.freegoxing.baidunetdisk;
+    baidunetdisk = import ../packages/baidunetdisk { pkgs = p; };
+    baidu-gtkmm2 = (import ../packages/baidunetdisk { pkgs = p; }).compatGtkmm;
     inherit (p.python3Packages)
       pip
       fastapi
@@ -89,7 +111,9 @@ let
     fcitx5-qt = p.qt6Packages.fcitx5-qt;
     fcitx5-qt5 = p.libsForQt5.fcitx5-qt;
   }
-  // arkExtras;
+  // arkExtras
+  // rangerExtras
+  // cageExtras;
 in
 map (record "system") c.environment.systemPackages
 ++ map (record "home") h.home.packages

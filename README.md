@@ -35,11 +35,23 @@
 
 [中文输入法](docs/input-method.md)使用同一套 fcitx5：KWin 启动 Wayland 输入法，Xfce 使用独立 X11 环境和自启动。旧的全局 GTK/Qt/SDL 强制变量在 Wayland 清理，VS Code 使用上游包装器的原生 Wayland IME 参数。用户词库仅在缺失时从密文恢复，保留后续学习结果。
 
+[用户目录](docs/user-directories.md) 保留 Desktop、Documents、Downloads 等英文路径和
+Dolphin 的中文位置标签，系统界面仍用中文；不覆盖个人书签。
+
 ## 编辑器与应用配置
 
 [VS Code](docs/vscode.md)已有的主题、插件偏好和快捷键均已核对迁入，并补齐中文界面、HDL 格式化/编译、C/C++、Rust、中文 LaTeX 及 Java 路径。32 个当前可从 nixpkgs 声明的扩展纳入模块，其余本机扩展的限制逐项列在文档中。Python 环境和 npm 依赖继续由项目选择。
 
-Neovim 与 ranger 保留原有配置和插件引导。Konsole、Dolphin、Kate、btop、VLC、OBS、Discord、Heroic 的安全公开偏好各自成模块，只在目标文件缺失时初始化；不复制最近文件、播放历史、账号缓存或私有安装路径。Shell 保留原 Powerlevel10k 配置，`pon` 与 Nix 下载统一使用 Clash mixed 代理 `127.0.0.1:7897`。
+[Neovim](docs/neovim.md) 保留 Coc、主题与键位，格式化、构建和运行按职责拆分；
+系统终端 `EDITOR=nvim`，图形文本默认应用仍是 Kate。
+[Ranger](docs/ranger.md) 保留三栏与图标，预览工具仅供自身使用，并限制自动预览的大小和耗时。
+[Node/npm](docs/node-xdg.md) 的配置、缓存、全局软件和历史分别进入 XDG 目录，迁移保留现有内容与命令链接。
+
+Konsole、Dolphin、Kate、btop、VLC、OBS、Discord、Heroic 的安全公开偏好各自成模块，只在目标文件缺失时初始化；不复制最近文件、播放历史、账号缓存或私有安装路径。Shell 保留原 Powerlevel10k 配置，`pon` 与 Nix 下载统一使用 Clash mixed 代理 `127.0.0.1:7897`。
+
+[Claude Cage](docs/claude-cage.md) 使用官方稳定版虚拟机桌面，封装 GTK/WebKit、
+QEMU/KVM 与固件路径。代理、客机准备和 Claude 登录由首次启动流程完成；
+不自动导入宿主凭据，也不随系统构建下载客机镜像。
 
 [DSH](docs/dsh.md)的插件分组、安装协调和更新机制独立。该主机没有可迁移的 DSH 运行目录，因此没有编造 provider、MCP 账号或个人插件设置。
 

@@ -40,3 +40,12 @@ PipeWire 的 ALSA/PulseAudio 接口运行；不额外启动 JACK daemon。
 
 移除 Syntastic 与重复的通用 clangd 注册，保留 Coc 与 `coc-clangd` 扩展；
 clangd 使用 Nix 提供的命令。见 [Neovim 配置](neovim.md)。
+
+## 默认终端编辑器
+
+`modules/core/editor.nix` 将系统级 `EDITOR` 设为 `nvim`。Neovim 已在系统软件
+清单中，普通用户继续加载自己的 Home Manager 配置，root 也有可用的终端编辑器。
+Nano 保留为可手动调用的工具。
+
+普通文本和 Markdown 的图形默认应用仍为 Kate；没有指定统一默认 IDE。
+先前尝试的 VS Code 默认设置已撤回，未加入当前系统。

@@ -74,10 +74,20 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "after_version": "0.5.6",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/w3/w3m/package.nix:134",
-      "after_upstream_status": "equal"
+      "after_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-8"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "Archive command line helper",
@@ -99,10 +109,20 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "after_version": "0.39.0",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/at/atool/package.nix:50",
-      "after_upstream_status": "equal"
+      "after_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-9"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "Supplies technical and tag information about a video or audio file",
@@ -124,10 +144,20 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "after_version": "26.10",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/me/mediainfo/package.nix:38",
-      "after_upstream_status": "equal"
+      "after_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-13"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "Lightweight video thumbnailer",
@@ -149,10 +179,20 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "after_version": "2.4.1",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/ff/ffmpegthumbnailer/package.nix:51",
-      "after_upstream_status": "behind"
+      "after_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-14"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "PDF rendering library",
@@ -174,10 +214,20 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "after_version": "26.11.0",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/development/libraries/poppler/default.nix:213",
-      "after_upstream_status": "equal"
+      "after_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-15"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "Big set of CLI tools to make/modify/optimize/show/export DJVU files",
@@ -199,10 +249,20 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "after_version": "3.5.30",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/dj/djvulibre/package.nix:44",
-      "after_upstream_status": "equal"
+      "after_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-16"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "Multi-format archive and compression library",
@@ -224,10 +284,20 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "after_version": "3.8.10",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/li/libarchive/package.nix:168",
-      "after_upstream_status": "behind"
+      "after_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-17"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "Software suite to create, edit, compose, or convert bitmap images",
@@ -249,10 +319,20 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "after_version": "7.1.2-35",
       "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/im/imagemagick/package.nix:193",
-      "after_upstream_status": "behind"
+      "after_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-18"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "Z shell",
@@ -7488,7 +7568,7 @@
       "version_locked": false,
       "module": "home/modules/development/elan.nix",
       "state_paths": [
-        "~/.elan"
+        "~/.local/share/elan"
       ],
       "activation_commands": [
         "elan toolchain install stable",
@@ -7524,7 +7604,7 @@
       "version_locked": false,
       "module": "home/modules/development/rust.nix",
       "state_paths": [
-        "~/.rustup",
+        "~/.local/share/rustup",
         "~/.cargo"
       ],
       "activation_commands": [
@@ -7707,5 +7787,6 @@
   "after_inventory": "Evaluated /tmp/nixos-ark-inventory.json; historical Discover/Flatpak-KCM/X11-font aggregate records retained but excluded from current inventory. Ark has a scoped private-libzip variant at the same upstream26.08.3 version. Other checked observations unchanged.",
   "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
   "community_policy_updated_at": "2026-11-22T12:05:23.882330+00:00",
-  "cleanup_policy_updated_at": "2026-11-22T12:20:46.005563+00:00"
+  "cleanup_policy_updated_at": "2026-11-22T12:20:46.005563+00:00",
+  "native_clients_updated_at": "2026-11-22T14:09:10.619102+00:00"
 }

@@ -9,7 +9,7 @@ with pkgs;
   rsync
   rclone
   unzip
-  p7zip
+  _7zz
   htop
   btop
   fastfetch

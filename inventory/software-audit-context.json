@@ -240,8 +240,8 @@
     "input_method_config_checks": 22,
     "input_method_behavior_and_dictionary_tests": 7,
     "private_archive_safety_tests": 13,
-    "flake_check": "passed (built formatting and pre-commit/static/workflow checks; system evaluation only)",
-    "system_derivation": "/nix/store/d2xy60nhywnhzg7zfrg0bv4ca7gn387l-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
+    "flake_check": "Passed: final integrated built formatting/static/workflow, Ark archive, Neovim command, Ranger preview, Node XDG, native-client ELF and Claude Cage runtime checks. Complete NixOS derivation evaluated; full system build and activation not run.",
+    "system_derivation": "/nix/store/55a8h1wp7x3hznp0ni3rx2s3b8zc0p93-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
     "xfce_assets": "built and verified GTK CSS, xfwm4, cursor, Tela, wallpaper",
     "xfce_asset_derivation": "/nix/store/07vw550kdap1r8vdd1nqn4yzxm7xf7vd-xfce-appearance-assets.drv",
     "hdl_tools": "Verible formatting/parsing and Icarus SystemVerilog compile smoke passed",
@@ -263,9 +263,10 @@
     "backups": "Snapper/Restic deferred by user; candidate documentation only, no backup services or repository configured.",
     "baloo": "Disabled by immutable system-level Indexing-Enabled=false and masked kde-baloo.service user unit; actual NixOS config wiring, built flake checks and full system derivation evaluated. No running Manjaro services stopped or old index database removed.",
     "github_actions": {
-      "commit": "58ff274b0db317b2ad75eb768b6bafc6b545c4d1",
+      "commit": "be0dcf86c86556220293cf92c5d5d4eaf586c191",
       "conclusion": "success",
-      "url": "https://github.com/JimmyWang0417/nixos-config/actions/runs/45021908367"
+      "url": "https://github.com/JimmyWang0417/nixos-config/actions/runs/45024534633",
+      "scope": "Last published baseline; subsequent publication CI is reported with its commit rather than written self-referentially into that commit."
     },
     "desktop_cleanup": {
       "cron": "Disabled; no declared system crontab. Logrotate and systemd timers retained.",
@@ -280,7 +281,24 @@
     "ark_package": "/nix/store/b7hi4f1z5fxllv1lziyx8306nwrh6qg3-ark-26.08.3",
     "ark_private_libzip": "/nix/store/74c1x4bwrryshgalvfavwb5rigxi7nbd-libzip-1.11.4",
     "ark_policy": "Actual config selects private codec and native plugin-enable policy. Turning legacyChineseZip=false evaluates to unpatched OpenSSL libzip. No original archive or realHOME state changed during tests.",
-    "flatpak": "Explicitly disabled; no flatpak-flathub unit, no installed Flatpak/Discover/FlatpakKCM frontend. fwupd/fwupdmgr and desktop portals retained. No current-host uninstall or user-data deletion."
+    "flatpak": "Explicitly disabled; no flatpak-flathub unit, no installed Flatpak/Discover/FlatpakKCM frontend. fwupd/fwupdmgr and desktop portals retained. No current-host uninstall or user-data deletion.",
+    "neovim_command_behavior_tests": 15,
+    "ranger_preview_and_opener_tests": 7,
+    "node_xdg_behavior_tests": 10,
+    "node_xdg_policy_checks": 7,
+    "user_directory_policy_checks": 8,
+    "native_client_runtime_tests": 6,
+    "native_client_elf_resolutions": 22,
+    "node_xdg": "Four environment paths shared by shells, user services and activation. First-time Coc installation waits for Node migration. Actual current-host state moved without byte changes to npmrc/history or broken global links; old terminals need source ~/.config/node/env.sh.",
+    "user_directories": "Eight English standard directories and Projects=$HOME/ preserved with Chinese system locale, native updater disabled. Real xdg-user-dir resolved all nine mappings. Existing locale marker and Dolphin personal bookmarks remain writable and untouched.",
+    "local_coc_installation": "Actual current-host coc.nvim release and all 12 declared extensions installed and recognized. Private pynvim provider works, CoC initializes successfully. Existing plugins and Coc settings retained; no NixOS activation.",
+    "editor_defaults": "System EDITOR=nvim; GUI text/plain and Markdown remain Kate. No unified default IDE policy.",
+    "claude_cage": {
+      "version": "0.1.8",
+      "package": "/nix/store/8zw56h9l3n47xj789b18lzm5yfksxr7q-claude-cage-0.1.8",
+      "runtime_check": "/nix/store/0km15vrklq51kak4sywg2cqrdcv7widi-claude-cage-runtime-checks",
+      "verification": "Built official desktop/backend/Mihomo; version, embedded Web assets, 11 origin policy cases, dynamic loader, QEMU and OVMF passed. No profile/VM initialized. Guest preparation, proxy and account authorization remain target-system first-run steps."
+    }
   },
   "desktop": {
     "default": "Plasma Wayland (plasma)",
@@ -290,8 +308,8 @@
   },
   "configurationCoverage": "inventory/configuration-coverage.json",
   "auditSummary": {
-    "rows": 600,
-    "configuredUniqueNames": 521,
+    "rows": 612,
+    "configuredUniqueNames": 532,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -301,7 +319,7 @@
       "tag-only": 23,
       "unverified": 31,
       "newly-added": 52,
-      "not-in-baseline": 13,
+      "not-in-baseline": 25,
       "generated-or-wrapper": 25,
       "ahead-or-different-series": 2,
       "snapshot-not-comparable": 9,
@@ -312,22 +330,23 @@
       "different-version-needs-review": 1
     },
     "afterStatuses": {
-      "behind": 89,
-      "equal": 321,
+      "behind": 92,
+      "equal": 328,
       "ahead-or-different-series": 5,
-      "tag-only": 23,
-      "unverified": 30,
-      "generated-or-wrapper": 27,
+      "tag-only": 24,
+      "unverified": 27,
+      "generated-or-wrapper": 28,
       "snapshot-not-comparable": 9,
       "not-comparable": 4,
       "prerelease-only": 1,
+      "official-preview-current": 1,
       "generated-no-independent-release": 9,
       "ahead-or-different-track": 1,
-      "intentional-release-line": 2,
+      "intentional-release-line": 3,
       "different-version-needs-review": 1,
       "runtime-managed": 2
     },
-    "versionChanges": 251,
+    "versionChanges": 252,
     "runtimePluginDeclarations": 68,
     "runtimeToolchainDeclarations": 2,
     "historicalRuntimePluginDeclarations": 69,
@@ -337,12 +356,15 @@
       "discover",
       "flatpak",
       "flatpak-kcm",
-      "jack-libs"
+      "jack-libs",
+      "p7zip"
     ],
     "removedRuntimePluginDeclarations": [
       "scrooloose/syntastic"
     ],
-    "archiveExplicitHelperDeclarations": 9
+    "archiveExplicitHelperDeclarations": 9,
+    "rangerExplicitHelperDeclarations": 19,
+    "cageExplicitRuntimeDeclarations": 13
   },
   "toolchainPolicyUpdatedAt": "2026-11-22T05:17:16.724014+00:00",
   "runtimeToolchains": [
@@ -427,7 +449,7 @@
     "globalLibzipReplaced": false,
     "fallback": "Strict GB18030 only for otherwise CP437-guessed filenames; on failure use original CP437. Known/guessed UTF-8 and valid Unicode path fields remain unchanged.",
     "legacyEncodingAmbiguity": "Some legacy non-Chinese bytes can also be valid GB18030; universal automatic encoding detection is not claimed.",
-    "backendScope": "Explicit CLI helpers are provided only inside the Ark wrapper PATH; the private libzip is linked only to Ark.",
+    "backendScope": "Ark supplies helpers through its private wrapper PATH and links its private libzip only to Ark; identical packages such as7zz are also independently selected by system/Ranger.",
     "helpers": [
       {
         "name": "7zz",
@@ -435,7 +457,11 @@
         "installationRole": "ark-private-backend",
         "upstreamVersion": "26.06",
         "upstreamStatus": "behind",
-        "url": "https://www.7-zip.org/download.html"
+        "url": "https://www.7-zip.org/download.html",
+        "otherCurrentRoles": [
+          "system-package",
+          "ranger-private-helper"
+        ]
       },
       {
         "name": "ark-7z-backend",
@@ -502,5 +528,163 @@
         "url": "https://infozip.sourceforge.net/Zip.html"
       }
     ]
+  },
+  "nativeClientsUpdatedAt": "2026-11-22T14:09:10.619102+00:00",
+  "inventorySnapshot": {
+    "source": "nixos-final-with-cage-inventory.json",
+    "rawEntries": 666,
+    "uniquePackageNames": 532,
+    "completeForDeclaredPackageNames": true,
+    "status": "metadata frozen; final validation and CI fields are updated separately by root"
+  },
+  "nativeClients": {
+    "dingtalk": {
+      "package": "packages/dingtalk/default.nix",
+      "version": "9.0.0.261118001",
+      "channel": "official Linux test preview",
+      "officialSelector": "https://www.dingtalk.com/win/d/qd=linux_amd64",
+      "officialPayload": "https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_9.0.0.261118001_amd64.deb",
+      "sha256": "83406e08854f0bf99fa1754d6b6825a9cb53ca5afc6ea1c500341c88cea14769",
+      "bundledOpenSSL": "1.1.1g",
+      "securityExceptionRetained": true
+    },
+    "baidunetdisk": {
+      "package": "packages/baidunetdisk/default.nix",
+      "version": "8.9.7",
+      "officialSelector": "https://pan.baidu.com/disk/cmsdata?do=client&adCode=1",
+      "sourcePolicy": "Local FHS recipe and private gtkmm2.24.5 use the same global unstable compiler/runtime ABI; no nested old nixpkgs import.",
+      "requiredPrivateABI": "gtkmm-2.4",
+      "gtkmmVersion": "2.24.5",
+      "clientVersionChanged": false
+    }
+  },
+  "rangerPolicy": {
+    "module": "home/modules/editors/ranger.nix",
+    "helperDeclarations": 19,
+    "helpers": [
+      {
+        "name": "coreutils",
+        "version": "9.12",
+        "attribute": "ranger-helper-0"
+      },
+      {
+        "name": "file",
+        "version": "5.48",
+        "attribute": "ranger-helper-1"
+      },
+      {
+        "name": "highlight",
+        "version": "4.21",
+        "attribute": "ranger-helper-10"
+      },
+      {
+        "name": "Image-ExifTool",
+        "version": "13.60",
+        "attribute": "ranger-helper-11"
+      },
+      {
+        "name": "odt2txt",
+        "version": "0.5",
+        "attribute": "ranger-helper-12"
+      },
+      {
+        "name": "mediainfo",
+        "version": "26.10",
+        "attribute": "ranger-helper-13"
+      },
+      {
+        "name": "ffmpegthumbnailer",
+        "version": "2.4.1",
+        "attribute": "ranger-helper-14"
+      },
+      {
+        "name": "poppler-utils",
+        "version": "26.11.0",
+        "attribute": "ranger-helper-15"
+      },
+      {
+        "name": "djvulibre",
+        "version": "3.5.30",
+        "attribute": "ranger-helper-16"
+      },
+      {
+        "name": "libarchive",
+        "version": "3.8.10",
+        "attribute": "ranger-helper-17"
+      },
+      {
+        "name": "imagemagick",
+        "version": "7.1.2-35",
+        "attribute": "ranger-helper-18"
+      },
+      {
+        "name": "gnused",
+        "version": "4.10",
+        "attribute": "ranger-helper-2"
+      },
+      {
+        "name": "gnutar",
+        "version": "1.35",
+        "attribute": "ranger-helper-3"
+      },
+      {
+        "name": "less",
+        "version": "710",
+        "attribute": "ranger-helper-4"
+      },
+      {
+        "name": "7zz",
+        "version": "26.04",
+        "attribute": "ranger-helper-5"
+      },
+      {
+        "name": "unrar",
+        "version": "7.3.2",
+        "attribute": "ranger-helper-6"
+      },
+      {
+        "name": "unzip",
+        "version": "6.0",
+        "attribute": "ranger-helper-7"
+      },
+      {
+        "name": "w3m",
+        "version": "0.5.6",
+        "attribute": "ranger-helper-8"
+      },
+      {
+        "name": "atool",
+        "version": "0.39.0",
+        "attribute": "ranger-helper-9"
+      }
+    ],
+    "dependencyScope": "Private ranger wrapper PATH; identical packages can independently remain in system/Ark selections.",
+    "imageProtocol": "sixel",
+    "replacesGlobalP7zipWith": "7zz"
+  },
+  "claudeCage": {
+    "module": "modules/programs/claude-cage.nix",
+    "package": "packages/claude-cage/default.nix",
+    "project": "https://github.com/Lee-xeo/Claude-Cage",
+    "version": "0.1.8",
+    "officialRelease": "https://github.com/Lee-xeo/Claude-Cage/releases/tag/v0.1.8",
+    "prerelease": false,
+    "notWaylandCompositor": true,
+    "bundledComponents": [
+      {
+        "name": "Mihomo",
+        "version": "1.19.33",
+        "independentNixPackage": false,
+        "license": "GPL-3.0",
+        "upstreamLatestCompared": false
+      }
+    ],
+    "hostRuntimeFrom": "global locked unstable package set",
+    "guestImagePrepared": false,
+    "proxyConfigured": false,
+    "claudeAuthenticated": false,
+    "runtimeState": "User-writable upstream application configuration and selected VM storage; no credentials declared in the repository.",
+    "guestTools": "First-run guest image/Node/mise/code-server/browser/Claude downloads are mutable guest state, not host Nix packages and not asserted installed.",
+    "verificationReference": "Root confirmed isolated Cage runtime check passed; latest validation/CI fields are maintained independently."
   }
 }

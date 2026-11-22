@@ -110,6 +110,16 @@
 
       formatter.x86_64-linux = quality.formatter;
       checks.x86_64-linux = quality.checks // {
+        claude-cage-runtime =
+          self.nixosConfigurations.orion.config.orion.programs.claudeCage.package.tests.runtime;
+        node-xdg = import ./tests/node-xdg-check.nix { pkgs = toolsPkgs; };
+        native-clients = import ./tests/native-clients.nix {
+          pkgs = self.nixosConfigurations.orion.pkgs;
+          baidu = import ./packages/baidunetdisk { pkgs = self.nixosConfigurations.orion.pkgs; };
+          dingtalk = import ./packages/dingtalk { pkgs = self.nixosConfigurations.orion.pkgs; };
+        };
+        neovim-commands = import ./tests/neovim.nix { pkgs = toolsPkgs; };
+        ranger-previews = import ./tests/ranger.nix { pkgs = toolsPkgs; };
         ark-archives = import ./tests/ark.nix {
           pkgs = toolsPkgs;
           ark = self.nixosConfigurations.orion.config.orion.archives.ark.package;

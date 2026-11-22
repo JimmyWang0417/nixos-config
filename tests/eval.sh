@@ -27,6 +27,14 @@ python3 tests/toolchains.py
 echo "== adaptive Nix storage maintenance =="
 python3 tests/storage.py
 
+echo "== Node XDG environment =="
+nix eval --impure --json --no-update-lock-file --show-trace --file tests/node-xdg.nix
+echo
+
+echo "== English XDG directories and Chinese locale =="
+nix eval --impure --json --no-update-lock-file --show-trace --file tests/user-directories.nix
+echo
+
 echo "== development tools =="
 nix eval --impure --json --no-update-lock-file --show-trace --file tests/development.nix
 echo

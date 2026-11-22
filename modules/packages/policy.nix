@@ -5,10 +5,10 @@
   # for 27.05, not because these consumers were removed. Keep this one
   # deprecation visible; do not permit unrelated broken packages.
   nixpkgs.config.problems.handlers."gtk+".broken = "warn";
-  # yakkhini.dingtalk 9.0.0.261105002 bundles OpenSSL 1.1 (EOL). The package
-  # matches the installed client, so this one name is permitted.
+  # The official DingTalk payload still bundles OpenSSL 1.1.1g (EOL).
+  # Keep the exact-name exception; OpenSSL 3 cannot replace its 1.1 SONAMEs.
   nixpkgs.config.permittedInsecurePackages = [
-    "dingtalk-9.0.0.261105002"
+    "dingtalk-9.0.0.261118001"
   ];
 
 }

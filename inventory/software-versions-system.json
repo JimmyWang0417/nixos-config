@@ -28,7 +28,11 @@
       "current_name": "axel",
       "identity_match": "verified",
       "unstable_version": "2.17.14",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Distributed version control system",
@@ -54,7 +58,14 @@
       "current_name": "git",
       "identity_match": "verified",
       "unstable_version": "2.56.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "cage-helper-3"
+      ]
     },
     {
       "description": "Git extension for versioning large files",
@@ -80,7 +91,11 @@
       "current_name": "git-lfs",
       "identity_match": "verified",
       "unstable_version": "3.8.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GitHub CLI tool",
@@ -106,7 +121,11 @@
       "current_name": "gh",
       "identity_match": "verified",
       "unstable_version": "2.105.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tool for retrieving files using HTTP, HTTPS, and FTP",
@@ -132,7 +151,11 @@
       "current_name": "wget",
       "identity_match": "verified",
       "unstable_version": "1.25.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Command line tool for transferring files with URL syntax",
@@ -158,7 +181,11 @@
       "current_name": "curl",
       "identity_match": "verified",
       "unstable_version": "8.23.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Fast incremental file transfer utility",
@@ -184,7 +211,11 @@
       "current_name": "rsync",
       "identity_match": "verified",
       "unstable_version": "3.5.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Command line program to sync files and directories to and from major cloud storage",
@@ -210,7 +241,11 @@
       "current_name": "rclone",
       "identity_match": "verified",
       "unstable_version": "1.76.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Extraction utility for archives compressed in .zip format",
@@ -231,12 +266,25 @@
           "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.info-zip.org'. (_ssl.c:1082)>"
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "current_package_name": "unzip-6.0",
       "current_name": "unzip",
       "identity_match": "verified",
       "unstable_version": "6.0",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "ark-backend-4",
+        "ranger-helper-7"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/un/unzip/package.nix:124",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)",
@@ -257,12 +305,13 @@
           "error": null
         }
       ],
-      "notes": "Legacy p7zip fork; latest upstream 7-Zip is a different project and not directly comparable.",
-      "current_package_name": "p7zip-17.06",
-      "current_name": "p7zip",
+      "notes": "Legacy p7zip fork; latest upstream 7-Zip is a different project and not directly comparable. Current system selection was replaced by official7zz; historical p7zip17.06 is retained and is not numerically compared across different projects.",
+      "current_package_name": null,
+      "current_name": null,
       "identity_match": "verified",
-      "unstable_version": "17.06",
-      "unstable_upstream_status": "unverified"
+      "unstable_version": "",
+      "unstable_upstream_status": "removed-from-config",
+      "current_present": false
     },
     {
       "description": "Interactive process viewer",
@@ -288,7 +337,11 @@
       "current_name": "htop",
       "identity_match": "verified",
       "unstable_version": "3.5.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Monitor of resources",
@@ -314,7 +367,11 @@
       "current_name": "btop",
       "identity_match": "verified",
       "unstable_version": "1.4.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Actively maintained, feature-rich and performance oriented, neofetch like system information tool",
@@ -340,7 +397,11 @@
       "current_name": "fastfetch",
       "identity_match": "verified",
       "unstable_version": "2.71.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Command-line fuzzy finder written in Go",
@@ -366,7 +427,11 @@
       "current_name": "fzf",
       "identity_match": "verified",
       "unstable_version": "0.75.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Next gen ls command",
@@ -392,7 +457,12 @@
       "current_name": "lsd",
       "identity_match": "verified",
       "unstable_version": "1.2.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "home",
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Vim text editor fork focused on extensibility and agility",
@@ -418,7 +488,12 @@
       "current_name": "neovim",
       "identity_match": "verified",
       "unstable_version": "0.12.6",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "home",
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Post-modern modal text editor",
@@ -444,7 +519,11 @@
       "current_name": "helix",
       "identity_match": "verified",
       "unstable_version": "25.07.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Modern and intuitive terminal-based text editor",
@@ -470,7 +549,11 @@
       "current_name": "micro",
       "identity_match": "verified",
       "unstable_version": "2.0.15",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "File manager with minimalistic curses interface",
@@ -505,7 +588,12 @@
       "identity_match": "verified",
       "unstable_version": "1.9.4-unstable-2026-09-09",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "not-comparable"
+      "unstable_tag_comparison": "not-comparable",
+      "current_scopes": [
+        "home",
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Small, user-friendly console text editor",
@@ -531,7 +619,11 @@
       "current_name": "nano",
       "identity_match": "verified",
       "unstable_version": "9.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Cross-platform, open-source build system generator",
@@ -557,7 +649,11 @@
       "current_name": "cmake",
       "identity_match": "verified",
       "unstable_version": "4.4.4",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tool to control the generation of non-source files from sources",
@@ -583,7 +679,11 @@
       "current_name": "gnumake",
       "identity_match": "verified",
       "unstable_version": "4.4.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU Project debugger",
@@ -609,7 +709,11 @@
       "current_name": "gdb",
       "identity_match": "verified",
       "unstable_version": "17.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU Compiler Collection, version 15.3.0 (wrapper script)",
@@ -635,7 +739,11 @@
       "current_name": "gfortran-wrapper",
       "identity_match": "verified",
       "unstable_version": "16.2.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tool that allows packages to find out information about other packages (wrapper script)",
@@ -661,7 +769,11 @@
       "current_name": "pkg-config-wrapper",
       "identity_match": "verified",
       "unstable_version": "0.29.2",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Small build system with a focus on speed",
@@ -687,7 +799,11 @@
       "current_name": "ninja",
       "identity_match": "verified",
       "unstable_version": "1.13.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Event-driven I/O framework for the V8 JavaScript engine",
@@ -713,7 +829,11 @@
       "current_name": "nodejs",
       "identity_match": "verified",
       "unstable_version": "24.22.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Unprivileged sandboxing tool",
@@ -739,7 +859,11 @@
       "current_name": "bubblewrap",
       "identity_match": "verified",
       "unstable_version": "0.13.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "High-level dynamically-typed programming language",
@@ -765,7 +889,11 @@
       "current_name": "python3",
       "identity_match": "verified",
       "unstable_version": "3.14.10",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Package manager for Python",
@@ -791,7 +919,11 @@
       "current_name": "conda-shell",
       "identity_match": "verified",
       "unstable_version": "26.7.1-1",
-      "unstable_upstream_status": "not-comparable"
+      "unstable_upstream_status": "not-comparable",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Open-source Java Development Kit",
@@ -817,7 +949,11 @@
       "current_name": "openjdk",
       "identity_match": "verified",
       "unstable_version": "21.0.13.0.2+1",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "High-level dynamically-typed programming language",
@@ -862,7 +998,11 @@
       "current_name": "vlc",
       "identity_match": "verified",
       "unstable_version": "3.0.24",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Free and open source software for video recording and live streaming",
@@ -888,7 +1028,11 @@
       "current_name": "obs-studio",
       "identity_match": "verified",
       "unstable_version": "32.2.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Offline password manager with many features",
@@ -914,7 +1058,11 @@
       "current_name": "keepassxc",
       "identity_match": "verified",
       "unstable_version": "2.8.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Bridge Feishu/Lark chats to coding CLIs running in tmux",
@@ -940,7 +1088,11 @@
       "current_name": "botmux",
       "identity_match": "verified",
       "unstable_version": "3.59.17",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "All-in-One Assistant for Claude Code, Codex & Gemini CLI",
@@ -966,7 +1118,11 @@
       "current_name": "cc-switch",
       "identity_match": "verified",
       "unstable_version": "4.0.36",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Telegram Desktop messaging app",
@@ -992,7 +1148,11 @@
       "current_name": "telegram-desktop",
       "identity_match": "verified",
       "unstable_version": "7.4.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Clash GUI based on tauri",
@@ -1018,7 +1178,11 @@
       "current_name": "clash-verge-rev",
       "identity_match": "verified",
       "unstable_version": "2.5.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "All-in-one cross-platform voice and text chat for gamers",
@@ -1044,7 +1208,11 @@
       "current_name": "discord",
       "identity_match": "verified",
       "unstable_version": "1.0.168",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Powerful knowledge base that works on top of a local folder of plain text Markdown files",
@@ -1070,7 +1238,11 @@
       "current_name": "obsidian",
       "identity_match": "verified",
       "unstable_version": "1.15.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -1089,7 +1261,11 @@
       "current_name": "typora-ozone",
       "identity_match": "unverified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -1108,7 +1284,11 @@
       "current_name": "qoder-cn-ozone",
       "identity_match": "unverified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -1127,7 +1307,11 @@
       "current_name": "trae-cn-ozone",
       "identity_match": "unverified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tencent WorkBuddy desktop client (腾讯 WorkBuddy Linux 桌面端)",
@@ -1153,7 +1337,11 @@
       "current_name": "workbuddy",
       "identity_match": "verified",
       "unstable_version": "5.6.2.40046327",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Freeware web browser developed by Google",
@@ -1179,7 +1367,11 @@
       "current_name": "google-chrome",
       "identity_match": "verified",
       "unstable_version": "158.0.8127.36",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Web browser from Microsoft",
@@ -1205,7 +1397,11 @@
       "current_name": "microsoft-edge",
       "identity_match": "verified",
       "unstable_version": "157.0.4341.60",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac",
@@ -1231,7 +1427,11 @@
       "current_name": "heroic",
       "identity_match": "verified",
       "unstable_version": "2.22.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Comprehensive, professional-quality productivity suite, a variant of openoffice.org",
@@ -1257,7 +1457,11 @@
       "current_name": "libreoffice",
       "identity_match": "verified",
       "unstable_version": "26.8.3.1",
-      "unstable_upstream_status": "ahead-or-different-series"
+      "unstable_upstream_status": "ahead-or-different-series",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -1276,7 +1480,11 @@
       "current_name": "baidunetdisk-ozone",
       "identity_match": "unverified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Enterprise communication and collaboration platform developed by Alibaba Group",
@@ -1291,18 +1499,44 @@
       "official_stable_version": null,
       "sources": [
         {
-          "url": "https://www.dingtalk.com/",
-          "resolved_url": "https://www.dingtalk.com/",
-          "method": "official homepage inspected; no verified machine-readable stable version rule",
+          "url": "https://www.dingtalk.com/win/d/qd=linux_amd64",
+          "resolved_url": "https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_9.0.0.261118001_amd64.deb",
+          "method": "Official Linux amd64 download selector resolves to the exact packaged release payload.",
+          "error": null
+        },
+        {
+          "url": "https://www.dingtalk.com/download",
+          "resolved_url": "https://www.dingtalk.com/download",
+          "method": "Official Linux page calls this a test preview; no vendor-promised stable designation is asserted.",
           "error": null
         }
       ],
-      "notes": "Official Linux download redirect did not expose a verifiable latest stable version (HTTP403); web asset versions are not client versions.",
-      "current_package_name": "dingtalk-9.0.0.261105002",
+      "notes": "Updated from9.0.0.261105002 to the current official Linux payload9.0.0.261118001. Vendor labels Linux as a test preview, so this is not counted as a verified stable release. Actual package build and native wrapping checks passed; bundled OpenSSL1.1.1g remains and the exact insecure-package exception is retained.",
+      "current_package_name": "dingtalk-9.0.0.261118001",
       "current_name": "dingtalk",
       "identity_match": "verified",
-      "unstable_version": "9.0.0.261105002",
-      "unstable_upstream_status": "unverified"
+      "unstable_version": "9.0.0.261118001",
+      "unstable_upstream_status": "official-preview-current",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": [],
+      "previous_upstream_observation": {
+        "official_stable_version": null,
+        "sources": [
+          {
+            "url": "https://www.dingtalk.com/",
+            "resolved_url": "https://www.dingtalk.com/",
+            "method": "official homepage inspected; no verified machine-readable stable version rule",
+            "error": null
+          }
+        ],
+        "notes": "Official Linux download redirect did not expose a verifiable latest stable version (HTTP403); web asset versions are not client versions."
+      },
+      "current_present": true,
+      "current_position": "/nix/store/fnyqzxysgl6xrz5h903925hkbgpp26qj-source/pkgs/dingtalk/default.nix:275",
+      "official_linux_channel": "vendor-test-preview",
+      "latest_official_linux_version": "9.0.0.261118001"
     },
     {
       "description": "WPS Office, is an office productivity suite. (Enable wpscloudsvr-wrapper)",
@@ -1328,7 +1562,11 @@
       "current_name": "wpsoffice-365",
       "identity_match": "verified",
       "unstable_version": "12.8.2.21176",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "New markup-based typesetting system that is powerful and easy to learn",
@@ -1354,7 +1592,11 @@
       "current_name": "typst",
       "identity_match": "verified",
       "unstable_version": "0.15.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Conversion between documentation formats",
@@ -1380,7 +1622,11 @@
       "current_name": "pandoc-cli",
       "identity_match": "verified",
       "unstable_version": "3.7.0.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Java, Kotlin, Groovy and Scala IDE from JetBrains",
@@ -1432,7 +1678,11 @@
       "current_name": "pycharm",
       "identity_match": "verified",
       "unstable_version": "2026.3",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Utilities for the btrfs filesystem",
@@ -1458,7 +1708,11 @@
       "current_name": "btrfs-progs",
       "identity_match": "verified",
       "unstable_version": "7.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Find compression type/ratio on a file or set of files in the Btrfs filesystem",
@@ -1493,7 +1747,11 @@
       "identity_match": "verified",
       "unstable_version": "1.5-unstable-2023-12-24",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "not-comparable"
+      "unstable_tag_comparison": "not-comparable",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "FUSE-based NTFS driver with full write support",
@@ -1519,7 +1777,11 @@
       "current_name": "ntfs3g",
       "identity_match": "verified",
       "unstable_version": "2026.9.28",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "exFAT filesystem userspace utilities",
@@ -1545,7 +1807,11 @@
       "current_name": "exfatprogs",
       "identity_match": "verified",
       "unstable_version": "1.4.4",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Utilities for creating and checking FAT and VFAT file systems",
@@ -1571,7 +1837,11 @@
       "current_name": "dosfstools",
       "identity_match": "verified",
       "unstable_version": "4.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tools for creating and checking ext2/ext3/ext4 filesystems",
@@ -1597,7 +1867,11 @@
       "current_name": "e2fsprogs",
       "identity_match": "verified",
       "unstable_version": "1.47.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "SGI XFS utilities",
@@ -1623,7 +1897,11 @@
       "current_name": "xfsprogs",
       "identity_match": "verified",
       "unstable_version": "7.2.1",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "LUKS for dm-crypt",
@@ -1649,7 +1927,11 @@
       "current_name": "cryptsetup",
       "identity_match": "verified",
       "unstable_version": "2.8.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tools to support Logical Volume Management (LVM) on Linux",
@@ -1675,7 +1957,11 @@
       "current_name": "lvm2",
       "identity_match": "verified",
       "unstable_version": "2.03.41",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Programs for managing RAID arrays under Linux",
@@ -1701,7 +1987,11 @@
       "current_name": "mdadm",
       "identity_match": "verified",
       "unstable_version": "4.6",
-      "unstable_upstream_status": "ahead-or-different-series"
+      "unstable_upstream_status": "ahead-or-different-series",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tool that reads information about your system's hardware from the BIOS according to the SMBIOS/DMI standard",
@@ -1727,7 +2017,11 @@
       "current_name": "dmidecode",
       "identity_match": "verified",
       "unstable_version": "3.7",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tools for working with USB devices, such as lsusb",
@@ -1753,7 +2047,11 @@
       "current_name": "usbutils",
       "identity_match": "verified",
       "unstable_version": "019",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Collection of programs for inspecting and manipulating configuration of PCI devices",
@@ -1779,7 +2077,11 @@
       "current_name": "pciutils",
       "identity_match": "verified",
       "unstable_version": "3.15.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Analyze power consumption on Intel-based laptops",
@@ -1805,7 +2107,11 @@
       "current_name": "powertop",
       "identity_match": "verified",
       "unstable_version": "2.16.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Show battery status and other ACPI information",
@@ -1831,7 +2137,11 @@
       "current_name": "acpi",
       "identity_match": "verified",
       "unstable_version": "1.8",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tool to examine and tune power saving features",
@@ -1857,7 +2167,11 @@
       "current_name": "cpupower",
       "identity_match": "verified",
       "unstable_version": "6.12.118",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Full featured CLI system information tool",
@@ -1889,7 +2203,11 @@
       "current_name": "inxi",
       "identity_match": "verified",
       "unstable_version": "3.3.41-1",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "ALSA, the Advanced Linux Sound Architecture utils",
@@ -1915,7 +2233,11 @@
       "current_name": "alsa-utils",
       "identity_match": "verified",
       "unstable_version": "1.2.16",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Complete, cross-platform solution to record, convert and stream audio and video",
@@ -1941,7 +2263,11 @@
       "current_name": "ffmpeg",
       "identity_match": "verified",
       "unstable_version": "9.0.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Library for decrypting DVDs",
@@ -1967,7 +2293,11 @@
       "current_name": "libdvdcss",
       "identity_match": "verified",
       "unstable_version": "1.5.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Collection of demos and test programs for OpenGL and Mesa",
@@ -1993,7 +2323,11 @@
       "current_name": "mesa-demos",
       "identity_match": "verified",
       "unstable_version": "9.0.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Open source multimedia framework",
@@ -2019,7 +2353,11 @@
       "current_name": "gstreamer",
       "identity_match": "verified",
       "unstable_version": "1.28.8",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Base GStreamer plug-ins and helper libraries",
@@ -2045,7 +2383,11 @@
       "current_name": "gst-plugins-base",
       "identity_match": "verified",
       "unstable_version": "1.28.8",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GStreamer Good Plugins",
@@ -2071,7 +2413,11 @@
       "current_name": "gst-plugins-good",
       "identity_match": "verified",
       "unstable_version": "1.28.8",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GStreamer Bad Plugins",
@@ -2097,7 +2443,11 @@
       "current_name": "gst-plugins-bad",
       "identity_match": "verified",
       "unstable_version": "1.28.8",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Gstreamer Ugly Plugins",
@@ -2123,7 +2473,11 @@
       "current_name": "gst-plugins-ugly",
       "identity_match": "verified",
       "unstable_version": "1.28.8",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "FFmpeg plugin for GStreamer",
@@ -2149,7 +2503,11 @@
       "current_name": "gst-libav",
       "identity_match": "verified",
       "unstable_version": "1.28.8",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Open source RGB lighting control",
@@ -2175,7 +2533,11 @@
       "current_name": "openrgb",
       "identity_match": "verified",
       "unstable_version": "1.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Enhanced, drop-in replacement for MySQL",
@@ -2201,7 +2563,11 @@
       "current_name": "mariadb-server",
       "identity_match": "verified",
       "unstable_version": "11.4.13",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Linux user-space NFS utilities",
@@ -2227,7 +2593,11 @@
       "current_name": "nfs-utils",
       "identity_match": "verified",
       "unstable_version": "3.2.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Standard Windows interoperability suite of programs for Linux and Unix",
@@ -2253,7 +2623,11 @@
       "current_name": "samba",
       "identity_match": "verified",
       "unstable_version": "4.25.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Pixel perfect icon theme for Linux",
@@ -2279,7 +2653,11 @@
       "current_name": "papirus-icon-theme",
       "identity_match": "verified",
       "unstable_version": "20260801",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Set of command line tools that assist applications with a variety of desktop integration tasks",
@@ -2308,7 +2686,14 @@
       "identity_match": "verified",
       "unstable_version": "1.2.1",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "cage-helper-6"
+      ]
     },
     {
       "description": "Terminal emulator for the X Window System",
@@ -2334,7 +2719,11 @@
       "current_name": "xterm",
       "identity_match": "verified",
       "unstable_version": "412",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Removable disk automounter for udisks",
@@ -2369,7 +2758,11 @@
       "identity_match": "verified",
       "unstable_version": "2.8.1",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "behind"
+      "unstable_tag_comparison": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Install and run Python applications in isolated environments",
@@ -2395,7 +2788,11 @@
       "current_name": "pipx",
       "identity_match": "verified",
       "unstable_version": "1.16.6",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Shell parser and formatter",
@@ -2421,7 +2818,11 @@
       "current_name": "shfmt",
       "identity_match": "verified",
       "unstable_version": "3.14.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Count your code, quickly",
@@ -2447,7 +2848,11 @@
       "current_name": "tokei",
       "identity_match": "verified",
       "unstable_version": "15.0.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Language Server for Markdown",
@@ -2473,7 +2878,11 @@
       "current_name": "marksman",
       "identity_match": "verified",
       "unstable_version": "2026-02-08",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Language server for Bash",
@@ -2499,7 +2908,11 @@
       "current_name": "bash-language-server",
       "identity_match": "verified",
       "unstable_version": "5.8.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Maintained ctags implementation",
@@ -2525,7 +2938,11 @@
       "current_name": "universal-ctags",
       "identity_match": "verified",
       "unstable_version": "6.2.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "AI agent harness with a plugin-based architecture",
@@ -2564,7 +2981,11 @@
       "current_name": "deepseek-harness",
       "identity_match": "verified",
       "unstable_version": "0.2.2-rc.3",
-      "unstable_upstream_status": "prerelease-only"
+      "unstable_upstream_status": "prerelease-only",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster",
@@ -2590,7 +3011,11 @@
       "current_name": "claude-code",
       "identity_match": "verified",
       "unstable_version": "2.1.329",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Lightweight coding agent that runs in your terminal",
@@ -2616,7 +3041,11 @@
       "current_name": "codex",
       "identity_match": "verified",
       "unstable_version": "0.171.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Official IDE for Android (stable channel)",
@@ -2642,7 +3071,11 @@
       "current_name": "android-studio",
       "identity_match": "verified",
       "unstable_version": "2026.2.2.9",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Local-first companion for Logitech HID++ peripherals",
@@ -2668,7 +3101,11 @@
       "current_name": "openlogi",
       "identity_match": "verified",
       "unstable_version": "0.9.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Default fallback theme used by implementations of the icon theme specification",
@@ -2694,7 +3131,11 @@
       "current_name": "hicolor-icon-theme",
       "identity_match": "verified",
       "unstable_version": "0.18",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tool to help manage well known user directories like the desktop folder and the music folder",
@@ -2720,7 +3161,12 @@
       "current_name": "xdg-user-dirs",
       "identity_match": "verified",
       "unstable_version": "0.20",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "home",
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Open source implementation of the Object Exchange (OBEX) protocol",
@@ -2746,7 +3192,11 @@
       "current_name": "openobex",
       "identity_match": "verified",
       "unstable_version": "1.7.2",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Library and tool to access files on OBEX-based devices (such as Bluetooth phones)",
@@ -2772,7 +3222,11 @@
       "current_name": "obexftp",
       "identity_match": "verified",
       "unstable_version": "0.24.2",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -2791,7 +3245,11 @@
       "current_name": "nixos-version",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Rebuild your NixOS configuration and switch to it, on local hosts and remote",
@@ -2810,7 +3268,11 @@
       "current_name": "nixos-rebuild-ng",
       "identity_match": "verified",
       "unstable_version": "26.11",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Evaluate NixOS configuration and return the properties of given option",
@@ -2829,7 +3291,11 @@
       "current_name": "nixos-option",
       "identity_match": "verified",
       "unstable_version": "26.11",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Install bootloader and NixOS",
@@ -2848,7 +3314,11 @@
       "current_name": "nixos-install",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -2867,7 +3337,11 @@
       "current_name": "nixos-generate-config",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Run a command in a NixOS chroot environment",
@@ -2886,7 +3360,11 @@
       "current_name": "nixos-enter",
       "identity_match": "unverified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -2905,7 +3383,11 @@
       "current_name": "nixos-build-vms",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Open source project to pack, ship and run any application as a lightweight container",
@@ -2931,7 +3413,11 @@
       "current_name": "docker",
       "identity_match": "verified",
       "unstable_version": "29.9.3",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Utilities to access MS-DOS disks",
@@ -2957,7 +3443,11 @@
       "current_name": "mtools",
       "identity_match": "verified",
       "unstable_version": "4.0.50",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "User-space tools required for bcache (Linux block layer cache)",
@@ -2983,7 +3473,11 @@
       "current_name": "bcache-tools",
       "identity_match": "verified",
       "unstable_version": "1.1",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "System and service manager for Linux",
@@ -3009,7 +3503,14 @@
       "current_name": "systemd",
       "identity_match": "verified",
       "unstable_version": "262",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "cage-helper-5"
+      ]
     },
     {
       "description": "Tools for loading and managing Linux kernel modules",
@@ -3035,7 +3536,11 @@
       "current_name": "kmod",
       "identity_match": "verified",
       "unstable_version": "31",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tools related to the kexec Linux feature",
@@ -3061,7 +3566,11 @@
       "current_name": "kexec-tools",
       "identity_match": "verified",
       "unstable_version": "2.0.32",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "X server implementation by X.org",
@@ -3087,7 +3596,11 @@
       "current_name": "xorg-server",
       "identity_match": "verified",
       "unstable_version": "21.1.25",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension",
@@ -3113,7 +3626,11 @@
       "current_name": "xrandr",
       "identity_match": "verified",
       "unstable_version": "1.5.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "X resource database utility",
@@ -3139,7 +3656,11 @@
       "current_name": "xrdb",
       "identity_match": "verified",
       "unstable_version": "1.2.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Set keymaps, layouts, and options via the X Keyboard Extension (XKB)",
@@ -3165,7 +3686,11 @@
       "current_name": "setxkbmap",
       "identity_match": "verified",
       "unstable_version": "1.3.4",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "libICE authority file utility",
@@ -3191,7 +3716,11 @@
       "current_name": "iceauth",
       "identity_match": "verified",
       "unstable_version": "1.0.11",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Utility to list client applications running on a X11 display",
@@ -3217,7 +3746,11 @@
       "current_name": "xlsclients",
       "identity_match": "verified",
       "unstable_version": "1.1.6",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "User preference utility for X servers",
@@ -3243,7 +3776,11 @@
       "current_name": "xset",
       "identity_match": "verified",
       "unstable_version": "1.2.6",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Root window parameter setting utility for X",
@@ -3269,7 +3806,11 @@
       "current_name": "xsetroot",
       "identity_match": "verified",
       "unstable_version": "1.1.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Utility to configure and test XInput devices",
@@ -3295,7 +3836,11 @@
       "current_name": "xinput",
       "identity_match": "verified",
       "unstable_version": "1.6.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Command line tool to display and/or set window and font properties of an X server",
@@ -3321,7 +3866,11 @@
       "current_name": "xprop",
       "identity_match": "verified",
       "unstable_version": "1.2.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "X authority file utility",
@@ -3347,7 +3896,11 @@
       "current_name": "xauth",
       "identity_match": "verified",
       "unstable_version": "1.1.5",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Generic Linux input driver for the Xorg X server",
@@ -3373,7 +3926,11 @@
       "current_name": "xf86-input-evdev",
       "identity_match": "verified",
       "unstable_version": "2.11.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Nix package manager",
@@ -3408,7 +3965,11 @@
       "identity_match": "verified",
       "unstable_version": "2.35.6",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "behind"
+      "unstable_tag_comparison": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -3427,7 +3988,11 @@
       "current_name": "nix-info",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Bash completions for Nix, NixOS, and NixOps",
@@ -3453,7 +4018,11 @@
       "current_name": "nix-bash-completions",
       "identity_match": "verified",
       "unstable_version": "0.6.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Simple interprocess messaging system",
@@ -3479,7 +4048,11 @@
       "current_name": "dbus",
       "identity_match": "verified",
       "unstable_version": "1.16.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Linux D-Bus Message Broker",
@@ -3505,7 +4078,11 @@
       "current_name": "dbus-broker",
       "identity_match": "verified",
       "unstable_version": "37",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Daemon for running commands at specific times",
@@ -3558,7 +4135,11 @@
       "current_name": "cups",
       "identity_match": "verified",
       "unstable_version": "2.4.19",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "PolicyKit helper to configure cups with fine-grained privileges",
@@ -3584,7 +4165,11 @@
       "current_name": "cups-pk-helper",
       "identity_match": "verified",
       "unstable_version": "0.2.6",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tool for connecting to WPA and WPA2-protected wireless networks",
@@ -3610,7 +4195,11 @@
       "current_name": "wpa_supplicant",
       "identity_match": "verified",
       "unstable_version": "2.12",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Network configuration and management tool",
@@ -3639,7 +4228,11 @@
       "identity_match": "verified",
       "unstable_version": "1.58.1",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "NetworkManager's OpenVPN plugin",
@@ -3665,7 +4258,11 @@
       "current_name": "NetworkManager-openvpn",
       "identity_match": "verified",
       "unstable_version": "1.12.5",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "L2TP plugin for NetworkManager",
@@ -3691,7 +4288,11 @@
       "current_name": "NetworkManager-l2tp",
       "identity_match": "verified",
       "unstable_version": "1.52.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "NetworkManager’s OpenConnect plugin",
@@ -3717,7 +4318,11 @@
       "current_name": "NetworkManager-openconnect",
       "identity_match": "verified",
       "unstable_version": "1.2.10",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "VPN Client for Cisco's AnyConnect SSL VPN",
@@ -3743,7 +4348,11 @@
       "current_name": "openconnect",
       "identity_match": "verified",
       "unstable_version": "9.21",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "WWAN modem manager, part of NetworkManager",
@@ -3772,7 +4381,11 @@
       "identity_match": "verified",
       "unstable_version": "1.24.2",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "mDNS/DNS-SD implementation",
@@ -3798,7 +4411,11 @@
       "current_name": "avahi",
       "identity_match": "verified",
       "unstable_version": "0.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Remote Desktop Application",
@@ -3824,7 +4441,11 @@
       "current_name": "todesk",
       "identity_match": "verified",
       "unstable_version": "4.7.2.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Icons of the Nix logo, in Freedesktop Icon Directory Layout",
@@ -3843,7 +4464,11 @@
       "current_name": "nixos-icons",
       "identity_match": "verified",
       "unstable_version": "0-unstable-2025-06-28",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "D-Bus service for power management",
@@ -3872,7 +4497,11 @@
       "identity_match": "verified",
       "unstable_version": "1.91.5",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Daemon, tools and libraries to access and manipulate disks, storage devices and technologies",
@@ -3907,7 +4536,11 @@
       "identity_match": "verified",
       "unstable_version": "2.11.2",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "behind"
+      "unstable_tag_comparison": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "SANE (Scanner Access Now Easy) backends",
@@ -3936,7 +4569,11 @@
       "identity_match": "verified",
       "unstable_version": "1.4.0",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -3955,7 +4592,11 @@
       "current_name": "net.conf",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Makes user-selected power profiles handling available over D-Bus",
@@ -3984,7 +4625,11 @@
       "identity_match": "verified",
       "unstable_version": "0.30",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "libinput-based input driver for the Xorg X server",
@@ -4010,7 +4655,11 @@
       "current_name": "xf86-input-libinput",
       "identity_match": "verified",
       "unstable_version": "1.5.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -4036,7 +4685,11 @@
       "current_name": "fwupd",
       "identity_match": "verified",
       "unstable_version": "2.1.10",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Thunderbolt 3 device management daemon",
@@ -4065,7 +4718,11 @@
       "identity_match": "verified",
       "unstable_version": "0.9.8",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "behind"
+      "unstable_tag_comparison": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Official Linux Bluetooth protocol stack",
@@ -4091,7 +4748,11 @@
       "current_name": "bluez",
       "identity_match": "verified",
       "unstable_version": "5.87",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "QML based X11 display manager",
@@ -4117,7 +4778,11 @@
       "current_name": "sddm",
       "identity_match": "verified",
       "unstable_version": "0.21.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Modular session / policy manager for PipeWire",
@@ -4146,7 +4811,11 @@
       "identity_match": "verified",
       "unstable_version": "0.5.19",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Server and user space API to deal with multimedia pipelines",
@@ -4175,7 +4844,11 @@
       "identity_match": "verified",
       "unstable_version": "1.6.11",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -4221,7 +4894,11 @@
       "current_name": "gvfs",
       "identity_match": "verified",
       "unstable_version": "1.62.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Assistive Technology Service Provider Interface protocol definitions and daemon for D-Bus",
@@ -4247,7 +4924,11 @@
       "current_name": "at-spi2-core",
       "identity_match": "verified",
       "unstable_version": "2.62.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Geolocation framework and some data providers",
@@ -4276,7 +4957,11 @@
       "identity_match": "verified",
       "unstable_version": "2.8.2",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Linux application sandboxing and distribution framework",
@@ -4329,7 +5014,11 @@
       "current_name": "fuse",
       "identity_match": "verified",
       "unstable_version": "3.18.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "D-Bus interface for user account query and manipulation",
@@ -4358,7 +5047,11 @@
       "identity_match": "verified",
       "unstable_version": "26.27.3",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Common interface to speech synthesis",
@@ -4384,7 +5077,11 @@
       "current_name": "speech-dispatcher",
       "identity_match": "verified",
       "unstable_version": "0.12.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Screen reader",
@@ -4410,7 +5107,11 @@
       "current_name": "orca",
       "identity_match": "verified",
       "unstable_version": "51.1",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Command to run commands as root",
@@ -4436,7 +5137,11 @@
       "current_name": "sudo",
       "identity_match": "verified",
       "unstable_version": "1.9.17p2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Daemon that hands out real-time priority to processes",
@@ -4465,7 +5170,11 @@
       "identity_match": "verified",
       "unstable_version": "0.14",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Toolkit for defining and handling the policy that allows unprivileged processes to speak to privileged processes",
@@ -4491,7 +5200,11 @@
       "current_name": "polkit",
       "identity_match": "verified",
       "unstable_version": "127",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Pluggable Authentication Modules, a flexible mechanism for authenticating user",
@@ -4517,7 +5230,11 @@
       "current_name": "linux-pam",
       "identity_match": "verified",
       "unstable_version": "1.7.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Z shell",
@@ -4543,7 +5260,12 @@
       "current_name": "zsh",
       "identity_match": "verified",
       "unstable_version": "5.9.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "home",
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "ZSH completions for Nix, NixOS, and NixOps",
@@ -4569,7 +5291,12 @@
       "current_name": "nix-zsh-completions",
       "identity_match": "verified",
       "unstable_version": "0.5.1-unstable-2025-12-12",
-      "unstable_upstream_status": "not-comparable"
+      "unstable_upstream_status": "not-comparable",
+      "current_scopes": [
+        "home",
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "X server for interfacing X11 apps with the Wayland protocol",
@@ -4595,7 +5322,11 @@
       "current_name": "xwayland",
       "identity_match": "verified",
       "unstable_version": "24.1.15",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Digital distribution platform",
@@ -4621,7 +5352,11 @@
       "current_name": "steam",
       "identity_match": "verified",
       "unstable_version": "1.0.0.87",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Run commands in the same FHS environment that is used for Steam",
@@ -4640,7 +5375,11 @@
       "current_name": "steam-run",
       "identity_match": "verified",
       "unstable_version": "1.0.0.87",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Suite containing authentication-related tools such as passwd and su",
@@ -4666,7 +5405,11 @@
       "current_name": "shadow",
       "identity_match": "verified",
       "unstable_version": "4.20.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU Bourne-Again Shell, the de facto standard shell on Linux (for interactive use)",
@@ -4692,7 +5435,14 @@
       "current_name": "bash-interactive",
       "identity_match": "verified",
       "unstable_version": "5.3p20",
-      "unstable_upstream_status": "ahead-or-different-series"
+      "unstable_upstream_status": "ahead-or-different-series",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "cage-helper-9"
+      ]
     },
     {
       "description": "More advanced file pager than 'more'",
@@ -4713,12 +5463,24 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "current_package_name": "less-710",
       "current_name": "less",
       "identity_match": "verified",
       "unstable_version": "710",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "ranger-helper-4"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/le/less/package.nix:51",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "Library that allows filesystems to be implemented in user space",
@@ -4744,7 +5506,11 @@
       "current_name": "fuse",
       "identity_match": "verified",
       "unstable_version": "3.18.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Web browser built from Firefox source tree",
@@ -4770,7 +5536,11 @@
       "current_name": "firefox",
       "identity_match": "verified",
       "unstable_version": "160.0.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -4796,7 +5566,11 @@
       "current_name": "dconf",
       "identity_match": "verified",
       "unstable_version": "51.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -4815,7 +5589,11 @@
       "current_name": "appimage-run",
       "identity_match": "unverified",
       "unstable_version": "0",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Implementation of the standard Unix documentation system accessed using the man command",
@@ -4844,7 +5622,12 @@
       "identity_match": "verified",
       "unstable_version": "2.13.1",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "behind"
+      "unstable_tag_comparison": "behind",
+      "current_scopes": [
+        "home",
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU documentation system",
@@ -4870,7 +5653,11 @@
       "current_name": "texinfo-interactive",
       "identity_match": "verified",
       "unstable_version": "7.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -4889,7 +5676,11 @@
       "current_name": "nixos-configuration-reference-manpage",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "The NixOS manual in HTML format",
@@ -4908,7 +5699,11 @@
       "current_name": "nixos-manual-html",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -4927,7 +5722,11 @@
       "current_name": "nixos-help",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Next generation of fcitx",
@@ -4965,7 +5764,11 @@
       "current_name": "gtk2-immodule.cache",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -4984,7 +5787,11 @@
       "current_name": "gtk3-immodule.cache",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Desktop integration portals for sandboxed apps",
@@ -5010,7 +5817,11 @@
       "current_name": "xdg-desktop-portal",
       "identity_match": "verified",
       "unstable_version": "1.22.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Desktop integration portals for sandboxed apps",
@@ -5036,7 +5847,11 @@
       "current_name": "xdg-desktop-portal-gtk",
       "identity_match": "verified",
       "unstable_version": "1.15.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Database of common MIME types",
@@ -5065,7 +5880,12 @@
       "identity_match": "verified",
       "unstable_version": "2.5.1",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "home",
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Domain name server",
@@ -5091,7 +5911,11 @@
       "current_name": "bind",
       "identity_match": "verified",
       "unstable_version": "9.20.30",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -5110,7 +5934,11 @@
       "current_name": "hostname-debian",
       "identity_match": "verified",
       "unstable_version": "3.25",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Collection of utilities for controlling TCP/IP networking and traffic control in Linux",
@@ -5136,7 +5964,14 @@
       "current_name": "iproute2",
       "identity_match": "verified",
       "unstable_version": "7.2.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "cage-helper-2"
+      ]
     },
     {
       "description": "Set of small useful utilities for Linux networking",
@@ -5162,7 +5997,11 @@
       "current_name": "iputils",
       "identity_match": "verified",
       "unstable_version": "20250605",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Implementation of the SSH protocol",
@@ -5188,7 +6027,14 @@
       "current_name": "openssh",
       "identity_match": "verified",
       "unstable_version": "10.6p1",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "cage-helper-1"
+      ]
     },
     {
       "description": "Library and tools for manipulating access control lists",
@@ -5214,7 +6060,11 @@
       "current_name": "acl",
       "identity_match": "verified",
       "unstable_version": "2.4.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Library and tools for manipulating extended attributes",
@@ -5240,7 +6090,11 @@
       "current_name": "attr",
       "identity_match": "verified",
       "unstable_version": "2.6.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "High-quality data compression program",
@@ -5266,7 +6120,11 @@
       "current_name": "bzip2",
       "identity_match": "verified",
       "unstable_version": "1.0.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU Core Utilities",
@@ -5292,7 +6150,11 @@
       "current_name": "coreutils-full",
       "identity_match": "verified",
       "unstable_version": "9.12",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Program to create or extract from cpio archives",
@@ -5318,7 +6180,11 @@
       "current_name": "cpio",
       "identity_match": "verified",
       "unstable_version": "2.15",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Commands for showing the differences between files (diff, cmp, etc.)",
@@ -5344,7 +6210,11 @@
       "current_name": "diffutils",
       "identity_match": "verified",
       "unstable_version": "3.12",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU Find Utilities, the basic directory searching utilities of the GNU operating system",
@@ -5370,7 +6240,11 @@
       "current_name": "findutils",
       "identity_match": "verified",
       "unstable_version": "4.11.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU implementation of the Awk programming language",
@@ -5396,7 +6270,11 @@
       "current_name": "gawk",
       "identity_match": "verified",
       "unstable_version": "5.4.1",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -5422,7 +6300,11 @@
       "current_name": "glibc",
       "identity_match": "verified",
       "unstable_version": "2.44",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU implementation of the Unix grep command",
@@ -5448,7 +6330,11 @@
       "current_name": "gnugrep",
       "identity_match": "verified",
       "unstable_version": "3.12",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU Patch, a program to apply differences to files",
@@ -5474,7 +6360,11 @@
       "current_name": "patch",
       "identity_match": "verified",
       "unstable_version": "2.8.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "GNU sed, a batch stream editor",
@@ -5495,12 +6385,24 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "current_package_name": "gnused-4.10",
       "current_name": "gnused",
       "identity_match": "verified",
       "unstable_version": "4.10",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "ranger-helper-2"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/gn/gnused/package.nix:40",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "GNU implementation of the `tar` archiver",
@@ -5521,12 +6423,24 @@
           "error": null
         }
       ],
-      "notes": "",
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "current_package_name": "gnutar-1.35",
       "current_name": "gnutar",
       "identity_match": "verified",
       "unstable_version": "1.35",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "ranger-helper-3"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/gn/gnutar/package.nix:75",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "description": "GNU zip compression program",
@@ -5552,7 +6466,11 @@
       "current_name": "gzip",
       "identity_match": "verified",
       "unstable_version": "1.15",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "General-purpose data compression software, successor of LZMA",
@@ -5578,7 +6496,11 @@
       "current_name": "xz",
       "identity_match": "verified",
       "unstable_version": "5.8.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Library for working with POSIX capabilities",
@@ -5604,7 +6526,11 @@
       "current_name": "libcap",
       "identity_match": "verified",
       "unstable_version": "2.78",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Free software emulation of curses in SVR4 and more",
@@ -5630,7 +6556,11 @@
       "current_name": "ncurses",
       "identity_match": "verified",
       "unstable_version": "6.6",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Utility which reads and writes data across network connections — LibreSSL implementation",
@@ -5656,7 +6586,11 @@
       "current_name": "libressl",
       "identity_match": "verified",
       "unstable_version": "4.3.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Overfeatured front-end to crypt, from the Debian whois package",
@@ -5682,7 +6616,11 @@
       "current_name": "mkpasswd",
       "identity_match": "verified",
       "unstable_version": "5.6.6",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Utilities that give information about processes using the /proc filesystem",
@@ -5711,7 +6649,11 @@
       "identity_match": "verified",
       "unstable_version": "4.0.7",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Tool that runs programs and summarizes the system resources they use",
@@ -5737,7 +6679,11 @@
       "current_name": "time",
       "identity_match": "verified",
       "unstable_version": "1.10",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Set of system utilities for Linux",
@@ -5763,7 +6709,11 @@
       "current_name": "util-linux",
       "identity_match": "verified",
       "unstable_version": "2.42.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Shows the full path of (shell) commands",
@@ -5789,7 +6739,11 @@
       "current_name": "which",
       "identity_match": "verified",
       "unstable_version": "2.25",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Zstandard real-time compression algorithm",
@@ -5815,7 +6769,14 @@
       "current_name": "zstd",
       "identity_match": "verified",
       "unstable_version": "1.5.7",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "ark-backend-7"
+      ]
     },
     {
       "description": "GNU C Library",
@@ -5841,7 +6802,11 @@
       "current_name": "glibc",
       "identity_match": "verified",
       "unstable_version": "2.44",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Standard implementation of the Perl 5 programming language",
@@ -5867,7 +6832,11 @@
       "current_name": "perl",
       "identity_match": "verified",
       "unstable_version": "5.42.3",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "System call tracer for Linux",
@@ -5893,7 +6862,11 @@
       "current_name": "strace",
       "identity_match": "verified",
       "unstable_version": "7.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Program to manage /etc/resolv.conf",
@@ -5919,7 +6892,11 @@
       "current_name": "openresolv",
       "identity_match": "verified",
       "unstable_version": "3.17.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Locale information for the GNU C Library",
@@ -5945,7 +6922,11 @@
       "current_name": "glibc-locales",
       "identity_match": "verified",
       "unstable_version": "2.44",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Linux keyboard tools and keyboard maps",
@@ -5971,7 +6952,11 @@
       "current_name": "kbd",
       "identity_match": "verified",
       "unstable_version": "2.9.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "attribute": "baidunetdisk",
@@ -5986,21 +6971,42 @@
         "baidunetdisk"
       ],
       "upstream_status": "unverified",
-      "official_stable_version": null,
+      "official_stable_version": "8.9.7",
       "sources": [
         {
-          "url": "https://pan.baidu.com/",
-          "resolved_url": "https://pan.baidu.com/",
-          "method": "official homepage inspected; no verified machine-readable stable version rule",
+          "url": "https://pan.baidu.com/disk/cmsdata?do=client&adCode=1",
+          "resolved_url": "https://pkg-ant.baidu.com/issue/netdisk/LinuxGuanjia/8.9.7/baidunetdisk_8.9.7_amd64.deb",
+          "method": "Official client selector Linux entry; version8.9.7 and publication2026-10-27.",
           "error": null
         }
       ],
-      "notes": "Official download page did not expose unambiguous latest Linux client version metadata.",
+      "notes": "Official Linux8.9.7 is unchanged. Replaced the old NUR FHS recipe/internal old nixpkgs import with a local recipe and private GTKmm2.24.5 built against the same global unstable ABI. Baseline audit classification is retained; new current selector evidence is recorded here. Build and22ELF resolutions passed, not a login/transfer GUI test.",
       "current_package_name": "baidunetdisk-8.9.7",
       "current_name": "baidunetdisk",
       "identity_match": "verified",
       "unstable_version": "8.9.7",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "baidunetdisk"
+      ],
+      "previous_upstream_observation": {
+        "official_stable_version": null,
+        "sources": [
+          {
+            "url": "https://pan.baidu.com/",
+            "resolved_url": "https://pan.baidu.com/",
+            "method": "official homepage inspected; no verified machine-readable stable version rule",
+            "error": null
+          }
+        ],
+        "notes": "Official download page did not expose unambiguous latest Linux client version metadata."
+      },
+      "current_present": true,
+      "current_position": "packages/baidunetdisk/default.nix:115",
+      "official_linux_publish": "2026-10-27 17:55:00"
     },
     {
       "attribute": "black",
@@ -6029,7 +7035,13 @@
       "current_name": "black",
       "identity_match": "verified",
       "unstable_version": "26.5.1",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "black"
+      ]
     },
     {
       "attribute": "cacert",
@@ -6058,7 +7070,13 @@
       "current_name": "nss-cacert",
       "identity_match": "verified",
       "unstable_version": "3.131.1",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "cacert"
+      ]
     },
     {
       "attribute": "clang-tools",
@@ -6087,7 +7105,13 @@
       "current_name": "clang-tools",
       "identity_match": "verified",
       "unstable_version": "21.1.8",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "clang-tools"
+      ]
     },
     {
       "attribute": "deveco-studio",
@@ -6117,7 +7141,13 @@
       "current_name": "deveco-studio",
       "identity_match": "verified",
       "unstable_version": "26.0.0.851",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "deveco-studio"
+      ]
     },
     {
       "attribute": "docker-easyconnect",
@@ -6139,7 +7169,13 @@
       "current_name": "docker-image-hagb-docker-easyconnect-7.6.7.tar",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "docker-easyconnect"
+      ]
     },
     {
       "attribute": "efm-langserver",
@@ -6168,7 +7204,13 @@
       "current_name": "efm-langserver",
       "identity_match": "verified",
       "unstable_version": "0.0.57",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "efm-langserver"
+      ]
     },
     {
       "attribute": "fastapi",
@@ -6197,7 +7239,13 @@
       "current_name": "fastapi",
       "identity_match": "verified",
       "unstable_version": "0.141.1",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "fastapi"
+      ]
     },
     {
       "attribute": "fcitx5",
@@ -6235,7 +7283,13 @@
       "identity_match": "verified",
       "unstable_version": "5.1.23",
       "unstable_upstream_status": "ahead-or-different-series",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "fcitx5"
+      ]
     },
     {
       "attribute": "fcitx5-chinese-addons",
@@ -6273,7 +7327,13 @@
       "identity_match": "verified",
       "unstable_version": "5.1.14",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "behind"
+      "unstable_tag_comparison": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "fcitx5-chinese-addons"
+      ]
     },
     {
       "attribute": "fcitx5-configtool",
@@ -6311,7 +7371,13 @@
       "identity_match": "verified",
       "unstable_version": "5.1.16",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "fcitx5-configtool"
+      ]
     },
     {
       "attribute": "fcitx5-gtk",
@@ -6349,7 +7415,13 @@
       "identity_match": "verified",
       "unstable_version": "5.1.7",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "fcitx5-gtk"
+      ]
     },
     {
       "attribute": "fcitx5-qt",
@@ -6387,7 +7459,13 @@
       "identity_match": "verified",
       "unstable_version": "5.1.16",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "fcitx5-qt"
+      ]
     },
     {
       "attribute": "fcitx5-qt5",
@@ -6425,7 +7503,13 @@
       "identity_match": "verified",
       "unstable_version": "5.1.16",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "equal"
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "fcitx5-qt5"
+      ]
     },
     {
       "attribute": "gcc",
@@ -6454,7 +7538,14 @@
       "current_name": "gcc-wrapper",
       "identity_match": "verified",
       "unstable_version": "16.2.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra",
+        "home"
+      ],
+      "current_attributes": [
+        "gcc"
+      ]
     },
     {
       "attribute": "grub-bootloader",
@@ -6483,7 +7574,13 @@
       "current_name": "grub",
       "identity_match": "verified",
       "unstable_version": "2.14",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "grub-bootloader"
+      ]
     },
     {
       "attribute": "intel-compute-runtime",
@@ -6512,7 +7609,13 @@
       "current_name": "intel-compute-runtime",
       "identity_match": "verified",
       "unstable_version": "26.40.40196.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "intel-compute-runtime"
+      ]
     },
     {
       "attribute": "intel-media-driver",
@@ -6541,7 +7644,13 @@
       "current_name": "intel-media-driver",
       "identity_match": "verified",
       "unstable_version": "26.3.5",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "intel-media-driver"
+      ]
     },
     {
       "attribute": "logrotate",
@@ -6570,7 +7679,13 @@
       "current_name": "logrotate",
       "identity_match": "verified",
       "unstable_version": "3.22.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "logrotate"
+      ]
     },
     {
       "attribute": "matplotlib",
@@ -6599,7 +7714,13 @@
       "current_name": "matplotlib",
       "identity_match": "verified",
       "unstable_version": "3.11.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "matplotlib"
+      ]
     },
     {
       "attribute": "mesa",
@@ -6628,7 +7749,13 @@
       "current_name": "mesa",
       "identity_match": "verified",
       "unstable_version": "26.3.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "mesa"
+      ]
     },
     {
       "attribute": "microcode-intel",
@@ -6657,7 +7784,13 @@
       "current_name": "microcode-intel",
       "identity_match": "verified",
       "unstable_version": "20261110",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "microcode-intel"
+      ]
     },
     {
       "attribute": "pillow",
@@ -6686,7 +7819,13 @@
       "current_name": "pillow",
       "identity_match": "verified",
       "unstable_version": "13.0.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "pillow"
+      ]
     },
     {
       "attribute": "pip",
@@ -6715,7 +7854,13 @@
       "current_name": "pip",
       "identity_match": "verified",
       "unstable_version": "26.2.2",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "pip"
+      ]
     },
     {
       "attribute": "qoder-cn",
@@ -6744,7 +7889,13 @@
       "current_name": "qoder-cn",
       "identity_match": "verified",
       "unstable_version": "0.5.16",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "qoder-cn"
+      ]
     },
     {
       "attribute": "reportlab",
@@ -6773,7 +7924,13 @@
       "current_name": "reportlab",
       "identity_match": "verified",
       "unstable_version": "5.1.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "reportlab"
+      ]
     },
     {
       "attribute": "scikit-learn",
@@ -6802,7 +7959,13 @@
       "current_name": "scikit-learn",
       "identity_match": "verified",
       "unstable_version": "1.9.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "scikit-learn"
+      ]
     },
     {
       "attribute": "scipy",
@@ -6831,7 +7994,13 @@
       "current_name": "scipy",
       "identity_match": "verified",
       "unstable_version": "1.18.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "scipy"
+      ]
     },
     {
       "attribute": "seaborn",
@@ -6860,7 +8029,13 @@
       "current_name": "seaborn",
       "identity_match": "verified",
       "unstable_version": "0.13.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "seaborn"
+      ]
     },
     {
       "attribute": "sops-installer",
@@ -6882,7 +8057,13 @@
       "current_name": "sops-install-secrets",
       "identity_match": "verified",
       "unstable_version": "0.0.1",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "sops-installer"
+      ]
     },
     {
       "attribute": "thermald",
@@ -6911,7 +8092,13 @@
       "current_name": "thermald",
       "identity_match": "verified",
       "unstable_version": "2.5.13",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "thermald"
+      ]
     },
     {
       "attribute": "trae-cn",
@@ -6940,7 +8127,13 @@
       "current_name": "trae-cn",
       "identity_match": "verified",
       "unstable_version": "2.3.105403",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "trae-cn"
+      ]
     },
     {
       "attribute": "typora",
@@ -6969,7 +8162,13 @@
       "current_name": "typora",
       "identity_match": "verified",
       "unstable_version": "0.11.18-plugin-1.19.16",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "typora"
+      ]
     },
     {
       "attribute": "wireless-regdb",
@@ -6998,7 +8197,14 @@
       "current_name": "wireless-regdb",
       "identity_match": "verified",
       "unstable_version": "2026.09.03",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra",
+        "firmware"
+      ],
+      "current_attributes": [
+        "wireless-regdb"
+      ]
     },
     {
       "description": "High-level dynamically-typed programming language",
@@ -7018,7 +8224,11 @@
       "current_name": "python3-3.14.10-env",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Java, Kotlin, Groovy and Scala IDE from JetBrains",
@@ -7045,7 +8255,11 @@
       "current_name": "intellij-idea",
       "identity_match": "verified",
       "unstable_version": "2026.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "C library of programming buildings blocks",
@@ -7072,7 +8286,14 @@
       "current_name": "glib",
       "identity_match": "verified",
       "unstable_version": "2.90.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "cage-helper-4"
+      ]
     },
     {
       "description": "Multi-platform toolkit for creating graphical user interfaces",
@@ -7099,7 +8320,11 @@
       "current_name": "gtk+3",
       "identity_match": "verified",
       "unstable_version": "3.24.52",
-      "unstable_upstream_status": "ahead-or-different-series"
+      "unstable_upstream_status": "ahead-or-different-series",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Dark Adwaita variant, GTK theme index files and the HighContrast icon theme",
@@ -7126,7 +8351,11 @@
       "current_name": "gnome-themes-extra",
       "identity_match": "verified",
       "unstable_version": "3.28",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -7153,7 +8382,11 @@
       "current_name": "adwaita-icon-theme",
       "identity_match": "verified",
       "unstable_version": "51.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Basic set of icons",
@@ -7180,7 +8413,11 @@
       "current_name": "tango-icon-theme",
       "identity_match": "verified",
       "unstable_version": "0.8.90",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Icons for Xfce",
@@ -7207,7 +8444,11 @@
       "current_name": "xfce4-icon-theme",
       "identity_match": "verified",
       "unstable_version": "4.4.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Command line utilities for working with .desktop files",
@@ -7237,7 +8478,11 @@
       "identity_match": "verified",
       "unstable_version": "0.28",
       "unstable_upstream_status": "tag-only",
-      "unstable_tag_comparison": "behind"
+      "unstable_tag_comparison": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Dbus session bus service that is used to bring up authentication dialogs",
@@ -7264,7 +8509,11 @@
       "current_name": "polkit-gnome",
       "identity_match": "verified",
       "unstable_version": "0.105",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Application library for Xfce",
@@ -7291,7 +8540,11 @@
       "current_name": "exo",
       "identity_match": "verified",
       "unstable_version": "4.20.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Xfce menu support library",
@@ -7318,7 +8571,11 @@
       "current_name": "garcon",
       "identity_match": "verified",
       "unstable_version": "4.20.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Widgets library for Xfce",
@@ -7345,7 +8602,11 @@
       "current_name": "libxfce4ui",
       "identity_match": "verified",
       "unstable_version": "4.20.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Simple text editor for Xfce",
@@ -7372,7 +8633,11 @@
       "current_name": "mousepad",
       "identity_match": "verified",
       "unstable_version": "0.7.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Modern simple media player",
@@ -7399,7 +8664,11 @@
       "current_name": "parole",
       "identity_match": "verified",
       "unstable_version": "4.20.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Fast and lightweight picture-viewer for the Xfce desktop environment",
@@ -7426,7 +8695,11 @@
       "current_name": "ristretto",
       "identity_match": "verified",
       "unstable_version": "0.14.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Appfinder for the Xfce4 Desktop Environment",
@@ -7453,7 +8726,11 @@
       "current_name": "xfce4-appfinder",
       "identity_match": "verified",
       "unstable_version": "4.20.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Simple notification daemon for Xfce",
@@ -7480,7 +8757,11 @@
       "current_name": "xfce4-notifyd",
       "identity_match": "verified",
       "unstable_version": "0.9.7",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Screenshot utility for the Xfce desktop",
@@ -7507,7 +8788,11 @@
       "current_name": "xfce4-screenshooter",
       "identity_match": "verified",
       "unstable_version": "1.11.3",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Session manager for Xfce",
@@ -7534,7 +8819,11 @@
       "current_name": "xfce4-session",
       "identity_match": "verified",
       "unstable_version": "4.20.4",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Settings manager for Xfce",
@@ -7561,7 +8850,11 @@
       "current_name": "xfce4-settings",
       "identity_match": "verified",
       "unstable_version": "4.20.5",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Easy to use task manager for Xfce",
@@ -7588,7 +8881,11 @@
       "current_name": "xfce4-taskmanager",
       "identity_match": "verified",
       "unstable_version": "1.6.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Modern terminal emulator",
@@ -7615,7 +8912,11 @@
       "current_name": "xfce4-terminal",
       "identity_match": "verified",
       "unstable_version": "1.2.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "NetworkManager control applet for GNOME",
@@ -7642,7 +8943,11 @@
       "current_name": "network-manager-applet",
       "identity_match": "verified",
       "unstable_version": "1.36.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Power manager for the Xfce Desktop Environment",
@@ -7669,7 +8974,11 @@
       "current_name": "xfce4-power-manager",
       "identity_match": "verified",
       "unstable_version": "4.20.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "PulseAudio Volume Control",
@@ -7696,7 +9005,11 @@
       "current_name": "pavucontrol",
       "identity_match": "verified",
       "unstable_version": "6.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Adjust the audio volume of the PulseAudio sound system",
@@ -7723,7 +9036,11 @@
       "current_name": "xfce4-pulseaudio-plugin",
       "identity_match": "verified",
       "unstable_version": "0.5.1",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Window manager for Xfce",
@@ -7750,7 +9067,11 @@
       "current_name": "xfwm4",
       "identity_match": "verified",
       "unstable_version": "4.20.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Themes for Xfce",
@@ -7777,7 +9098,11 @@
       "current_name": "xfwm4-themes",
       "identity_match": "verified",
       "unstable_version": "4.10.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Panel for the Xfce desktop environment",
@@ -7804,7 +9129,11 @@
       "current_name": "xfce4-panel",
       "identity_match": "verified",
       "unstable_version": "4.20.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Xfce's desktop manager",
@@ -7831,7 +9160,11 @@
       "current_name": "xfdesktop",
       "identity_match": "verified",
       "unstable_version": "4.20.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Screensaver for Xfce",
@@ -7858,7 +9191,11 @@
       "current_name": "xfce4-screensaver",
       "identity_match": "verified",
       "unstable_version": "4.20.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "System service to manage, install and generate color profiles to accurately color manage input and output devices",
@@ -7885,7 +9222,11 @@
       "current_name": "colord",
       "identity_match": "verified",
       "unstable_version": "1.4.8",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "D-Bus thumbnailer service",
@@ -7912,7 +9253,11 @@
       "current_name": "tumbler",
       "identity_match": "verified",
       "unstable_version": "4.20.2",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Collection of components in GNOME that store secrets, passwords, keys, certificates and make them available to applications",
@@ -7939,7 +9284,11 @@
       "current_name": "gnome-keyring",
       "identity_match": "verified",
       "unstable_version": "50.0",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Simple client-server configuration storage and query system for Xfce",
@@ -7966,7 +9315,11 @@
       "current_name": "xfconf",
       "identity_match": "verified",
       "unstable_version": "4.20.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Xfce file manager",
@@ -7993,7 +9346,11 @@
       "current_name": "thunar",
       "identity_match": "verified",
       "unstable_version": "4.20.10",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Next generation of fcitx",
@@ -8013,7 +9370,11 @@
       "current_name": "fcitx5-with-addons-5.1.23",
       "identity_match": "verified",
       "unstable_version": "",
-      "unstable_upstream_status": "generated-or-wrapper"
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Backend implementation for xdg-desktop-portal for Cinnamon, MATE, Xfce",
@@ -8040,7 +9401,11 @@
       "current_name": "xdg-desktop-portal-xapp",
       "identity_match": "verified",
       "unstable_version": "1.1.3",
-      "unstable_upstream_status": "not-comparable"
+      "unstable_upstream_status": "not-comparable",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
     },
     {
       "description": "MacOS BigSur like Gtk+ theme based on Elegant Design",
@@ -8067,7 +9432,11 @@
       "current_name": "whitesur-gtk-theme",
       "identity_match": "verified",
       "unstable_version": "2026-08-08",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "home"
+      ],
+      "current_attributes": []
     },
     {
       "description": "X-cursor theme inspired by macOS and based on capitaine-cursors",
@@ -8100,7 +9469,11 @@
       "current_name": "whitesur-cursors",
       "identity_match": "verified",
       "unstable_version": "0-unstable-2025-01-13",
-      "unstable_upstream_status": "unverified"
+      "unstable_upstream_status": "unverified",
+      "current_scopes": [
+        "home"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Icarus Verilog compiler",
@@ -8127,7 +9500,11 @@
       "current_name": "iverilog",
       "identity_match": "verified",
       "unstable_version": "13.0",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "home"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Suite of SystemVerilog developer tools. Including a style-linter, indexer, formatter, and language server",
@@ -8155,7 +9532,11 @@
       "current_name": "verible",
       "identity_match": "verified",
       "unstable_version": "0.0.4298",
-      "unstable_upstream_status": "not-comparable"
+      "unstable_upstream_status": "not-comparable",
+      "current_scopes": [
+        "home"
+      ],
+      "current_attributes": []
     },
     {
       "description": "",
@@ -8183,7 +9564,11 @@
       "current_name": "texlive",
       "identity_match": "verified",
       "unstable_version": "2025-r78234-final-env",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "home"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Nerd Fonts: Dotted zero, short descenders, expands upon work done for Bitstream Vera & DejaVu, legible at common sizes",
@@ -8210,7 +9595,11 @@
       "current_name": "nerd-fonts-hack",
       "identity_match": "verified",
       "unstable_version": "3.5.0+3.003",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "home"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Small tool to manage your installations of the Lean theorem prover",
@@ -8236,7 +9625,11 @@
       "current_name": "elan",
       "current_package_name": "elan-4.3.0",
       "identity_match": "verified",
-      "unstable_upstream_status": "behind"
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "home"
+      ],
+      "current_attributes": []
     },
     {
       "description": "Rust toolchain installer",
@@ -8262,7 +9655,11 @@
       "current_name": "rustup",
       "current_package_name": "rustup-1.29.3",
       "identity_match": "verified",
-      "unstable_upstream_status": "equal"
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "home"
+      ],
+      "current_attributes": []
     },
     {
       "attribute": "ark-sevenzip",
@@ -8275,7 +9672,8 @@
       "version": "",
       "baseline_present": false,
       "attributes": [
-        "ark-sevenzip"
+        "ark-sevenzip",
+        "ranger-helper-5"
       ],
       "upstream_status": "newly-added",
       "official_stable_version": "26.06",
@@ -8287,15 +9685,30 @@
           "error": null
         }
       ],
-      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official 7-Zip download page currently lists 26.06 for Linux; selected base 26.04 is retained from locked unstable.",
+      "notes": "Official7zz replaces p7zip in the system selection and is also supplied to Ark/Ranger private wrapper PATHs. Shared derivations are not duplicate independent applications. Selected26.04 remains behind verified upstream26.06. Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "current_package_name": "7zz-26.04",
       "current_name": "7zz",
       "current_present": true,
       "identity_match": "verified",
       "unstable_version": "26.04",
       "unstable_upstream_status": "behind",
-      "installationRole": "ark-private-backend",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "installationRole": "system-and-private-archive-helper",
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "current_attributes": [
+        "ark-sevenzip",
+        "ranger-helper-5"
+      ],
+      "installationRoles": [
+        "ark-private-backend",
+        "ranger-private-helper",
+        "system-package"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/_7/_7zz/package.nix:250",
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "attribute": "ark-backend-0",
@@ -8321,7 +9734,13 @@
       "unstable_version": "",
       "unstable_upstream_status": "generated-or-wrapper",
       "installationRole": "ark-private-command-alias",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ark-backend-0"
+      ]
     },
     {
       "attribute": "ark-libzip",
@@ -8354,7 +9773,13 @@
       "unstable_version": "1.11.4",
       "unstable_upstream_status": "behind",
       "installationRole": "ark-private-library",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ark-libzip"
+      ]
     },
     {
       "attribute": "ark-backend-5",
@@ -8393,7 +9818,13 @@
       "unstable_version": "0.660",
       "unstable_upstream_status": "behind",
       "installationRole": "ark-private-backend",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ark-backend-5"
+      ]
     },
     {
       "attribute": "ark-backend-8",
@@ -8426,7 +9857,13 @@
       "unstable_version": "1.10.0",
       "unstable_upstream_status": "behind",
       "installationRole": "ark-private-backend",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ark-backend-8"
+      ]
     },
     {
       "attribute": "ark-backend-6",
@@ -8459,7 +9896,13 @@
       "unstable_version": "1.04",
       "unstable_upstream_status": "equal",
       "installationRole": "ark-private-backend",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ark-backend-6"
+      ]
     },
     {
       "attribute": "ark-backend-2",
@@ -8492,7 +9935,13 @@
       "unstable_version": "1.10.8",
       "unstable_upstream_status": "equal",
       "installationRole": "ark-private-backend",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ark-backend-2"
+      ]
     },
     {
       "attribute": "ark-backend-1",
@@ -8517,7 +9966,7 @@
           "error": null
         }
       ],
-      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official UnRAR source link currently points to unrarsrc-7.3.2.tar.gz.",
+      "notes": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official UnRAR source link currently points to unrarsrc-7.3.2.tar.gz. Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "current_package_name": "unrar-7.3.2",
       "current_name": "unrar",
       "current_present": true,
@@ -8525,7 +9974,19 @@
       "unstable_version": "7.3.2",
       "unstable_upstream_status": "equal",
       "installationRole": "ark-private-backend",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ark-backend-1",
+        "ranger-helper-6"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/un/unrar/package.nix:58",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
     },
     {
       "attribute": "ark-backend-3",
@@ -8558,10 +10019,500 @@
       "unstable_version": "3.0",
       "unstable_upstream_status": "equal",
       "installationRole": "ark-private-backend",
-      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00"
+      "archive_policy_added_at": "2026-11-22T12:50:18.815614+00:00",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ark-backend-3"
+      ]
+    },
+    {
+      "attribute": "cage-helper-10",
+      "description": "GNU Core Utilities",
+      "homepage": "https://www.gnu.org/software/coreutils/",
+      "name": "coreutils",
+      "packageName": "coreutils-9.12",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/co/coreutils/package.nix:280",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/co/coreutils/package.nix:280",
+      "baseline_present": false,
+      "attributes": [
+        "cage-helper-10",
+        "ranger-helper-0"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "9.12",
+      "sources": [
+        {
+          "url": "https://ftp.gnu.org/gnu/coreutils/",
+          "resolved_url": "https://ftp.gnu.org/gnu/coreutils/",
+          "method": "Official GNU release archive; same upstream version series as coreutils-full, distinct Nix package flavor.",
+          "error": null
+        }
+      ],
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "current_present": true,
+      "current_name": "coreutils",
+      "current_package_name": "coreutils-9.12",
+      "identity_match": "verified",
+      "unstable_version": "9.12",
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "cage-helper-10",
+        "ranger-helper-0"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/co/coreutils/package.nix:280",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
+    },
+    {
+      "attribute": "ranger-helper-1",
+      "description": "Program that shows the type of files",
+      "homepage": "https://darwinsys.com/file",
+      "name": "file",
+      "packageName": "file-5.48",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/fi/file/package.nix:73",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/fi/file/package.nix:73",
+      "baseline_present": false,
+      "attributes": [
+        "ranger-helper-1"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "5.48",
+      "sources": [
+        {
+          "url": "https://astron.com/pub/file/",
+          "resolved_url": "https://astron.com/pub/file/",
+          "method": "Official file source-release archive; greatest numeric release tarball.",
+          "error": null
+        }
+      ],
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "current_present": true,
+      "current_name": "file",
+      "current_package_name": "file-5.48",
+      "identity_match": "verified",
+      "unstable_version": "5.48",
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-1"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/fi/file/package.nix:73",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
+    },
+    {
+      "attribute": "ranger-helper-11",
+      "description": "Tool to read, write and edit EXIF meta information",
+      "homepage": "https://exiftool.org/",
+      "name": "Image-ExifTool",
+      "packageName": "perl5.42.3-Image-ExifTool-13.60",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/development/perl-modules/ImageExifTool/default.nix:44",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/development/perl-modules/ImageExifTool/default.nix:44",
+      "baseline_present": false,
+      "attributes": [
+        "ranger-helper-11"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "13.64",
+      "sources": [
+        {
+          "url": "https://exiftool.org/",
+          "resolved_url": "https://exiftool.org/",
+          "method": "Current official ExifTool download heading (Version13.64 dated2026-11-16); not a comparison with an unrelated EXIF library.",
+          "error": null
+        }
+      ],
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "current_present": true,
+      "current_name": "Image-ExifTool",
+      "current_package_name": "perl5.42.3-Image-ExifTool-13.60",
+      "identity_match": "verified",
+      "unstable_version": "13.60",
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-11"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/development/perl-modules/ImageExifTool/default.nix:44",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
+    },
+    {
+      "attribute": "ranger-helper-10",
+      "description": "Source code highlighting tool",
+      "homepage": "http://www.andre-simon.de/doku/highlight/en/highlight.php",
+      "name": "highlight",
+      "packageName": "highlight-4.21",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/hi/highlight/package.nix:79",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/hi/highlight/package.nix:79",
+      "baseline_present": false,
+      "attributes": [
+        "ranger-helper-10"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "v4.22",
+      "sources": [
+        {
+          "url": "https://gitlab.com/api/v4/projects/saalen%2Fhighlight/releases/permalink/latest",
+          "resolved_url": "https://gitlab.com/saalen/highlight/-/releases/v4.22",
+          "method": "Official Highlight latest published release; fallback from vendor homepage certificate error.",
+          "error": null
+        },
+        {
+          "url": "https://www.andre-simon.de/doku/highlight/en/highlight.php",
+          "resolved_url": "https://www.andre-simon.de/doku/highlight/en/highlight.php",
+          "method": "Official homepage attempt; certificate verification was not disabled.",
+          "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1082)>"
+        }
+      ],
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "current_present": true,
+      "current_name": "highlight",
+      "current_package_name": "highlight-4.21",
+      "identity_match": "verified",
+      "unstable_version": "4.21",
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-10"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/hi/highlight/package.nix:79",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
+    },
+    {
+      "attribute": "ranger-helper-12",
+      "description": "Simple .odt to .txt converter",
+      "homepage": "https://github.com/dstosberg/odt2txt",
+      "name": "odt2txt",
+      "packageName": "odt2txt-0.5",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/od/odt2txt/package.nix:26",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/od/odt2txt/package.nix:26",
+      "baseline_present": false,
+      "attributes": [
+        "ranger-helper-12"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": null,
+      "sources": [
+        {
+          "url": "https://github.com/dstosberg/odt2txt/tags",
+          "resolved_url": "https://github.com/dstosberg/odt2txt/tags",
+          "method": "Official numeric tag exists; no independently designated stable release was verified.",
+          "error": null
+        }
+      ],
+      "notes": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "current_present": true,
+      "current_name": "odt2txt",
+      "current_package_name": "odt2txt-0.5",
+      "identity_match": "verified",
+      "unstable_version": "0.5",
+      "unstable_upstream_status": "tag-only",
+      "latest_numeric_tag": "v0.5",
+      "unstable_tag_comparison": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "ranger-helper-12"
+      ],
+      "current_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/od/odt2txt/package.nix:26",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "ranger_module": "home/modules/editors/ranger.nix"
+    },
+    {
+      "attribute": "baidu-gtkmm2",
+      "description": "Private GTKmm 2.4 ABI compatibility for the official Baidu Netdisk client",
+      "homepage": "https://gtkmm.org/",
+      "name": "gtkmm",
+      "packageName": "gtkmm-2.24.5",
+      "position": "packages/baidunetdisk/gtkmm2.nix:37",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/tmp/nixos-native-clients-20261122/packages/baidunetdisk/gtkmm2.nix:37",
+      "baseline_present": false,
+      "attributes": [
+        "baidu-gtkmm2"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "2.24.5",
+      "sources": [
+        {
+          "url": "https://download.gnome.org/sources/gtkmm/2.24/",
+          "resolved_url": "https://download.gnome.org/sources/gtkmm/2.24/",
+          "method": "Official GTKmm2.24 release archive, constrained to the ABI actually required by the packaged ELF.",
+          "error": null
+        }
+      ],
+      "notes": "Private compatibility library for the vendor-required gtkmm-2.4 ABI, built against the global unstable toolchain. The selected2.24.5 matches this required release series; GTKmm3/4 are different ABIs and were not used as an upgrade comparison. Its newly visible audit entry does not mean the old vendor client previously lacked this dependency.",
+      "current_present": true,
+      "current_name": "gtkmm",
+      "current_package_name": "gtkmm-2.24.5",
+      "identity_match": "verified",
+      "unstable_version": "2.24.5",
+      "unstable_upstream_status": "intentional-release-line",
+      "comparison_scope": "Required gtkmm-2.4 ABI / GTKmm2.24 source series",
+      "installationRole": "baidu-private-abi-library",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "baidu-gtkmm2"
+      ]
+    },
+    {
+      "description": "Official Claude Cage desktop and its persistent Linux virtual-machine environment",
+      "homepage": "https://github.com/Lee-xeo/Claude-Cage",
+      "name": "claude-cage",
+      "packageName": "claude-cage-0.1.8",
+      "position": "/nix/store/c177rf0cvk4vj9grdczpcm0dipwbnjvn-source/packages/claude-cage/default.nix:60",
+      "scope": "system",
+      "version": "",
+      "raw_inventory_position": "/nix/store/c177rf0cvk4vj9grdczpcm0dipwbnjvn-source/packages/claude-cage/default.nix:60",
+      "baseline_present": false,
+      "attributes": [],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "v0.1.8",
+      "sources": [
+        {
+          "url": "https://api.github.com/repos/Lee-xeo/Claude-Cage/releases/latest",
+          "resolved_url": "https://github.com/Lee-xeo/Claude-Cage/releases/tag/v0.1.8",
+          "method": "Official latest release API explicitly marks prerelease=false and draft=false.",
+          "error": null
+        }
+      ],
+      "notes": "Lee-xeo/Claude-Cage VM desktop, not the same-named Wayland compositor. Host package/version evidence does not imply a guest image, proxy or Claude account has been initialized.",
+      "current_present": true,
+      "current_name": "claude-cage",
+      "current_package_name": "claude-cage-0.1.8",
+      "identity_match": "verified",
+      "unstable_version": "0.1.8",
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "system"
+      ],
+      "current_attributes": []
+    },
+    {
+      "attribute": "cage-firmware",
+      "description": "Sample UEFI firmware for QEMU and KVM",
+      "homepage": "https://github.com/tianocore/tianocore.github.io/wiki/OVMF",
+      "name": "OVMF",
+      "packageName": "OVMF-202608",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/ov/OVMF/package.nix:353",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/ov/OVMF/package.nix:353",
+      "baseline_present": false,
+      "attributes": [
+        "cage-firmware"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "edk2-stable202608",
+      "sources": [
+        {
+          "url": "https://api.github.com/repos/tianocore/edk2/releases/latest",
+          "resolved_url": "https://github.com/tianocore/edk2/releases/tag/edk2-stable202608",
+          "method": "Official latest release API explicitly marks prerelease=false and draft=false.",
+          "error": null
+        }
+      ],
+      "notes": "OVMF202608 corresponds to edk2-stable202608; compare that firmware release stamp, not an unrelated OVMF/UEFI version scheme.",
+      "current_present": true,
+      "current_name": "OVMF",
+      "current_package_name": "OVMF-202608",
+      "identity_match": "verified",
+      "unstable_version": "202608",
+      "unstable_upstream_status": "equal",
+      "comparison_scope": "OVMF release coordinate is the edk2-stable YYYYMM stamp",
+      "installationRole": "cage-private-firmware",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "cage-firmware"
+      ]
+    },
+    {
+      "attribute": "cage-qemu",
+      "description": "Generic and open source machine emulator and virtualizer",
+      "homepage": "https://www.qemu.org/",
+      "name": "qemu",
+      "packageName": "qemu-11.1.2",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/qe/qemu/package.nix:450",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/qe/qemu/package.nix:450",
+      "baseline_present": false,
+      "attributes": [
+        "cage-qemu"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "11.1.3",
+      "sources": [
+        {
+          "url": "https://www.qemu.org/download/",
+          "resolved_url": "https://www.qemu.org/download/",
+          "method": "Official QEMU source downloads; exclude11.2.0-rc1 and all nonnumeric prerelease suffixes.",
+          "error": null
+        }
+      ],
+      "notes": "",
+      "current_present": true,
+      "current_name": "qemu",
+      "current_package_name": "qemu-11.1.2",
+      "identity_match": "verified",
+      "unstable_version": "11.1.2",
+      "unstable_upstream_status": "behind",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "cage-qemu"
+      ]
+    },
+    {
+      "attribute": "cage-helper-7",
+      "description": "Library that sends desktop notifications to a notification daemon",
+      "homepage": "https://gitlab.gnome.org/GNOME/libnotify",
+      "name": "libnotify",
+      "packageName": "libnotify-0.8.9",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/li/libnotify/package.nix:70",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/li/libnotify/package.nix:70",
+      "baseline_present": false,
+      "attributes": [
+        "cage-helper-7"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "0.8.9",
+      "sources": [
+        {
+          "url": "https://download.gnome.org/sources/libnotify/cache.json",
+          "resolved_url": "https://download.gnome.org/sources/libnotify/cache.json",
+          "method": "Official GNOME release inventory; numeric published release series, excluding development99/90 suffixes.",
+          "error": null
+        }
+      ],
+      "notes": "",
+      "current_present": true,
+      "current_name": "libnotify",
+      "current_package_name": "libnotify-0.8.9",
+      "identity_match": "verified",
+      "unstable_version": "0.8.9",
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "cage-helper-7"
+      ]
+    },
+    {
+      "attribute": "cage-helper-8",
+      "description": "Tool to display dialogs from the commandline and shell scripts",
+      "homepage": "https://gitlab.gnome.org/GNOME/zenity",
+      "name": "zenity",
+      "packageName": "zenity-4.2.2",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/ze/zenity/package.nix:52",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/ze/zenity/package.nix:52",
+      "baseline_present": false,
+      "attributes": [
+        "cage-helper-8"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": "4.2.2",
+      "sources": [
+        {
+          "url": "https://download.gnome.org/sources/zenity/cache.json",
+          "resolved_url": "https://download.gnome.org/sources/zenity/cache.json",
+          "method": "Official GNOME release inventory; numeric published release series, excluding development99/90 suffixes.",
+          "error": null
+        }
+      ],
+      "notes": "",
+      "current_present": true,
+      "current_name": "zenity",
+      "current_package_name": "zenity-4.2.2",
+      "identity_match": "verified",
+      "unstable_version": "4.2.2",
+      "unstable_upstream_status": "equal",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "cage-helper-8"
+      ]
+    },
+    {
+      "attribute": "cage-helper-0",
+      "description": "",
+      "homepage": "",
+      "name": "claude-cage-qemu-runtime",
+      "packageName": "claude-cage-qemu-runtime",
+      "position": "",
+      "scope": "explicit-extra",
+      "version": "",
+      "raw_inventory_position": "",
+      "baseline_present": false,
+      "attributes": [
+        "cage-helper-0"
+      ],
+      "upstream_status": "not-in-baseline",
+      "official_stable_version": null,
+      "sources": [],
+      "notes": "Generated private QEMU/OVMF runtime wrapper. It has no independent version property; QEMU and OVMF are audited separately.",
+      "current_present": true,
+      "current_name": "claude-cage-qemu-runtime",
+      "current_package_name": "claude-cage-qemu-runtime",
+      "identity_match": "verified",
+      "unstable_version": "",
+      "unstable_upstream_status": "generated-or-wrapper",
+      "current_scopes": [
+        "explicit-extra"
+      ],
+      "current_attributes": [
+        "cage-helper-0"
+      ]
     }
   ],
   "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
   "after_inventory": "Evaluated /tmp/nixos-ark-inventory.json. Historical removed packages retained; nine explicit Ark-only helper/library identities added and checked against primary upstreams. This is not a transitive-dependency audit; helpers are not global-profile applications.",
-  "cleanup_policy_updated_at": "2026-11-22T12:20:46.005563+00:00"
+  "cleanup_policy_updated_at": "2026-11-22T12:20:46.005563+00:00",
+  "native_clients_updated_at": "2026-11-22T14:09:10.619102+00:00"
 }

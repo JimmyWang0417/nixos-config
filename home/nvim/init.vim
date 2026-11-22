@@ -5,10 +5,9 @@
 " |_| |_|\___|\___/ \_/ |_|_| |_| |_|  \___\___/|_| |_|_| |_|\__, |
 "                                                            |___/ 
 " by wangjunrui
-source ~/.config/nvim/dependent.vim
-source ~/.config/nvim/command.vim
-source ~/.config/nvim/coc.vim
-source ~/.config/nvim/plugins.vim
-source ~/.config/nvim/ui.vim
-source ~/.config/nvim/keyboard.vim
-source ~/.config/nvim/addition.vim
+" Keep Coc extension declarations before plug#end; helpers before key mappings.
+let s:config_dir = expand('<sfile>:p:h')
+for s:module in ['dependent.vim', 'command.vim', 'coc.vim', 'plugins.vim', 'ui.vim', 'keyboard.vim', 'addition.vim']
+  execute 'source ' . fnameescape(s:config_dir . '/' . s:module)
+endfor
+unlet s:module s:config_dir

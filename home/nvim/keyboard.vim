@@ -54,68 +54,8 @@ map m<Down> <C-w>j
 " NERDTree
 map tt :NERDTree<CR>
 
-" format
+" Format / build or check / run / build or check and run.
 map <F3> :call Format()<CR>
-func! Format()
-exec "w"
-    if &filetype == 'c'
-        :ClangFormat
-    elseif &filetype == 'cpp'
-        :ClangFormat
-    elseif &filetype == 'python'
-        exec '!python -m black %'
-        exec 'e'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc 
-
-" Compile
 map <F5> :call Compile()<CR>
-func! Compile()
-exec "w"
-    if &filetype == 'c'
-        exec '!g++ % -o %<'
-    elseif &filetype == 'cpp'
-        exec '!g++ -Wall -Wextra -Wshadow -Wconversion -std=c++14 -O2 % -o %<'
-    elseif &filetype == 'python'
-        exec '!python %'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc 
-
-" Run
 map <F6> :call Run()<CR>
-func! Run()
-exec "w"
-    if &filetype == 'c'
-        exec '!time ./%<'
-    elseif &filetype == 'cpp'
-        exec '!time ./%<'
-    elseif &filetype == 'python'
-        exec '!time !python %'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc
-
-
-" Compile and Run
-
 map <F7> :call CompileRunGcc()<CR>
-
-func! CompileRunGcc()
-exec "w" 
-    if &filetype == 'c' 
-        exec '!g++ % -o %<'
-        exec '!time ./%<'
-    elseif &filetype == 'cpp'
-        exec '!g++ % -o %<'
-        exec '!time ./%<'
-    elseif &filetype == 'python'
-        exec '!time python %'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc 

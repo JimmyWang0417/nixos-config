@@ -24,6 +24,7 @@ in
       pkgs."clang-tools"
       pkgs."efm-langserver"
       pkgs.black
+      pkgs.shfmt
     ];
   };
 
@@ -35,19 +36,22 @@ in
 
   # After the nvim files are linked. Opening nvim does not run PlugInstall
   # or CocInstall; this does, and a later activation skips what is present.
-  home.activation.nvimPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    export NVIM=${config.programs.neovim.finalPackage}/bin/nvim
-    export GIT=${pkgs.git}/bin/git
-    export NODE=${pkgs.nodejs}/bin/node
-    export SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
-    export GIT_SSL_CAINFO="$SSL_CERT_FILE"
-    export CURL_CA_BUNDLE="$SSL_CERT_FILE"
-    export PATH="${
-      lib.makeBinPath [
-        pkgs.git
-        pkgs.nodejs
-      ]
-    }:$PATH"
-    run ${installNvimPlugins}
-  '';
+  home.activation.nvimPlugins =
+    lib.hm.dag.entryAfter
+      ([ "writeBoundary" ] ++ lib.optional (config.home.activation ? nodeXdgState) "nodeXdgState")
+      ''
+        export NVIM=${config.programs.neovim.finalPackage}/bin/nvim
+        export GIT=${pkgs.git}/bin/git
+        export NODE=${pkgs.nodejs}/bin/node
+        export SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
+        export GIT_SSL_CAINFO="$SSL_CERT_FILE"
+        export CURL_CA_BUNDLE="$SSL_CERT_FILE"
+        export PATH="${
+          lib.makeBinPath [
+            pkgs.git
+            pkgs.nodejs
+          ]
+        }:$PATH"
+        run ${installNvimPlugins}
+      '';
 }

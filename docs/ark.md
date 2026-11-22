@@ -37,7 +37,7 @@ orion.archives.ark.legacyChineseZip = false;
 在 Ark 现有 Qt wrapper 中加入私有命令行后端路径，保留原有 Qt 插件、桌面入口
 和 D-Bus 启动方式。官方 7zz 在这里以 Ark 要求的 `7z` 命令名提供；RAR 解压
 使用 unrar/unar，ZIP 辅助工具和常见压缩过滤器也由包闭包提供。
-这不替换 ranger 当前使用的全局旧 p7zip。
+ranger 调用系统提供的 `7zz`。Ark 的 `7z` 别名只在 Ark 的后端路径中使用。
 
 系统 `/etc/xdg/arkrc` 通过原生 `Plugins.disabledPlugins` 键清空旧的禁用列表，
 该项由 Nix 固定；其他 Ark 偏好保留。插件仍进行上游的可执行文件和库可用性检查。

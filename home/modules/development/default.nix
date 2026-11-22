@@ -6,6 +6,7 @@
     ./nh.nix
     ./direnv.nix
     ./nix-index.nix
+    ./node
   ];
 
   # Manager binaries are locked by Nix; toolchain versions are managed at runtime.

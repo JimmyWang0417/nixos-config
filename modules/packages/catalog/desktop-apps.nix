@@ -2,6 +2,7 @@
 let
   nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
   withOzone = import ../with-ozone.nix { inherit pkgs; };
+  baiduNetdisk = import ../../../packages/baidunetdisk { inherit pkgs; };
   qoderPkg = nurPkgs.qoder-cn;
   traePkg = nurPkgs.trae-cn;
 in
@@ -28,8 +29,8 @@ with pkgs;
   heroic
   libreoffice-qt
   # The FHS launcher is `baidunetdisk --no-sandbox` and ignores NIXOS_OZONE_WL.
-  (withOzone nur.repos.freegoxing.baidunetdisk)
-  nur.repos.yakkhini.dingtalk
+  (withOzone baiduNetdisk)
+  (import ../../../packages/dingtalk { inherit pkgs; })
   nur.repos.novel2430.wpsoffice-365
   # ToDesk the package is installed by services.todesk (todeskd).
 ]

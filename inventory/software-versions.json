@@ -2,8 +2,8 @@
   "date": "2026-11-22",
   "policy": "All Nix-provided system, application and manager packages plus NUR build dependencies use nixos-unstable; stable nixpkgs remains an unused explicit interface. Explicit user-requested exception: elan and rustup initialize stable upstream Lean/Rust toolchains in writable HOME at activation; those runtime toolchain versions are not locked by flake.lock and have not been observed installed.",
   "summary": {
-    "rows": 600,
-    "configuredUniqueNames": 521,
+    "rows": 612,
+    "configuredUniqueNames": 532,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -13,7 +13,7 @@
       "tag-only": 23,
       "unverified": 31,
       "newly-added": 52,
-      "not-in-baseline": 13,
+      "not-in-baseline": 25,
       "generated-or-wrapper": 25,
       "ahead-or-different-series": 2,
       "snapshot-not-comparable": 9,
@@ -24,22 +24,23 @@
       "different-version-needs-review": 1
     },
     "afterStatuses": {
-      "behind": 89,
-      "equal": 321,
+      "behind": 92,
+      "equal": 328,
       "ahead-or-different-series": 5,
-      "tag-only": 23,
-      "unverified": 30,
-      "generated-or-wrapper": 27,
+      "tag-only": 24,
+      "unverified": 27,
+      "generated-or-wrapper": 28,
       "snapshot-not-comparable": 9,
       "not-comparable": 4,
       "prerelease-only": 1,
+      "official-preview-current": 1,
       "generated-no-independent-release": 9,
       "ahead-or-different-track": 1,
-      "intentional-release-line": 2,
+      "intentional-release-line": 3,
       "different-version-needs-review": 1,
       "runtime-managed": 2
     },
-    "versionChanges": 251,
+    "versionChanges": 252,
     "runtimePluginDeclarations": 68,
     "runtimeToolchainDeclarations": 2,
     "historicalRuntimePluginDeclarations": 69,
@@ -49,12 +50,15 @@
       "discover",
       "flatpak",
       "flatpak-kcm",
-      "jack-libs"
+      "jack-libs",
+      "p7zip"
     ],
     "removedRuntimePluginDeclarations": [
       "scrooloose/syntastic"
     ],
-    "archiveExplicitHelperDeclarations": 9
+    "archiveExplicitHelperDeclarations": 9,
+    "rangerExplicitHelperDeclarations": 19,
+    "cageExplicitRuntimeDeclarations": 13
   },
   "rows": [
     {
@@ -699,10 +703,20 @@
       "urls": [
         "https://djvu.sourceforge.net/"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-home.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ranger-helper-16"
       ]
     },
     {
@@ -886,10 +900,20 @@
       "urls": [
         "https://github.com/dirkvdb/ffmpegthumbnailer/releases/tag/v2.4.2"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-home.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ranger-helper-14"
       ]
     },
     {
@@ -1466,10 +1490,20 @@
       "urls": [
         "https://github.com/ImageMagick/ImageMagick/releases/tag/7.1.2-36"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-home.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ranger-helper-18"
       ]
     },
     {
@@ -2333,10 +2367,21 @@
       "urls": [
         "https://www.greenwoodsoftware.com/less/download.html"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-system.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "currentAttributes": [
+        "ranger-helper-4"
       ]
     },
     {
@@ -2350,10 +2395,20 @@
       "urls": [
         "https://github.com/libarchive/libarchive/releases/tag/v3.8.11"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-home.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ranger-helper-17"
       ]
     },
     {
@@ -2573,10 +2628,20 @@
       "urls": [
         "https://github.com/MediaArea/MediaInfo/releases/tag/v26.10"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-home.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ranger-helper-13"
       ]
     },
     {
@@ -3223,10 +3288,20 @@
       "urls": [
         "https://poppler.freedesktop.org/"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-home.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ranger-helper-15"
       ]
     },
     {
@@ -4788,10 +4863,20 @@
       "urls": [
         "https://download.savannah.nongnu.org/releases/atool/"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-home.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ranger-helper-9"
       ]
     },
     {
@@ -4866,17 +4951,23 @@
       "name": "baidunetdisk",
       "before": "8.9.7",
       "after": "8.9.7",
-      "upstream": "",
+      "upstream": "8.9.7",
       "beforeStatus": "unverified",
-      "afterStatus": "unverified",
+      "afterStatus": "equal",
       "scope": "explicit-extra",
       "urls": [
-        "https://pan.baidu.com/"
+        "https://pkg-ant.baidu.com/issue/netdisk/LinuxGuanjia/8.9.7/baidunetdisk_8.9.7_amd64.deb"
       ],
-      "note": "Official download page did not expose unambiguous latest Linux client version metadata.",
+      "note": "Official Linux8.9.7 is unchanged. Replaced the old NUR FHS recipe/internal old nixpkgs import with a local recipe and private GTKmm2.24.5 built against the same global unstable ABI. Baseline audit classification is retained; new current selector evidence is recorded here. Build and22ELF resolutions passed, not a login/transfer GUI test.",
       "present": true,
       "reports": [
         "software-versions-system.json"
+      ],
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "baidunetdisk"
       ]
     },
     {
@@ -5479,19 +5570,26 @@
     {
       "name": "dingtalk",
       "before": "9.0.0.261105002",
-      "after": "9.0.0.261105002",
+      "after": "9.0.0.261118001",
       "upstream": "",
       "beforeStatus": "unverified",
-      "afterStatus": "unverified",
+      "afterStatus": "official-preview-current",
       "scope": "system",
       "urls": [
-        "https://www.dingtalk.com/"
+        "https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_9.0.0.261118001_amd64.deb",
+        "https://www.dingtalk.com/download"
       ],
-      "note": "Official Linux download redirect did not expose a verifiable latest stable version (HTTP403); web asset versions are not client versions.",
+      "note": "Updated from9.0.0.261105002 to the current official Linux payload9.0.0.261118001. Vendor labels Linux as a test preview, so this is not counted as a verified stable release. Actual package build and native wrapping checks passed; bundled OpenSSL1.1.1g remains and the exact insecure-package exception is retained.",
       "present": true,
       "reports": [
         "software-versions-system.json"
-      ]
+      ],
+      "currentScopes": [
+        "system"
+      ],
+      "currentAttributes": [],
+      "upstreamChannel": "vendor-test-preview",
+      "publishedLinuxVersion": "9.0.0.261118001"
     },
     {
       "name": "djoshea/vim-autoread",
@@ -6603,10 +6701,21 @@
       "urls": [
         "https://ftp.gnu.org/gnu/sed/"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-system.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "currentAttributes": [
+        "ranger-helper-2"
       ]
     },
     {
@@ -6620,10 +6729,21 @@
       "urls": [
         "https://ftp.gnu.org/gnu/tar/"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-system.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "currentAttributes": [
+        "ranger-helper-3"
       ]
     },
     {
@@ -7986,19 +8106,20 @@
     {
       "name": "p7zip",
       "before": "17.06",
-      "after": "17.06",
+      "after": "",
       "upstream": "",
       "beforeStatus": "unverified",
-      "afterStatus": "unverified",
+      "afterStatus": "removed-from-config",
       "scope": "system",
       "urls": [
         "https://github.com/p7zip-project/p7zip"
       ],
-      "note": "Legacy p7zip fork; latest upstream 7-Zip is a different project and not directly comparable.",
-      "present": true,
+      "note": "Legacy p7zip fork; latest upstream 7-Zip is a different project and not directly comparable. Current system selection was replaced by official7zz; historical p7zip17.06 is retained and is not numerically compared across different projects.",
+      "present": false,
       "reports": [
         "software-versions-system.json"
-      ]
+      ],
+      "currentDeclared": false
     },
     {
       "name": "parole",
@@ -8890,10 +9011,22 @@
       "urls": [
         "https://www.info-zip.org"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-system.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "currentAttributes": [
+        "ark-backend-4",
+        "ranger-helper-7"
       ]
     },
     {
@@ -9247,10 +9380,20 @@
       "urls": [
         "https://git.sr.ht/~rkta/w3m/refs"
       ],
-      "note": "",
+      "note": " Current Ranger use is through its private wrapper PATH, not an extra global application declaration.",
       "present": true,
       "reports": [
         "software-versions-home.json"
+      ],
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ranger-helper-8"
       ]
     },
     {
@@ -10112,13 +10255,27 @@
       "urls": [
         "https://www.7-zip.org/download.html"
       ],
-      "note": "Explicit Ark dependency: supplied through Ark's private wrapper PATH or private linked library, not separately installed in the global/user application profile. Official 7-Zip download page currently lists 26.06 for Linux; selected base 26.04 is retained from locked unstable.",
+      "note": "Official7zz replaces p7zip in the system selection and is also supplied to Ark/Ranger private wrapper PATHs. Shared derivations are not duplicate independent applications. Selected26.04 remains behind verified upstream26.06. Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
       "present": true,
       "reports": [
         "software-versions-system.json"
       ],
       "kind": "archive-helper",
-      "installationRole": "ark-private-backend"
+      "installationRole": "system-and-private-archive-helper",
+      "currentScopes": [
+        "explicit-extra",
+        "system"
+      ],
+      "currentAttributes": [
+        "ark-sevenzip",
+        "ranger-helper-5"
+      ],
+      "installationRoles": [
+        "ark-private-backend",
+        "ranger-private-helper",
+        "system-package"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix"
     },
     {
       "name": "ark-7z-backend",
@@ -10249,7 +10406,18 @@
         "software-versions-system.json"
       ],
       "kind": "archive-helper",
-      "installationRole": "ark-private-backend"
+      "installationRole": "ark-private-backend",
+      "installationRoles": [
+        "ranger-private-helper"
+      ],
+      "rangerModule": "home/modules/editors/ranger.nix",
+      "currentScopes": [
+        "explicit-extra"
+      ],
+      "currentAttributes": [
+        "ark-backend-1",
+        "ranger-helper-6"
+      ]
     },
     {
       "name": "zip",
@@ -10269,6 +10437,221 @@
       ],
       "kind": "archive-helper",
       "installationRole": "ark-private-backend"
+    },
+    {
+      "name": "coreutils",
+      "before": "",
+      "after": "9.12",
+      "upstream": "9.12",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://ftp.gnu.org/gnu/coreutils/"
+      ],
+      "note": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "file",
+      "before": "",
+      "after": "5.48",
+      "upstream": "5.48",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://astron.com/pub/file/"
+      ],
+      "note": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "Image-ExifTool",
+      "before": "",
+      "after": "13.60",
+      "upstream": "13.64",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "behind",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://exiftool.org/"
+      ],
+      "note": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "highlight",
+      "before": "",
+      "after": "4.21",
+      "upstream": "v4.22",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "behind",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://gitlab.com/saalen/highlight/-/releases/v4.22",
+        "https://www.andre-simon.de/doku/highlight/en/highlight.php"
+      ],
+      "note": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "odt2txt",
+      "before": "",
+      "after": "0.5",
+      "upstream": "",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "tag-only",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://github.com/dstosberg/odt2txt/tags"
+      ],
+      "note": " Explicit Ranger dependency is now supplied through programs.ranger.extraPackages/private wrapper PATH; this is not an additional global application declaration. Identical tools can remain selected by other system features.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "gtkmm",
+      "before": "",
+      "after": "2.24.5",
+      "upstream": "2.24.5",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "intentional-release-line",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://download.gnome.org/sources/gtkmm/2.24/"
+      ],
+      "note": "Private compatibility library for the vendor-required gtkmm-2.4 ABI, built against the global unstable toolchain. The selected2.24.5 matches this required release series; GTKmm3/4 are different ABIs and were not used as an upgrade comparison. Its newly visible audit entry does not mean the old vendor client previously lacked this dependency.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "claude-cage",
+      "before": "",
+      "after": "0.1.8",
+      "upstream": "v0.1.8",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "equal",
+      "scope": "system",
+      "urls": [
+        "https://github.com/Lee-xeo/Claude-Cage/releases/tag/v0.1.8"
+      ],
+      "note": "Lee-xeo/Claude-Cage VM desktop, not the same-named Wayland compositor. Host package/version evidence does not imply a guest image, proxy or Claude account has been initialized.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "application"
+    },
+    {
+      "name": "OVMF",
+      "before": "",
+      "after": "202608",
+      "upstream": "edk2-stable202608",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://github.com/tianocore/edk2/releases/tag/edk2-stable202608"
+      ],
+      "note": "OVMF202608 corresponds to edk2-stable202608; compare that firmware release stamp, not an unrelated OVMF/UEFI version scheme.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "qemu",
+      "before": "",
+      "after": "11.1.2",
+      "upstream": "11.1.3",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "behind",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://www.qemu.org/download/"
+      ],
+      "note": "",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "libnotify",
+      "before": "",
+      "after": "0.8.9",
+      "upstream": "0.8.9",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://download.gnome.org/sources/libnotify/cache.json"
+      ],
+      "note": "",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "zenity",
+      "before": "",
+      "after": "4.2.2",
+      "upstream": "4.2.2",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "equal",
+      "scope": "explicit-extra",
+      "urls": [
+        "https://download.gnome.org/sources/zenity/cache.json"
+      ],
+      "note": "",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
+    },
+    {
+      "name": "claude-cage-qemu-runtime",
+      "before": "",
+      "after": "",
+      "upstream": "",
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "generated-or-wrapper",
+      "scope": "explicit-extra",
+      "urls": [],
+      "note": "Generated private QEMU/OVMF runtime wrapper. It has no independent version property; QEMU and OVMF are audited separately.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "private-helper"
     }
   ]
 }

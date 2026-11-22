@@ -11,9 +11,8 @@ Coc 并清理 Syntastic 与重复 clangd 注册。Flatpak 已按用户后续确�
    NumPy/科学计算相关依赖和项目特定 Node/JDK 逐步放进项目 devShell。
    保留基础命令、Neovim provider 和 Rust 链接器，不把 pipx 的 CLI 用途混同于
    项目依赖。需要已有项目逐一提供环境后再撤销全局依赖。
-3. **旧 p7zip**：锁定包集仍提供 p7zip 17.06，也提供官方 Linux 7-Zip 的
-   `_7zz` 26.04。ranger 的预览和打开规则仍调用 `7z`；替换时要一起迁移调用
-   或提供兼容包装，不能只移除包。[官方发布](https://www.7-zip.org/download.html)
+3. **旧 p7zip（已替换）**：系统使用官方 Linux 7-Zip 的 `_7zz`。
+   ranger 的预览、列表和通过 atool 解包均使用 `7zz`。[官方发布](https://www.7-zip.org/download.html)
 4. **钉钉的旧依赖例外**：目前的 NUR 配方需要显式允许旧 OpenSSL 依赖；
    OpenSSL 1.1.1 已结束上游公开支持。应优先找能取消该例外、仍满足钉钉功能的
    包配方。换成 Flatpak 并不能自动证明捆绑库已更新。

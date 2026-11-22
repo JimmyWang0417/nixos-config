@@ -1,57 +1,23 @@
-func! Format()
-exec "w"
-    if &filetype == 'c'
-        :ClangFormat
-    elseif &filetype == 'cpp'
-        :ClangFormat
-    elseif &filetype == 'python'
-        exec '!python -m black %'
-        exec 'e'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc 
+" Explicit helper composition; reloads replace definitions safely.
+let s:command_dir = expand('<sfile>:p:h') . '/commands'
+for s:module in ['common.vim', 'format.vim', 'build.vim', 'run.vim']
+  execute 'source ' . fnameescape(s:command_dir . '/' . s:module)
+endfor
+unlet s:module s:command_dir
 
-func! Compile()
-exec "w"
-    if &filetype == 'c'
-        exec '!g++ % -o %<'
-    elseif &filetype == 'cpp'
-        exec '!g++ -Wall -Wextra -Wshadow -Wconversion -std=c++14 -O2 % -o %<'
-    elseif &filetype == 'python'
-        exec '!python %'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc 
-
-func! Run()
-exec "w"
-    if &filetype == 'c'
-        exec '!time ./%<'
-    elseif &filetype == 'cpp'
-        exec '!time ./%<'
-    elseif &filetype == 'python'
-        exec '!time !python %'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc
-
-func! CompileRunGcc()
-exec "w" 
-    if &filetype == 'c' 
-        exec '!g++ % -o %<'
-        exec '!time ./%<'
-    elseif &filetype == 'cpp'
-        exec '!g++ % -o %<'
-        exec '!time ./%<'
-    elseif &filetype == 'python'
-        exec '!time python %'
-    elseif &filetype == 'sh'
-        :!time bash %
-    endif
-endfunc 
+" Retain existing function names for user mappings and commands.
+function! Format() abort
+  return OrionFormat()
+endfunction
+function! Compile() abort
+  return OrionBuild()
+endfunction
+function! Run() abort
+  return OrionRun()
+endfunction
+function! CompileRunGcc() abort
+  return OrionBuildRun()
+endfunction
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
