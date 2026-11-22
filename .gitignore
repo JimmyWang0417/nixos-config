@@ -8,6 +8,7 @@ result-*
 .direnv/
 .env
 .env.*
+/.pre-commit-config.yaml
 
 # VM images
 *.qcow2

@@ -1,5 +1,10 @@
 # Runtime-only restoration; decrypted data never enters a derivation or the store.
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.orion.secrets;
   helper = ../../lib/restore-private-archive.py;
@@ -16,7 +21,10 @@ in
       before = [ "NetworkManager.service" ];
       after = [ "local-fs.target" ] ++ secretUnit;
       wants = secretUnit;
-      path = [ pkgs.networkmanager config.systemd.package ];
+      path = [
+        pkgs.networkmanager
+        config.systemd.package
+      ];
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;

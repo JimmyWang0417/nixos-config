@@ -13,13 +13,18 @@ let
       --root "$HOME"/${lib.escapeShellArg archive.destination} \
       --label ${lib.escapeShellArg archive.secret} \
       ${lib.optionalString (archive.flat or false) "--flat"} \
-      ${lib.concatMapStringsSep " " (file: "--allow-file ${lib.escapeShellArg file}") (archive.files or [ ])} \
-      ${lib.concatMapStringsSep " " (file: "--guard-file ${lib.escapeShellArg file}") (archive.guards or [ ])}
+      ${
+        lib.concatMapStringsSep " " (file: "--allow-file ${lib.escapeShellArg file}") (archive.files or [ ])
+      } \
+      ${lib.concatMapStringsSep " " (file: "--guard-file ${lib.escapeShellArg file}") (
+        archive.guards or [ ]
+      )}
   '';
 in
 {
   # Restore before user services start and before public UI defaults are seeded.
   # Missing or unreadable runtime secrets are reported and safely skipped.
-  home.activation.privateAppConfigs = lib.hm.dag.entryBetween
-    [ "reloadSystemd" ] [ "writeBoundary" ] (lib.concatMapStringsSep "\n" restore archives);
+  home.activation.privateAppConfigs =
+    lib.hm.dag.entryBetween [ "reloadSystemd" ] [ "writeBoundary" ]
+      (lib.concatMapStringsSep "\n" restore archives);
 }

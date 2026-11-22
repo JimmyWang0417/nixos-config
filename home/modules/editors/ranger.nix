@@ -2,8 +2,14 @@
 let
   # Commands actually invoked by the migrated ranger preview/opener scripts.
   previewCommands = with pkgs; [
-    w3m atool mediainfo ffmpegthumbnailer poppler-utils djvulibre
-    libarchive imagemagick
+    w3m
+    atool
+    mediainfo
+    ffmpegthumbnailer
+    poppler-utils
+    djvulibre
+    libarchive
+    imagemagick
   ];
 in
 {

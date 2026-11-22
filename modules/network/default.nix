@@ -1,1 +1,6 @@
-{ ... }: { imports = [ ./network-manager.nix ./easyconnect.nix ]; }
+{ ... }: {
+  imports = [
+    ./network-manager.nix
+    ./easyconnect.nix
+  ];
+}

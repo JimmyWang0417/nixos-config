@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.orion.development.rust;
   rustupHome = cfg.stateDirectory;
@@ -19,7 +24,11 @@ in
     };
     components = lib.mkOption {
       type = lib.types.listOf lib.types.nonEmptyStr;
-      default = [ "rustfmt" "clippy" "rust-src" ];
+      default = [
+        "rustfmt"
+        "clippy"
+        "rust-src"
+      ];
       description = "Components installed for the selected default Rust toolchain.";
     };
   };

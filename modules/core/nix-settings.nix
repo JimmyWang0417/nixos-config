@@ -29,15 +29,9 @@ in
   # Substituters, the proxy, and http-connections are applied in nix-download.nix.
   config = lib.mkIf cfg.enable {
     nixpkgs.config.allowUnfree = cfg.allowUnfree;
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    # Weekly. nix-collect-garbage removes profile generations older than 30 days,
-    # then deletes store paths no remaining generation references.
-    # A generation is not removed just because it sits past GRUB's 20-entry menu.
-    # --delete-old is not set: that would drop every previous generation.
-    nix.gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 }

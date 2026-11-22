@@ -1,10 +1,18 @@
-{ lib, pkgs, inputs, osConfig, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  osConfig,
+  ...
+}:
 let
   whitesur = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system}.whitesur-kde;
   layout = {
-    "plasma-org.kde.plasma.desktop-appletsrc" = pkgs.replaceVars ../../plasma/plasma-org.kde.plasma.desktop-appletsrc {
-      whitesurWallpaper = "${whitesur}/share/wallpapers/WhiteSur/contents/images/3840x2160.jpg";
-    };
+    "plasma-org.kde.plasma.desktop-appletsrc" =
+      pkgs.replaceVars ../../plasma/plasma-org.kde.plasma.desktop-appletsrc
+        {
+          whitesurWallpaper = "${whitesur}/share/wallpapers/WhiteSur/contents/images/3840x2160.jpg";
+        };
     "plasmashellrc" = pkgs.replaceVars ../../plasma/plasmashellrc {
       plasmaShells = "${pkgs.kdePackages.plasma-desktop}/share/plasma/shells";
     };
@@ -20,12 +28,13 @@ let
     "kactivitymanagerdrc" = ../../plasma/kactivitymanagerdrc;
     "kwinoutputconfig.json" = ../../plasma/kwinoutputconfig.json;
   };
-  installLayout = lib.concatStringsSep "\n" (lib.mapAttrsToList
-    (name: src: ''
+  installLayout = lib.concatStringsSep "\n" (
+    lib.mapAttrsToList (name: src: ''
       run ${pkgs.coreutils}/bin/install -Dm644 ${src} "$HOME/.config/${name}"
       run ${pkgs.coreutils}/bin/chmod u+w "$HOME/.config/${name}"
-    '')
-    layout);
-in {
+    '') layout
+  );
+in
+{
   home.activation.plasmaLayout = lib.hm.dag.entryAfter [ "writeBoundary" ] installLayout;
 }

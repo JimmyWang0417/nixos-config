@@ -1,4 +1,11 @@
-{ config, lib, pkgs, inputs, hostName, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  hostName,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -83,13 +90,15 @@
       message = "Orion's default session is Plasma Wayland (plasma)";
     }
     {
-      assertion = lib.all
-        (name: lib.elem name config.services.displayManager.sessionData.sessionNames)
-        [ "plasma" "xfce" ];
+      assertion = lib.all (name: lib.elem name config.services.displayManager.sessionData.sessionNames) [
+        "plasma"
+        "xfce"
+      ];
       message = "Orion requires Plasma Wayland and the selectable Xfce X11 session for ToDesk";
     }
     {
-      assertion = config.services.xserver.desktopManager.xfce.enable
+      assertion =
+        config.services.xserver.desktopManager.xfce.enable
         && !config.services.xserver.desktopManager.xfce.enableWaylandSession;
       message = "The ToDesk fallback is Xfce X11";
     }

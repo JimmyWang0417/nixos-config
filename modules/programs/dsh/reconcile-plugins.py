@@ -1,4 +1,5 @@
 import json, os, pathlib, subprocess
+
 names = json.loads(os.environ["DSH_PLUGIN_NAMES"])
 root = pathlib.Path(os.environ.get("DSH_HOME") or pathlib.Path.home() / ".dsh")
 manifest_path = root / "profiles" / "web" / "package.json"
@@ -17,7 +18,9 @@ for name in names:
     if not isinstance(spec, str):
         spec = ""
     # pnpm saves `github:owner/repo` under the package name, not the spec.
-    if spec == "" and any(isinstance(value, str) and value == name for value in deps.values()):
+    if spec == "" and any(
+        isinstance(value, str) and value == name for value in deps.values()
+    ):
         continue
     if spec.startswith("link:") or spec.startswith("file:"):
         if name not in remove:

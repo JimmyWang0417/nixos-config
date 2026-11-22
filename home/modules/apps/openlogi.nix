@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
-let openlogi = pkgs.openlogi;
-in {
+let
+  openlogi = pkgs.openlogi;
+in
+{
   systemd.user.services.openlogi-agent = {
     Unit = {
       Description = "OpenLogi background agent (Logitech HID++ device control)";

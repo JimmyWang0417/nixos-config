@@ -10,4 +10,7 @@ let
     opacityVariants = [ "solid" ];
   };
   themeName = "WhiteSur-Light-solid-green";
-in { inherit wallpaper theme themeName; }
+in
+{
+  inherit wallpaper theme themeName;
+}

@@ -1,10 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # Community plugins remain managed by dsh-market, not pinned by Nix.
-  dsh = lib.findFirst
-    (pkg: (pkg.pname or "") == "deepseek-harness")
-    null
-    config.orion.packages.unstable;
+  dsh = lib.findFirst (
+    pkg: (pkg.pname or "") == "deepseek-harness"
+  ) null config.orion.packages.unstable;
 in
 {
   assertions = [

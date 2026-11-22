@@ -24,6 +24,13 @@ python3 tests/test_private_restore.py
 echo "== managed stable toolchain activation =="
 python3 tests/toolchains.py
 
+echo "== adaptive Nix storage maintenance =="
+python3 tests/storage.py
+
+echo "== development tools =="
+nix eval --impure --json --no-update-lock-file --show-trace --file tests/development.nix
+echo
+
 echo "== nix flake check =="
 if nix flake check --help 2>&1 | grep -q -- '--no-build'; then
   nix flake check --no-build --no-update-lock-file --show-trace

@@ -5,7 +5,8 @@ let
   qoderPkg = nurPkgs.qoder-cn;
   traePkg = nurPkgs.trae-cn;
 in
-with pkgs; [
+with pkgs;
+[
   keepassxc
   # The user unit lives in the Home Manager application modules. The package is nur-packages botmux.
   nurPkgs.botmux

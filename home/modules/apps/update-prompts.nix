@@ -10,14 +10,19 @@ let
     "JetBrains/IntelliJIdea${majorMinor pkgs.jetbrains.idea}"
     "JetBrains/PyCharm${majorMinor pkgs.jetbrains.pycharm}"
     "Google/AndroidStudio${majorMinor androidStudio}"
-  ] ++ lib.optional (androidPatch != null && androidPatch != "0")
-    "Google/AndroidStudio${majorMinor androidStudio}.${androidPatch}";
-in {
+  ]
+  ++ lib.optional (
+    androidPatch != null && androidPatch != "0"
+  ) "Google/AndroidStudio${majorMinor androidStudio}.${androidPatch}";
+in
+{
   # Other in-app "a new version is available" switches. Each key is one the
   # app itself reads. The script only rewrites those keys.
-  home.activation.disableInAppUpdatePrompts = lib.hm.dag.entryAfter [ "writeBoundary" "privateAppConfigs" ] ''
-    export JB_UPDATE_DIRS=${lib.escapeShellArg (builtins.concatStringsSep ":" jbUpdateDirs)}
-    run ${pkgs.python3}/bin/python3 ${../../disable-update-prompts.py}
-  '';
+  home.activation.disableInAppUpdatePrompts =
+    lib.hm.dag.entryAfter [ "writeBoundary" "privateAppConfigs" ]
+      ''
+        export JB_UPDATE_DIRS=${lib.escapeShellArg (builtins.concatStringsSep ":" jbUpdateDirs)}
+        run ${pkgs.python3}/bin/python3 ${../../disable-update-prompts.py}
+      '';
 
 }

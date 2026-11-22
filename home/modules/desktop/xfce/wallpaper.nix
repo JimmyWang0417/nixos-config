@@ -1,4 +1,9 @@
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   inherit (import ./assets.nix { inherit pkgs inputs; }) wallpaper;
   # Xfdesktop keys include the actual connector name. Populate the known
@@ -22,15 +27,23 @@ let
           --create --type int --set 5
       done
   '';
-in {
+in
+{
   xfconf.settings = {
     xfce4-desktop = {
       "backdrop/single-workspace-mode" = true;
       "backdrop/single-workspace-number" = 0;
       "desktop-icons/icon-size" = 40;
       "desktop-icons/font-size" = 10.0;
-    } // lib.foldl' (left: right: left // right) { }
-      (map backdrop [ "eDP-1" "HDMI-1-0" "HDMI-A-1" "0" ]);
+    }
+    // lib.foldl' (left: right: left // right) { } (
+      map backdrop [
+        "eDP-1"
+        "HDMI-1-0"
+        "HDMI-A-1"
+        "0"
+      ]
+    );
 
   };
   xdg.configFile."autostart/xfce-whitesur-wallpaper.desktop".text = ''

@@ -8263,5 +8263,5 @@
     }
   ],
   "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
-  "after_inventory": "Evaluated /tmp/nixos-toolchain-inventory.json; pinned Rust compiler packages replaced by unstable elan/rustup manager binaries. Existing upstream observations reused; only manager release metadata refreshed."
+  "after_inventory": "Evaluated /tmp/nixos-community-inventory.json; system package identities unchanged by the community-tool additions. Existing upstream observations preserved; no re-audit of unchanged software."
 }

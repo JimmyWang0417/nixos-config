@@ -5,7 +5,14 @@
 #   1. networking.hostName, and the matching hostName in flake.nix
 #   2. fileSystems, initrd modules, nixos-hardware imports, and GPU bus ids
 #   3. which orion.* profiles are enabled
-{ config, lib, pkgs, inputs, hostName, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  hostName,
+  ...
+}:
 {
   imports = [
     inputs.nixos-hardware.nixosModules.common-pc-ssd

@@ -1,4 +1,10 @@
-{ lib, pkgs, osConfig, ... }: {
+{
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}:
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -16,9 +22,14 @@
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${../../assets/shell/p10k.zsh}
-      eval "$(${pkgs.pay-respects}/bin/pay-respects zsh)"
+      # nix-index owns missing-command lookup; retain explicit typo correction.
+      eval "$(${pkgs.pay-respects}/bin/pay-respects zsh --alias --nocnf)"
     '';
   };
 
-  home.packages = with pkgs; [ lsd pay-respects zsh-powerlevel10k ];
+  home.packages = with pkgs; [
+    lsd
+    pay-respects
+    zsh-powerlevel10k
+  ];
 }

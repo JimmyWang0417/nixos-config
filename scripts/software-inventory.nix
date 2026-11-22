@@ -10,29 +10,60 @@ let
   # is intentionally null for EFI-only hosts whose BIOS device is "nodev".
   grubConfig = c.boot.loader.grub;
   grubPkgs = if grubConfig.forcei686 then p.pkgsi686Linux else p;
-  grubBase = if grubConfig.zfsSupport then grubPkgs.grub2.override {
-    zfsSupport = true;
-    zfs = grubConfig.zfsPackage;
-  } else grubPkgs.grub2;
-  grubConfigured = if grubConfig.efiSupport
-    then grubBase.override { efiSupport = true; }
-    else grubBase;
-  record = scope: pkg:
+  grubBase =
+    if grubConfig.zfsSupport then
+      grubPkgs.grub2.override {
+        zfsSupport = true;
+        zfs = grubConfig.zfsPackage;
+      }
+    else
+      grubPkgs.grub2;
+  grubConfigured =
+    if grubConfig.efiSupport then grubBase.override { efiSupport = true; } else grubBase;
+  record =
+    scope: pkg:
     assert builtins.isAttrs pkg && (pkg.type or null) == "derivation";
     {
-    inherit scope;
-    name = pkg.pname or pkg.name;
-    packageName = pkg.name;
-    version = pkg.version or "";
-    homepage = pkg.meta.homepage or "";
-    position = pkg.meta.position or "";
-    description = pkg.meta.description or "";
-  } // (if pkg ? installMode then { installMode = pkg.installMode; } else { });
+      inherit scope;
+      name = pkg.pname or pkg.name;
+      packageName = pkg.name;
+      version = pkg.version or "";
+      homepage = pkg.meta.homepage or "";
+      position = pkg.meta.position or "";
+      description = pkg.meta.description or "";
+    }
+    // (if pkg ? installMode then { installMode = pkg.installMode; } else { });
   extras = {
-    inherit (u) typora qoder-cn trae-cn deveco-studio docker-easyconnect;
+    inherit (u)
+      typora
+      qoder-cn
+      trae-cn
+      deveco-studio
+      docker-easyconnect
+      ;
     baidunetdisk = p.nur.repos.freegoxing.baidunetdisk;
-    inherit (p.python3Packages) pip fastapi matplotlib pillow reportlab scikit-learn scipy seaborn black;
-    inherit (p) gcc clang-tools efm-langserver fcitx5 fcitx5-gtk intel-media-driver intel-compute-runtime microcode-intel mesa;
+    inherit (p.python3Packages)
+      pip
+      fastapi
+      matplotlib
+      pillow
+      reportlab
+      scikit-learn
+      scipy
+      seaborn
+      black
+      ;
+    inherit (p)
+      gcc
+      clang-tools
+      efm-langserver
+      fcitx5
+      fcitx5-gtk
+      intel-media-driver
+      intel-compute-runtime
+      microcode-intel
+      mesa
+      ;
     # Enabled service/activation tools that need not appear in the user PATH.
     thermald = c.services.thermald.package;
     logrotate = p.logrotate;
@@ -46,13 +77,21 @@ let
     fcitx5-qt5 = p.libsForQt5.fcitx5-qt;
   };
 in
-  map (record "system") c.environment.systemPackages
-  ++ map (record "home") h.home.packages
-  ++ map (record "font") c.fonts.packages
-  # hardware.firmware applies buildEnv/compression to its declared packages.
-  # Inspect declarations so versions survive rather than auditing the wrapper.
-  ++ map (record "firmware") (builtins.concatLists
-    (map (definition: definition.value) system.options.hardware.firmware.definitionsWithLocations))
-  ++ map (record "vscode-extension") h.programs.vscode.profiles.default.extensions
-  ++ map (record "hardware") [ c.boot.kernelPackages.kernel c.hardware.nvidia.package ]
-  ++ builtins.attrValues (builtins.mapAttrs (attribute: pkg: (record "explicit-extra" pkg) // { inherit attribute; }) extras)
+map (record "system") c.environment.systemPackages
+++ map (record "home") h.home.packages
+++ map (record "font") c.fonts.packages
+# hardware.firmware applies buildEnv/compression to its declared packages.
+# Inspect declarations so versions survive rather than auditing the wrapper.
+++ map (record "firmware") (
+  builtins.concatLists (
+    map (definition: definition.value) system.options.hardware.firmware.definitionsWithLocations
+  )
+)
+++ map (record "vscode-extension") h.programs.vscode.profiles.default.extensions
+++ map (record "hardware") [
+  c.boot.kernelPackages.kernel
+  c.hardware.nvidia.package
+]
+++ builtins.attrValues (
+  builtins.mapAttrs (attribute: pkg: (record "explicit-extra" pkg) // { inherit attribute; }) extras
+)

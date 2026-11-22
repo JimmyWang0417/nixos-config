@@ -1,1 +1,12 @@
-{ ... }: { imports = [ ./boot.nix ./locale.nix ./users.nix ./nix-settings.nix ./nix-download.nix ./secrets.nix ./private-configs.nix ]; }
+{ ... }: {
+  imports = [
+    ./boot.nix
+    ./locale.nix
+    ./users.nix
+    ./nix-settings.nix
+    ./nix-download.nix
+    ./nix-storage
+    ./secrets.nix
+    ./private-configs.nix
+  ];
+}

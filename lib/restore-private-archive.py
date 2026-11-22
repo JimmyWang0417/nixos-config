@@ -6,6 +6,7 @@ not trusted. No extract()/extractall(), links, special files, path traversal,
 symlink ancestors or replacement of existing destinations are permitted. Logs
 contain labels and counts, never file contents or archived member names.
 """
+
 import argparse
 import errno
 import os
@@ -20,8 +21,10 @@ MAX_FILES = 4096
 MAX_FILE_BYTES = 64 * 1024 * 1024
 MAX_TOTAL_BYTES = 256 * 1024 * 1024
 
+
 class RejectedArchive(ValueError):
     pass
+
 
 def parts_for(name, *, empty=False):
     if not isinstance(name, str) or "\\" in name or "\0" in name:
@@ -34,10 +37,16 @@ def parts_for(name, *, empty=False):
         raise RejectedArchive("empty archive path")
     return parts
 
-def selected_members(archive, *, prefix="", flat=False, allow_files=(), allow_suffixes=()):
+
+def selected_members(
+    archive, *, prefix="", flat=False, allow_files=(), allow_suffixes=()
+):
     prefix_parts = parts_for(prefix, empty=True)
     allowed = {parts_for(name) for name in allow_files}
-    if any(not suffix.startswith(".") or "/" in suffix or "\\" in suffix for suffix in allow_suffixes):
+    if any(
+        not suffix.startswith(".") or "/" in suffix or "\\" in suffix
+        for suffix in allow_suffixes
+    ):
         raise RejectedArchive("invalid allowed suffix")
     chosen = []
     seen = set()
@@ -55,9 +64,9 @@ def selected_members(archive, *, prefix="", flat=False, allow_files=(), allow_su
         if prefix_parts:
             if parts == prefix_parts and member.isdir():
                 continue
-            if parts[:len(prefix_parts)] != prefix_parts:
+            if parts[: len(prefix_parts)] != prefix_parts:
                 raise RejectedArchive("archive member is outside the required prefix")
-            parts = parts[len(prefix_parts):]
+            parts = parts[len(prefix_parts) :]
         if not parts:
             raise RejectedArchive("empty destination path")
         if flat and len(parts) != 1:
@@ -66,7 +75,9 @@ def selected_members(archive, *, prefix="", flat=False, allow_files=(), allow_su
             continue
         if allowed and parts not in allowed:
             raise RejectedArchive("archive contains an unexpected file")
-        if allow_suffixes and not any(parts[-1].endswith(suffix) for suffix in allow_suffixes):
+        if allow_suffixes and not any(
+            parts[-1].endswith(suffix) for suffix in allow_suffixes
+        ):
             raise RejectedArchive("archive contains an unexpected file suffix")
         if parts in seen:
             raise RejectedArchive("duplicate destination path")
@@ -83,6 +94,7 @@ def selected_members(archive, *, prefix="", flat=False, allow_files=(), allow_su
             raise RejectedArchive("archive file collides with a directory path")
     return chosen
 
+
 def open_directory(parent_fd, name, *, owner=None, create=True):
     created = False
     if create:
@@ -92,14 +104,19 @@ def open_directory(parent_fd, name, *, owner=None, create=True):
         except FileExistsError:
             pass
     try:
-        fd = os.open(name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=parent_fd)
+        fd = os.open(
+            name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=parent_fd
+        )
     except OSError as exc:
         if exc.errno in (errno.ELOOP, errno.ENOTDIR):
-            raise RejectedArchive("destination ancestor is not a real directory") from None
+            raise RejectedArchive(
+                "destination ancestor is not a real directory"
+            ) from None
         raise
     if created and owner is not None:
         os.fchown(fd, *owner)
     return fd
+
 
 def open_root(root, *, owner=None):
     path = PurePosixPath(root)
@@ -115,6 +132,7 @@ def open_root(root, *, owner=None):
     except BaseException:
         os.close(fd)
         raise
+
 
 def descendant_exists(root_fd, parts):
     fd = os.dup(root_fd)
@@ -134,6 +152,7 @@ def descendant_exists(root_fd, parts):
     finally:
         os.close(fd)
 
+
 def publish_file(archive, member, parts, root_fd, *, owner=None):
     parent_fd = os.dup(root_fd)
     temp_name = None
@@ -148,8 +167,12 @@ def publish_file(archive, member, parts, root_fd, *, owner=None):
         except FileNotFoundError:
             pass
         temp_name = ".private-restore-" + secrets.token_hex(16)
-        temp_fd = os.open(temp_name, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
-                          0o600, dir_fd=parent_fd)
+        temp_fd = os.open(
+            temp_name,
+            os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
+            0o600,
+            dir_fd=parent_fd,
+        )
         with os.fdopen(temp_fd, "wb") as out:
             if owner is not None:
                 os.fchown(out.fileno(), *owner)
@@ -170,8 +193,13 @@ def publish_file(archive, member, parts, root_fd, *, owner=None):
         try:
             # Hard-link publication is atomic and fails if another writer has
             # already created the destination. rename() could overwrite it.
-            os.link(temp_name, parts[-1], src_dir_fd=parent_fd,
-                    dst_dir_fd=parent_fd, follow_symlinks=False)
+            os.link(
+                temp_name,
+                parts[-1],
+                src_dir_fd=parent_fd,
+                dst_dir_fd=parent_fd,
+                follow_symlinks=False,
+            )
         except FileExistsError:
             return False
         os.fsync(parent_fd)
@@ -184,7 +212,18 @@ def publish_file(archive, member, parts, root_fd, *, owner=None):
                 pass
         os.close(parent_fd)
 
-def restore(archive_path, root, *, prefix="", flat=False, allow_files=(), allow_suffixes=(), guards=(), owner=None):
+
+def restore(
+    archive_path,
+    root,
+    *,
+    prefix="",
+    flat=False,
+    allow_files=(),
+    allow_suffixes=(),
+    guards=(),
+    owner=None,
+):
     # A missing secret must not create directories or block unrelated public
     # Home Manager settings on a machine whose age key is not available yet.
     try:
@@ -195,18 +234,36 @@ def restore(archive_path, root, *, prefix="", flat=False, allow_files=(), allow_
         if not stat.S_ISREG(os.fstat(source.fileno()).st_mode):
             raise RejectedArchive("runtime archive is not a regular file")
         with tarfile.open(fileobj=source, mode="r:*") as archive:
-            members = selected_members(archive, prefix=prefix, flat=flat, allow_files=allow_files, allow_suffixes=allow_suffixes)
+            members = selected_members(
+                archive,
+                prefix=prefix,
+                flat=flat,
+                allow_files=allow_files,
+                allow_suffixes=allow_suffixes,
+            )
             guard_parts = [parts_for(name) for name in guards]
             root_fd = open_root(root, owner=owner)
             try:
                 if any(descendant_exists(root_fd, parts) for parts in guard_parts):
-                    return {"unavailable": False, "created": 0, "existing": 0, "guarded": True}
-                created = sum(publish_file(archive, member, parts, root_fd, owner=owner)
-                              for member, parts in members)
-                return {"unavailable": False, "created": created,
-                        "existing": len(members) - created, "guarded": False}
+                    return {
+                        "unavailable": False,
+                        "created": 0,
+                        "existing": 0,
+                        "guarded": True,
+                    }
+                created = sum(
+                    publish_file(archive, member, parts, root_fd, owner=owner)
+                    for member, parts in members
+                )
+                return {
+                    "unavailable": False,
+                    "created": created,
+                    "existing": len(members) - created,
+                    "guarded": False,
+                }
             finally:
                 os.close(root_fd)
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -227,19 +284,35 @@ def main():
         if os.geteuid() != 0 and owner[0] != os.geteuid():
             parser.error("changing owner requires root")
     try:
-        result = restore(args.archive, args.root, prefix=args.strip_prefix, flat=args.flat,
-                         allow_files=args.allow_file, allow_suffixes=args.allow_suffix, guards=args.guard_file, owner=owner)
+        result = restore(
+            args.archive,
+            args.root,
+            prefix=args.strip_prefix,
+            flat=args.flat,
+            allow_files=args.allow_file,
+            allow_suffixes=args.allow_suffix,
+            guards=args.guard_file,
+            owner=owner,
+        )
     except (RejectedArchive, tarfile.TarError, OSError) as exc:
         # Do not include filenames from an archive in logs.
-        print(f"{args.label}: private archive restore rejected ({type(exc).__name__})", file=sys.stderr)
+        print(
+            f"{args.label}: private archive restore rejected ({type(exc).__name__})",
+            file=sys.stderr,
+        )
         return 1
     if result["unavailable"]:
         print(f"{args.label}: runtime secret unavailable; restore skipped")
     elif result["guarded"]:
-        print(f"{args.label}: existing application state preserved; archive restore skipped")
+        print(
+            f"{args.label}: existing application state preserved; archive restore skipped"
+        )
     else:
-        print(f"{args.label}: restored {result['created']} file(s); preserved {result['existing']} existing file(s)")
+        print(
+            f"{args.label}: restored {result['created']} file(s); preserved {result['existing']} existing file(s)"
+        )
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

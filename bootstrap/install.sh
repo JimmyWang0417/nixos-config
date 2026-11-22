@@ -8,12 +8,12 @@ force=0
 orion_disk_uuid="fd32207f-8a11-48d7-9d04-9316cdb8c265"
 
 case "${1:-}" in
-  "") ;;
-  --force) force=1 ;;
-  *)
-    echo "只接受 --force。" >&2
-    exit 1
-    ;;
+"") ;;
+--force) force=1 ;;
+*)
+  echo "只接受 --force。" >&2
+  exit 1
+  ;;
 esac
 if [[ "$#" -gt 1 ]]; then
   echo "只接受 --force。" >&2
@@ -41,14 +41,14 @@ conf_has_flakes() {
     [[ -z "$line" || "$line" == \#* ]] && continue
     [[ "$line" =~ ^(extra-)?experimental-features[[:space:]]*=[[:space:]]*(.*)$ ]] || continue
     value="${BASH_REMATCH[2]%%#*}"
-    read -r -a tokens <<< "$value"
+    read -r -a tokens <<<"$value"
     for token in "${tokens[@]}"; do
       token="${token#\"}"
       token="${token%\"}"
       [[ "$token" == "nix-command" ]] && has_nix_command=1
       [[ "$token" == "flakes" ]] && has_flakes=1
     done
-  done <<< "$text"
+  done <<<"$text"
   [[ "$has_nix_command" -eq 1 && "$has_flakes" -eq 1 ]]
 }
 
@@ -64,14 +64,14 @@ export NIX_CONFIG
 
 # 二进制缓存：中科大、清华、官方。代理还没起来时也用这一份。
 # extra-trusted-public-keys 只追加官方公钥，不替换 Nix 已经信任的钥匙。
-# 与 flake.nix 的 nixConfig、modules/nix-settings.nix 保持同一份列表。
+# 与 flake.nix 的 nixConfig、modules/core/nix-settings.nix 保持同一份列表。
 mirror_substituters="https://mirrors.ustc.edu.cn/nix-channels/store https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/"
 mirror_key="cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
 
 nix_config_add() {
   local line="$1"
   case "${NIX_CONFIG:-}" in
-    *"$line"*) return ;;
+  *"$line"*) return ;;
   esac
   if [[ -n "${NIX_CONFIG:-}" ]]; then
     NIX_CONFIG="${NIX_CONFIG}"$'\n'"${line}"
@@ -111,8 +111,8 @@ if [[ "$nix_conf_text" != *"mirrors.ustc.edu.cn/nix-channels/store"* ]]; then
 fi
 
 # 当前硬件文件是主机 orion 时，不用安装器生成的文件覆盖它。
-if [[ -f /etc/nixos/hardware-configuration.nix ]] \
-  && grep -F -q "$orion_disk_uuid" "${repo}/modules/hardware.nix"; then
+if [[ -f /etc/nixos/hardware-configuration.nix ]] &&
+  grep -F -q "$orion_disk_uuid" "${repo}/hosts/orion/hardware-configuration.nix"; then
   echo "当前硬件文件是主机 orion（Orion-Laptop）的，本脚本不会覆盖。再加一台机器是新的主机文件，不要把生成的 hardware-configuration.nix 拷进 hosts/orion。"
 fi
 
@@ -127,11 +127,11 @@ orion_flake_ref() {
   for ((i = 0; i < ${#path}; i++)); do
     c="${path:i:1}"
     case "$c" in
-      [A-Za-z0-9._~/-]) encoded+="$c" ;;
-      *)
-        printf -v hex '%%%02X' "'$c"
-        encoded+="$hex"
-        ;;
+    [A-Za-z0-9._~/-]) encoded+="$c" ;;
+    *)
+      printf -v hex '%%%02X' "'$c"
+      encoded+="$hex"
+      ;;
     esac
   done
   printf 'path:%s#orion' "$encoded"
@@ -159,7 +159,7 @@ rebuild=(
 
 hostname_now=""
 if [[ -r /etc/hostname ]]; then
-  hostname_now="$(tr -d '[:space:]' < /etc/hostname)"
+  hostname_now="$(tr -d '[:space:]' </etc/hostname)"
 fi
 
 # 不是 Orion 且没有 --force：flakes 已经写好，不切换。

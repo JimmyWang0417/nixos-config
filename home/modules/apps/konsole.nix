@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
-let seed = import ../../lib/seed-config.nix { inherit lib pkgs; };
-in {
+let
+  seed = import ../../lib/seed-config.nix { inherit lib pkgs; };
+in
+{
   home.packages = [ pkgs.nerd-fonts.hack ];
   # Register profile-installed fonts without adding another CJK fallback chain.
   fonts.fontconfig.enable = true;

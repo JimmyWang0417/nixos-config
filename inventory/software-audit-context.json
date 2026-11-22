@@ -22,6 +22,21 @@
     }
   ],
   "inputs": {
+    "flake-compat": {
+      "original": {
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "original": {
         "owner": "hercules-ci",
@@ -34,6 +49,21 @@
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
+        "type": "github"
+      }
+    },
+    "git-hooks": {
+      "original": {
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1793686154,
+        "narHash": "sha256-Zb/0L3soxrkfcrywpfp0J++0WFLB3tzh0Xtx9up+VNc=",
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
+        "rev": "204b6977e00caac19e2313015a598543ca7be150",
         "type": "github"
       }
     },
@@ -50,6 +80,21 @@
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "6857c7f7c338ad181729c52071386b0d3afa24bc",
+        "type": "github"
+      }
+    },
+    "nix-index-database": {
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1795345257,
+        "narHash": "sha256-p1dA8lUFQTLJfDI2gaTZQ+CcMKw3nxvyHNbwpVMy2rY=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1",
         "type": "github"
       }
     },
@@ -145,6 +190,21 @@
         "rev": "11e5885d241743ff0193465d533b20e754bc3ce0",
         "type": "github"
       }
+    },
+    "treefmt-nix": {
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1795173499,
+        "narHash": "sha256-J8IYl3oEdctyvBgWr+/L01MY5Xm0TU4WXwZDccN5jjk=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "a0a97e31a897a3537eea5c49df4f8adaa83b3b37",
+        "type": "github"
+      }
     }
   },
   "scope": "Evaluated installed/declared system, Home Manager, desktop, fonts, firmware, extension and explicit tool/conditional package metadata. Actual package identities retained separately from selection attributes; runtime plugin declarations tracked separately. Explicit Lean/Rust stable runtime toolchain declarations are separate from Nix package identity/version records.",
@@ -180,8 +240,8 @@
     "input_method_config_checks": 22,
     "input_method_behavior_and_dictionary_tests": 7,
     "private_archive_safety_tests": 13,
-    "flake_check": "passed (--no-build)",
-    "system_derivation": "/nix/store/n5yrqwx7nk56dlmrwpin9vsx3lq0jkq4-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
+    "flake_check": "passed (built formatting and pre-commit/static/workflow checks; system evaluation only)",
+    "system_derivation": "/nix/store/dj46sm9rds2yg0n2r7wga9m0d46d55kz-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
     "xfce_assets": "built and verified GTK CSS, xfwm4, cursor, Tela, wallpaper",
     "xfce_asset_derivation": "/nix/store/07vw550kdap1r8vdd1nqn4yzxm7xf7vd-xfce-appearance-assets.drv",
     "hdl_tools": "Verible formatting/parsing and Icarus SystemVerilog compile smoke passed",
@@ -193,7 +253,14 @@
     "toolchain_manager_policy": "Nine evaluated policy checks and five isolated activation/order/failure/dry-run tests passed. Nix-built elan/rustup CLI syntax and writable TOML tested in temporary data roots; no real user-HOME compiler download or compiler version was asserted.",
     "toolchain_policy_checks": 9,
     "toolchain_activation_behavior_tests": 5,
-    "toolchain_manager_binary_smoke": "Nix-built elan 4.3.0 and rustup 1.29.3 ran successfully with isolated temporary data. Verified elan default_toolchain=stable and rustup profile=default persisted in writable TOML; checked install/default CLI syntax. Real user toolchains were not downloaded or modified during verification."
+    "toolchain_manager_binary_smoke": "Nix-built elan 4.3.0 and rustup 1.29.3 ran successfully with isolated temporary data. Verified elan default_toolchain=stable and rustup profile=default persisted in writable TOML; checked install/default CLI syntax. Real user toolchains were not downloaded or modified during verification.",
+    "storage_policy_checks": 10,
+    "storage_behavior_tests": 11,
+    "storage_maintenance": "Capacity-dependent native min-free/max-free generated at daemon startup; atomic runtime include and native parsing tested in temporary directories. Weekly 30-day age policy retained; persistent weekly idle/AC store optimisation enabled. No services activated or garbage collected on current host.",
+    "development_tool_checks": 9,
+    "development_tool_binary_smoke": "Nix-built nh4.5.0 os test help, direnv2.38.2 Zsh hook, pay-respects0.9.0 --alias --nocnf and generated Zsh syntax passed. Writable checkout with spaces and #orion selector evaluated through native Nix.",
+    "quality_checks": "Treefmt formatting, statix, deadnix and actionlint built checks passed; generated hook tested in temporary Git repository rejecting bad formatting and accepting corrected source. No Git hook installed in actual host repository.",
+    "backups": "Snapper/Restic deferred by user; candidate documentation only, no backup services or repository configured."
   },
   "desktop": {
     "default": "Plasma Wayland (plasma)",
@@ -203,8 +270,8 @@
   },
   "configurationCoverage": "inventory/configuration-coverage.json",
   "auditSummary": {
-    "rows": 587,
-    "configuredUniqueNames": 514,
+    "rows": 591,
+    "configuredUniqueNames": 518,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -213,7 +280,7 @@
       "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 31,
-      "newly-added": 39,
+      "newly-added": 43,
       "not-in-baseline": 13,
       "generated-or-wrapper": 25,
       "ahead-or-different-series": 2,
@@ -226,12 +293,12 @@
     },
     "afterStatuses": {
       "behind": 85,
-      "equal": 318,
+      "equal": 320,
       "ahead-or-different-series": 5,
       "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 31,
-      "generated-or-wrapper": 25,
+      "generated-or-wrapper": 27,
       "snapshot-not-comparable": 9,
       "not-comparable": 4,
       "prerelease-only": 1,
@@ -278,6 +345,43 @@
       "legacyStatePreserved": true,
       "legacyDirectoryOverridesObserved": 0,
       "legacyBinaryInterpreter": "/lib64/ld-linux-x86-64.so.2"
+    }
+  ],
+  "communityPolicyUpdatedAt": "2026-11-22T12:05:23.882330+00:00",
+  "communityPackageAdditions": [
+    {
+      "name": "nh",
+      "module": "home/modules/development/nh.nix",
+      "rawVersion": "4.5.0",
+      "upstreamRelease": "https://github.com/nix-community/nh/releases/tag/v4.5.0",
+      "wrapper": false
+    },
+    {
+      "name": "direnv",
+      "module": "home/modules/development/direnv.nix",
+      "rawVersion": "2.38.2",
+      "upstreamRelease": "https://github.com/direnv/direnv/releases/tag/v2.38.2",
+      "wrapper": false
+    },
+    {
+      "name": "comma-with-db-2.4.2",
+      "module": "home/modules/development/nix-index.nix",
+      "rawVersion": "",
+      "upstreamRelease": "https://github.com/nix-community/comma/releases/tag/v2.4.2",
+      "wrapper": true,
+      "basePackage": "comma",
+      "baseVersion": "2.4.2",
+      "baseUpstreamStatus": "equal"
+    },
+    {
+      "name": "nix-index-with-full-db-0.1.11",
+      "module": "home/modules/development/nix-index.nix",
+      "rawVersion": "",
+      "upstreamRelease": "https://github.com/NixOS/nix-index/releases/tag/v0.1.11",
+      "wrapper": true,
+      "basePackage": "nix-index",
+      "baseVersion": "0.1.11",
+      "baseUpstreamStatus": "equal"
     }
   ]
 }

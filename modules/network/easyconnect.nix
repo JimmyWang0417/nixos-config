@@ -9,7 +9,13 @@
 # autoStart stays false. The unit is not wanted by the default target.
 # The dispatcher uses `docker start` / `docker stop`. No VPN password is stored.
 # The image is the nur-packages output, loaded from the Nix store.
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   cfg = config.orion.easyconnect;
   containerName = "easyconnect";
@@ -22,7 +28,8 @@ let
   nmcli = "${pkgs.networkmanager}/bin/nmcli";
   grep = "${pkgs.gnugrep}/bin/grep";
   # Authority only: userinfo is the part before '@' and before the path.
-  probeAuthority = url:
+  probeAuthority =
+    url:
     let
       rest = lib.removePrefix "https://" url;
       noPath = lib.head (lib.splitString "/" rest);
@@ -30,7 +37,8 @@ let
       noFrag = lib.head (lib.splitString "#" noQuery);
     in
     noFrag;
-  probeOk = url:
+  probeOk =
+    url:
     lib.hasPrefix "https://" url
     && url != "https://"
     && probeAuthority url != ""

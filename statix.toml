@@ -1,0 +1,4 @@
+# These are valid, intentional NixOS module idioms. Enforce correctness lints
+# without requiring unrelated rewrites of attr grouping or module signatures.
+disabled = ["manual_inherit_from", "eta_reduction", "empty_pattern", "repeated_keys"]
+ignore = [".direnv"]

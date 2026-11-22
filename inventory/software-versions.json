@@ -2,8 +2,8 @@
   "date": "2026-11-22",
   "policy": "All Nix-provided system, application and manager packages plus NUR build dependencies use nixos-unstable; stable nixpkgs remains an unused explicit interface. Explicit user-requested exception: elan and rustup initialize stable upstream Lean/Rust toolchains in writable HOME at activation; those runtime toolchain versions are not locked by flake.lock and have not been observed installed.",
   "summary": {
-    "rows": 587,
-    "configuredUniqueNames": 514,
+    "rows": 591,
+    "configuredUniqueNames": 518,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -12,7 +12,7 @@
       "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 31,
-      "newly-added": 39,
+      "newly-added": 43,
       "not-in-baseline": 13,
       "generated-or-wrapper": 25,
       "ahead-or-different-series": 2,
@@ -25,12 +25,12 @@
     },
     "afterStatuses": {
       "behind": 85,
-      "equal": 318,
+      "equal": 320,
       "ahead-or-different-series": 5,
       "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 31,
-      "generated-or-wrapper": 25,
+      "generated-or-wrapper": 27,
       "snapshot-not-comparable": 9,
       "not-comparable": 4,
       "prerelease-only": 1,
@@ -9995,6 +9995,90 @@
       "reports": [
         "software-versions-home.json"
       ]
+    },
+    {
+      "name": "comma-with-db-2.4.2",
+      "before": "",
+      "after": "",
+      "upstream": null,
+      "beforeStatus": "newly-added",
+      "afterStatus": "generated-or-wrapper",
+      "scope": "home",
+      "urls": [
+        "https://github.com/nix-community/comma/releases/tag/v2.4.2",
+        "https://github.com/nix-community/nix-index-database/tree/905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
+      ],
+      "note": "Generated comma wrapper with the pinned nix-index database; no independent wrapper release or raw version attribute. Base comma 2.4.2 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "present": true,
+      "reports": [
+        "software-versions-home.json"
+      ],
+      "kind": "generated-package-wrapper",
+      "basePackage": "comma",
+      "baseVersion": "2.4.2",
+      "baseUpstreamVersion": "2.4.2",
+      "baseUpstreamStatus": "equal",
+      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
+    },
+    {
+      "name": "direnv",
+      "before": "",
+      "after": "2.38.2",
+      "upstream": "2.38.2",
+      "beforeStatus": "newly-added",
+      "afterStatus": "equal",
+      "scope": "home",
+      "urls": [
+        "https://github.com/direnv/direnv/releases/tag/v2.38.2"
+      ],
+      "note": "Nix-pinned unstable direnv with Zsh/Git integration and nix-direnv support; each project still requires explicit direnv allow.",
+      "present": true,
+      "reports": [
+        "software-versions-home.json"
+      ],
+      "kind": "package"
+    },
+    {
+      "name": "nh",
+      "before": "",
+      "after": "4.5.0",
+      "upstream": "4.5.0",
+      "beforeStatus": "newly-added",
+      "afterStatus": "equal",
+      "scope": "home",
+      "urls": [
+        "https://github.com/nix-community/nh/releases/tag/v4.5.0"
+      ],
+      "note": "Nix-pinned unstable nh with the Orion flake reference. Automatic nh cleanup stays disabled; native NixOS retention owns cleanup.",
+      "present": true,
+      "reports": [
+        "software-versions-home.json"
+      ],
+      "kind": "package"
+    },
+    {
+      "name": "nix-index-with-full-db-0.1.11",
+      "before": "",
+      "after": "",
+      "upstream": null,
+      "beforeStatus": "newly-added",
+      "afterStatus": "generated-or-wrapper",
+      "scope": "home",
+      "urls": [
+        "https://github.com/NixOS/nix-index/releases/tag/v0.1.11",
+        "https://github.com/nix-community/nix-index-database/tree/905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
+      ],
+      "note": "Generated nix-index wrapper with the pinned full database; no independent wrapper release or raw version attribute. Base nix-index 0.1.11 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "present": true,
+      "reports": [
+        "software-versions-home.json"
+      ],
+      "kind": "generated-package-wrapper",
+      "basePackage": "nix-index",
+      "baseVersion": "0.1.11",
+      "baseUpstreamVersion": "0.1.11",
+      "baseUpstreamStatus": "equal",
+      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
     }
   ]
 }

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.orion.fonts.windows;
 in
@@ -26,13 +31,14 @@ in
       let
         dir = lib.removeSuffix "/" cfg.directory;
         dirExists = builtins.pathExists dir;
-        isFontName = name:
-          lib.any (suffix: lib.hasSuffix suffix (lib.toLower name)) [ ".ttf" ".otf" ];
+        isFontName =
+          name:
+          lib.any (suffix: lib.hasSuffix suffix (lib.toLower name)) [
+            ".ttf"
+            ".otf"
+          ];
         fontNames =
-          if dirExists then
-            lib.filter isFontName (builtins.attrNames (builtins.readDir dir))
-          else
-            [ ];
+          if dirExists then lib.filter isFontName (builtins.attrNames (builtins.readDir dir)) else [ ];
         fontsSrc =
           if fontNames == [ ] then
             null
@@ -40,7 +46,8 @@ in
             lib.cleanSourceWith {
               name = "windows-fonts-src";
               src = /. + dir;
-              filter = path: type:
+              filter =
+                path: type:
                 (type == "directory" && baseNameOf path == baseNameOf dir)
                 || (type != "directory" && isFontName (baseNameOf path));
             };
@@ -57,8 +64,9 @@ in
         '';
       in
       {
-        warnings = lib.optional (dirExists && fontNames == [ ])
-          "orion.fonts.windows.directory has no .ttf or .otf files (${dir}). 把你自己的字体放进这个目录再打开开关。";
+        warnings = lib.optional (
+          dirExists && fontNames == [ ]
+        ) "orion.fonts.windows.directory has no .ttf or .otf files (${dir}). 把你自己的字体放进这个目录再打开开关。";
 
         assertions = [
           {

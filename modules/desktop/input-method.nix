@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.orion.chinese;
   # fcitx5-with-addons already symlinks libsForQt5.fcitx5-qt, qt6Packages.fcitx5-qt,

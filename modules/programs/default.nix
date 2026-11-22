@@ -1,1 +1,6 @@
-{ ... }: { imports = [ ../dsh.nix ./deveco.nix ]; }
+{ ... }: {
+  imports = [
+    ../dsh.nix
+    ./deveco.nix
+  ];
+}

@@ -13,6 +13,7 @@
 `modules/default.nix` 只组合七个职责目录：
 
 - `core/`：引导、区域、用户、Nix 设置与下载、sops 声明和系统私有配置恢复。
+- `core/nix-storage/`：历史代清理、自适应空间阈值和定期 store 去重，详见 [存储维护](nix-storage.md)。
 - `hardware/`：显卡和 PRIME 等硬件集成。
 - `desktop/`：显示会话、音频、蓝牙、MIME、KDE 应用、字体、快捷键和输入法。`input-method.nix` 管 fcitx5 与会话环境，`cjk-fonts.nix` 管 CJK 字体与回退链，`fonts.nix` 管 Windows 字体来源。
 - `network/`：NetworkManager 与 EasyConnect 调度。

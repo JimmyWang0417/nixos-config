@@ -1,7 +1,10 @@
 # Seed public application preferences without replacing existing writable state.
 { lib, pkgs }:
-files: lib.hm.dag.entryAfter [ "writeBoundary" "privateAppConfigs" ] ''
-  export ORION_SEED_FILES=${lib.escapeShellArg (builtins.toJSON (lib.mapAttrs (_: source: toString source) files))}
+files:
+lib.hm.dag.entryAfter [ "writeBoundary" "privateAppConfigs" ] ''
+  export ORION_SEED_FILES=${
+    lib.escapeShellArg (builtins.toJSON (lib.mapAttrs (_: source: toString source) files))
+  }
   run ${pkgs.python3}/bin/python3 - <<'PY'
   import json, os, pathlib
   home = pathlib.Path.home()

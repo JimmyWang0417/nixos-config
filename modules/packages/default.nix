@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./options.nix
@@ -7,5 +13,12 @@
     ./gaming.nix
   ];
 
-  environment.systemPackages = import ./catalog.nix { inherit config lib pkgs inputs; };
+  environment.systemPackages = import ./catalog.nix {
+    inherit
+      config
+      lib
+      pkgs
+      inputs
+      ;
+  };
 }

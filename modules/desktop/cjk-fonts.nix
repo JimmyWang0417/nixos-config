@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   config = lib.mkIf config.orion.chinese.enable {
     fonts = {
@@ -28,9 +33,22 @@
         # Plasma 6 also assigns defaultFonts (Hack, Noto Sans). mkForce keeps
         # this chain first. Win10 fonts stay installed and stay off this list.
         defaultFonts = {
-          sansSerif = lib.mkForce [ "Noto Sans CJK SC" "Noto Sans" "Source Sans 3" "DejaVu Sans" ];
-          serif = lib.mkForce [ "Noto Serif CJK SC" "Noto Serif" "DejaVu Serif" ];
-          monospace = lib.mkForce [ "Noto Sans Mono CJK SC" "Inconsolata" "DejaVu Sans Mono" ];
+          sansSerif = lib.mkForce [
+            "Noto Sans CJK SC"
+            "Noto Sans"
+            "Source Sans 3"
+            "DejaVu Sans"
+          ];
+          serif = lib.mkForce [
+            "Noto Serif CJK SC"
+            "Noto Serif"
+            "DejaVu Serif"
+          ];
+          monospace = lib.mkForce [
+            "Noto Sans Mono CJK SC"
+            "Inconsolata"
+            "DejaVu Sans Mono"
+          ];
           emoji = lib.mkForce [ "Noto Color Emoji" ];
         };
       };

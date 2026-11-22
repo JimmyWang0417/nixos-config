@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # Parses plugins.vim and coc.vim. Skips plug.vim, Plug checkouts, and coc
   # extensions that are already on disk, then runs nvim --headless only for

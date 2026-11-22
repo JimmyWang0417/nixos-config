@@ -1,4 +1,5 @@
 """Exercise credential restore safety with artificial, nonsecret fixtures."""
+
 import importlib.util
 import io
 import os
@@ -10,10 +11,12 @@ import unittest
 from unittest import mock
 
 SPEC = importlib.util.spec_from_file_location(
-    "restore_private_archive", Path(__file__).resolve().parents[1] / "lib/restore-private-archive.py"
+    "restore_private_archive",
+    Path(__file__).resolve().parents[1] / "lib/restore-private-archive.py",
 )
 restore = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(restore)
+
 
 class PrivateRestoreTests(unittest.TestCase):
     def setUp(self):
@@ -59,10 +62,14 @@ class PrivateRestoreTests(unittest.TestCase):
         self.assertFalse(self.root.exists())
 
     def test_guard_preserves_whole_encryption_state(self):
-        self.tar([(".encryption_key", b"archived key"), ("profiles.yaml", b"archive index")])
+        self.tar(
+            [(".encryption_key", b"archived key"), ("profiles.yaml", b"archive index")]
+        )
         self.root.mkdir()
         (self.root / ".encryption_key").write_bytes(b"existing key")
-        result = restore.restore(self.archive, str(self.root), guards=[".encryption_key"])
+        result = restore.restore(
+            self.archive, str(self.root), guards=[".encryption_key"]
+        )
         self.assertTrue(result["guarded"])
         self.assertEqual((self.root / ".encryption_key").read_bytes(), b"existing key")
         self.assertFalse((self.root / "profiles.yaml").exists())
@@ -76,7 +83,13 @@ class PrivateRestoreTests(unittest.TestCase):
                 self.assertFalse(self.root.exists())
 
     def test_rejects_links_and_special_members_before_writing(self):
-        for kind in [tarfile.SYMTYPE, tarfile.LNKTYPE, tarfile.FIFOTYPE, tarfile.CHRTYPE, tarfile.BLKTYPE]:
+        for kind in [
+            tarfile.SYMTYPE,
+            tarfile.LNKTYPE,
+            tarfile.FIFOTYPE,
+            tarfile.CHRTYPE,
+            tarfile.BLKTYPE,
+        ]:
             with self.subTest(kind=kind):
                 item = tarfile.TarInfo("unsafe")
                 item.type = kind
@@ -87,7 +100,10 @@ class PrivateRestoreTests(unittest.TestCase):
                 self.assertFalse(self.root.exists())
 
     def test_rejects_duplicate_and_file_parent_collisions(self):
-        for entries in [[("same", b"one"), ("same", b"two")], [("parent", b"one"), ("parent/child", b"two")]]:
+        for entries in [
+            [("same", b"one"), ("same", b"two")],
+            [("parent", b"one"), ("parent/child", b"two")],
+        ]:
             self.tar(entries)
             with self.assertRaises(restore.RejectedArchive):
                 restore.restore(self.archive, str(self.root))
@@ -125,12 +141,18 @@ class PrivateRestoreTests(unittest.TestCase):
     def test_atomic_publish_preserves_racing_writer(self):
         self.tar([("file", b"archive value")])
         original_link = os.link
+
         def race(source, destination, **kwargs):
-            fd = os.open(destination, os.O_WRONLY | os.O_CREAT | os.O_EXCL,
-                         0o600, dir_fd=kwargs["dst_dir_fd"])
+            fd = os.open(
+                destination,
+                os.O_WRONLY | os.O_CREAT | os.O_EXCL,
+                0o600,
+                dir_fd=kwargs["dst_dir_fd"],
+            )
             with os.fdopen(fd, "wb") as output:
                 output.write(b"racing writer")
             return original_link(source, destination, **kwargs)
+
         with mock.patch.object(restore.os, "link", side_effect=race):
             result = restore.restore(self.archive, str(self.root))
         self.assertEqual(result["existing"], 1)
@@ -139,7 +161,9 @@ class PrivateRestoreTests(unittest.TestCase):
 
     def test_failure_does_not_publish_partial_file(self):
         self.tar([("file", b"archive value")])
-        with mock.patch.object(restore.os, "fsync", side_effect=OSError("fixture failure")):
+        with mock.patch.object(
+            restore.os, "fsync", side_effect=OSError("fixture failure")
+        ):
             with self.assertRaises(OSError):
                 restore.restore(self.archive, str(self.root))
         self.assertFalse((self.root / "file").exists())
@@ -147,10 +171,21 @@ class PrivateRestoreTests(unittest.TestCase):
 
     def test_exact_file_flat_suffix_and_prefix_policies(self):
         self.tar([("prefix/profile.nmconnection", b"fixture")])
-        result = restore.restore(self.archive, str(self.root), prefix="prefix", flat=True,
-                                 allow_files=["profile.nmconnection"], allow_suffixes=[".nmconnection"])
+        result = restore.restore(
+            self.archive,
+            str(self.root),
+            prefix="prefix",
+            flat=True,
+            allow_files=["profile.nmconnection"],
+            allow_suffixes=[".nmconnection"],
+        )
         self.assertEqual(result["created"], 1)
-        for policy in [{"flat": True}, {"allow_files": ["different"]}, {"prefix": "other"}, {"allow_suffixes": [".json"]}]:
+        for policy in [
+            {"flat": True},
+            {"allow_files": ["different"]},
+            {"prefix": "other"},
+            {"allow_suffixes": [".json"]},
+        ]:
             with self.subTest(policy=policy):
                 with self.assertRaises(restore.RejectedArchive):
                     restore.restore(self.archive, str(self.root), **policy)
@@ -166,6 +201,7 @@ class PrivateRestoreTests(unittest.TestCase):
             with self.assertRaises(restore.RejectedArchive):
                 restore.restore(self.archive, str(self.root))
         self.assertFalse(self.root.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

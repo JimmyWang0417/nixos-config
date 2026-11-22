@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   nixCfg = config.orion.nix;
   cfg = nixCfg.download;
@@ -54,7 +59,8 @@ in
         connect-timeout = 10;
         http-connections = cfg.httpConnections;
         fallback = true;
-      } // lib.optionalAttrs (nixCfg.proxy != null) {
+      }
+      // lib.optionalAttrs (nixCfg.proxy != null) {
         impure-env = [
           "http_proxy=${nixCfg.proxy}"
           "https_proxy=${nixCfg.proxy}"
@@ -74,7 +80,8 @@ in
         enable = true;
         config = {
           url."https://github.com/".insteadOf = [ "git://github.com/" ];
-        } // lib.optionalAttrs (nixCfg.proxy != null) {
+        }
+        // lib.optionalAttrs (nixCfg.proxy != null) {
           http.proxy = nixCfg.proxy;
         };
       };

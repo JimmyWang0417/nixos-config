@@ -1,4 +1,10 @@
-{ config, lib, pkgs, osConfig, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}:
 {
   # Fcitx's configuration tool edits these files. Deploy writable copies, while
   # keeping learned dictionary/history outside the Nix store and config files.

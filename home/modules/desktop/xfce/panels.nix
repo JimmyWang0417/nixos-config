@@ -1,6 +1,15 @@
-{ config, lib, pkgs, osConfig, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}:
 let
-  uint = value: { type = "uint"; inherit value; };
+  uint = value: {
+    type = "uint";
+    inherit value;
+  };
   launcher = id: desktop: {
     "plugins/plugin-${toString id}" = "launcher";
     "plugins/plugin-${toString id}/items" = [ desktop ];
@@ -14,11 +23,15 @@ let
     (launcher 16 "${pkgs.keepassxc}/share/applications/org.keepassxc.KeePassXC.desktop")
     (launcher 17 "${pkgs.todesk}/share/applications/todesk.desktop")
   ];
-in {
+in
+{
   xfconf.settings = {
     xfce4-panel = {
       configver = 2;
-      panels = [ 1 2 ];
+      panels = [
+        1
+        2
+      ];
       "panels/dark-mode" = false;
       "panels/panel-1/position" = "p=6;x=0;y=0";
       "panels/panel-1/output-name" = "Primary";
@@ -29,7 +42,16 @@ in {
       "panels/panel-1/icon-size" = uint 24;
       "panels/panel-1/background-style" = uint 0;
       "panels/panel-1/autohide-behavior" = uint 0;
-      "panels/panel-1/plugin-ids" = [ 1 2 3 4 5 6 7 8 ];
+      "panels/panel-1/plugin-ids" = [
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+      ];
       "plugins/plugin-1" = "showdesktop";
       "plugins/plugin-2" = "pager";
       "plugins/plugin-2/rows" = uint 2;
@@ -57,7 +79,18 @@ in {
       "panels/panel-2/icon-size" = uint 32;
       "panels/panel-2/background-style" = uint 0;
       "panels/panel-2/autohide-behavior" = uint 1;
-      "panels/panel-2/plugin-ids" = [ 10 11 12 13 14 15 16 17 18 19 ];
+      "panels/panel-2/plugin-ids" = [
+        10
+        11
+        12
+        13
+        14
+        15
+        16
+        17
+        18
+        19
+      ];
       "plugins/plugin-10" = "applicationsmenu";
       "plugins/plugin-10/show-button-title" = false;
       "plugins/plugin-10/button-icon" = "nix-snowflake";
@@ -67,7 +100,8 @@ in {
       "plugins/plugin-19/show-labels" = false;
       "plugins/plugin-19/grouping" = uint 1;
       "plugins/plugin-19/show-handle" = false;
-    } // lib.foldl' (left: right: left // right) { } launchers;
+    }
+    // lib.foldl' (left: right: left // right) { } launchers;
 
   };
 }

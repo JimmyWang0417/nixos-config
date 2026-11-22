@@ -23,6 +23,15 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
     # nixos-hardware publishes master only.
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-hardware.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -48,10 +57,24 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager, nixos-hardware, sops-nix, nur, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      sops-nix,
+      nur,
+      ...
+    }@inputs:
     let
       lib = inputs.nixpkgs-unstable.lib;
-      mkHost = name: spec:
+      toolsPkgs = import inputs.nixpkgs-unstable { system = "x86_64-linux"; };
+      quality = import ./nix/quality.nix {
+        inherit inputs self;
+        pkgs = toolsPkgs;
+      };
+      mkHost =
+        name: spec:
         lib.nixosSystem {
           system = spec.system;
           specialArgs = {
@@ -63,14 +86,17 @@
               config.allowUnfree = true;
             };
             hostName = spec.hostName;
-            host = spec // { inherit name; };
+            host = spec // {
+              inherit name;
+            };
           };
           modules = [
             ./modules
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             nur.modules.nixos.default
-          ] ++ spec.modules;
+          ]
+          ++ spec.modules;
         };
     in
     {
@@ -82,12 +108,16 @@
         };
       };
 
-      devShells.x86_64-linux.default =
-        let
-          pkgs = import inputs.nixpkgs-unstable { system = "x86_64-linux"; };
-        in
-        pkgs.mkShell {
-          packages = with pkgs; [ git ];
-        };
+      formatter.x86_64-linux = quality.formatter;
+      checks.x86_64-linux = quality.checks;
+
+      devShells.x86_64-linux.default = toolsPkgs.mkShell {
+        packages = [
+          toolsPkgs.git
+          toolsPkgs.python3
+        ]
+        ++ quality.packages;
+        shellHook = quality.shellHook;
+      };
     };
 }

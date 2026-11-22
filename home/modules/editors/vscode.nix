@@ -2,15 +2,28 @@
 let
   # A selected Chinese-capable toolchain, rather than scheme-full. ctex's
   # Linux default uses Fandol; keep that font with the XeLaTeX packages.
-  latex = pkgs.texliveSmall.withPackages (ps: with ps; [
-    latexmk xetex ctex xecjk biblatex biber fandol
-  ]);
+  latex = pkgs.texliveSmall.withPackages (
+    ps: with ps; [
+      latexmk
+      xetex
+      ctex
+      xecjk
+      biblatex
+      biber
+      fandol
+    ]
+  );
   latexmkTool = name: engine: {
     inherit name;
     command = "${latex}/bin/latexmk";
     args = [
-      "-synctex=1" "-interaction=nonstopmode" "-file-line-error"
-      engine "-outdir=%OUTDIR%" "-auxdir=%AUXDIR%" "%DOC%"
+      "-synctex=1"
+      "-interaction=nonstopmode"
+      "-file-line-error"
+      engine
+      "-outdir=%OUTDIR%"
+      "-auxdir=%AUXDIR%"
+      "%DOC%"
     ];
   };
 in
@@ -21,7 +34,8 @@ in
   # compilers and selected TeX stack live with VS Code.
   home.packages = with pkgs; [
     gcc
-    iverilog verible
+    iverilog
+    verible
     latex
   ];
 
@@ -36,8 +50,14 @@ in
         "jdk.jdkhome" = pkgs.jdk.home;
         "latex-workshop.latex.recipe.default" = "latexmk (XeLaTeX)";
         "latex-workshop.latex.recipes" = [
-          { name = "latexmk (XeLaTeX)"; tools = [ "xelatexmk" ]; }
-          { name = "latexmk (pdfLaTeX)"; tools = [ "pdflatexmk" ]; }
+          {
+            name = "latexmk (XeLaTeX)";
+            tools = [ "xelatexmk" ];
+          }
+          {
+            name = "latexmk (pdfLaTeX)";
+            tools = [ "pdflatexmk" ];
+          }
         ];
         "latex-workshop.latex.tools" = [
           (latexmkTool "xelatexmk" "-xelatex")

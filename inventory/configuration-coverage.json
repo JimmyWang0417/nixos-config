@@ -5,7 +5,7 @@
     "package-defaults": 284,
     "system-component": 35,
     "desktop-defaults": 123,
-    "declared": 72
+    "declared": 76
   },
   "extensionAvailability": [
     {
@@ -6353,6 +6353,64 @@
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "comma-with-db-2.4.2",
+      "versions": [
+        ""
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/nix-index.nix",
+      "note": "Generated comma wrapper with the pinned nix-index database; no independent wrapper release or raw version attribute. Base comma 2.4.2 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "basePackage": "comma",
+      "baseVersion": "2.4.2",
+      "baseUpstreamVersion": "2.4.2",
+      "baseUpstreamStatus": "equal",
+      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
+    },
+    {
+      "name": "direnv",
+      "versions": [
+        "2.38.2"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/direnv.nix",
+      "note": "Nix-pinned unstable direnv with Zsh/Git integration and nix-direnv support; each project still requires explicit direnv allow."
+    },
+    {
+      "name": "nh",
+      "versions": [
+        "4.5.0"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/nh.nix",
+      "note": "Nix-pinned unstable nh with the Orion flake reference. Automatic nh cleanup stays disabled; native NixOS retention owns cleanup."
+    },
+    {
+      "name": "nix-index-with-full-db-0.1.11",
+      "versions": [
+        ""
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/nix-index.nix",
+      "note": "Generated nix-index wrapper with the pinned full database; no independent wrapper release or raw version attribute. Base nix-index 0.1.11 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "basePackage": "nix-index",
+      "baseVersion": "0.1.11",
+      "baseUpstreamVersion": "0.1.11",
+      "baseUpstreamStatus": "equal",
+      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
     }
   ],
   "runtimeToolchains": [
@@ -6371,6 +6429,14 @@
       "module": "home/modules/development/rust.nix",
       "installedVersion": null,
       "versionLocked": false
+    }
+  ],
+  "developmentIntegrations": [
+    {
+      "name": "nix-direnv",
+      "module": "home/modules/development/direnv.nix",
+      "enabled": true,
+      "note": "Shell integration supplied via programs.direnv.nix-direnv; not counted as an additional installed profile package identity or independent version observation."
     }
   ]
 }

@@ -1,6 +1,13 @@
-{ lib, pkgs, inputs, ... }:
-let nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
-in {
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+let
+  nurPkgs = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
+in
+{
   systemd.user.services.botmux = {
     Unit = {
       Description = "botmux daemon (IM <-> AI coding CLI bridge)";

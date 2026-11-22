@@ -7542,8 +7542,163 @@
         }
       ],
       "notes": "Explicit user-requested semideclarative toolchain: activation installs/ensures the stable channel and records it as default in writable HOME. The manager binary is pinned through unstable; the downloaded compiler/toolchain is not pinned by the flake. No compiler version is asserted installed. Project-local toolchain overrides may supersede the global default."
+    },
+    {
+      "description": "",
+      "homepage": "",
+      "name": "comma-with-db-2.4.2",
+      "packageName": "comma-with-db-2.4.2",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/build-support/trivial-builders/default.nix:613",
+      "scope": "home",
+      "version": "",
+      "baseline_version": "",
+      "baseline_present": false,
+      "status": "newly-added",
+      "upstream_version": null,
+      "note": "Generated comma wrapper with the pinned nix-index database; no independent wrapper release or raw version attribute. Base comma 2.4.2 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "official_stable_version": null,
+      "upstream_status": "newly-added",
+      "sources": [
+        {
+          "url": "https://github.com/nix-community/comma/releases/latest",
+          "resolved_url": "https://github.com/nix-community/comma/releases/tag/v2.4.2",
+          "method": "official upstream GitHub designated latest non-prerelease release",
+          "error": null
+        },
+        {
+          "url": "https://github.com/nix-community/nix-index-database/tree/905f3e6f1e78165e79457c0bbe7ec4b885a5fce1",
+          "resolved_url": "https://github.com/nix-community/nix-index-database/tree/905f3e6f1e78165e79457c0bbe7ec4b885a5fce1",
+          "method": "pinned nix-index-database wrapper source; upstream base package version separately evaluated",
+          "error": null
+        }
+      ],
+      "notes": "Generated comma wrapper with the pinned nix-index database; no independent wrapper release or raw version attribute. Base comma 2.4.2 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "after_version": "",
+      "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/build-support/trivial-builders/default.nix:613",
+      "after_upstream_status": "generated-or-wrapper",
+      "upstream_url": "https://github.com/nix-community/nix-index-database/tree/905f3e6f1e78165e79457c0bbe7ec4b885a5fce1",
+      "current_name": "comma-with-db-2.4.2",
+      "current_package_name": "comma-with-db-2.4.2",
+      "identity_match": "verified",
+      "community_policy_added_at": "2026-11-22T12:05:23.882330+00:00",
+      "basePackage": "comma",
+      "baseVersion": "2.4.2",
+      "baseUpstreamVersion": "2.4.2",
+      "baseUpstreamStatus": "equal",
+      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
+    },
+    {
+      "description": "Shell extension that manages your environment",
+      "homepage": "https://direnv.net",
+      "name": "direnv",
+      "packageName": "direnv-2.38.2",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/di/direnv/package.nix:73",
+      "scope": "home",
+      "version": "",
+      "baseline_version": "",
+      "baseline_present": false,
+      "status": "newly-added",
+      "upstream_version": "2.38.2",
+      "note": "Nix-pinned unstable direnv with Zsh/Git integration and nix-direnv support; each project still requires explicit direnv allow.",
+      "official_stable_version": "2.38.2",
+      "upstream_status": "newly-added",
+      "sources": [
+        {
+          "url": "https://github.com/direnv/direnv/releases/latest",
+          "resolved_url": "https://github.com/direnv/direnv/releases/tag/v2.38.2",
+          "method": "official upstream GitHub designated latest non-prerelease release",
+          "error": null
+        }
+      ],
+      "notes": "Nix-pinned unstable direnv with Zsh/Git integration and nix-direnv support; each project still requires explicit direnv allow.",
+      "after_version": "2.38.2",
+      "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/di/direnv/package.nix:73",
+      "after_upstream_status": "equal",
+      "upstream_url": "https://github.com/direnv/direnv/releases/tag/v2.38.2",
+      "current_name": "direnv",
+      "current_package_name": "direnv-2.38.2",
+      "identity_match": "verified",
+      "community_policy_added_at": "2026-11-22T12:05:23.882330+00:00"
+    },
+    {
+      "description": "Yet another nix cli helper",
+      "homepage": "https://github.com/nix-community/nh",
+      "name": "nh",
+      "packageName": "nh-4.5.0",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/nh/nh/package.nix:126",
+      "scope": "home",
+      "version": "",
+      "baseline_version": "",
+      "baseline_present": false,
+      "status": "newly-added",
+      "upstream_version": "4.5.0",
+      "note": "Nix-pinned unstable nh with the Orion flake reference. Automatic nh cleanup stays disabled; native NixOS retention owns cleanup.",
+      "official_stable_version": "4.5.0",
+      "upstream_status": "newly-added",
+      "sources": [
+        {
+          "url": "https://github.com/nix-community/nh/releases/latest",
+          "resolved_url": "https://github.com/nix-community/nh/releases/tag/v4.5.0",
+          "method": "official upstream GitHub designated latest non-prerelease release",
+          "error": null
+        }
+      ],
+      "notes": "Nix-pinned unstable nh with the Orion flake reference. Automatic nh cleanup stays disabled; native NixOS retention owns cleanup.",
+      "after_version": "4.5.0",
+      "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/nh/nh/package.nix:126",
+      "after_upstream_status": "equal",
+      "upstream_url": "https://github.com/nix-community/nh/releases/tag/v4.5.0",
+      "current_name": "nh",
+      "current_package_name": "nh-4.5.0",
+      "identity_match": "verified",
+      "community_policy_added_at": "2026-11-22T12:05:23.882330+00:00"
+    },
+    {
+      "description": "",
+      "homepage": "",
+      "name": "nix-index-with-full-db-0.1.11",
+      "packageName": "nix-index-with-full-db-0.1.11",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/build-support/trivial-builders/default.nix:613",
+      "scope": "home",
+      "version": "",
+      "baseline_version": "",
+      "baseline_present": false,
+      "status": "newly-added",
+      "upstream_version": null,
+      "note": "Generated nix-index wrapper with the pinned full database; no independent wrapper release or raw version attribute. Base nix-index 0.1.11 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "official_stable_version": null,
+      "upstream_status": "newly-added",
+      "sources": [
+        {
+          "url": "https://github.com/nix-community/nix-index/releases/latest",
+          "resolved_url": "https://github.com/NixOS/nix-index/releases/tag/v0.1.11",
+          "method": "official upstream GitHub designated latest non-prerelease release",
+          "error": null
+        },
+        {
+          "url": "https://github.com/nix-community/nix-index-database/tree/905f3e6f1e78165e79457c0bbe7ec4b885a5fce1",
+          "resolved_url": "https://github.com/nix-community/nix-index-database/tree/905f3e6f1e78165e79457c0bbe7ec4b885a5fce1",
+          "method": "pinned nix-index-database wrapper source; upstream base package version separately evaluated",
+          "error": null
+        }
+      ],
+      "notes": "Generated nix-index wrapper with the pinned full database; no independent wrapper release or raw version attribute. Base nix-index 0.1.11 was independently evaluated from the shared unstable pkgs and matches upstream latest; database revision is separately pinned.",
+      "after_version": "",
+      "after_position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/build-support/trivial-builders/default.nix:613",
+      "after_upstream_status": "generated-or-wrapper",
+      "upstream_url": "https://github.com/nix-community/nix-index-database/tree/905f3e6f1e78165e79457c0bbe7ec4b885a5fce1",
+      "current_name": "nix-index-with-full-db-0.1.11",
+      "current_package_name": "nix-index-with-full-db-0.1.11",
+      "identity_match": "verified",
+      "community_policy_added_at": "2026-11-22T12:05:23.882330+00:00",
+      "basePackage": "nix-index",
+      "baseVersion": "0.1.11",
+      "baseUpstreamVersion": "0.1.11",
+      "baseUpstreamStatus": "equal",
+      "databaseRevision": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1"
     }
   ],
-  "after_inventory": "Final Orion configuration with unstable elan/rustup managers and explicit stable-channel runtime toolchains; runtime installed compiler versions are unknown, not inferred from release references.",
-  "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00"
+  "after_inventory": "Evaluated /tmp/nixos-community-inventory.json: existing checked observations preserved; four new community-tool package identities added. Wrapper raw versions remain blank; base comma/nix-index versions are separately evaluated and compared. Runtime toolchain installed versions remain unknown.",
+  "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
+  "community_policy_updated_at": "2026-11-22T12:05:23.882330+00:00"
 }

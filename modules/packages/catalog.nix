@@ -1,5 +1,10 @@
 # Pure package catalog; these lists do not configure services or user files.
-{ config, lib, pkgs, inputs }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+}:
 let
   args = { inherit config pkgs inputs; };
   groups = [

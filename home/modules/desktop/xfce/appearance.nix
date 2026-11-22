@@ -1,7 +1,12 @@
 { pkgs, inputs, ... }:
-let inherit (import ./assets.nix { inherit pkgs inputs; }) theme themeName;
-in {
-  home.packages = [ theme pkgs.whitesur-cursors ];
+let
+  inherit (import ./assets.nix { inherit pkgs inputs; }) theme themeName;
+in
+{
+  home.packages = [
+    theme
+    pkgs.whitesur-cursors
+  ];
   xfconf.settings = {
     xsettings = {
       "Net/ThemeName" = themeName;
@@ -28,7 +33,10 @@ in {
       "general/title_font" = "Noto Sans CJK SC 10";
       "general/button_layout" = "CHM|";
       "general/workspace_count" = 2;
-      "general/workspace_names" = [ "默认" "工作" ];
+      "general/workspace_names" = [
+        "默认"
+        "工作"
+      ];
       "general/wrap_workspaces" = false;
       "general/tile_on_move" = true;
       "general/use_compositing" = true;

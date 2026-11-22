@@ -7,7 +7,8 @@ let
     url = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     hash = "sha256-M3HdJQ5h2eFjNjAHP+/aFTzUQm9y9K+gwzc64uj+oDo=";
   };
-in {
+in
+{
   # Flathub is the system remote on this laptop. No Flatpak apps are installed.
   services.flatpak.enable = true;
   systemd.services.flatpak-flathub = {

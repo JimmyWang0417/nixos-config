@@ -66,3 +66,9 @@ nix eval --impure --json --no-update-lock-file --file scripts/software-inventory
 只有在目标 NixOS 已安装并备好 age 私钥、确认硬件文件后，才使用 `nixos-rebuild`；入口说明见 [引导](docs/bootstrap.md)。这里不对当前 Manjaro 执行该操作。
 
 继续阅读：[GRUB](docs/boot.md)、[字体](docs/fonts.md)、[软件与 NUR](docs/packages.md)。`inventory/` 中原始 Manjaro 扫描资料作为迁移历史保留，判断当前状态应以模块、最新版本审计和配置覆盖清单为准。
+
+[Nix 存储维护](docs/nix-storage.md)按实际文件系统容量生成空间阈值，保留每周 30 天历史代清理，并定期对 store 去重。
+
+[开发与维护工具](docs/development-tools.md)包含 nh、项目环境与命令索引；
+[提交检查与 CI](docs/development-workflow.md)提供统一格式和静态检查。
+[用户数据备份](docs/candidates/backups.md)保留为候选方案，尚未启用。

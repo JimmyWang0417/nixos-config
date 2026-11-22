@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
-with pkgs; [
+with pkgs;
+[
   dmidecode
   usbutils
   pciutils
