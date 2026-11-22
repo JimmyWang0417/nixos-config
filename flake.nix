@@ -15,42 +15,53 @@
   };
 
   inputs = {
-    # nixos-26.11 is not published (no branch, channel 404). Track stable.
+    # Stable is retained as an explicit opt-in source only. On 2026-11-22
+    # nixos-26.11 is not published; move this to it once the branch exists.
+    # Runtime packages and NixOS modules all use nixpkgs-unstable below.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    home-manager.url = "github:nix-community/home-manager/release-26.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     # nixos-hardware publishes master only.
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
-    # Attributes missing or older on nixos-26.05. The system channel stays nixpkgs.
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # Single active source for the complete system and all applications.
+    # nixos-unstable passes NixOS channel tests before advancing.
+    # Upstream stable application releases are packaged on this rolling branch;
+    # choosing unstable does not force applications onto upstream prereleases.
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # NUR's master branch is a rename tombstone. Track main, and build the
-    # repos against this flake's nixos-26.05 nixpkgs.
+    # repos against the same unstable package set as the system.
     nur.url = "github:nix-community/NUR";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
+    nur.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     # DedSec, Tela, WhiteSur, Typora, Qoder CN, Trae CN, DevEco, and CC Switch.
     # Daily rev bumps stay in nur-packages.
     nur-packages.url = "github:JimmyWang0417/nur-packages";
-    nur-packages.inputs.nixpkgs.follows = "nixpkgs";
+    nur-packages.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =
     { self, nixpkgs, home-manager, nixos-hardware, sops-nix, nur, ... }@inputs:
     let
-      lib = nixpkgs.lib;
+      lib = inputs.nixpkgs-unstable.lib;
       mkHost = name: spec:
         lib.nixosSystem {
           system = spec.system;
           specialArgs = {
             inherit inputs;
+            # Explicit fallback interface; unused unless a module requests it.
+            # Do not alias this to pkgs: that would silently restore old apps.
+            pkgsStable = import nixpkgs {
+              system = spec.system;
+              config.allowUnfree = true;
+            };
             hostName = spec.hostName;
             host = spec // { inherit name; };
           };
@@ -73,7 +84,7 @@
 
       devShells.x86_64-linux.default =
         let
-          pkgs = import nixpkgs { system = "x86_64-linux"; };
+          pkgs = import inputs.nixpkgs-unstable { system = "x86_64-linux"; };
         in
         pkgs.mkShell {
           packages = with pkgs; [ git ];

@@ -1,3 +1,5 @@
+> 原始迁移扫描记录，保留当时的路径与结论。当前实现以模块、[配置覆盖清单](configuration-coverage.json)和[软件版本审计](software-versions.json)为准。
+
 # 功能对照
 每一行的最后一列是提供该功能的文件。软件包按 pacman 显式安装名列出。
 ## 主机

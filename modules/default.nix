@@ -1,21 +1,5 @@
+# Composition only; host facts belong under hosts/, user settings under home/.
+{ ... }:
 {
-  imports = [
-    ./boot.nix
-    ./nvidia.nix
-    ./desktop.nix
-    ./chinese.nix
-    ./fonts.nix
-    ./locale.nix
-    ./users.nix
-    ./services.nix
-    ./packages.nix
-    ./dsh.nix
-    ./deveco.nix
-    ./networking.nix
-    ./nix-settings.nix
-    ./nix-download.nix
-    ./easyconnect.nix
-    ./secrets.nix
-    ./shortcuts.nix
-  ];
+  imports = [ ./core ./hardware ./desktop ./network ./services ./packages ./programs ];
 }

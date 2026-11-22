@@ -1,3 +1,5 @@
+> 原始迁移扫描记录，保留当时的路径与结论。当前实现以模块、[配置覆盖清单](configuration-coverage.json)和[软件版本审计](software-versions.json)为准。
+
 # 迁移时改过的写法
 
 每条都保留原来的功能。桌面布局不在这里改，见 `inventory/plasma-layout.md`。

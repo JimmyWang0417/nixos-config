@@ -11,6 +11,16 @@ fi
 echo "== nix --version =="
 nix --version
 
+echo "== package sources and migration invariants =="
+nix eval --impure --json --no-update-lock-file --show-trace --file tests/package-source.nix
+echo
+
+echo "== input method configuration and session behavior =="
+python3 tests/input-method.py
+
+echo "== private archive safety =="
+python3 tests/test_private_restore.py
+
 echo "== nix flake check =="
 if nix flake check --help 2>&1 | grep -q -- '--no-build'; then
   nix flake check --no-build --no-update-lock-file --show-trace

@@ -1,6 +1,6 @@
 # Plasma 布局
 
-扫描时间以这台正在运行的 Manjaro 为准。KDE 配置没有改设计，按文件原样放进 `home/plasma/`，由 `home/jimmy.nix` 的 activation 复制到新登录的 `~/.config`。
+扫描时间以这台正在运行的 Manjaro 为准。KDE 配置没有改设计，按文件原样放进 `home/plasma/`，由 `home/modules/desktop/plasma.nix` 的 activation 复制到新登录的 `~/.config`。
 
 plasma-manager 写不出这块布局里真正在用的部件：底部 CPU 饼图（标题「总 CPU 使用情况」、传感器颜色）、长度为 10 且不扩展的 spacer、两块 folder view containment，以及 Aurorae 主题名。所以没有启用 `programs.plasma`，改为部署扫描到的 rc。
 

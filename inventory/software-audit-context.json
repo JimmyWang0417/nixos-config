@@ -1,0 +1,240 @@
+{
+  "checked_on": "2026-11-22",
+  "timezone": "Asia/Shanghai",
+  "baseline_commit": "1360efe3a36405163c3438314a930fe90f076aa7",
+  "policy": "stable input retained as an unused explicit interface; all runtime nixpkgs software and NUR build dependencies use nixos-unstable",
+  "release_availability": [
+    {
+      "url": "https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-26.11",
+      "http_status": 404
+    },
+    {
+      "url": "https://channels.nixos.org/nixos-26.11/git-revision",
+      "http_status": 404
+    },
+    {
+      "url": "https://api.github.com/repos/nix-community/home-manager/branches/release-26.11",
+      "http_status": 404
+    },
+    {
+      "url": "https://nixos.org/manual/nixos/unstable/release-notes.html",
+      "observation": "26.11pre; 26.11 release date still 2026.11/??"
+    }
+  ],
+  "inputs": {
+    "flake-parts": {
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1733312601,
+        "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "original": {
+        "owner": "nix-community",
+        "ref": "master",
+        "repo": "home-manager",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1795268568,
+        "narHash": "sha256-1RJm4DEu7YHJv94sjSY7sjqT+kHx/AUwmtUN4dtFBUo=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "6857c7f7c338ad181729c52071386b0d3afa24bc",
+        "type": "github"
+      }
+    },
+    "nixos-hardware": {
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1794597451,
+        "narHash": "sha256-bUkc9dMpCFiJuuf5Efr7pnCDs5q18aA8zJah+MYZl9w=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "eb3c90bd715f7a9a28719bb014f53d309ccb2fc8",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1794552581,
+        "narHash": "sha256-qXFIqA6FCcx7XeDzw0ZNlkDT9UiCzrNDwK8RuU8RcHM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f1e5c356f35d07e7b71a6b5e6c9338e0b029e0c0",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1795234589,
+        "narHash": "sha256-f/VVvxf5RsQgWVhUtefoca5ktVg0DA2bnkMOcmSnozo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2786a2a72088ecf32aea5b3ec52099e6a7cff78f",
+        "type": "github"
+      }
+    },
+    "nur": {
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1794838884,
+        "narHash": "sha256-Hxk0SrNXEZeJzkV3iUVcNh/AKjrwu/Pg5AYEoHid9qk=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "3c58790b9868a47aeaef4d9a6667f5927924140a",
+        "type": "github"
+      }
+    },
+    "nur-packages": {
+      "original": {
+        "owner": "JimmyWang0417",
+        "repo": "nur-packages",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1795175752,
+        "narHash": "sha256-95CNwtNDVHzG/dFQNDvkeTOMx4PKjRGcmRjXovTvGic=",
+        "owner": "JimmyWang0417",
+        "repo": "nur-packages",
+        "rev": "2b9fec9334eabe5a098ce575363c85b34627f73d",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
+      },
+      "locked": {
+        "lastModified": 1794624949,
+        "narHash": "sha256-3q/hxp/flW1PnV3Dx+H3p8kHGEHJ7251BqVMNsAAB9E=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "11e5885d241743ff0193465d533b20e754bc3ce0",
+        "type": "github"
+      }
+    }
+  },
+  "scope": "Evaluated installed/declared system, Home Manager, desktop, fonts, firmware, extension and explicit tool/conditional package metadata. Actual package identities retained separately from selection attributes; runtime plugin declarations tracked separately.",
+  "upstream_limits": "Every inventory row records an upstream attempt or why no independent upstream version applies. An unverified version is not counted as current. Release endpoints may designate a latest tag behind another active release series; series selection is not a security assessment.",
+  "activation": "No NixOS installation, activation, boot changes or repartitioning; running OS is Manjaro.",
+  "validation": {
+    "source_and_session_checks": {
+      "browserUsesUnstable": true,
+      "defaultPlasmaWayland": true,
+      "desktopUsesUnstable": true,
+      "distinctSources": true,
+      "homeEditorUsesUnstable": true,
+      "homeStateVersionPreserved": true,
+      "homeUsesGlobalPackages": true,
+      "inputFollowersUseUnstable": true,
+      "kernelUsesUnstable": true,
+      "nativeWaylandInputMethod": true,
+      "noStablePackageDefinitions": true,
+      "nvidiaUsesUnstable": true,
+      "plasmaAndXfceSessionsInstalled": true,
+      "primeOffloadPreserved": true,
+      "resolvedFollowersUseUnstable": true,
+      "runtimeDoesNotUseStable": true,
+      "runtimeUsesUnstable": true,
+      "sddmX11Preserved": true,
+      "shellUsesUnstableGit": true,
+      "systemGitUsesUnstable": true,
+      "systemStateVersionPreserved": true,
+      "xfceInputMethodAutostart": true,
+      "xfceInputMethodEnvironment": true,
+      "xfceX11Fallback": true
+    },
+    "input_method_config_checks": 22,
+    "input_method_behavior_and_dictionary_tests": 7,
+    "private_archive_safety_tests": 13,
+    "flake_check": "passed (--no-build)",
+    "system_derivation": "/nix/store/iczdh5yzcbm5fq5590r02236qn8cn4x9-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
+    "xfce_assets": "built and verified GTK CSS, xfwm4, cursor, Tela, wallpaper",
+    "xfce_asset_derivation": "/nix/store/07vw550kdap1r8vdd1nqn4yzxm7xf7vd-xfce-appearance-assets.drv",
+    "hdl_tools": "Verible formatting/parsing and Icarus SystemVerilog compile smoke passed",
+    "editor_toolchain": "Nix paths and selected Chinese TeX derivation evaluated; full TeX not built",
+    "public_application_assets": "JSON parsed; preferences selected by safe allowlists; default seeding preserves existing state",
+    "full_system_build": "not run",
+    "activation": "not run; current host remains Manjaro",
+    "module_refactor": "101 software catalog name+derivation identities and 38 ordered DSH plugin names preserved"
+  },
+  "desktop": {
+    "default": "Plasma Wayland (plasma)",
+    "x11_fallback": "Xfce (xfce), explicitly approved for ToDesk",
+    "greeter": "SDDM X11",
+    "appearance": "Xfce WhiteSur light/green + Tela + existing wallpaper, 44px top/bottom panels; see home/xfce.nix"
+  },
+  "configurationCoverage": "inventory/configuration-coverage.json",
+  "auditSummary": {
+    "rows": 586,
+    "configuredUniqueNames": 515,
+    "missing": [],
+    "baselineStatuses": {
+      "behind": 258,
+      "runtime-unpinned": 69,
+      "equal": 99,
+      "generated-no-independent-release": 10,
+      "tag-only": 23,
+      "unverified": 31,
+      "newly-added": 40,
+      "not-in-baseline": 11,
+      "generated-or-wrapper": 25,
+      "ahead-or-different-series": 2,
+      "snapshot-not-comparable": 9,
+      "not-comparable": 4,
+      "prerelease-only": 1,
+      "ahead-or-different-track": 1,
+      "intentional-release-line": 2,
+      "different-version-needs-review": 1
+    },
+    "afterStatuses": {
+      "behind": 87,
+      "equal": 317,
+      "ahead-or-different-series": 5,
+      "generated-no-independent-release": 10,
+      "tag-only": 23,
+      "unverified": 31,
+      "generated-or-wrapper": 25,
+      "snapshot-not-comparable": 9,
+      "not-comparable": 4,
+      "prerelease-only": 1,
+      "ahead-or-different-track": 1,
+      "intentional-release-line": 2,
+      "different-version-needs-review": 1
+    },
+    "versionChanges": 253
+  }
+}

@@ -26,6 +26,8 @@ id_ed25519
 # Editor and agent metadata
 .cursor/
 .claude/
+__pycache__/
+*.py[cod]
 
 # Neovim plugin checkouts and vim-plug's loader. PlugInstall fetches these.
 home/nvim/plugged/

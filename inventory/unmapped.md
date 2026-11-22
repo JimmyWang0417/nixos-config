@@ -1,3 +1,5 @@
+> 原始迁移扫描记录，保留当时的路径与结论。当前实现以模块、[配置覆盖清单](configuration-coverage.json)和[软件版本审计](software-versions.json)为准。
+
 # 未覆盖
 
 这些名字没有写进 Nix 模块。原因写在第二列。

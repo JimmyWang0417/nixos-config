@@ -1,0 +1,6370 @@
+{
+  "date": "2026-11-22",
+  "scope": "全部最终包名称的配置归属与处理方式，不把安装软件等同于所有账号已登录或所有私人状态已恢复。",
+  "summary": {
+    "package-defaults": 287,
+    "system-component": 35,
+    "desktop-defaults": 123,
+    "declared": 70
+  },
+  "extensionAvailability": [
+    {
+      "available": false,
+      "id": "beardedbear.beardedicons"
+    },
+    {
+      "available": true,
+      "id": "ms-toolsai.jupyter-keymap"
+    },
+    {
+      "available": false,
+      "id": "mkxml.vscode-filesize"
+    },
+    {
+      "available": true,
+      "id": "ms-toolsai.vscode-jupyter-cell-tags"
+    },
+    {
+      "available": true,
+      "id": "ms-toolsai.vscode-jupyter-slideshow"
+    },
+    {
+      "available": true,
+      "id": "ms-vscode.remote-explorer"
+    },
+    {
+      "available": true,
+      "id": "ms-vscode-remote.remote-ssh-edit"
+    },
+    {
+      "available": true,
+      "id": "bierner.markdown-preview-github-styles"
+    },
+    {
+      "available": false,
+      "id": "ericadamski.carbon-now-sh"
+    },
+    {
+      "available": false,
+      "id": "liviuschera.noctis"
+    },
+    {
+      "available": true,
+      "id": "ms-toolsai.jupyter-renderers"
+    },
+    {
+      "available": false,
+      "id": "ms-vscode.cpptools-themes"
+    },
+    {
+      "available": false,
+      "id": "affenwiesel.matlab-formatter"
+    },
+    {
+      "available": false,
+      "id": "starcatmeow.vjudge-helper"
+    },
+    {
+      "available": true,
+      "id": "firefox-devtools.vscode-firefox-debug"
+    },
+    {
+      "available": false,
+      "id": "wavetrace.wavetrace"
+    },
+    {
+      "available": false,
+      "id": "ericsonj.verilogformat"
+    },
+    {
+      "available": true,
+      "id": "yzhang.markdown-all-in-one"
+    },
+    {
+      "available": false,
+      "id": "czhang03.unicode-math-input"
+    },
+    {
+      "available": false,
+      "id": "perkovec.emoji"
+    },
+    {
+      "available": true,
+      "id": "catppuccin.catppuccin-vsc-icons"
+    },
+    {
+      "available": true,
+      "id": "ms-vscode.hexeditor"
+    },
+    {
+      "available": false,
+      "id": "ms-toolsai.vscode-jupyter-powertoys"
+    },
+    {
+      "available": true,
+      "id": "ms-vscode.cpptools-extension-pack"
+    },
+    {
+      "available": false,
+      "id": "kevinrose.vsc-python-indent"
+    },
+    {
+      "available": false,
+      "id": "kkaaddff.arkts-ets"
+    },
+    {
+      "available": true,
+      "id": "esbenp.prettier-vscode"
+    },
+    {
+      "available": false,
+      "id": "matthewevers.compiler-explorer"
+    },
+    {
+      "available": true,
+      "id": "mshr-h.veriloghdl"
+    },
+    {
+      "available": true,
+      "id": "ms-toolsai.jupyter"
+    },
+    {
+      "available": true,
+      "id": "dbaeumer.vscode-eslint"
+    },
+    {
+      "available": true,
+      "id": "github.vscode-github-actions"
+    },
+    {
+      "available": true,
+      "id": "ms-vscode-remote.remote-ssh"
+    },
+    {
+      "available": true,
+      "id": "ms-ceintl.vscode-language-pack-zh-hans"
+    },
+    {
+      "available": false,
+      "id": "openlibing.resourcemanager"
+    },
+    {
+      "available": false,
+      "id": "huaweicloud.developerspace"
+    },
+    {
+      "available": false,
+      "id": "openai.chatgpt"
+    },
+    {
+      "available": false,
+      "id": "atomgit-cloudenv.cannlabdevspace"
+    },
+    {
+      "available": false,
+      "id": "mathworks.language-matlab"
+    },
+    {
+      "available": false,
+      "id": "dbcode.dbcode"
+    },
+    {
+      "available": true,
+      "id": "anthropic.claude-code"
+    },
+    {
+      "available": true,
+      "id": "oracle.oracle-java"
+    },
+    {
+      "available": true,
+      "id": "james-yu.latex-workshop"
+    },
+    {
+      "available": true,
+      "id": "ms-python.python"
+    },
+    {
+      "available": true,
+      "id": "shd101wyy.markdown-preview-enhanced"
+    },
+    {
+      "available": true,
+      "id": "ms-python.vscode-pylance"
+    },
+    {
+      "available": false,
+      "id": "ms-vscode.wasm-wasi-core"
+    },
+    {
+      "available": true,
+      "id": "ms-vscode.cpptools"
+    },
+    {
+      "available": true,
+      "id": "teabyii.ayu"
+    },
+    {
+      "available": true,
+      "id": "myriad-dreamin.tinymist"
+    },
+    {
+      "available": true,
+      "id": "ms-python.vscode-python-envs"
+    },
+    {
+      "available": true,
+      "id": "ms-vscode.cmake-tools"
+    },
+    {
+      "available": true,
+      "id": "ms-python.isort"
+    },
+    {
+      "available": false,
+      "id": "openai.codex-audio"
+    },
+    {
+      "available": false,
+      "id": "ms-vscode.cpp-devtools"
+    },
+    {
+      "available": true,
+      "id": "rust-lang.rust-analyzer"
+    }
+  ],
+  "rows": [
+    {
+      "name": "NetworkManager-l2tp",
+      "versions": [
+        "1.52.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "NetworkManager-openconnect",
+      "versions": [
+        "1.2.10"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "NetworkManager-openvpn",
+      "versions": [
+        "1.12.5"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "X11-fonts",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "accountsservice",
+      "versions": [
+        "26.27.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "acl",
+      "versions": [
+        "2.4.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "acpi",
+      "versions": [
+        "1.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "adwaita-icon-theme",
+      "versions": [
+        "51.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "akonadi",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "akonadi-contacts",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "akonadi-import-wizard",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "akonadi-search",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "akonadiconsole",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "alsa-firmware",
+      "versions": [
+        "1.2.4"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "alsa-utils",
+      "versions": [
+        "1.2.16"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "android-studio",
+      "versions": [
+        "2026.2.2.9"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "appimage-run",
+      "versions": [
+        "0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ark",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "at-spi2-core",
+      "versions": [
+        "2.62.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "atool",
+      "versions": [
+        "0.39.0"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "attr",
+      "versions": [
+        "2.6.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "aurorae",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "avahi",
+      "versions": [
+        "0.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "axel",
+      "versions": [
+        "2.17.14"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "baidunetdisk",
+      "versions": [
+        "8.9.7"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "baidunetdisk-ozone",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "baloo",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "baloo-widgets",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "bash-interactive",
+      "versions": [
+        "5.3p20"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "bash-language-server",
+      "versions": [
+        "5.8.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "bcache-tools",
+      "versions": [
+        "1.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "bind",
+      "versions": [
+        "9.20.30"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "black",
+      "versions": [
+        "26.5.1"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "bluedevil",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "bluez",
+      "versions": [
+        "5.87"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "bluez-qt",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "bolt",
+      "versions": [
+        "0.9.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "botmux",
+      "versions": [
+        "3.59.17"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/botmux.nix",
+      "note": "用户服务和加密bots.json恢复；不公开机器人凭据。"
+    },
+    {
+      "name": "breath-wallpapers",
+      "versions": [
+        "0-unstable-2024-06-07"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "breeze",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "breeze-gtk",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "breeze-icons",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "btop",
+      "versions": [
+        "1.4.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/btop.nix",
+      "note": "迁入已有公开偏好，排除本机自定义标签和设备标识。"
+    },
+    {
+      "name": "btrfs-progs",
+      "versions": [
+        "7.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "bubblewrap",
+      "versions": [
+        "0.13.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "bzip2",
+      "versions": [
+        "1.0.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "caladea",
+      "versions": [
+        "20130214"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "cargo",
+      "versions": [
+        "1.99.1"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "carlito",
+      "versions": [
+        "20130920"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "cc-switch",
+      "versions": [
+        "4.0.36"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/cc-switch.nix",
+      "note": "自动启动和加密数据库初始化；已有数据库/WAL不覆盖。"
+    },
+    {
+      "name": "clang-tools",
+      "versions": [
+        "21.1.8"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "clash-verge-rev",
+      "versions": [
+        "2.5.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/clash-verge.nix",
+      "note": "TUN系统服务、自动启动、更新策略，私有profile由独立安全恢复模块初始化。"
+    },
+    {
+      "name": "claude-code",
+      "versions": [
+        "2.1.329"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "cmake",
+      "versions": [
+        "4.4.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "codex",
+      "versions": [
+        "0.171.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "colord",
+      "versions": [
+        "1.4.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "colord-kde",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "compsize",
+      "versions": [
+        "1.5-unstable-2023-12-24"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "conda-shell",
+      "versions": [
+        "26.7.1-1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "coreutils-full",
+      "versions": [
+        "9.12"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "cpio",
+      "versions": [
+        "2.15"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "cpupower",
+      "versions": [
+        "6.12.118"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "cron",
+      "versions": [
+        "4.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "cryptsetup",
+      "versions": [
+        "2.8.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "cups",
+      "versions": [
+        "2.4.19"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "cups-pk-helper",
+      "versions": [
+        "0.2.6"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "curl",
+      "versions": [
+        "8.23.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dbus",
+      "versions": [
+        "1.16.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dbus-broker",
+      "versions": [
+        "37"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dconf",
+      "versions": [
+        "51.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "deepseek-harness",
+      "versions": [
+        "0.2.2-rc.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/programs/dsh/default.nix",
+      "note": "38个插件分为13组，安装/协调独立。本机无DSH运行目录，未编造provider或个人设置。"
+    },
+    {
+      "name": "dejavu-fonts",
+      "versions": [
+        "2.37"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "desktop-file-utils",
+      "versions": [
+        "0.28"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "deveco-studio",
+      "versions": [
+        "26.0.0.851"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "diffutils",
+      "versions": [
+        "3.12"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dingtalk",
+      "versions": [
+        "9.0.0.261105002"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "discord",
+      "versions": [
+        "1.0.168"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/discord.nix",
+      "note": "公开硬件加速/窗口偏好；不复制账号缓存。"
+    },
+    {
+      "name": "discover",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "djvulibre",
+      "versions": [
+        "3.5.30"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dmidecode",
+      "versions": [
+        "3.7"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "docker",
+      "versions": [
+        "29.9.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "docker-image-hagb-docker-easyconnect-7.6.7.tar",
+      "versions": [],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dolphin",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/dolphin.nix",
+      "note": "安全的预览/图标偏好，排除目录历史。"
+    },
+    {
+      "name": "dolphin-plugins",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "dosfstools",
+      "versions": [
+        "4.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "drkonqi",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "dummy-fc-dir1",
+      "versions": [],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dummy-fc-dir2",
+      "versions": [],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dummy-xdg-mime-dirs1",
+      "versions": [],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "dummy-xdg-mime-dirs2",
+      "versions": [],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "e2fsprogs",
+      "versions": [
+        "1.47.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "efm-langserver",
+      "versions": [
+        "0.0.57"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "elisa",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "endeavouros-community-wallpapers",
+      "versions": [
+        "0-unstable-2026-11-16"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "endeavouros-wallpapers",
+      "versions": [
+        "0-unstable-2026-11-16"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "exfatprogs",
+      "versions": [
+        "1.4.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "exo",
+      "versions": [
+        "4.20.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "fallback-cursor-theme",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "fastapi",
+      "versions": [
+        "0.141.1"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "fastfetch",
+      "versions": [
+        "2.71.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "fcitx5",
+      "versions": [
+        "5.1.23"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/desktop/input-method.nix",
+      "note": "Plasma Wayland与Xfce X11分别接入，用户偏好与学习词库独立管理。"
+    },
+    {
+      "name": "fcitx5-chinese-addons",
+      "versions": [
+        "5.1.14"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/desktop/input-method.nix",
+      "note": "Plasma Wayland与Xfce X11分别接入，用户偏好与学习词库独立管理。"
+    },
+    {
+      "name": "fcitx5-configtool",
+      "versions": [
+        "5.1.16"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/desktop/input-method.nix",
+      "note": "Plasma Wayland与Xfce X11分别接入，用户偏好与学习词库独立管理。"
+    },
+    {
+      "name": "fcitx5-gtk",
+      "versions": [
+        "5.1.7"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/desktop/input-method.nix",
+      "note": "Plasma Wayland与Xfce X11分别接入，用户偏好与学习词库独立管理。"
+    },
+    {
+      "name": "fcitx5-qt5",
+      "versions": [
+        "5.1.16"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/desktop/input-method.nix",
+      "note": "Plasma Wayland与Xfce X11分别接入，用户偏好与学习词库独立管理。"
+    },
+    {
+      "name": "fcitx5-qt6",
+      "versions": [
+        "5.1.16"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/desktop/input-method.nix",
+      "note": "Plasma Wayland与Xfce X11分别接入，用户偏好与学习词库独立管理。"
+    },
+    {
+      "name": "fcitx5-with-addons-5.1.23",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/desktop/input-method.nix",
+      "note": "Plasma Wayland与Xfce X11分别接入，用户偏好与学习词库独立管理。"
+    },
+    {
+      "name": "ffmpeg",
+      "versions": [
+        "9.0.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ffmpegthumbnailer",
+      "versions": [
+        "2.4.1"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ffmpegthumbs",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "filelight",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "findutils",
+      "versions": [
+        "4.11.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "firefox",
+      "versions": [
+        "160.0.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/packages/browsers.nix",
+      "note": "中文语言包、更新策略和Plasma集成；账号登录不进仓库。"
+    },
+    {
+      "name": "flatpak",
+      "versions": [
+        "1.18.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "flatpak-kcm",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "font-alias",
+      "versions": [
+        "1.0.6"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "font-cursor-misc",
+      "versions": [
+        "1.0.4"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "font-misc-misc",
+      "versions": [
+        "1.1.3"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "fontconfig",
+      "versions": [
+        "2.18.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "frameworkintegration",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "freefont-ttf",
+      "versions": [
+        "20120503"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "fuse",
+      "versions": [
+        "3.18.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "fwupd",
+      "versions": [
+        "2.1.10"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "fzf",
+      "versions": [
+        "0.75.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "garcon",
+      "versions": [
+        "4.20.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "gawk",
+      "versions": [
+        "5.4.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gcc-wrapper",
+      "versions": [
+        "16.2.0"
+      ],
+      "scopes": [
+        "explicit-extra",
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gdb",
+      "versions": [
+        "17.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "geoclue",
+      "versions": [
+        "2.8.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gfortran-wrapper",
+      "versions": [
+        "16.2.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gh",
+      "versions": [
+        "2.105.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "git",
+      "versions": [
+        "2.56.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/core/nix-download.nix",
+      "note": "Git代理和GitHub协议替换。"
+    },
+    {
+      "name": "git-lfs",
+      "versions": [
+        "3.8.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "glib",
+      "versions": [
+        "2.90.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "glibc",
+      "versions": [
+        "2.44"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "glibc-locales",
+      "versions": [
+        "2.44"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gnome-keyring",
+      "versions": [
+        "50.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gnome-themes-extra",
+      "versions": [
+        "3.28"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gnugrep",
+      "versions": [
+        "3.12"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gnumake",
+      "versions": [
+        "4.4.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gnused",
+      "versions": [
+        "4.10"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gnutar",
+      "versions": [
+        "1.35"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "google-chrome",
+      "versions": [
+        "158.0.8127.36"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/packages/catalog/desktop-apps.nix",
+      "note": "Plasma集成；更新提示由用户策略模块处理，账号和浏览器profile不复制。"
+    },
+    {
+      "name": "grub",
+      "versions": [
+        "2.14"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gst-libav",
+      "versions": [
+        "1.28.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gst-plugins-bad",
+      "versions": [
+        "1.28.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gst-plugins-base",
+      "versions": [
+        "1.28.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gst-plugins-good",
+      "versions": [
+        "1.28.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gst-plugins-ugly",
+      "versions": [
+        "1.28.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gstreamer",
+      "versions": [
+        "1.28.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gtk+3",
+      "versions": [
+        "3.24.52"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gtk2-immodule.cache",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gtk3-immodule.cache",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gvfs",
+      "versions": [
+        "1.62.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "gwenview",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "gyre-fonts",
+      "versions": [
+        "2.501"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "gzip",
+      "versions": [
+        "1.15"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "hack-font",
+      "versions": [
+        "3.003"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "helix",
+      "versions": [
+        "25.07.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "heroic",
+      "versions": [
+        "2.22.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/heroic.nix",
+      "note": "公开游戏运行与界面偏好；不复制API key、个人安装路径或启动脚本。"
+    },
+    {
+      "name": "hicolor-icon-theme",
+      "versions": [
+        "0.18"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "hm-session-vars.sh",
+      "versions": [],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "home-configuration-reference-manpage",
+      "versions": [],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "hostname-debian",
+      "versions": [
+        "3.25"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "htop",
+      "versions": [
+        "3.5.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "iceauth",
+      "versions": [
+        "1.0.11"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "imagemagick",
+      "versions": [
+        "7.1.2-35"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "inconsolata",
+      "versions": [
+        "3.001"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "intel-compute-runtime",
+      "versions": [
+        "26.40.40196.8"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "intel-media-driver",
+      "versions": [
+        "26.3.5"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "intellij-idea",
+      "versions": [
+        "2026.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/private/jetbrains.nix",
+      "note": "恢复原产品版本许可证目录，更新策略独立；旧许可证有效性须官方确认。"
+    },
+    {
+      "name": "inxi",
+      "versions": [
+        "3.3.41-1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "iproute2",
+      "versions": [
+        "7.2.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "iputils",
+      "versions": [
+        "20250605"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ipw2200-firmware",
+      "versions": [
+        "3.1"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "iverilog",
+      "versions": [
+        "13.0"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "jack-libs",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "kactivitymanagerd",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kate",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/kate.nix",
+      "note": "编辑与LSP偏好，排除近期文件和允许执行的本地命令。"
+    },
+    {
+      "name": "kauth",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kbd",
+      "versions": [
+        "2.9.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "kcalc",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kcmutils",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kconfig",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kcontacts",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kcoreaddons",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kde-cli-tools",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kde-gtk-config",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kde-inotify-survey",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kdeconnect-kde",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kded",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kdegraphics-thumbnailers",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kdepim-runtime",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kdeplasma-addons",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "keepassxc",
+      "versions": [
+        "2.8.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/keepassxc.nix",
+      "note": "保留自动启动；密码库与私有文件路径不复制进仓库。"
+    },
+    {
+      "name": "kexec-tools",
+      "versions": [
+        "2.0.32"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "kfilemetadata",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kfind",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kglobalacceld",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kguiaddons",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "khelpcenter",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kiconthemes",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kimageformats",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kinfocenter",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kio",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kio-admin",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kio-extras",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kio-extras-kf5",
+      "versions": [
+        "24.02.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kio-fuse",
+      "versions": [
+        "5.1.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kio5-plugins-only",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "kmail",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kmail-account-wizard",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kmenuedit",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kmod",
+      "versions": [
+        "31"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "knighttime",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "konsole",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/konsole.nix",
+      "note": "原profile、Breath配色及Hack Nerd Font；shell改为NixOS可用路径。"
+    },
+    {
+      "name": "kontact",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kpackage",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "krdp",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kscreen",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kscreenlocker",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kservice",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "ksystemstats",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "ktexteditor",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kunifiedpush",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kwallet",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kwallet-pam",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kwalletmanager",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kwayland-integration",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kwin",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "kwrited",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "less",
+      "versions": [
+        "710"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "libarchive",
+      "versions": [
+        "3.8.10"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "libcap",
+      "versions": [
+        "2.78"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "libdvdcss",
+      "versions": [
+        "1.5.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "liberation-fonts",
+      "versions": [
+        "2.1.5"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "libkscreen",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "libksysguard",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "libplasma",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "libreelec-dvb-firmware",
+      "versions": [
+        "1.5.0"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "libreoffice",
+      "versions": [
+        "26.8.3.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "libressl",
+      "versions": [
+        "4.3.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "libxfce4ui",
+      "versions": [
+        "4.20.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "linux",
+      "versions": [
+        "6.12.118"
+      ],
+      "scopes": [
+        "hardware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "linux-firmware",
+      "versions": [
+        "20261019"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "linux-pam",
+      "versions": [
+        "1.7.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "logrotate",
+      "versions": [
+        "3.22.0"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "lsd",
+      "versions": [
+        "1.2.0"
+      ],
+      "scopes": [
+        "home",
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "lvm2",
+      "versions": [
+        "2.03.41"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "man-db",
+      "versions": [
+        "2.13.1"
+      ],
+      "scopes": [
+        "home",
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "mariadb-server",
+      "versions": [
+        "11.4.13"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "marksman",
+      "versions": [
+        "2026-02-08"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "matplotlib",
+      "versions": [
+        "3.11.2"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "mdadm",
+      "versions": [
+        "4.6"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "mediainfo",
+      "versions": [
+        "26.10"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "merkuro",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "mesa",
+      "versions": [
+        "26.3.1"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "mesa-demos",
+      "versions": [
+        "9.0.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "micro",
+      "versions": [
+        "2.0.15"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "microcode-intel",
+      "versions": [
+        "20261110"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "microsoft-edge",
+      "versions": [
+        "157.0.4341.60"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/packages/catalog/desktop-apps.nix",
+      "note": "Plasma集成、native messaging和更新策略；登录状态不复制。"
+    },
+    {
+      "name": "milou",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "mkpasswd",
+      "versions": [
+        "5.6.6"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "modemmanager",
+      "versions": [
+        "1.24.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "mousepad",
+      "versions": [
+        "0.7.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "mtools",
+      "versions": [
+        "4.0.50"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nano",
+      "versions": [
+        "9.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ncurses",
+      "versions": [
+        "6.6"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "neovim",
+      "versions": [
+        "0.12.6"
+      ],
+      "scopes": [
+        "home",
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/neovim.nix",
+      "note": "原Vimscript、coc、插件引导和外部命令依赖。"
+    },
+    {
+      "name": "nerd-fonts-hack",
+      "versions": [
+        "3.5.0+3.003"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "net.conf",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "network-manager-applet",
+      "versions": [
+        "1.36.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "networkmanager",
+      "versions": [
+        "1.58.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/network/network-manager.nix",
+      "note": "插件和网络集成；加密系统连接由root服务在NetworkManager前恢复。"
+    },
+    {
+      "name": "nfs-utils",
+      "versions": [
+        "3.2.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ninja",
+      "versions": [
+        "1.13.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nix",
+      "versions": [
+        "2.35.6"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nix-bash-completions",
+      "versions": [
+        "0.6.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nix-info",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nix-zsh-completions",
+      "versions": [
+        "0.5.1-unstable-2025-12-12"
+      ],
+      "scopes": [
+        "home",
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-build-vms",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-configuration-reference-manpage",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-enter",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-generate-config",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-help",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-icons",
+      "versions": [
+        "0-unstable-2025-06-28"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-install",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-manual-html",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-option",
+      "versions": [
+        "26.11"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-rebuild-ng",
+      "versions": [
+        "26.11"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nixos-version",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nodejs",
+      "versions": [
+        "24.22.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "noto-fonts",
+      "versions": [
+        "2026.11.01"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "noto-fonts-cjk-sans",
+      "versions": [
+        "2.004"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "noto-fonts-cjk-serif",
+      "versions": [
+        "2.003"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "noto-fonts-color-emoji",
+      "versions": [
+        "2.051"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "nss-cacert",
+      "versions": [
+        "3.131.1"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ntfs3g",
+      "versions": [
+        "2026.9.28"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nvidia-offload",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nvidia-settings",
+      "versions": [
+        "595.112.07"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "nvidia-x11",
+      "versions": [
+        "595.112.07"
+      ],
+      "scopes": [
+        "firmware",
+        "hardware",
+        "system"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "obexftp",
+      "versions": [
+        "0.24.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "obs-studio",
+      "versions": [
+        "32.2.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/obs-studio.nix",
+      "note": "公开的全局图形偏好；不复制直播凭据、场景私人路径和缓存。"
+    },
+    {
+      "name": "obsidian",
+      "versions": [
+        "1.15.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ocean-sound-theme",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "oh-my-zsh",
+      "versions": [
+        "2026-11-02"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "okular",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "openconnect",
+      "versions": [
+        "9.21"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "openjdk",
+      "versions": [
+        "21.0.13.0.2+1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "openlogi",
+      "versions": [
+        "0.9.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/openlogi.nix",
+      "note": "用户agent和系统udev规则，不另装logiops。"
+    },
+    {
+      "name": "openobex",
+      "versions": [
+        "1.7.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "openresolv",
+      "versions": [
+        "3.17.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "openrgb",
+      "versions": [
+        "1.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "openssh",
+      "versions": [
+        "10.6p1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "orca",
+      "versions": [
+        "51.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "p7zip",
+      "versions": [
+        "17.06"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pandoc-cli",
+      "versions": [
+        "3.7.0.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "papirus-icon-theme",
+      "versions": [
+        "20260801"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "parole",
+      "versions": [
+        "4.20.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "patch",
+      "versions": [
+        "2.8.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pavucontrol",
+      "versions": [
+        "6.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pay-respects",
+      "versions": [
+        "0.9.0"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pciutils",
+      "versions": [
+        "3.15.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "perl",
+      "versions": [
+        "5.42.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "phonon-vlc",
+      "versions": [
+        "0.12.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "pillow",
+      "versions": [
+        "13.0.0"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pip",
+      "versions": [
+        "26.2.2"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pipewire",
+      "versions": [
+        "1.6.11"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pipx",
+      "versions": [
+        "1.16.6"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pkg-config-wrapper",
+      "versions": [
+        "0.29.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "plasma-activities",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-browser-integration",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-desktop",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-integration",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-keyboard",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-nm",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-pa",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-systemmonitor",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-thunderbolt",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-workspace",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "plasma-workspace-wallpapers",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "polkit",
+      "versions": [
+        "127"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "polkit-gnome",
+      "versions": [
+        "0.105"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "polkit-kde-agent-1",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "poppler-utils",
+      "versions": [
+        "26.11.0"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "power-profiles-daemon",
+      "versions": [
+        "0.30"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "powerdevil",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "powerlevel10k",
+      "versions": [
+        "1.20.15"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "powertop",
+      "versions": [
+        "2.16.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "print-manager",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "procps",
+      "versions": [
+        "4.0.7"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "pycharm",
+      "versions": [
+        "2026.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/private/jetbrains.nix",
+      "note": "恢复原产品版本许可证目录，更新策略独立；不重写项目解释器。"
+    },
+    {
+      "name": "python3",
+      "versions": [
+        "3.14.10"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "python3-3.14.10-env",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "qoder-cn",
+      "versions": [
+        "0.5.16"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/packages/catalog/desktop-apps.nix",
+      "note": "保留中文客户端与Wayland包装；登录状态/项目数据不复制。"
+    },
+    {
+      "name": "qoder-cn-ozone",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "qqc2-breeze-style",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "qqc2-desktop-style",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "qrca",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "qtbase",
+      "versions": [
+        "6.12.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "qtimageformats",
+      "versions": [
+        "6.12.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "qtsvg",
+      "versions": [
+        "6.12.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "qttools",
+      "versions": [
+        "6.12.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "qtvirtualkeyboard",
+      "versions": [
+        "6.12.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "qtwayland",
+      "versions": [
+        "6.12.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ranger",
+      "versions": [
+        "1.9.4-unstable-2026-09-09"
+      ],
+      "scopes": [
+        "home",
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/ranger.nix",
+      "note": "原rc/rifle/scope、色彩和图标插件。"
+    },
+    {
+      "name": "rclone",
+      "versions": [
+        "1.76.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/private/rclone.nix",
+      "note": "运行时恢复加密rclone.conf，不覆盖已有配置。"
+    },
+    {
+      "name": "reportlab",
+      "versions": [
+        "5.1.0"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ristretto",
+      "versions": [
+        "0.14.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "rsync",
+      "versions": [
+        "3.5.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "rt5677-firmware",
+      "versions": [
+        "4.16-10"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "rtkit",
+      "versions": [
+        "0.14"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "rtl8192su-firmware",
+      "versions": [
+        "0-unstable-2016-10-05"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "rtl8761b-firmware",
+      "versions": [
+        "rtk1395"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "rustc",
+      "versions": [
+        "1.99.1"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "rustfmt",
+      "versions": [
+        "1.99.1"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "samba",
+      "versions": [
+        "4.25.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "sane-backends",
+      "versions": [
+        "1.4.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "scikit-learn",
+      "versions": [
+        "1.9.1"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "scipy",
+      "versions": [
+        "1.18.1"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "sddm",
+      "versions": [
+        "0.21.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "seaborn",
+      "versions": [
+        "0.13.2"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "setxkbmap",
+      "versions": [
+        "1.3.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "shadow",
+      "versions": [
+        "4.20.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "shared-mime-info",
+      "versions": [
+        "2.5.1"
+      ],
+      "scopes": [
+        "home",
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "shfmt",
+      "versions": [
+        "3.14.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "skanlite",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "skanpage",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "sof-firmware",
+      "versions": [
+        "2025.12.2"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "solid",
+      "versions": [
+        "6.32.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "sops-install-secrets",
+      "versions": [
+        "0.0.1"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "sound-theme-freedesktop",
+      "versions": [
+        "0.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "source-sans-pro",
+      "versions": [
+        "3.006"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "spectacle",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "speech-dispatcher",
+      "versions": [
+        "0.12.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "steam",
+      "versions": [
+        "1.0.0.87"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "steam-run",
+      "versions": [
+        "1.0.0.87"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "strace",
+      "versions": [
+        "7.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "sudo",
+      "versions": [
+        "1.9.17p2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "systemd",
+      "versions": [
+        "262"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "systemsettings",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "tango-icon-theme",
+      "versions": [
+        "0.8.90"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "tela-icon-theme",
+      "versions": [
+        "0-unstable-2026-08-10"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "telegram-desktop",
+      "versions": [
+        "7.4.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "terminus-font",
+      "versions": [
+        "4.49.1"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "texinfo-interactive",
+      "versions": [
+        "7.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "texlive",
+      "versions": [
+        "2025-r78234-final-env"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "thermald",
+      "versions": [
+        "2.5.13"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "thunar",
+      "versions": [
+        "4.20.10"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "time",
+      "versions": [
+        "1.10"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "todesk",
+      "versions": [
+        "4.7.2.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/services/remote-desktop.nix",
+      "note": "后台服务，使用Xfce X11供被控；首次登录仍由用户完成。"
+    },
+    {
+      "name": "tokei",
+      "versions": [
+        "15.0.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "trae-cn",
+      "versions": [
+        "2.3.105403"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/packages/catalog/desktop-apps.nix",
+      "note": "保留中文客户端与Wayland包装；登录状态/项目数据不复制。"
+    },
+    {
+      "name": "trae-cn-ozone",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "ttf-ms-win10",
+      "versions": [
+        "unstable-2021-02-10"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "tumbler",
+      "versions": [
+        "4.20.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "typora",
+      "versions": [
+        "0.11.18-plugin-1.19.16"
+      ],
+      "scopes": [
+        "explicit-extra"
+      ],
+      "status": "declared",
+      "module": "modules/packages/catalog/desktop-apps.nix",
+      "note": "保留自定义免费版和插件组合及Wayland包装；插件默认设置由NUR包维护，不迁入私人文档。"
+    },
+    {
+      "name": "typora-ozone",
+      "versions": [],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "typst",
+      "versions": [
+        "0.15.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "udiskie",
+      "versions": [
+        "2.8.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "udisks",
+      "versions": [
+        "2.11.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "unifont",
+      "versions": [
+        "18.0.01"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "union",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "universal-ctags",
+      "versions": [
+        "6.2.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "unzip",
+      "versions": [
+        "6.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "upower",
+      "versions": [
+        "1.91.5"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "usbutils",
+      "versions": [
+        "019"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "util-linux",
+      "versions": [
+        "2.42.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "verible",
+      "versions": [
+        "0.0.4298"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "vlc",
+      "versions": [
+        "3.0.24"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/apps/vlc.nix",
+      "note": "迁入原隐私与网络元数据选项，不迁入播放历史。"
+    },
+    {
+      "name": "vscode",
+      "versions": [
+        "1.147.0"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "已有设置、快捷键、32个可声明扩展，中文界面及配套语言工具；其余24个当前本机扩展不在锁定包集，详见docs/vscode.md。"
+    },
+    {
+      "name": "vscode-extension-James-Yu-latex-workshop",
+      "versions": [
+        "10.20.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-MS-CEINTL-vscode-language-pack-zh-hans",
+      "versions": [
+        "1.131.2026090407"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-MS-python-vscode-pylance",
+      "versions": [
+        "2026.4.1"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-anthropic-claude-code",
+      "versions": [
+        "2.1.329"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-bierner-markdown-preview-github-styles",
+      "versions": [
+        "2.2.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-catppuccin-catppuccin-vsc-icons",
+      "versions": [
+        "1.26.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-dbaeumer-vscode-eslint",
+      "versions": [
+        "3.0.34"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-esbenp-prettier-vscode",
+      "versions": [
+        "12.4.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-firefox-devtools-vscode-firefox-debug",
+      "versions": [
+        "2.15.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-github-vscode-github-actions",
+      "versions": [
+        "0.32.3"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-python-isort",
+      "versions": [
+        "2026.8.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-python-python",
+      "versions": [
+        "2026.10.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-python-vscode-python-envs",
+      "versions": [
+        "1.36.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-toolsai-jupyter",
+      "versions": [
+        "2025.9.1"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-toolsai-jupyter-keymap",
+      "versions": [
+        "1.1.2"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-toolsai-jupyter-renderers",
+      "versions": [
+        "1.3.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-toolsai-vscode-jupyter-cell-tags",
+      "versions": [
+        "0.1.9"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-toolsai-vscode-jupyter-slideshow",
+      "versions": [
+        "0.1.6"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-vscode-cmake-tools",
+      "versions": [
+        "1.23.52"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-vscode-cpptools",
+      "versions": [
+        "1.34.4"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-vscode-cpptools-extension-pack",
+      "versions": [
+        "1.5.1"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-vscode-hexeditor",
+      "versions": [
+        "1.11.1"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-vscode-remote-explorer",
+      "versions": [
+        "0.5.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-vscode-remote-remote-ssh",
+      "versions": [
+        "0.128.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-ms-vscode-remote-remote-ssh-edit",
+      "versions": [
+        "0.87.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-mshr-h-veriloghdl",
+      "versions": [
+        "1.29.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-myriad-dreamin-tinymist",
+      "versions": [
+        "0.15.12"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-oracle-oracle-java",
+      "versions": [
+        "27.0.0"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-rust-analyzer",
+      "versions": [
+        "0.3.2803"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-shd101wyy-markdown-preview-enhanced",
+      "versions": [
+        "0.8.40"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-teabyii-ayu",
+      "versions": [
+        "1.1.12"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "vscode-extension-yzhang-markdown-all-in-one",
+      "versions": [
+        "3.6.3"
+      ],
+      "scopes": [
+        "vscode-extension"
+      ],
+      "status": "declared",
+      "module": "home/modules/editors/vscode.nix",
+      "note": "扩展声明在独立编辑器模块，必要覆盖项从迁入设置与动态工具路径合并；其他选项保留扩展默认。"
+    },
+    {
+      "name": "w3m",
+      "versions": [
+        "0.5.6"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "wget",
+      "versions": [
+        "1.25.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "which",
+      "versions": [
+        "2.25"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "whitesur-cursors",
+      "versions": [
+        "0-unstable-2025-01-13"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "whitesur-gtk-theme",
+      "versions": [
+        "2026-08-08"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "whitesur-kde",
+      "versions": [
+        "0-unstable-2026-08-07"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "wireless-regdb",
+      "versions": [
+        "2026.09.03"
+      ],
+      "scopes": [
+        "explicit-extra",
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "wireplumber",
+      "versions": [
+        "0.5.19"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "workbuddy",
+      "versions": [
+        "5.6.2.40046327"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "wpa_supplicant",
+      "versions": [
+        "2.12"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "wpsoffice-365",
+      "versions": [
+        "12.8.2.21176"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "declared",
+      "module": "modules/core/private-configs.nix",
+      "note": "办公MIME默认关联；已有license归档运行时恢复到/opt/kingsoft/.auth，是否适用由官方验证。"
+    },
+    {
+      "name": "wqy-microhei",
+      "versions": [
+        "0.2.0"
+      ],
+      "scopes": [
+        "font"
+      ],
+      "status": "system-component",
+      "module": "modules/desktop/cjk-fonts.nix",
+      "note": "字体包与回退/用户profile字体发现统一管理。"
+    },
+    {
+      "name": "xauth",
+      "versions": [
+        "1.1.5"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xdg-desktop-portal",
+      "versions": [
+        "1.22.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xdg-desktop-portal-gtk",
+      "versions": [
+        "1.15.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xdg-desktop-portal-kde",
+      "versions": [
+        "6.8.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "xdg-desktop-portal-xapp",
+      "versions": [
+        "1.1.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xdg-user-dirs",
+      "versions": [
+        "0.20"
+      ],
+      "scopes": [
+        "home",
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xdg-utils",
+      "versions": [
+        "1.2.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xf86-input-evdev",
+      "versions": [
+        "2.11.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xf86-input-libinput",
+      "versions": [
+        "1.5.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xfce4-appfinder",
+      "versions": [
+        "4.20.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-icon-theme",
+      "versions": [
+        "4.4.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-notifyd",
+      "versions": [
+        "0.9.7"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-panel",
+      "versions": [
+        "4.20.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-power-manager",
+      "versions": [
+        "4.20.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-pulseaudio-plugin",
+      "versions": [
+        "0.5.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-screensaver",
+      "versions": [
+        "4.20.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-screenshooter",
+      "versions": [
+        "1.11.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-session",
+      "versions": [
+        "4.20.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-settings",
+      "versions": [
+        "4.20.5"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-taskmanager",
+      "versions": [
+        "1.6.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfce4-terminal",
+      "versions": [
+        "1.2.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfconf",
+      "versions": [
+        "4.20.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xfdesktop",
+      "versions": [
+        "4.20.2"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfsprogs",
+      "versions": [
+        "7.2.1"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xfwm4",
+      "versions": [
+        "4.20.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "home/modules/desktop/xfce/default.nix",
+      "note": "Xfce外观/面板/壁纸/快捷键单独管理，其余组件采用桌面默认。"
+    },
+    {
+      "name": "xfwm4-themes",
+      "versions": [
+        "4.10.0"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xinput",
+      "versions": [
+        "1.6.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xlsclients",
+      "versions": [
+        "1.1.6"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xorg-server",
+      "versions": [
+        "21.1.25"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xprop",
+      "versions": [
+        "1.2.8"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xrandr",
+      "versions": [
+        "1.5.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xrdb",
+      "versions": [
+        "1.2.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xset",
+      "versions": [
+        "1.2.6"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xsetroot",
+      "versions": [
+        "1.1.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xterm",
+      "versions": [
+        "412"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xwayland",
+      "versions": [
+        "24.1.15"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "xz",
+      "versions": [
+        "5.8.4"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "yakuake",
+      "versions": [
+        "26.08.3"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "desktop-defaults",
+      "module": "modules/desktop/default.nix",
+      "note": "使用Plasma桌面集成和原布局；不是每个KDE运行时组件都需要独立用户配置。"
+    },
+    {
+      "name": "zd1211-firmware",
+      "versions": [
+        "1.5"
+      ],
+      "scopes": [
+        "firmware"
+      ],
+      "status": "system-component",
+      "module": "hosts/orion/default.nix",
+      "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
+    },
+    {
+      "name": "zsh",
+      "versions": [
+        "5.9.2"
+      ],
+      "scopes": [
+        "home",
+        "system"
+      ],
+      "status": "declared",
+      "module": "home/modules/shell/zsh.nix",
+      "note": "原Powerlevel10k偏好、Oh My Zsh、补全与代理别名；代理统一Clash端口。"
+    },
+    {
+      "name": "zstd",
+      "versions": [
+        "1.5.7"
+      ],
+      "scopes": [
+        "system"
+      ],
+      "status": "package-defaults",
+      "module": "modules/packages/catalog.nix",
+      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    }
+  ]
+}

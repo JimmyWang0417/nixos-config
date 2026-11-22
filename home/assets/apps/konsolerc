@@ -1,0 +1,11 @@
+[Desktop Entry]
+DefaultProfile=orion.profile
+
+[General]
+ConfigVersion=1
+
+[Notification Messages]
+ShowPasteUnprintableWarning=false
+
+[UiSettings]
+ColorScheme=

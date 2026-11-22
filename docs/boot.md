@@ -21,7 +21,7 @@
 
 ## 相关文件
 
-- `modules/boot.nix`
+- `modules/core/boot.nix`
 - `hosts/orion/default.nix` 里的 `orion.boot.timeout = 10`
 - `docs/bootstrap.md` 记下同一主题路径
 - 现场 `/etc/default/grub` 的 `GRUB_THEME=/boot/grub/themes/dedsec/theme.txt`

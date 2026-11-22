@@ -8,7 +8,7 @@ Orion 另外安装 `pkgs.nur.repos.chillcicada.ttf-ms-win10`。基包包含 144 
 
 ## 包选择接口
 
-`orion.fonts.windows.package` 的类型是 `nullOr package`，模块默认 `null`。非空时，`modules/fonts.nix` 自动把所选包加入 `fonts.packages`。Orion 在 `hosts/orion/default.nix` 显式选择：
+`orion.fonts.windows.package` 的类型是 `nullOr package`，模块默认 `null`。非空时，`modules/desktop/fonts.nix` 自动把所选包加入 `fonts.packages`。Orion 在 `hosts/orion/default.nix` 显式选择：
 
 ```nix
 orion.fonts.windows.package = pkgs.nur.repos.chillcicada.ttf-ms-win10;
@@ -39,8 +39,8 @@ orion.fonts.windows = {
 
 ## 相关文件
 
-- `modules/fonts.nix`：可选包与本机目录导入接口
+- `modules/desktop/fonts.nix`：可选包与本机目录导入接口
 - `hosts/orion/default.nix`：Orion 显式选择的 Win10 字体包
-- `modules/chinese.nix`：Noto CJK、Carlito、Caladea 与 fontconfig 回退
+- `modules/desktop/cjk-fonts.nix`：Noto CJK、Carlito、Caladea 与 fontconfig 回退
 - `flake.nix`、`flake.lock`：NUR 输入与版本锁定
 - `.gitignore`：本机字体文件不入库

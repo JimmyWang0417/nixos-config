@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, hostName, ... }:
 {
   imports = [
-    ../../modules/hardware.nix
+    ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-pc-ssd
@@ -10,6 +10,11 @@
 
   networking.hostName = "Orion-Laptop";
   system.stateVersion = "26.05";
+
+  hardware.nvidia.prime = {
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.kernelModules = [ "kvm-intel" ];
@@ -74,12 +79,23 @@
       message = "flake hostName and hosts/orion networking.hostName diverged";
     }
     {
-      assertion = config.services.displayManager.defaultSession == "plasmax11";
-      message = "Orion's default session is Plasma X11 (plasmax11) for ToDesk";
+      assertion = config.services.displayManager.defaultSession == "plasma";
+      message = "Orion's default session is Plasma Wayland (plasma)";
+    }
+    {
+      assertion = lib.all
+        (name: lib.elem name config.services.displayManager.sessionData.sessionNames)
+        [ "plasma" "xfce" ];
+      message = "Orion requires Plasma Wayland and the selectable Xfce X11 session for ToDesk";
+    }
+    {
+      assertion = config.services.xserver.desktopManager.xfce.enable
+        && !config.services.xserver.desktopManager.xfce.enableWaylandSession;
+      message = "The ToDesk fallback is Xfce X11";
     }
     {
       assertion = config.services.displayManager.sddm.wayland.enable == false;
-      message = "SDDM greeter stays on X11; Wayland remains a login choice";
+      message = "SDDM greeter stays on X11 while the default desktop uses Wayland";
     }
   ];
 }

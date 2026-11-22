@@ -17,7 +17,7 @@
     "verilog.linting.linter": "iverilog",
     "verilog.linting.iverilog.arguments": "-i",
     "[verilog]": {
-        "editor.defaultFormatter": "ericsonj.verilogformat"
+        "editor.defaultFormatter": "mshr-h.veriloghdl"
     },
     "editor.unicodeHighlight.invisibleCharacters": false,
     "files.autoSave": "afterDelay",
@@ -31,5 +31,11 @@
     },
     "claudeCode.preferredLocation": "panel",
     "jdk.telemetry.enabled": true,
-    "update.mode": "none"
+    "update.mode": "none",
+    "[systemverilog]": {
+        "editor.defaultFormatter": "mshr-h.veriloghdl"
+    },
+    "verilog.formatting.verilogHDL.formatter": "verible-verilog-format",
+    "verilog.formatting.systemVerilog.formatter": "verible-verilog-format",
+    "verilog.formatting.veribleVerilogFormatter.path": "verible-verilog-format"
 }

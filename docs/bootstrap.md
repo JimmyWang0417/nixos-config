@@ -14,9 +14,9 @@ flake 输入仍是锁住的 GitHub 修订。这里只改二进制缓存，不把
 
 - `bootstrap/install.sh`
 - `flake.nix` 的 `nixosConfigurations.orion`
-- `modules/hardware.nix`
-- `modules/nix-settings.nix` 在切换成功后把 `experimental-features` 写进系统配置，并给出与 `flake.nix` 的 `nixConfig` 相同的 substituters
-- `modules/nix-download.nix` 在 `orion.nix.chinaMirrors.enable` 打开时把这份 substituters 写进 `nix.settings`
+- `hosts/orion/hardware-configuration.nix`
+- `modules/core/nix-settings.nix` 在切换成功后把 `experimental-features` 写进系统配置，并给出与 `flake.nix` 的 `nixConfig` 相同的 substituters
+- `modules/core/nix-download.nix` 在 `orion.nix.chinaMirrors.enable` 打开时把这份 substituters 写进 `nix.settings`
 - GRUB 主题来自 flake 输入 `nur-packages` 的 `grub-theme-dedsec`。主题包和每日更新在 nur-packages，nixos-config 只引用。说明在 `docs/boot.md`。
 
 ## 依赖

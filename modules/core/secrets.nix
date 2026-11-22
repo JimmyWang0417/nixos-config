@@ -20,15 +20,15 @@ in
         group = "jimmywang0417";
       }
     ) {
-      fcitx5-pinyin = ../secrets/fcitx5-pinyin.sops;
-      clash-verge = ../secrets/clash-verge.sops;
-      anytls-ssh-key = ../secrets/anytls-ssh-key.sops;
-      rclone-webdav = ../secrets/rclone-webdav.sops;
-      jetbrains-licenses = ../secrets/jetbrains-licenses.sops;
-      wps-license = ../secrets/wps-license.sops;
-      botmux-bots = ../secrets/botmux-bots.sops;
-    nm-connections = ../secrets/nm-connections.sops;
-    cc-switch = ../secrets/cc-switch.sops;
+      fcitx5-pinyin = ../../secrets/fcitx5-pinyin.sops;
+      clash-verge = ../../secrets/clash-verge.sops;
+      anytls-ssh-key = ../../secrets/anytls-ssh-key.sops;
+      rclone-webdav = ../../secrets/rclone-webdav.sops;
+      jetbrains-licenses = ../../secrets/jetbrains-licenses.sops;
+      wps-license = ../../secrets/wps-license.sops;
+      botmux-bots = ../../secrets/botmux-bots.sops;
+    nm-connections = ../../secrets/nm-connections.sops;
+    cc-switch = ../../secrets/cc-switch.sops;
     };
   };
 }

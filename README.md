@@ -1,203 +1,67 @@
-这是 Jimmy Wang 的 NixOS 配置。当前主机 `orion`（Orion-Laptop，HP OMEN 16）不是仓库的范围：模块化 flake 描述这台 Manjaro 主机的硬件、双显卡、Plasma 桌面布局、中文输入和软件清单，再加一台机器是新的主机文件。仓库只做求值，不执行 `nixos-rebuild`，也不改正在使用的引导和磁盘。
+# Orion NixOS 配置
 
-2026-11-16 检查过：`refs/heads/nixos-26.11` 不存在，`https://channels.nixos.org/nixos-26.11` 返回 404，home-manager 也没有 `release-26.11`。测试线还没发布，系统与 home-manager 跟踪 `nixos-26.05` 和 `release-26.05`。26.05 没有或过旧的属性从输入 `nixpkgs-unstable` 取，不把整台机器切到 unstable。
+这份 flake 描述 Orion-Laptop（HP OMEN 16）的 NixOS 配置：Intel/NVIDIA PRIME offload、btrfs、与 Windows 共用的 ESP、Plasma Wayland，以及供 ToDesk 使用的 Xfce X11。当前开发主机仍运行 Manjaro；仓库验证不会安装或激活 NixOS，也不会修改磁盘、引导或正在使用的桌面。
 
-默认会话见下面「显示」。输入法只保留 fcitx5 一条路径（GTK、Qt、X11、Wayland、Electron）。现场的 `/etc/environment` 里 `XMODIFIERS` 写了两遍，并且 `GLFW_IM_MODULE=ibus` 和 fcitx 冲突；GLFW 那一项已去掉。字体不再叠多份 fontconfig，只留一条 CJK 回退链。Noto CJK 已经在 `modules/chinese.nix` 里。Orion 安装锁定 NUR 的 Win10 字体包，本机目录额外导入默认关，见 `docs/fonts.md`。细节在 `inventory/optimizations.md`，对照表在 `inventory/适配清单.md`。
+## 软件来源
 
-Linux 根文件系统在 btrfs `UUID=fd32207f-8a11-48d7-9d04-9316cdb8c265` 的 `@`、`@home`、`@cache`、`@log` 上，ESP `UUID=0AF1-1155` 与 Windows 共用。没有活动的 swapfile，所以没有写入 `resume` / `resume_offset`。显卡是 Intel 核显显示加 NVIDIA PRIME offload，不是 sync。
+- 系统模块、全部 nixpkgs 软件、Home Manager、NUR 构建依赖和开发环境统一使用锁定的 `nixos-unstable`。
+- stable 输入 `nixpkgs` 和显式 `pkgsStable` 接口保留，当前功能不从中安装软件。
+- 2026-11-22 核实官方 `nixos-26.11` 与 Home Manager `release-26.11` 尚不存在，因此使用 26.11 开发线和 Home Manager master。正式分支可用后再更新保留的 stable 输入。
+- 自定义 NUR 配方保留原有功能；其上游版本由各配方维护，不会因为切换 nixpkgs 自动更新。
+- `system.stateVersion` 与 `home.stateVersion` 保持 `26.05`；它们控制兼容行为，不是升级开关。
 
-## 快捷键
+[迁移评估与软件版本](docs/unstable-migration.md)记录核对方法、逐项官方依据、改善和仍有差距的包。[配置覆盖清单](inventory/configuration-coverage.json)区分已经声明的偏好、桌面集成、系统组件和使用包默认设置的项目；安装包不等于账号已登录或个人状态全部声明化。
 
-默认是迁过来的 KDE 快捷键，`orion.shortcuts.profile = "current"`，不启用 keyd。仿 macOS 的一套已经可以切换：只在主机文件里写成 `"macos"`。按住 Super 时当作 Command。改回 `"current"` 会关掉 keyd。这不是未办项。
+## 配置结构
 
-## ranger 和 neovim
+[模块结构](docs/architecture.md)说明细粒度目录与扩展方式：
 
-home-manager 启用 `programs.ranger` 和 `programs.neovim`，模块在 `home/editors.nix`。配置按原文件放在 `home/ranger/` 和 `home/nvim/`，没有改成 Lua。
+- `hosts/orion/`：主机名、PCI 地址、内核选择、挂载 UUID、功能组合。
+- `modules/core/`、`hardware/`、`desktop/`、`network/`、`services/`：各系统功能。
+- `modules/packages/`：纯软件清单、兼容策略、浏览器与游戏集成。
+- `modules/programs/dsh/`：DSH 选项、协调逻辑及 13 组插件，保留现有 38 个选择。
+- `home/jimmy.nix`：用户身份和模块组合。
+- `home/modules/apps/`、`editors/`、`shell/`、`desktop/`：各应用、编辑器和桌面配置。
+- `home/fcitx5/`、`home/modules/private/`、`lib/`：输入法偏好与运行时私有数据初始化。
 
-迁入的文件：
+主机事实不放进通用包清单；应用配置、安装包和用户状态分别表达。各级入口显式导入文件，新模块也需要加入 Git 才能被 Git flake 看见。
 
-- ranger：`rc.conf`、`rifle.conf`、`scope.sh`、`commands.py`、`colorschemes/` 的 `__init__.py`、`default.py`、`jungle.py`、`snow.py`、`zenburn.py`、`plugins/__init__.py`、`plugins/devicons.py`、`plugins/devicons_linemode.py`
-- neovim：`init.vim`、`addition.vim`、`command.vim`、`coc.vim`、`coc-settings.json`、`dependent.vim`、`keyboard.vim`、`markdown.vim`、`plugins.vim`、`ui.vim`、`Ultisnips/cpp.snippets`
+## 桌面与中文输入
 
-`plugins.vim` 的 vim-plug 声明留着，不拷贝 `~/.config/nvim/plugged`，也不提交 `autoload/plug.vim`。`coc.vim` 的 `g:coc_global_extensions` 留着。
-插件在 home-manager 激活时装好。
+默认登录 Plasma Wayland（`plasma`），另提供 Xfce X11（`xfce`）。Plasma 6.8 已退役 X11；需要 ToDesk 控制这台机器时，应在登录界面选择 Xfce。SDDM 欢迎界面仍使用 X11，自动登录进入默认 Plasma 会话。
 
-这些外部命令是因为配置里调用了才加的：
+[Xfce 外观](docs/xfce.md)沿用现有 WhiteSur 浅色、绿色强调色、Tela 图标、WhiteSur 壁纸及上下双面板。主题、面板、壁纸、快捷键分别管理，不覆盖 Plasma 外观。
 
-- `w3m`：`rc.conf` 的 `preview_images_method w3m`，`scope.sh` 的 `w3m -dump`
-- `atool`：`scope.sh` 和 `rifle.conf` 列压缩包
-- `mediainfo`、`ffmpegthumbnailer`：`scope.sh` 的音视频预览
-- `poppler-utils`：`pdftotext`、`pdftoppm`
-- `djvulibre`：`djvutxt`
-- `libarchive`：`bsdtar`
-- `imagemagick`：`identify`、`convert`
-- `gcc`：`g++`，给 C/C++ 的编译映射
-- `clang-tools`：`clangd` 和 `clang-format`
-- `efm-langserver`：`coc-settings.json` 里 `languageserver.efm.command`
-- `black`：`python -m black`，放在 Neovim 的 Python 3 里
+[中文输入法](docs/input-method.md)使用同一套 fcitx5：KWin 启动 Wayland 输入法，Xfce 使用独立 X11 环境和自启动。旧的全局 GTK/Qt/SDL 强制变量在 Wayland 清理，VS Code 使用上游包装器的原生 Wayland IME 参数。用户词库仅在缺失时从密文恢复，保留后续学习结果。
 
-`withNodeJs` 和 `withPython3` 打开，给 coc.nvim 和 Python provider。系统包里已有 `git`、`nodejs`、`python3`、`p7zip`、`unzip`、`ffmpeg`、`universal-ctags`、`bash-language-server`，没有再加一份。`rifle.conf` 里的 `vlc`、`libreoffice` 已经在系统包里。`code` 来自 `programs.vscode.package`。
+## 编辑器与应用配置
 
-没有加 `ripgrep`、`fd`、`bat`、`highlight`、`ueberzug`、`chafa`，这两份配置没有调用。`rifle.conf` 里的 `perl`、`ruby`、`php` 没有新装解释器。`command.vim` 里的 `BuildComposer` 会跑 `cargo`，但没有任何插件挂上它，没有装 Rust。
+[VS Code](docs/vscode.md)已有的主题、插件偏好和快捷键均已核对迁入，并补齐中文界面、HDL 格式化/编译、C/C++、Rust、中文 LaTeX 及 Java 路径。32 个当前可从 nixpkgs 声明的扩展纳入模块，其余本机扩展的限制逐项列在文档中。Python 环境和 npm 依赖继续由项目选择。
 
-跳过、不入库：
+Neovim 与 ranger 保留原有配置和插件引导。Konsole、Dolphin、Kate、btop、VLC、OBS、Discord、Heroic 的安全公开偏好各自成模块，只在目标文件缺失时初始化；不复制最近文件、播放历史、账号缓存或私有安装路径。Shell 保留原 Powerlevel10k 配置，`pon` 与 Nix 下载统一使用 Clash mixed 代理 `127.0.0.1:7897`。
 
-- `plugins/ranger_devicons/`：`alexanderjeurissen/ranger_devicons` 的克隆，没有插件声明文件。ranger 实际加载的是同目录的 `devicons.py` 和 `devicons_linemode.py`，这两份已迁入。图标要 Nerd Font，字体不在这两份配置里，没有装。
-- `__pycache__`、`.pyc`、`.pyo`
-- `rc-sample.conf`、`commands_full.py`：ranger 不加载
-- `dependent.vim` 里的 `/usr/bin/python` 和 `/usr/bin/python3`
+[DSH](docs/dsh.md)的插件分组、安装协调和更新机制独立。该主机没有可迁移的 DSH 运行目录，因此没有编造 provider、MCP 账号或个人插件设置。
 
-nixpkgs 的 ranger 会把包内 `rc.conf` 的 `preview_script` 指到自己的 `scope.sh`。迁过来的 `rc.conf` 写成 `set preview_script ~/.config/ranger/scope.sh`，否则这份预览脚本不会被用到。
+## 私有配置
 
-vim-plug 插件（`plugins.vim`，home-manager 激活时安装）：vimplus-startify、nerdtree、vim-nerdtree-syntax-highlight、vim-airline、vim-airline-themes、vim-commentary、syntastic、vim-easymotion、rainbow、vimcdoc、gundo.vim、ayu-vim、coc.nvim（分支 release）、vim-clang-format、vim-operator-user、vim-autoread、auto-pairs、vim-snippets。
+[密文说明](secrets/README.md)列出各归档。私钥留在本机，明文不进入 Git 或 Nix store。
 
-coc 扩展（`coc.vim`，home-manager 激活时安装）：coc-json、coc-vimlsp、coc-tsserver、coc-clangd、coc-sh、coc-pyright、coc-marketplace、coc-html、coc-actions、coc-snippets、coc-markdown-preview-enhanced、coc-webview。
+- 用户应用的 Clash、rclone、JetBrains、botmux 和 CC Switch 配置在 Home Manager 激活时安全初始化。
+- NetworkManager 系统连接和 WPS 授权文件由 root 运行时服务恢复到实际使用的位置。
+- 输入法学习数据单独恢复。既有文件、符号链接和并发产生的新数据均保留。
+- 恢复旧许可证不代表它一定适用于新版本；登录和授权仍由应用官方判断。
+- anytls 私钥密文保留；包含私人目标的原隧道单元未部署，不会自动建立连接。
 
-## 显示
+## 验证和使用
 
-默认 X11，因为 ToDesk 远程控制。`services.displayManager.defaultSession = "plasmax11"`（nixos-26.05 上 Plasma 6 的 X11 会话名，来自 `plasma-workspace` 的 `providedSessions`）。Wayland 会话 `plasma` 仍会安装，只在登录界面里选。SDDM 欢迎界面也走 X11：`services.displayManager.sddm.wayland.enable = false`。自动登录用户仍是 `jimmywang0417`。
+```sh
+bash tests/eval.sh
+nix build --impure --no-link --file tests/xfce-assets.nix
+nix eval --impure --json --no-update-lock-file --file scripts/software-inventory.nix
+```
 
-ToDesk 安装 nixpkgs 的 `todesk`。`orion.nix.allowUnfree` 本来就是开的，没有为它再翻一次开关。不安装 RustDesk。旧的 `/opt/todesk` 开机项是坏的，因为那个包装已经不在；这里不把失效路径装回去。
+检查覆盖来源与会话约束、中文输入、词库与归档安全、flake 和完整系统 derivation；资源检查实际构建并核对主题、光标、图标及壁纸。求值与资源检查不替代完整系统构建和真实硬件登录测试。
 
-## 默认应用
+只有在目标 NixOS 已安装并备好 age 私钥、确认硬件文件后，才使用 `nixos-rebuild`；入口说明见 [引导](docs/bootstrap.md)。这里不对当前 Manjaro 执行该操作。
 
-doc、docx、rtf、odt 归 WPS 文字（`wps-office-wps.desktop`），xls、xlsx、ods、csv 归 WPS 表格（`wps-office-et.desktop`），ppt、pptx 归 WPS 演示（`wps-office-wpp.desktop`）。PDF 归 Okular（`okularApplication_pdf.desktop`），png、jpeg、gif、webp、svg 归 Gwenview，纯文本和 Markdown 归 Kate。LibreOffice Qt（`pkgs.libreoffice-qt`）有装，用来在本地处理文档，上面这些类型都不是它的默认程序。查询过的类型都有处理程序，没有留空。
-
-现场 `xdg-mime` 里，doc、ppt、odt、ods、rtf 曾落到 LibreOffice，docx、xls、xlsx、pptx 曾落到 ChatGPT。系统级 `xdg.mime.defaultApplications` 把办公文档固定到 WPS，并在 `xdg.mime.removedAssociations` 里去掉对应的 LibreOffice 桌面文件，避免装包顺序再抢走关联。这一步写的是 `/etc/xdg/mimeapps.list`，不改写 `~/.config/mimeapps.list` 里已有的协议关联。
-
-## Typora
-
-Typora 已写入 `modules/packages.nix`，显式取 `inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system}.typora`（局部名 `nurPkgs.typora`），版本 `0.11.18-plugin-1.19.16`。包名和命令都是 `typora`，桌面显示 Typora；不取 nixpkgs 的同名 `pkgs.typora`。自有 `nur-packages` 输入锁定在 `9a4bcf65fac8de0738e002e8bfe00a68ac4019b6`，源码、插件和启动参数覆盖接口见 [软件包文档](docs/packages.md)。Markdown 默认程序仍为 Kate。
-
-## 校园网与 docker-easyconnect
-
-`orion.easyconnect` 打开的是 docker-easyconnect，不是官方 deb。镜像是 `hagb/docker-easyconnect:7.6.7`，容器名 `easyconnect`。`autoStart = false`，不挂到 default.target。每次 NetworkManager 连接或断开都跑调度脚本。不安装官方 deb，不复制 `/usr/share/sangfor` 里的二进制，也不把 EasyMonitor 写成开机服务。登录凭据不进仓库，探测地址里也不写账号密码。
-
-`campusProbes` 默认是 `[ "https://kq.xjtu.edu.cn" ]`。一条探测要在大约 3 秒的连接超时里完成 HTTPS，HTTP 状态是 2xx 或 3xx，才算打得开这个只在校园网里能访问的网站。只解析出域名不算。认证门户把请求重定向到另一台主机也不算。
-
-容器没在跑，并且探测失败（超时、不是 2xx，或重定向到另一台主机）时才 `docker start`。探测成功而容器停着，说明已经在校园网上，不启动。容器已经在跑时，不因为后来探测成功就 `docker stop`，因为隧道本身可能让这个网站变得可达。只有 NetworkManager 的活动连接是 `XJTU_STU` 或 `xjtuse-lab` 时才停止。`campusSubnets` 仍是空的，不参与判断。名叫「有线连接 1」的以太网不是停止条件。
-
-## 网络和下载
-
-二进制缓存只按这个顺序，没有别的站点。中科大和清华都是 `cache.nixos.org` 的镜像。帮助页：<https://mirrors.ustc.edu.cn/help/nix-channels.html>、<https://mirrors.tuna.tsinghua.edu.cn/help/nix-channels/>。
-
-- `https://mirrors.ustc.edu.cn/nix-channels/store`
-- `https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store`
-- `https://cache.nixos.org/`
-
-在 Nix 默认已经信任的公钥之外，只再追加 `cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=`。两份帮助页都没有公布第二把，narinfo 仍由这把官方钥匙签名。`nix.settings.substituters` 用 `mkForce` 固定上面三项；公钥走 `extra-trusted-public-keys`，不盖掉原有的信任列表。同一份列表在 `flake.nix` 的 `nixConfig` 里。`bootstrap/install.sh` 在代理起来之前接受 flake 配置，并导出同样的 substituters。flake 输入仍是锁住的 GitHub 修订。`nix.settings.fallback = true`：前面的镜像失败时继续试下一个缓存，仍然没有就从源码构建。
-
-Clash Verge 的虚拟网卡依赖 nixos-26.05 的 `programs.clash-verge.serviceMode`。单元名是 `clash-verge.service`，里面跑 `clash-verge-service`。套接字组是 `jimmywang0417`。应用里仍要自己打开 TUN。`programs.clash-verge.tunMode` 没开，那是给 GUI 二进制加 capability 的另一条路。Clash Verge 正在监听 mixed 端口 7897，作为 HTTP 代理可用。`orion.nix.proxy` 默认是 `http://127.0.0.1:7897`。nixos-26.05 带的 Nix 2.34 没有 `nix.conf` 的 `http-proxy` / `https-proxy`（2.35 会把这两个键报成 unknown setting），下载走的是 `http_proxy` / `https_proxy`。这个端口因此写进 nix-daemon 的环境，以及 `nix.settings.impure-env`，固定输出构建也能用到。Verge 里单独的 SOCKS 7898 和 HTTP 7899 是关的。这里不写订阅地址。
-
-本机的多线程下载是两套，都不是 Nix 的客户端：
-
-- Motrix 2.4.1（`motrix-bin`）自带 aria2 引擎，`max-connection-per-server` 和 `split` 都是 64。
-- Axel 2.17.14 在 `~/.local/bin/axel`，没有 `~/.axelrc`，也没有改连接数的包装脚本，程序默认每个文件 4 条连接。NixOS 安装同版本的 `pkgs.axel`。
-
-Nix 拉 substituter 和源码走自己的 HTTP 客户端。这边的并行数是 `nix.settings.http-connections`，按 Motrix 的 64 放在 `orion.nix.download.httpConnections`。`connect-timeout` 是 10 秒。Motrix 和 Axel 留给手动下载。
-
-`programs.git` 把 `git://github.com/` 换成 `https://github.com/`，git 也走 `orion.nix.proxy`。
-
-这些在 `modules/nix-download.nix`。`hosts/orion` 打开 `orion.nix.download.enable`。改模块之前，现场 `~/.config/nix/nix.conf` 只有实验特性，没有镜像、超时、并行数和代理。
-
-## 未办配置
-
-这些还没有做完。不是已迁移功能的简介。
-
-用户不用，已在本机 paru -R：`grok-bot-bin`、`udf-http-range-proxy`、`keepassxc-unlock`、`verilog-format-git`。
-
-### 已用 sops 加密入库
-
-只写 secret 名。明文不在仓库里。运行时路径是 `/run/secrets/<名字>`，说明在 `secrets/README.md`。
-
-fcitx5-pinyin、clash-verge、anytls-ssh-key、rclone-webdav、jetbrains-licenses、wps-license、botmux-bots、nm-connections、cc-switch。
-
-### 留在本机，不能入库
-
-只记种类，没有秘密内容。
-
-- 本机目录中额外提供的字体文件不提交；`orion.fonts.windows.enable` 只控制本机目录导入，默认关。Orion 的 Win10 字体改由锁定 NUR 包安装，见 `docs/fonts.md`
-- v2rayN 的 `guiConfigs`
-
-### nixpkgs 26.05 没有的包
-
-这些包在自有 nur-packages，nixos-config 只引用属性。系统安装的是 `nurPkgs.botmux`。`crm`、`xjtu-course-genius`、`xjtutoolbox`、`animeko` 不进 `environment.systemPackages`。
-
-- `crm` 0.2.2
-- `xjtu-course-genius` 4.6.1
-- `xjtutoolbox` 1.4.1
-- `botmux` 3.59.17
-- `animeko` 6.4.0。nixpkgs 26.05 的 `animeko` 5.3.2 标记为 broken，这份是 AppImage
-
-版本写在 nur-packages 各自的表达式里，由那边的更新流程维护。
-
-### conda
-
-主机 `hosts/orion/default.nix` 里 `orion.nix.allowUnfree = true` 仍然开着，给 NVIDIA 用户态驱动，以及 Chrome、Edge、VS Code、JetBrains、Discord、Steam、Obsidian、ToDesk、WPS、Typora 和 Win10 字体包用。
-
-用户要 conda。PyCharm 2025.2 先前唯一的 conda 解释器是 `$USER_HOME$/miniconda3/bin/python`（Python 3.13.2），那个 miniconda3 不存在。Orion 启用 nixpkgs 26.05 的属性 `conda`（`pkgs.conda`，版本 26.1.1-1，pname `conda-shell`，二进制 `conda-shell` 与 `install-conda`，前缀 `~/.conda`）。不安装 Anaconda 发行版。
-
-### 开机项指向已卸载程序，默认不迁移
-
-1Password、RustDesk、Waydroid、`apm-daily-update`。v2rayN 和正在使用的 Clash 重叠，默认不迁移。ToDesk 已改为 nixpkgs 的 `todesk`，见「显示」。
-
-### 配置里已留接口但还没填实的
-
-- sops 的年龄私钥仍只在本机。密文 secret 名见上面「已用 sops 加密入库」。`.sops.yaml` 里只有公钥接收者。
-- 快捷键不是未办。`modules/shortcuts.nix` 已提交。默认 `orion.shortcuts.profile = "current"`，此时 `services.keyd.enable` 为 false。改成 `"macos"` 才启用 keyd。toplevel 已求值通过。
-- 中科大没有 flake 注册表：`https://mirrors.ustc.edu.cn/nix-channels/flake-registry.json` 返回 404。`nix.settings.flake-registry` 保持上游，没有改成一个不存在的地址。
-- nixpkgs 26.05 的 `motrix` 是 1.8.19，本机 AUR 包是 `motrix-bin` 2.4.1。没有用旧版本替换，也没有把 `~/.config/Motrix/system.json` 写进仓库。本机没有单独的 aria2 包或 `~/.aria2`，所以没有新写一份 aria2 配置。
-- shell 别名 `pon` 仍指向 `127.0.0.1:10808`，这个端口当前没有进程监听。Nix 用的是 Clash mixed `7897`。别名按现有 `~/.zshrc` 保留。
-
-### NUR
-
-社区 NUR 安装下面三个客户端和 Win10 字体；Typora 来自独立锁定的自有 `nur-packages` 输入。conda 用这份锁住的 nixos-26.05 属性 `pkgs.conda`（版本 26.1.1-1），不走 NUR，也不装 Anaconda 发行版。
-
-能安装：
-
-- 百度网盘 8.9.7：`nur.repos.freegoxing.baidunetdisk`。和已装版本一致。不要用 `nur.repos.xddxdd.baidunetdisk`，它会把客户端换到仓库自带的 Electron 11.5.0 上。
-- 钉钉 9.0.0.261105002：`nur.repos.yakkhini.dingtalk`。和已装版本一致，走调用方的 nixpkgs。这个包捆绑已停止维护的 OpenSSL 1.1，所以 `nixpkgs.config.permittedInsecurePackages` 里只放了 `dingtalk-9.0.0.261105002`。
-- WPS 365 12.8.2.21176：`nur.repos.novel2430.wpsoffice-365`。版本号和已装的教育版相同，属性名不带 edu。同仓库的 `wpsoffice` 11.1 和 `wpsoffice-cn` 12.1 都更旧，不用。
-
-社区 NUR 没有：alder、crm、xjtu-course-genius、xjtutoolbox、botmux、animeko、华为云会议。crm、xjtu-course-genius、xjtutoolbox、botmux、animeko 用自有 nur-packages 的同名属性。NUR 里没有深信服客户端。Orion 的校园网服务是 docker-easyconnect，镜像 `hagb/docker-easyconnect:7.6.7`，见「校园网与 docker-easyconnect」。
-
-字体和词库：Orion 的 `orion.fonts.windows.package` 显式选 `pkgs.nur.repos.chillcicada.ttf-ms-win10`，随现有 NUR 输入锁定，不从 AUR 网页取字体。基包有 144 个 TTF/TTC 文件，约 320.8 MiB，含微软雅黑、宋体、Consolas；不加 `ttf-ms-win10-sc-sup`。CJK 默认回退链仍用 Noto Sans CJK / Noto Serif CJK（Source Han 的 Noto 发行）。`orion.fonts.windows.enable` 和 `directory` 继续用于本机目录额外导入，默认关，与包选择独立。fcitx5 拼音用户词库是个人文件，NUR 不会有。详见 [字体文档](docs/fonts.md)。
-
-秘密不能靠 NUR：Clash 配置、anytls 密钥、rclone webdav、JetBrains 许可证、bots.json、NetworkManager 的 PSK。
-
-上面三个客户端与字体包使用的社区 NUR 已经写进 flake：输入 `nur` 跟踪 `github:nix-community/NUR/main`，`nur.inputs.nixpkgs.follows` 指向这份 nixos-26.05。客户端在 `modules/packages.nix`，字体选择在 `hosts/orion/default.nix`，由 `modules/fonts.nix` 加入 `fonts.packages`。
-
-## 不按原样迁的
-
-- v2rayN：和正在用的 Clash 重复，代理继续用 Clash。
-- ToDesk：`/opt/todesk` 那条开机项是坏的，改装 nixpkgs 的 `todesk`。不用 RustDesk。
-- 1Password：密码库继续用 KeePassXC。
-- Waydroid：不迁。
-- `apm-daily-update`：oneAPI 每日更新，不迁。
-- Grok Bot 桌面版：本机已经卸掉，不迁。
-- 完整 Anaconda：不迁，只留 nixpkgs 的 `conda`。
-- 深信服安装包：不复制二进制。改用 docker-easyconnect，只在连不上 https://kq.xjtu.edu.cn 时启动；已经在跑时，不因为隧道把这个网站打通就停。
-- 华为云会议：不迁。用户不用华为云会议桌面客户端。
-- 百度网盘、钉钉、WPS：用 NUR 里和已装版本一致的 `freegoxing.baidunetdisk`、`yakkhini.dingtalk`、`novel2430.wpsoffice-365`，不用 `xddxdd.baidunetdisk`，也不用更旧的 `wpsoffice` / `wpsoffice-cn`。
-
-## 再加一台机器
-
-`modules/hardware.nix` 只由 `hosts/orion/default.nix` 导入，里面是这台机器的 btrfs 子卷和 Windows ESP。`orion.boot`、`orion.chinese`、`orion.nix`、`orion.secrets`、`orion.shortcuts`、`orion.fonts.windows` 仍是开关。桌面、用户、网络、服务和软件包模块目前按 Orion 写死，第二台机器要覆盖这些模块，不要直接改 Orion 的磁盘 UUID。
-
-1. 复制 `hosts/example.nix` 为 `hosts/<名字>/default.nix`。
-2. 在 `flake.nix` 的 `nixosConfigurations` 里加一条属性，带上 `system`、`hostName` 和 `modules = [ ./hosts/<名字> ]`。
-3. 改主机名、文件系统、initrd 和显卡 PCI，不要复用 Orion 的分区 UUID。
-
-用户 jimmywang0417 的 Plasma 布局在 `home/jimmy.nix`，由主机文件导入。另一台机器可以同样导入，也可以不导入。
-
-| 名称 | 模块文件 | 文档 | 一句话状态 |
-| --- | --- | --- | --- |
-| 桌面 | modules/desktop.nix | modules/desktop.nix | 默认会话 plasmax11 |
-| 秘密 | modules/secrets.nix | secrets/README.md | sops 只写名字 |
-| ranger / neovim | home/editors.nix | home/editors.nix | 沿用现有配置 |
-| VS Code | home/editors.nix | docs/vscode.md | 扩展是 nixpkgs 列表 |
-| 软件包 | modules/packages.nix | docs/packages.md | Typora 走自有 nur-packages；deepseek-harness 走 nixpkgs-unstable |
-| 自有包 | nur-packages | modules/packages.nix | 只引用 crm、botmux、animeko、xjtutoolbox、xjtu-course-genius |
-| 引导 | bootstrap/install.sh | docs/bootstrap.md | 已装好且 flake 未开时先跑 |
-| GRUB | modules/boot.nix | docs/boot.md | 主题保持现用的；同一系统不在顶层出现两次。 |
-| 字体 | modules/fonts.nix | docs/fonts.md | 安装 NUR Win10 字体；Noto CJK 回退不变，本机目录额外导入默认关。 |
+继续阅读：[GRUB](docs/boot.md)、[字体](docs/fonts.md)、[软件与 NUR](docs/packages.md)。`inventory/` 中原始 Manjaro 扫描资料作为迁移历史保留，判断当前状态应以模块、最新版本审计和配置覆盖清单为准。

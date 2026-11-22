@@ -1,33 +1,4 @@
-# Plasma 6 X11 session. kdePackages.plasma-workspace.passthru.providedSessions
-# on nixos-26.05 is [ "plasma" "plasmax11" ]; plasmax11 is the X11 desktop file.
-# "plasma" stays installed so the login screen can still pick Wayland.
-{ pkgs, ... }:
-{
-  services.xserver.enable = true;
-  services.xserver.xkb.layout = "cn";
-
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = false;
-  services.displayManager.defaultSession = "plasmax11";
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "jimmywang0417";
-  };
-  services.desktopManager.plasma6.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
-  security.rtkit.enable = true;
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
+{ ... }: {
   # System defaults in /etc/xdg/mimeapps.list. This does not rewrite
   # ~/.config/mimeapps.list, so existing scheme handlers stay.
   # LibreOffice is installed and removed from these types so package order
@@ -75,22 +46,4 @@
     "image/svg+xml" = [ "libreoffice-draw.desktop" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    kdePackages.ark
-    kdePackages.dolphin
-    kdePackages.dolphin-plugins
-    kdePackages.elisa
-    kdePackages.filelight
-    kdePackages.gwenview
-    kdePackages.kate
-    kdePackages.kcalc
-    kdePackages.kdeconnect-kde
-    kdePackages.kfind
-    kdePackages.konsole
-    kdePackages.kwalletmanager
-    kdePackages.okular
-    kdePackages.skanlite
-    kdePackages.spectacle
-    kdePackages.yakuake
-  ];
 }

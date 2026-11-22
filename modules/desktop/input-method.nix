@@ -15,6 +15,19 @@ let
     fi
     exec ${fcitxPackage}/bin/fcitx5
   '';
+  # Share one session policy between the display-manager wrapper and Plasma.
+  # Clearing inherited immodules also handles stale settings from the old OS.
+  sessionInputEnvironment = ''
+    if [ "''${XDG_SESSION_TYPE:-}" = "wayland" ]; then
+      unset GTK_IM_MODULE QT_IM_MODULE SDL_IM_MODULE
+      export ELECTRON_OZONE_PLATFORM_HINT=auto
+    else
+      export GTK_IM_MODULE=fcitx
+      export QT_IM_MODULE=fcitx
+      export SDL_IM_MODULE=fcitx
+      unset ELECTRON_OZONE_PLATFORM_HINT
+    fi
+  '';
 in
 {
   options.orion.chinese.enable = lib.mkEnableOption "fcitx5 and CJK fonts";
@@ -35,7 +48,7 @@ in
       # cache; NixOS puts /lib/gtk-4.0 on GTK_PATH and links the immodule.
       enableGtk2 = true;
       enableGtk3 = true;
-      # nixpkgs 26.05: waylandFrontend sets XMODIFIERS and QT_PLUGIN_PATH,
+      # waylandFrontend sets XMODIFIERS and QT_PLUGIN_PATH,
       # and leaves GTK_IM_MODULE and QT_IM_MODULE unset. Plasma Wayland GTK
       # and Qt 6 then use text-input-v3. Forcing GTK_IM_MODULE=fcitx makes the
       # candidate window blink. Electron and Chromium do not read that
@@ -54,14 +67,13 @@ in
 
     # Those two nixpkgs variables are environment.variables only. SDDM's
     # Wayland session does not source /etc/profile; PAM reads
-    # sessionVariables. Repeat them here, and fill what 26.05 does not set:
-    # SDL, Qt 6's module list, and the nixpkgs Ozone hint for Electron
+    # sessionVariables. Repeat them here, with Qt 6's module list and
+    # the nixpkgs Ozone hint for Electron
     # and Chromium (--enable-wayland-ime only when WAYLAND_DISPLAY is set).
     environment.sessionVariables = {
       XMODIFIERS = "@im=fcitx";
-      SDL_IM_MODULE = "fcitx";
       NIXOS_OZONE_WL = "1";
-      # Qt 6.7+ (this nixpkgs is 6.11). Wayland text-input first, then the
+      # Qt 6.7+. Wayland text-input first, then the
       # fcitx plugin, then ibus for toolkits that only ship that plugin.
       # QT_IM_MODULE stays unset so this list is what Qt 6 consults.
       QT_IM_MODULES = "wayland;fcitx;ibus";
@@ -82,27 +94,22 @@ in
       fcitxQt6PluginPath
     ];
 
+    # The display-manager wrapper runs this before the Xfce X11 desktop.
+    # Keep these out of PAM sessionVariables so Plasma Wayland can use native
+    # text-input protocols. The wrapper also covers Wayland on some DMs, hence
+    # the session-type guard.
+    services.xserver.displayManager.sessionCommands = lib.mkAfter sessionInputEnvironment;
+
     # startplasma sources this before apps, after SDDM has set
     # XDG_SESSION_TYPE. X11 needs the immodules. Wayland must not.
     # A gtk settings.ini is not used: GTK reads the first settings.ini
     # it finds, so a file that only sets the immodule would hide the
     # Plasma theme.
-    environment.etc."xdg/plasma-workspace/env/fcitx5.sh".text = ''
-      if [ "''${XDG_SESSION_TYPE:-}" != "wayland" ]; then
-        export GTK_IM_MODULE=fcitx
-        export QT_IM_MODULE=fcitx
-        unset ELECTRON_OZONE_PLATFORM_HINT
-      else
-        # Electron reads this itself. plasmax11 leaves it unset so ToDesk
-        # still sees X11 clients. NIXOS_OZONE_WL above is what the nixpkgs
-        # wrappers turn into Wayland flags, and only when WAYLAND_DISPLAY is set.
-        export ELECTRON_OZONE_PLATFORM_HINT=auto
-      fi
-    '';
+    environment.etc."xdg/plasma-workspace/env/fcitx5.sh".text = sessionInputEnvironment;
 
     # KWin has to launch fcitx5 so the Wayland input-method socket exists.
     # The path is this generation's wrapped desktop file, not /usr.
-    # Plasma X11 ignores this group. The autostart below is X11-only so the
+    # Xfce ignores this group. The autostart below is X11-only so the
     # two do not race on Wayland.
     environment.etc."xdg/kwinrc".text = ''
       [Wayland]
@@ -113,50 +120,15 @@ in
       [Desktop Entry]
       Type=Application
       Name=Fcitx 5
-      Comment=Start Fcitx 5 on Plasma X11
+      Comment=Start Fcitx 5 on the X11 session
       Exec=${fcitxX11Autostart}
       Icon=fcitx
       Terminal=false
       Categories=System;Utility;
       StartupNotify=false
-      OnlyShowIn=KDE;
+      OnlyShowIn=KDE;XFCE;
       X-KDE-autostart-phase=1
     '';
-
-    fonts = {
-      enableDefaultPackages = true;
-      packages = with pkgs; [
-        noto-fonts
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
-        noto-fonts-color-emoji
-        wqy_microhei
-        source-sans-pro
-        liberation_ttf
-        carlito
-        caladea
-        dejavu_fonts
-        inconsolata
-        terminus_font
-      ];
-      # /etc/fonts/conf.d. Qt 6, GTK 3, and GTK 4 read fontconfig on
-      # Wayland; nothing here is installed only for X11.
-      fontconfig = {
-        enable = true;
-        antialias = true;
-        hinting.enable = true;
-        hinting.style = "slight";
-        subpixel.lcdfilter = "default";
-        # Plasma 6 also assigns defaultFonts (Hack, Noto Sans). mkForce keeps
-        # this chain first. Win10 fonts stay installed and stay off this list.
-        defaultFonts = {
-          sansSerif = lib.mkForce [ "Noto Sans CJK SC" "Noto Sans" "Source Sans 3" "DejaVu Sans" ];
-          serif = lib.mkForce [ "Noto Serif CJK SC" "Noto Serif" "DejaVu Serif" ];
-          monospace = lib.mkForce [ "Noto Sans Mono CJK SC" "Inconsolata" "DejaVu Sans Mono" ];
-          emoji = lib.mkForce [ "Noto Color Emoji" ];
-        };
-      };
-    };
 
     assertions = [
       {
@@ -168,8 +140,12 @@ in
         message = "QT_IM_MODULE stays unset; Qt 6 uses QT_IM_MODULES";
       }
       {
-        assertion = config.services.displayManager.defaultSession == "plasmax11";
-        message = "Default Plasma session stays plasmax11";
+        assertion = !(config.environment.sessionVariables ? SDL_IM_MODULE);
+        message = "SDL_IM_MODULE stays unset on Wayland; the X11 session configures it separately";
+      }
+      {
+        assertion = config.services.displayManager.defaultSession == "plasma";
+        message = "Default Plasma session uses Wayland; Xfce provides the ToDesk X11 fallback";
       }
     ];
   };
