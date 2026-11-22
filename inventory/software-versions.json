@@ -1,9 +1,9 @@
 {
   "date": "2026-11-22",
-  "policy": "stable source/interface retained; all runtime nixpkgs software uses nixos-unstable; custom NUR recipes build against unstable",
+  "policy": "All Nix-provided system, application and manager packages plus NUR build dependencies use nixos-unstable; stable nixpkgs remains an unused explicit interface. Explicit user-requested exception: elan and rustup initialize stable upstream Lean/Rust toolchains in writable HOME at activation; those runtime toolchain versions are not locked by flake.lock and have not been observed installed.",
   "summary": {
-    "rows": 586,
-    "configuredUniqueNames": 515,
+    "rows": 587,
+    "configuredUniqueNames": 514,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -12,8 +12,8 @@
       "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 31,
-      "newly-added": 40,
-      "not-in-baseline": 11,
+      "newly-added": 39,
+      "not-in-baseline": 13,
       "generated-or-wrapper": 25,
       "ahead-or-different-series": 2,
       "snapshot-not-comparable": 9,
@@ -24,8 +24,8 @@
       "different-version-needs-review": 1
     },
     "afterStatuses": {
-      "behind": 87,
-      "equal": 317,
+      "behind": 85,
+      "equal": 318,
       "ahead-or-different-series": 5,
       "generated-no-independent-release": 10,
       "tag-only": 23,
@@ -36,9 +36,12 @@
       "prerelease-only": 1,
       "ahead-or-different-track": 1,
       "intentional-release-line": 2,
-      "different-version-needs-review": 1
+      "different-version-needs-review": 1,
+      "runtime-managed": 2
     },
-    "versionChanges": 253
+    "versionChanges": 253,
+    "runtimePluginDeclarations": 69,
+    "runtimeToolchainDeclarations": 2
   },
   "rows": [
     {
@@ -4994,23 +4997,6 @@
       ]
     },
     {
-      "name": "cargo",
-      "before": "",
-      "after": "1.99.1",
-      "upstream": "1.100.0",
-      "beforeStatus": "newly-added",
-      "afterStatus": "behind",
-      "scope": "home",
-      "urls": [
-        "https://static.rust-lang.org/dist/channel-rust-stable.toml"
-      ],
-      "note": "",
-      "present": true,
-      "reports": [
-        "software-versions-system.json"
-      ]
-    },
-    {
       "name": "carlito",
       "before": "20130920",
       "after": "20130920",
@@ -8352,40 +8338,6 @@
       ]
     },
     {
-      "name": "rustc",
-      "before": "",
-      "after": "1.99.1",
-      "upstream": "1.100.0",
-      "beforeStatus": "newly-added",
-      "afterStatus": "behind",
-      "scope": "home",
-      "urls": [
-        "https://static.rust-lang.org/dist/channel-rust-stable.toml"
-      ],
-      "note": "",
-      "present": true,
-      "reports": [
-        "software-versions-system.json"
-      ]
-    },
-    {
-      "name": "rustfmt",
-      "before": "",
-      "after": "1.99.1",
-      "upstream": "1.100.0",
-      "beforeStatus": "newly-added",
-      "afterStatus": "behind",
-      "scope": "home",
-      "urls": [
-        "https://static.rust-lang.org/dist/channel-rust-stable.toml"
-      ],
-      "note": "",
-      "present": true,
-      "reports": [
-        "software-versions-system.json"
-      ]
-    },
-    {
       "name": "samba",
       "before": "4.25.1",
       "after": "4.25.1",
@@ -9960,6 +9912,88 @@
       "present": true,
       "reports": [
         "software-versions-system.json"
+      ]
+    },
+    {
+      "name": "elan",
+      "before": "",
+      "after": "4.3.0",
+      "upstream": "v4.4.0",
+      "beforeStatus": "newly-added",
+      "afterStatus": "behind",
+      "scope": "home",
+      "urls": [
+        "https://github.com/leanprover/elan/releases/tag/v4.4.0"
+      ],
+      "note": " This is the Nix-pinned manager binary. Its stable-channel toolchain is installed into writable HOME by activation and is not pinned to this manager version.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "toolchain-manager"
+    },
+    {
+      "name": "rustup",
+      "before": "",
+      "after": "1.29.3",
+      "upstream": "1.29.3",
+      "beforeStatus": "newly-added",
+      "afterStatus": "equal",
+      "scope": "home",
+      "urls": [
+        "https://static.rust-lang.org/rustup/release-stable.toml"
+      ],
+      "note": " This is the Nix-pinned manager binary. Its stable-channel toolchain is installed into writable HOME by activation and is not pinned to this manager version.",
+      "present": true,
+      "reports": [
+        "software-versions-system.json"
+      ],
+      "kind": "toolchain-manager"
+    },
+    {
+      "name": "lean-toolchain",
+      "before": null,
+      "after": null,
+      "upstream": null,
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "runtime-managed",
+      "scope": "runtime-toolchain",
+      "urls": [
+        "https://github.com/leanprover/lean4/releases/tag/v4.36.0"
+      ],
+      "note": "Explicit user-requested semideclarative toolchain: activation installs/ensures the stable channel and records it as default in writable HOME. The manager binary is pinned through unstable; the downloaded compiler/toolchain is not pinned by the flake. No compiler version is asserted installed. Project-local toolchain overrides may supersede the global default.",
+      "present": true,
+      "declared": true,
+      "manager": "elan",
+      "managedChannel": "stable",
+      "installedVersion": null,
+      "versionLocked": false,
+      "upstreamReferenceVersion": "v4.36.0",
+      "reports": [
+        "software-versions-home.json"
+      ]
+    },
+    {
+      "name": "rust-toolchain",
+      "before": null,
+      "after": null,
+      "upstream": null,
+      "beforeStatus": "not-in-baseline",
+      "afterStatus": "runtime-managed",
+      "scope": "runtime-toolchain",
+      "urls": [
+        "https://static.rust-lang.org/dist/channel-rust-stable.toml"
+      ],
+      "note": "Explicit user-requested semideclarative toolchain: activation installs/ensures the stable channel and records it as default in writable HOME. The manager binary is pinned through unstable; the downloaded compiler/toolchain is not pinned by the flake. No compiler version is asserted installed. Project-local toolchain overrides may supersede the global default.",
+      "present": true,
+      "declared": true,
+      "manager": "rustup",
+      "managedChannel": "stable",
+      "installedVersion": null,
+      "versionLocked": false,
+      "upstreamReferenceVersion": "1.100.0",
+      "reports": [
+        "software-versions-home.json"
       ]
     }
   ]

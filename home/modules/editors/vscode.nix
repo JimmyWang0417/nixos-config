@@ -17,9 +17,10 @@ in
 {
   # Extensions need executable toolchains, not just their language servers.
   # Java comes from the system JDK; Python and npm dependencies remain project
-  # choices. The other compilers and the selected TeX stack live with VS Code.
+  # choices. Rust comes from the independent rustup module; the remaining
+  # compilers and selected TeX stack live with VS Code.
   home.packages = with pkgs; [
-    gcc cargo rustc rustfmt
+    gcc
     iverilog verible
     latex
   ];

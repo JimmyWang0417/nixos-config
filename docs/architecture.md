@@ -27,6 +27,7 @@
 `home/jimmy.nix` 只保留用户身份、状态版本和功能导入。用户侧按职责拆分：
 
 - `home/modules/apps/<app>.nix`：一个应用的自启动、用户服务或偏好。
+- `home/modules/development/`：独立的 elan、rustup 半声明式管理，激活时安装并记录 stable 工具链。
 - `home/modules/editors/`：Neovim、ranger、VS Code；`home/editors.nix` 是组合入口，原始文件保留在 `home/nvim/`、`home/ranger/`、`home/vscode/`。
 - `home/modules/shell/zsh.nix`：shell、代理快捷命令和提示符；公开资源位于 `home/assets/shell/`。
 - `home/modules/desktop/`：Plasma 布局、主题、用户目录；`xfce/` 再拆为外观、面板、壁纸、快捷键和资源，`home/xfce.nix` 保留组合入口。

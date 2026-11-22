@@ -29,6 +29,7 @@ GITHUB = {
  'iverilog':'steveicarus/iverilog', 'verible':'chipsalliance/verible',
  'rustc':'rust-lang/rust', 'rustc-wrapper':'rust-lang/rust', 'cargo':'rust-lang/cargo', 'rustfmt':'rust-lang/rustfmt',
  'nerd-fonts-hack':'ryanoasis/nerd-fonts',
+ 'elan':'leanprover/elan', 'rustup':'rust-lang/rustup',
 }
 PYPI = {'pip','fastapi','matplotlib','pillow','reportlab','scikit-learn','scipy','seaborn','black','pipx'}
 NPM = {'bash-language-server':'bash-language-server'}
@@ -374,6 +375,7 @@ def special_version(name, cache):
   'rustc-wrapper':'https://static.rust-lang.org/dist/channel-rust-stable.toml',
   'rustfmt':'https://static.rust-lang.org/dist/channel-rust-stable.toml',
   'texlive':'https://mirror.ctan.org/systems/texlive/tlnet/release-texlive.txt',
+  'rustup':'https://static.rust-lang.org/rustup/release-stable.toml',
   'cargo':'https://static.rust-lang.org/dist/channel-rust-stable.toml',
   'firefox': 'https://product-details.mozilla.org/1.0/firefox_versions.json',
   'google-chrome': 'https://versionhistory.googleapis.com/v1/chrome/platforms/linux/channels/stable/versions',
@@ -420,6 +422,13 @@ def special_version(name, cache):
     value=tomllib.loads(r['body'])['pkg']['rust']['version'].split()[0]
    except (ValueError,KeyError,TypeError):pass
   return url,r,value,'official Rust stable distribution version; Nix Cargo/rustfmt use the Rust toolchain version, so this comparison uses the toolchain release coordinate'
+ if name=='rustup':
+  if 'error' not in r:
+   try:
+    import tomllib
+    value=tomllib.loads(r['body'])['version']
+   except (ValueError,KeyError,TypeError):pass
+  return url,r,value,'official rustup stable installer release manifest; independent of the managed Rust compiler channel'
  if name=='texlive':
   match=re.search(r'(?:version|release)\s+([12]\d{3})',r.get('body',''),re.IGNORECASE)
   if not match:match=re.search(r'TeX Live[^\n]*?([12]\d{3})',r.get('body',''),re.IGNORECASE)
@@ -589,7 +598,7 @@ def main():
  after_rows=json.loads(pathlib.Path(a.after).read_text()) if a.after else []
  before_names={p['name'] for p in source}
  for p in after_rows:
-  if (p['scope'] in {'system','explicit-extra'} or p['name'] in {'whitesur-gtk-theme','whitesur-cursors','whitesur-icon-theme','xfce4-panel-profiles','cargo','rustc','rustc-wrapper','rustfmt','iverilog','verible','texlive','nerd-fonts-hack'}) and p['name'] not in before_names:
+  if (p['scope'] in {'system','explicit-extra'} or p['name'] in {'whitesur-gtk-theme','whitesur-cursors','whitesur-icon-theme','xfce4-panel-profiles','cargo','rustc','rustc-wrapper','rustfmt','iverilog','verible','texlive','nerd-fonts-hack','elan','rustup'}) and p['name'] not in before_names:
    source.append(dict(p,version='',baseline_present=False))
  unique={}
  for p in source:

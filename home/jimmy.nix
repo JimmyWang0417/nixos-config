@@ -5,6 +5,7 @@
     ./editors.nix
     ./xfce.nix
     ./fcitx5
+    ./modules/development
     ./modules/desktop/plasma.nix
     ./modules/desktop/themes.nix
     ./modules/desktop/user-directories.nix

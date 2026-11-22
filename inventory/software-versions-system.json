@@ -8100,87 +8100,6 @@
       "unstable_upstream_status": "unverified"
     },
     {
-      "description": "Downloads your Rust project's dependencies and builds your project",
-      "homepage": "https://crates.io",
-      "name": "cargo",
-      "packageName": "cargo-1.99.1",
-      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/development/compilers/rust/cargo.nix:127",
-      "scope": "home",
-      "version": "",
-      "baseline_present": false,
-      "attributes": [],
-      "upstream_status": "newly-added",
-      "official_stable_version": "1.100.0",
-      "sources": [
-        {
-          "url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
-          "resolved_url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
-          "method": "official Rust stable distribution version; Nix Cargo/rustfmt use the Rust toolchain version, so this comparison uses the toolchain release coordinate",
-          "error": null
-        }
-      ],
-      "notes": "",
-      "current_package_name": "cargo-1.99.1",
-      "current_name": "cargo",
-      "identity_match": "verified",
-      "unstable_version": "1.99.1",
-      "unstable_upstream_status": "behind"
-    },
-    {
-      "description": "Safe, concurrent, practical language (wrapper script)",
-      "homepage": "https://www.rust-lang.org/",
-      "name": "rustc",
-      "packageName": "rustc-wrapper-1.99.1",
-      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/build-support/rust/rustc-wrapper/default.nix:55",
-      "scope": "home",
-      "version": "",
-      "baseline_present": false,
-      "attributes": [],
-      "upstream_status": "newly-added",
-      "official_stable_version": "1.100.0",
-      "sources": [
-        {
-          "url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
-          "resolved_url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
-          "method": "official Rust stable distribution version; Nix Cargo/rustfmt use the Rust toolchain version, so this comparison uses the toolchain release coordinate",
-          "error": null
-        }
-      ],
-      "notes": "",
-      "current_package_name": "rustc-wrapper-1.99.1",
-      "current_name": "rustc",
-      "identity_match": "verified",
-      "unstable_version": "1.99.1",
-      "unstable_upstream_status": "behind"
-    },
-    {
-      "description": "Tool for formatting Rust code according to style guidelines",
-      "homepage": "https://github.com/rust-lang/rustfmt",
-      "name": "rustfmt",
-      "packageName": "rustfmt-1.99.1",
-      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/development/compilers/rust/rustfmt.nix:59",
-      "scope": "home",
-      "version": "",
-      "baseline_present": false,
-      "attributes": [],
-      "upstream_status": "newly-added",
-      "official_stable_version": "1.100.0",
-      "sources": [
-        {
-          "url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
-          "resolved_url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
-          "method": "official Rust stable distribution version; Nix Cargo/rustfmt use the Rust toolchain version, so this comparison uses the toolchain release coordinate",
-          "error": null
-        }
-      ],
-      "notes": "",
-      "current_package_name": "rustfmt-1.99.1",
-      "current_name": "rustfmt",
-      "identity_match": "verified",
-      "unstable_version": "1.99.1",
-      "unstable_upstream_status": "behind"
-    },
-    {
       "description": "Icarus Verilog compiler",
       "homepage": "https://steveicarus.github.io/iverilog",
       "name": "iverilog",
@@ -8289,6 +8208,60 @@
       "identity_match": "verified",
       "unstable_version": "3.5.0+3.003",
       "unstable_upstream_status": "behind"
+    },
+    {
+      "description": "Small tool to manage your installations of the Lean theorem prover",
+      "homepage": "https://github.com/leanprover/elan",
+      "name": "elan",
+      "packageName": "elan-4.3.0",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/by-name/el/elan/package.nix:85",
+      "scope": "home",
+      "version": "",
+      "baseline_present": false,
+      "upstream_status": "newly-added",
+      "official_stable_version": "v4.4.0",
+      "sources": [
+        {
+          "url": "https://github.com/leanprover/elan/releases/latest",
+          "resolved_url": "https://github.com/leanprover/elan/releases/tag/v4.4.0",
+          "method": "upstream GitHub designated latest non-prerelease release",
+          "error": null
+        }
+      ],
+      "notes": " This is the Nix-pinned manager binary. Its stable-channel toolchain is installed into writable HOME by activation and is not pinned to this manager version.",
+      "unstable_version": "4.3.0",
+      "current_name": "elan",
+      "current_package_name": "elan-4.3.0",
+      "identity_match": "verified",
+      "unstable_upstream_status": "behind"
+    },
+    {
+      "description": "Rust toolchain installer",
+      "homepage": "https://www.rustup.rs/",
+      "name": "rustup",
+      "packageName": "rustup-1.29.3",
+      "position": "/nix/store/qbr8hmkwvspln5nbs1qch660cfba6a1z-source/pkgs/development/tools/rust/rustup/default.nix:161",
+      "scope": "home",
+      "version": "",
+      "baseline_present": false,
+      "upstream_status": "newly-added",
+      "official_stable_version": "1.29.3",
+      "sources": [
+        {
+          "url": "https://static.rust-lang.org/rustup/release-stable.toml",
+          "resolved_url": "https://static.rust-lang.org/rustup/release-stable.toml",
+          "method": "official rustup stable installer release manifest; independent of the managed Rust compiler channel",
+          "error": null
+        }
+      ],
+      "notes": " This is the Nix-pinned manager binary. Its stable-channel toolchain is installed into writable HOME by activation and is not pinned to this manager version.",
+      "unstable_version": "1.29.3",
+      "current_name": "rustup",
+      "current_package_name": "rustup-1.29.3",
+      "identity_match": "verified",
+      "unstable_upstream_status": "equal"
     }
-  ]
+  ],
+  "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00",
+  "after_inventory": "Evaluated /tmp/nixos-toolchain-inventory.json; pinned Rust compiler packages replaced by unstable elan/rustup manager binaries. Existing upstream observations reused; only manager release metadata refreshed."
 }

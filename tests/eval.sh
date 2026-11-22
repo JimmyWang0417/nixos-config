@@ -21,6 +21,9 @@ python3 tests/input-method.py
 echo "== private archive safety =="
 python3 tests/test_private_restore.py
 
+echo "== managed stable toolchain activation =="
+python3 tests/toolchains.py
+
 echo "== nix flake check =="
 if nix flake check --help 2>&1 | grep -q -- '--no-build'; then
   nix flake check --no-build --no-update-lock-file --show-trace

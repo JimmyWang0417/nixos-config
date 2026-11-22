@@ -1,11 +1,11 @@
 {
   "date": "2026-11-22",
-  "scope": "全部最终包名称的配置归属与处理方式，不把安装软件等同于所有账号已登录或所有私人状态已恢复。",
+  "scope": "全部最终 Nix 包名称的配置归属与处理方式；运行时 stable 工具链单独列出，不推断当前已安装版本，也不把软件安装等同于账号登录或私人状态恢复。",
   "summary": {
-    "package-defaults": 287,
+    "package-defaults": 284,
     "system-component": 35,
     "desktop-defaults": 123,
-    "declared": 70
+    "declared": 72
   },
   "extensionAvailability": [
     {
@@ -795,18 +795,6 @@
       "note": "字体包与回退/用户profile字体发现统一管理。"
     },
     {
-      "name": "cargo",
-      "versions": [
-        "1.99.1"
-      ],
-      "scopes": [
-        "home"
-      ],
-      "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
-    },
-    {
       "name": "carlito",
       "versions": [
         "20130920"
@@ -1323,6 +1311,18 @@
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    },
+    {
+      "name": "elan",
+      "versions": [
+        "4.3.0"
+      ],
+      "scopes": [
+        "home"
+      ],
+      "status": "declared",
+      "module": "home/modules/development/elan.nix",
+      "note": "管理器二进制来自锁定的 unstable；Home Manager 激活时安装/确保 stable 工具链并记录默认值。工具链保存在用户可写目录，版本不由 flake 锁定，也未声称当前已安装。"
     },
     {
       "name": "elisa",
@@ -4663,28 +4663,16 @@
       "note": "硬件、驱动与固件策略在系统/主机模块中声明，无独立GUI偏好文件。"
     },
     {
-      "name": "rustc",
+      "name": "rustup",
       "versions": [
-        "1.99.1"
+        "1.29.3"
       ],
       "scopes": [
         "home"
       ],
-      "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
-    },
-    {
-      "name": "rustfmt",
-      "versions": [
-        "1.99.1"
-      ],
-      "scopes": [
-        "home"
-      ],
-      "status": "package-defaults",
-      "module": "modules/packages/catalog.nix",
-      "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+      "status": "declared",
+      "module": "home/modules/development/rust.nix",
+      "note": "管理器二进制来自锁定的 unstable；Home Manager 激活时安装/确保 stable 工具链并记录默认值。工具链保存在用户可写目录，版本不由 flake 锁定，也未声称当前已安装。"
     },
     {
       "name": "samba",
@@ -6365,6 +6353,24 @@
       "status": "package-defaults",
       "module": "modules/packages/catalog.nix",
       "note": "仓库未为此包声明独立用户偏好；使用包或所属桌面的默认行为，不声称迁移了个人状态。"
+    }
+  ],
+  "runtimeToolchains": [
+    {
+      "name": "lean-toolchain",
+      "manager": "elan",
+      "channel": "stable",
+      "module": "home/modules/development/elan.nix",
+      "installedVersion": null,
+      "versionLocked": false
+    },
+    {
+      "name": "rust-toolchain",
+      "manager": "rustup",
+      "channel": "stable",
+      "module": "home/modules/development/rust.nix",
+      "installedVersion": null,
+      "versionLocked": false
     }
   ]
 }

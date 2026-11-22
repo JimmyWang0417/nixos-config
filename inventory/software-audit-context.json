@@ -2,7 +2,7 @@
   "checked_on": "2026-11-22",
   "timezone": "Asia/Shanghai",
   "baseline_commit": "1360efe3a36405163c3438314a930fe90f076aa7",
-  "policy": "stable input retained as an unused explicit interface; all runtime nixpkgs software and NUR build dependencies use nixos-unstable",
+  "policy": "All Nix-provided system, application and manager packages plus NUR build dependencies use nixos-unstable; stable nixpkgs remains an unused explicit interface. Explicit user-requested exception: elan and rustup initialize stable upstream Lean/Rust toolchains in writable HOME at activation; those runtime toolchain versions are not locked by flake.lock and have not been observed installed.",
   "release_availability": [
     {
       "url": "https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-26.11",
@@ -147,7 +147,7 @@
       }
     }
   },
-  "scope": "Evaluated installed/declared system, Home Manager, desktop, fonts, firmware, extension and explicit tool/conditional package metadata. Actual package identities retained separately from selection attributes; runtime plugin declarations tracked separately.",
+  "scope": "Evaluated installed/declared system, Home Manager, desktop, fonts, firmware, extension and explicit tool/conditional package metadata. Actual package identities retained separately from selection attributes; runtime plugin declarations tracked separately. Explicit Lean/Rust stable runtime toolchain declarations are separate from Nix package identity/version records.",
   "upstream_limits": "Every inventory row records an upstream attempt or why no independent upstream version applies. An unverified version is not counted as current. Release endpoints may designate a latest tag behind another active release series; series selection is not a security assessment.",
   "activation": "No NixOS installation, activation, boot changes or repartitioning; running OS is Manjaro.",
   "validation": {
@@ -181,7 +181,7 @@
     "input_method_behavior_and_dictionary_tests": 7,
     "private_archive_safety_tests": 13,
     "flake_check": "passed (--no-build)",
-    "system_derivation": "/nix/store/iczdh5yzcbm5fq5590r02236qn8cn4x9-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
+    "system_derivation": "/nix/store/n5yrqwx7nk56dlmrwpin9vsx3lq0jkq4-nixos-system-Orion-Laptop-26.11.20261121.2786a2a.drv",
     "xfce_assets": "built and verified GTK CSS, xfwm4, cursor, Tela, wallpaper",
     "xfce_asset_derivation": "/nix/store/07vw550kdap1r8vdd1nqn4yzxm7xf7vd-xfce-appearance-assets.drv",
     "hdl_tools": "Verible formatting/parsing and Icarus SystemVerilog compile smoke passed",
@@ -189,7 +189,11 @@
     "public_application_assets": "JSON parsed; preferences selected by safe allowlists; default seeding preserves existing state",
     "full_system_build": "not run",
     "activation": "not run; current host remains Manjaro",
-    "module_refactor": "101 software catalog name+derivation identities and 38 ordered DSH plugin names preserved"
+    "module_refactor": "101 software catalog name+derivation identities and 38 ordered DSH plugin names preserved",
+    "toolchain_manager_policy": "Nine evaluated policy checks and five isolated activation/order/failure/dry-run tests passed. Nix-built elan/rustup CLI syntax and writable TOML tested in temporary data roots; no real user-HOME compiler download or compiler version was asserted.",
+    "toolchain_policy_checks": 9,
+    "toolchain_activation_behavior_tests": 5,
+    "toolchain_manager_binary_smoke": "Nix-built elan 4.3.0 and rustup 1.29.3 ran successfully with isolated temporary data. Verified elan default_toolchain=stable and rustup profile=default persisted in writable TOML; checked install/default CLI syntax. Real user toolchains were not downloaded or modified during verification."
   },
   "desktop": {
     "default": "Plasma Wayland (plasma)",
@@ -199,8 +203,8 @@
   },
   "configurationCoverage": "inventory/configuration-coverage.json",
   "auditSummary": {
-    "rows": 586,
-    "configuredUniqueNames": 515,
+    "rows": 587,
+    "configuredUniqueNames": 514,
     "missing": [],
     "baselineStatuses": {
       "behind": 258,
@@ -209,8 +213,8 @@
       "generated-no-independent-release": 10,
       "tag-only": 23,
       "unverified": 31,
-      "newly-added": 40,
-      "not-in-baseline": 11,
+      "newly-added": 39,
+      "not-in-baseline": 13,
       "generated-or-wrapper": 25,
       "ahead-or-different-series": 2,
       "snapshot-not-comparable": 9,
@@ -221,8 +225,8 @@
       "different-version-needs-review": 1
     },
     "afterStatuses": {
-      "behind": 87,
-      "equal": 317,
+      "behind": 85,
+      "equal": 318,
       "ahead-or-different-series": 5,
       "generated-no-independent-release": 10,
       "tag-only": 23,
@@ -233,8 +237,47 @@
       "prerelease-only": 1,
       "ahead-or-different-track": 1,
       "intentional-release-line": 2,
-      "different-version-needs-review": 1
+      "different-version-needs-review": 1,
+      "runtime-managed": 2
     },
-    "versionChanges": 253
-  }
+    "versionChanges": 253,
+    "runtimePluginDeclarations": 69,
+    "runtimeToolchainDeclarations": 2
+  },
+  "toolchainPolicyUpdatedAt": "2026-11-22T05:17:16.724014+00:00",
+  "runtimeToolchains": [
+    {
+      "name": "lean-toolchain",
+      "manager": "elan",
+      "defaultChannel": "stable",
+      "installedVersion": null,
+      "versionLocked": false,
+      "statePaths": [
+        "~/.local/share/elan"
+      ],
+      "components": [],
+      "legacyStatePreserved": true,
+      "legacyDirectoryOverridesObserved": 0,
+      "legacyBinaryInterpreter": "/lib64/ld-linux-x86-64.so.2"
+    },
+    {
+      "name": "rust-toolchain",
+      "manager": "rustup",
+      "defaultChannel": "stable",
+      "installedVersion": null,
+      "versionLocked": false,
+      "statePaths": [
+        "~/.local/share/rustup",
+        "~/.cargo"
+      ],
+      "components": [
+        "rustfmt",
+        "clippy",
+        "rust-src"
+      ],
+      "legacyStatePreserved": true,
+      "legacyDirectoryOverridesObserved": 0,
+      "legacyBinaryInterpreter": "/lib64/ld-linux-x86-64.so.2"
+    }
+  ]
 }

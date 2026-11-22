@@ -24,7 +24,7 @@ Verilog 和 SystemVerilog 改由已有的 `mshr-h.veriloghdl` 扩展调用 `pkgs
 
 ## 语言工具链
 
-扩展与编译工具分别核对，不能把安装扩展当作已有编译器。VS Code 模块提供 GCC、Cargo、rustc、rustfmt，以及前述 Icarus Verilog 和 Verible。Java 使用系统已有的 JDK，并按 Oracle Java 扩展的真实选项 `jdk.jdkhome` 指向 `pkgs.jdk.home`。
+扩展与编译工具分别核对，不能把安装扩展当作已有编译器。VS Code 模块提供 GCC、前述 Icarus Verilog 和 Verible；Cargo、rustc、rustfmt 改由独立的 rustup 模块在激活时初始化 stable 工具链，见 [工具链管理](toolchains.md)。Java 使用系统已有的 JDK，并按 Oracle Java 扩展的真实选项 `jdk.jdkhome` 指向 `pkgs.jdk.home`。
 
 LaTeX Workshop 使用`texliveSmall.withPackages` 在小型方案上增加 `latexmk`、`xetex`、`ctex`、`xecjk`、`biblatex`、`biber`、`fandol`。Fandol 为 `ctexart` 提供默认中文字体；没有安装 `scheme-full`，也不使用已弃用的 `texlive.combine`。默认构建方案是 `latexmk (XeLaTeX)`，另保留 `latexmk (pdfLaTeX)`，命令指向这份 TeX 包的绝对路径。项目自己的 `.latexmkrc` 仍由 latexmk 读取。
 

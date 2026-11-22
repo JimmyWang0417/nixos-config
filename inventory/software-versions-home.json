@@ -7464,7 +7464,86 @@
       "upstream_version": "2.18.4",
       "upstream_url": "https://gitlab.freedesktop.org/api/v4/projects/fontconfig%2Ffontconfig/repository/tags?per_page=50",
       "version": "2.17.1"
+    },
+    {
+      "name": "lean-toolchain",
+      "scope": "runtime-toolchain",
+      "baseline_version": null,
+      "version": null,
+      "after_version": null,
+      "installed_version": null,
+      "status": "runtime-managed",
+      "upstream_status": "runtime-managed",
+      "after_upstream_status": "runtime-managed",
+      "official_stable_version": null,
+      "manager": "elan",
+      "channel": "stable",
+      "declared": true,
+      "version_locked": false,
+      "module": "home/modules/development/elan.nix",
+      "state_paths": [
+        "~/.elan"
+      ],
+      "activation_commands": [
+        "elan toolchain install stable",
+        "elan default stable"
+      ],
+      "components": [],
+      "upstream_reference_version": "v4.36.0",
+      "upstream_reference_url": "https://github.com/leanprover/lean4/releases/tag/v4.36.0",
+      "checked_at": "2026-11-22T05:17:16.724014+00:00",
+      "sources": [
+        {
+          "url": "https://github.com/leanprover/lean4/releases/tag/v4.36.0",
+          "method": "Published stable channel reference only; actual installed runtime version was not inspected.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit user-requested semideclarative toolchain: activation installs/ensures the stable channel and records it as default in writable HOME. The manager binary is pinned through unstable; the downloaded compiler/toolchain is not pinned by the flake. No compiler version is asserted installed. Project-local toolchain overrides may supersede the global default."
+    },
+    {
+      "name": "rust-toolchain",
+      "scope": "runtime-toolchain",
+      "baseline_version": null,
+      "version": null,
+      "after_version": null,
+      "installed_version": null,
+      "status": "runtime-managed",
+      "upstream_status": "runtime-managed",
+      "after_upstream_status": "runtime-managed",
+      "official_stable_version": null,
+      "manager": "rustup",
+      "channel": "stable",
+      "declared": true,
+      "version_locked": false,
+      "module": "home/modules/development/rust.nix",
+      "state_paths": [
+        "~/.rustup",
+        "~/.cargo"
+      ],
+      "activation_commands": [
+        "rustup set profile default",
+        "rustup default stable",
+        "rustup component add --toolchain stable rustfmt clippy rust-src"
+      ],
+      "components": [
+        "rustfmt",
+        "clippy",
+        "rust-src"
+      ],
+      "upstream_reference_version": "1.100.0",
+      "upstream_reference_url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
+      "checked_at": "2026-11-22T05:17:16.724014+00:00",
+      "sources": [
+        {
+          "url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
+          "method": "Published stable channel reference only; actual installed runtime version was not inspected.",
+          "error": null
+        }
+      ],
+      "notes": "Explicit user-requested semideclarative toolchain: activation installs/ensures the stable channel and records it as default in writable HOME. The manager binary is pinned through unstable; the downloaded compiler/toolchain is not pinned by the flake. No compiler version is asserted installed. Project-local toolchain overrides may supersede the global default."
     }
   ],
-  "after_inventory": "Final evaluated Orion inventory after Plasma Wayland + Xfce X11 migration; Xfce/theme additions audited separately in software-versions-system.json."
+  "after_inventory": "Final Orion configuration with unstable elan/rustup managers and explicit stable-channel runtime toolchains; runtime installed compiler versions are unknown, not inferred from release references.",
+  "toolchain_policy_updated_at": "2026-11-22T05:17:16.724014+00:00"
 }

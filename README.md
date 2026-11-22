@@ -7,6 +7,7 @@
 - 系统模块、全部 nixpkgs 软件、Home Manager、NUR 构建依赖和开发环境统一使用锁定的 `nixos-unstable`。
 - stable 输入 `nixpkgs` 和显式 `pkgsStable` 接口保留，当前功能不从中安装软件。
 - 2026-11-22 核实官方 `nixos-26.11` 与 Home Manager `release-26.11` 尚不存在，因此使用 26.11 开发线和 Home Manager master。正式分支可用后再更新保留的 stable 输入。
+- Lean/Rust 工具链按用户要求使用 [半声明式管理](docs/toolchains.md)：管理器来自 unstable，激活时下载并写入默认 stable，编译器版本由 elan/rustup 管理。
 - 自定义 NUR 配方保留原有功能；其上游版本由各配方维护，不会因为切换 nixpkgs 自动更新。
 - `system.stateVersion` 与 `home.stateVersion` 保持 `26.05`；它们控制兼容行为，不是升级开关。
 
