@@ -41,7 +41,7 @@ Typora 包、插件更新和包级构建检查由 nur-packages 的 GitHub Action
 ## 相关文件
 
 - `flake.nix` 的输入 `nixpkgs-unstable` 跟踪 `nixos-unstable`，修订由 `flake.lock` 锁定
-- `flake.nix`、`flake.lock` 的自有 `nur-packages` 输入：提供 Typora、Qoder CN 0.5.16（`qoder-cn`）、Trae CN 构建 2.3.105403（应用版本 3.4.22，`trae-cn`）、CC Switch 4.0.36（`cc-switch`）和主题包。国际版 Qoder 0.5.16 是同仓库的 `qoder`，不安装。国际版 Trae 仍是 `nur.repos.lonerOrz.trae`，不安装。WorkBuddy 5.6.2.40046327 用 `nur.repos.MCSeekeri.workbuddy`。没有安装 ZCode。DevEco Studio 由 `modules/programs/deveco.nix` 安装，下载和组装在 nur-packages。CC Switch 不再取锁定的 nixpkgs-unstable 3.16.5。
+- `flake.nix`、`flake.lock` 的自有 `nur-packages` 输入：提供 Typora、Qoder CN 0.5.17（`qoder-cn`）、Trae CN 构建 2.3.105403（应用版本 3.4.22，`trae-cn`）、CC Switch 4.0.39（`cc-switch-no-quick-panel`）和主题包。国际版 Qoder 0.5.17 是同仓库的 `qoder`，不安装。国际版 Trae 仍是 `nur.repos.lonerOrz.trae`，不安装。WorkBuddy 5.6.2.40046327 用 `nur.repos.MCSeekeri.workbuddy`。没有安装 ZCode。DevEco Studio 由 `modules/programs/deveco.nix` 安装，下载和组装在 nur-packages。Orion 通过 `orion.programs.ccSwitch.package` 选择 NUR 的无快捷面板版。系统安装和 Home Manager 自启共用这个包选项，托盘原生菜单与加密数据库恢复沿用既有配置。
 - `modules/packages.nix`：兼容入口
 - `modules/packages/default.nix`、`catalog.nix`、`catalog/`：模块与软件组组合
 - `modules/packages/options.nix`、`policy.nix`、`browsers.nix`、`gaming.nix`、`with-ozone.nix`：公共接口、兼容策略和应用行为

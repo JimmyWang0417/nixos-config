@@ -24,8 +24,8 @@
       "different-version-needs-review": 1
     },
     "afterStatuses": {
-      "behind": 92,
-      "equal": 328,
+      "behind": 90,
+      "equal": 330,
       "ahead-or-different-series": 5,
       "tag-only": 24,
       "unverified": 27,
@@ -40,7 +40,7 @@
       "different-version-needs-review": 1,
       "runtime-managed": 2
     },
-    "versionChanges": 252,
+    "versionChanges": 254,
     "runtimePluginDeclarations": 68,
     "runtimeToolchainDeclarations": 2,
     "historicalRuntimePluginDeclarations": 69,
@@ -437,17 +437,17 @@
       ]
     },
     {
-      "name": "cc-switch",
+      "name": "cc-switch-no-quick-panel",
       "before": "4.0.36",
-      "after": "4.0.36",
-      "upstream": "v4.0.38",
+      "after": "4.0.39",
+      "upstream": "v4.0.39",
       "beforeStatus": "behind",
-      "afterStatus": "behind",
+      "afterStatus": "equal",
       "scope": "system",
       "urls": [
-        "https://github.com/farion1231/cc-switch/releases/tag/v4.0.38"
+        "https://github.com/farion1231/cc-switch/releases/tag/v4.0.39"
       ],
-      "note": "",
+      "note": "The Linux variant is built from the same upstream project with its quick-panel tray entry removed.",
       "present": true,
       "reports": [
         "software-versions-system.json"
@@ -3409,10 +3409,10 @@
     {
       "name": "qoder-cn",
       "before": "0.5.16",
-      "after": "0.5.16",
+      "after": "0.5.17",
       "upstream": "0.5.17",
       "beforeStatus": "behind",
-      "afterStatus": "behind",
+      "afterStatus": "equal",
       "scope": "explicit-extra",
       "urls": [
         "https://qoder-app.oss-cn-beijing.aliyuncs.com/qoder-app/releases/latest/Qoder-CN-linux-amd64.deb"

@@ -50,6 +50,10 @@
   };
   orion.chinese.enable = true;
   orion.archives.ark.enable = true;
+  orion.programs.ccSwitch = {
+    enable = true;
+    package = inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system}.cc-switch-no-quick-panel;
+  };
   orion.programs.claudeCage.enable = true;
   orion.fonts.windows.package = pkgs.nur.repos.chillcicada.ttf-ms-win10;
   orion.nix = {

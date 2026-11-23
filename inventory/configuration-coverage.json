@@ -864,16 +864,16 @@
       "note": "字体包与回退/用户profile字体发现统一管理。"
     },
     {
-      "name": "cc-switch",
+      "name": "cc-switch-no-quick-panel",
       "versions": [
-        "4.0.36"
+        "4.0.39"
       ],
       "scopes": [
         "system"
       ],
       "status": "declared",
-      "module": "home/modules/apps/cc-switch.nix",
-      "note": "自动启动和加密数据库初始化；已有数据库/WAL不覆盖。"
+      "module": "modules/programs/cc-switch.nix",
+      "note": "Orion 选用无快捷面板版，系统包与 Home Manager 自启引用同一包；加密数据库仍按原规则初始化。"
     },
     {
       "name": "clang-tools",
@@ -4671,7 +4671,7 @@
     {
       "name": "qoder-cn",
       "versions": [
-        "0.5.16"
+        "0.5.17"
       ],
       "scopes": [
         "explicit-extra"

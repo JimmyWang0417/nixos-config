@@ -11,8 +11,6 @@ with pkgs;
   keepassxc
   # The user unit lives in the Home Manager application modules. The package is nur-packages botmux.
   nurPkgs.botmux
-  # Official farion1231/cc-switch. Autostart stays in Home Manager.
-  nurPkgs.cc-switch
   telegram-desktop
   clash-verge-rev
   discord

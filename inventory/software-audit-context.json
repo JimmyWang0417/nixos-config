@@ -162,17 +162,22 @@
       }
     },
     "nur-packages": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795369572,
+        "narHash": "sha256-blj7armumWparukl3ElcPxT14m3tmwApZTrOttQ3/cg=",
+        "owner": "JimmyWang0417",
+        "repo": "nur-packages",
+        "rev": "e96de1d5deba82a5b1baca42b8a1acad962a295f",
+        "type": "github"
+      },
       "original": {
         "owner": "JimmyWang0417",
         "repo": "nur-packages",
-        "type": "github"
-      },
-      "locked": {
-        "lastModified": 1795175752,
-        "narHash": "sha256-95CNwtNDVHzG/dFQNDvkeTOMx4PKjRGcmRjXovTvGic=",
-        "owner": "JimmyWang0417",
-        "repo": "nur-packages",
-        "rev": "2b9fec9334eabe5a098ce575363c85b34627f73d",
         "type": "github"
       }
     },
@@ -332,8 +337,8 @@
       "different-version-needs-review": 1
     },
     "afterStatuses": {
-      "behind": 92,
-      "equal": 328,
+      "behind": 90,
+      "equal": 330,
       "ahead-or-different-series": 5,
       "tag-only": 24,
       "unverified": 27,
@@ -348,7 +353,7 @@
       "different-version-needs-review": 1,
       "runtime-managed": 2
     },
-    "versionChanges": 252,
+    "versionChanges": 254,
     "runtimePluginDeclarations": 68,
     "runtimeToolchainDeclarations": 2,
     "historicalRuntimePluginDeclarations": 69,
@@ -688,5 +693,11 @@
     "runtimeState": "User-writable upstream application configuration and selected VM storage; no credentials declared in the repository.",
     "guestTools": "First-run guest image/Node/mise/code-server/browser/Claude downloads are mutable guest state, not host Nix packages and not asserted installed.",
     "verificationReference": "Root confirmed isolated Cage runtime check passed; latest validation/CI fields are maintained independently."
+  },
+  "nurInterfaceUpdatedAt": "2026-11-23",
+  "nurInterface": {
+    "release": "https://github.com/JimmyWang0417/nur-packages/commit/e96de1d5deba82a5b1baca42b8a1acad962a295f",
+    "ccSwitch": "Select the no-quick-panel variant 4.0.39 for both installation and autostart. The same package was installed into a dedicated current-host Nix profile and exercised in an isolated tray test. Current proxy sessions were left running.",
+    "qoderCn": "The NUR input revision advances the selected client to 0.5.17, matching the official Linux package metadata."
   }
 }

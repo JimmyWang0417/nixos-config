@@ -1104,25 +1104,26 @@
       "version": "4.0.36",
       "attributes": [],
       "upstream_status": "behind",
-      "official_stable_version": "v4.0.38",
+      "official_stable_version": "v4.0.39",
       "sources": [
         {
           "url": "https://github.com/farion1231/cc-switch/releases/latest",
-          "resolved_url": "https://github.com/farion1231/cc-switch/releases/tag/v4.0.38",
+          "resolved_url": "https://github.com/farion1231/cc-switch/releases/tag/v4.0.39",
           "method": "upstream GitHub designated latest non-prerelease release",
           "error": null
         }
       ],
-      "notes": "",
-      "current_package_name": "cc-switch-4.0.36",
-      "current_name": "cc-switch",
+      "notes": "The Linux variant uses the same upstream project and removes only its quick-panel tray menu entry.",
+      "current_package_name": "cc-switch-no-quick-panel-4.0.39",
+      "current_name": "cc-switch-no-quick-panel",
       "identity_match": "verified",
-      "unstable_version": "4.0.36",
-      "unstable_upstream_status": "behind",
+      "unstable_version": "4.0.39",
+      "unstable_upstream_status": "equal",
       "current_scopes": [
         "system"
       ],
-      "current_attributes": []
+      "current_attributes": [],
+      "current_position": "/nix/store/nrlzk5h4vj1rbir0avn93gi8iwy4j4rg-source/pkgs/cc-switch-no-quick-panel/default.nix:93"
     },
     {
       "description": "Telegram Desktop messaging app",
@@ -7885,17 +7886,18 @@
         }
       ],
       "notes": "",
-      "current_package_name": "qoder-cn-0.5.16",
+      "current_package_name": "qoder-cn-0.5.17",
       "current_name": "qoder-cn",
       "identity_match": "verified",
-      "unstable_version": "0.5.16",
-      "unstable_upstream_status": "behind",
+      "unstable_version": "0.5.17",
+      "unstable_upstream_status": "equal",
       "current_scopes": [
         "explicit-extra"
       ],
       "current_attributes": [
         "qoder-cn"
-      ]
+      ],
+      "current_position": "/nix/store/nrlzk5h4vj1rbir0avn93gi8iwy4j4rg-source/pkgs/qoder-cn/default.nix:140"
     },
     {
       "attribute": "reportlab",

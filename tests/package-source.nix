@@ -43,6 +43,7 @@ let
     builtins.isString position && pkgs.lib.hasPrefix "${stableSource}/" position
   ) declaredPackages;
   present = package: builtins.any (samePackage package) installed;
+  nurPkgs = flake.inputs.nur-packages.packages.${pkgs.stdenv.hostPlatform.system};
   shellInputs = flake.devShells.x86_64-linux.default.nativeBuildInputs;
   checks = {
     distinctSources = stableSource != unstableSource;
@@ -61,6 +62,11 @@ let
     systemGitUsesUnstable = present unstable.git;
     browserUsesUnstable = samePackage config.programs.firefox.package unstable.firefox;
     desktopUsesUnstable = present unstable.kdePackages.kate;
+    ccSwitchUsesNurVariant =
+      config.orion.programs.ccSwitch.enable
+      && samePackage config.orion.programs.ccSwitch.package nurPkgs.cc-switch-no-quick-panel
+      && present nurPkgs.cc-switch-no-quick-panel
+      && !present nurPkgs.cc-switch;
     kernelUsesUnstable = samePackage config.boot.kernelPackages.kernel unstable.linuxPackages_6_12.kernel;
     nvidiaUsesUnstable = samePackage config.hardware.nvidia.package unstable.linuxPackages_6_12.nvidiaPackages.stable;
     systemStateVersionPreserved = config.system.stateVersion == "26.05";
