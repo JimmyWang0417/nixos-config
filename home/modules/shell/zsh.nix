@@ -13,6 +13,10 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
+      extraConfig = ''
+        # Nix manages the Oh My Zsh package.
+        zstyle ':omz:update' mode disabled
+      '';
     };
     shellAliases = {
       ls = "lsd";
